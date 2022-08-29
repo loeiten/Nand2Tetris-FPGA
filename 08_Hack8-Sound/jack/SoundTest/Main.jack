@@ -1,0 +1,21 @@
+/** 
+* function main() plays the tetris THEME
+*/
+
+class Main{
+
+	function void main(){
+		var Sound music;
+		var int p;
+		do Sound.init();
+		let music = Sound.new("EEEGHHGEAAAceedcHHHcddeeccAAAAAAfffgaagfeeefeedcHHHcddeeccAAAAAA",1000);
+		
+		while (true){
+			let p = music.go();
+			if (p>(-1)){ do Output.printInt(p);}
+		}
+		do music.dispose();
+		return;
+	}
+	
+}

@@ -1,0 +1,253 @@
+function Sys.init 5
+push constant 8198
+pop local 4
+push constant 8196
+pop local 3
+push constant 8192
+pop local 1
+push constant 8195
+pop local 0
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+pop local 2
+label while2
+push local 2
+push constant 48
+eq
+not
+not
+if-goto whileend2
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+pop local 2
+goto while2
+label whileend2
+push constant 0
+push local 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+push local 1
+add
+push constant 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+push local 3
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label while6
+push constant 1
+neg
+not
+if-goto whileend6
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+pop local 2
+label while8
+push local 2
+push constant 0
+lt
+not
+if-goto whileend8
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+pop local 2
+goto while8
+label whileend8
+push constant 0
+push local 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 2
+push constant 20
+lt
+if-goto if11
+goto ifelse11
+label if11
+push local 1
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 2
+eq
+if-goto if12
+goto ifelse12
+label if12
+push constant 0
+push local 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+push local 4
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label ifelse12
+push local 1
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 1
+eq
+if-goto if15
+goto ifelse15
+label if15
+push constant 0
+push local 3
+add
+push local 3
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+push local 1
+add
+push constant 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label ifelse15
+goto ifend11
+label ifelse11
+push local 2
+push constant 48
+eq
+if-goto if20
+goto ifelse20
+label if20
+push local 3
+push constant 1
+add
+pop pointer 1
+push that 0
+pop local 2
+push constant 1
+push local 3
+add
+push local 2
+push local 3
+push constant 1
+add
+pop pointer 1
+push that 0
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+push local 1
+add
+push constant 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto ifend20
+label ifelse20
+push local 2
+push constant 49
+eq
+if-goto if23
+goto ifelse23
+label if23
+push local 3
+push constant 1
+add
+pop pointer 1
+push that 0
+pop local 2
+push local 2
+push local 3
+push constant 1
+add
+pop pointer 1
+push that 0
+add
+pop local 2
+push constant 1
+push local 3
+add
+push local 2
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+push local 1
+add
+push constant 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto ifend23
+label ifelse23
+label while27
+push constant 1
+neg
+not
+if-goto whileend27
+push constant 0
+push local 1
+add
+push constant 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto while27
+label whileend27
+label ifend23
+label ifend20
+label ifend11
+goto while6
+label whileend6
+push constant 0
+return

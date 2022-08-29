@@ -1,0 +1,14 @@
+function Random.nextInt 0
+push static 0
+push constant 31421
+call Math.multiply 2
+push constant 6927
+add
+pop static 0
+push static 0
+return
+function Random.seed 0
+push argument 0
+pop static 0
+push constant 0
+return

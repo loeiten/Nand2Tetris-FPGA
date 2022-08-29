@@ -1,0 +1,8 @@
+function UART.init 0
+function UART.readChar 0
+function UART.writeChar 0
+function UART.printString 0
+function UART.printInt 0
+function UART.println 0
+function UART.readInt 0
+function UART.readLine 0

@@ -1,0 +1,280 @@
+/**
+ * A library of functions for writing text on the screen.
+ * The Hack physical screen consists of 240 rows of 320 pixels each.
+ * The library uses a fixed font, in which each character is displayed 
+ * within a frame which is 12 pixels high (including 2 pixel for inter-line 
+ * spacing) and 8 pixels wide (including 2 pixels for inter-character spacing).
+ * The resulting grid accommodates 20 rows (indexed 0..19, top to bottom)
+ * of 40 characters each (indexed 0..39, left to right). The top left 
+ * character position on the screen is indexed (0,0). A cursor, implemented
+ * as a small filled square, indicates where the next character will be displayed.
+ */
+
+class Output {
+
+    // Character map for displaying characters
+    static int col,row;
+	static String string;
+	static Array charMaps;
+	
+    /** Initializes the screen, and locates the cursor at the screen's top-left. */
+    function void init() {
+		let row=0;
+		let col=0;
+		let string = String.new(6);
+		do Output.initMap();
+		return;		
+    }
+
+    // Initializes the character map array
+    function void initMap() {
+        let charMaps = Array.new(127);
+
+        do Output.create(0,3,(~448),(~7169),16355,(~448),(~8191));  //
+        do Output.create(10,3,(~448),(~7169),16355,(~448),(~8191));  //
+
+        do Output.create(32,0,0,0,0,0,0);  // 
+        do Output.create(33,0,1,(~15489),14304,7168,0);  //!
+        do Output.create(34,0,0,24590,0,3584,24576);  //"
+        do Output.create(35,0,(~28608),(~16239),2307,(~1014),0);  //#
+        do Output.create(36,0,(~26596),(~14553),29281,(~5107),(~32767));  //$
+        do Output.create(37,3,6169,(~32575),1539,12337,(~32767));  //%
+        do Output.create(38,1,(~16321),(~15809),7651,(~5085),0);  //&
+        do Output.create(39,0,0,(~32753),96,0,0);  //'
+        do Output.create(40,0,15,(~32259),12386,512,0);  //(
+        do Output.create(41,0,32,8966,8128,(~2047),0);  //)
+        do Output.create(42,1,20511,224,3585,(~4074),0);  //*
+        do Output.create(43,0,16388,496,7936,16388,0);  //+
+        do Output.create(45,0,16388,64,1024,16388,0);  //-
+        do Output.create(46,0,0,768,12288,0,0);  //.
+        do Output.create(47,3,24,192,1536,12289,(~32767));  ///
+        do Output.create(48,0,(~2016),(~15609),12385,(~1008),(~32767));  //0
+        do Output.create(49,2,2080,(~15361),16354,32,0);  //1
+        do Output.create(50,3,(~31683),25186,8995,7728,(~16383));  //2
+        do Output.create(51,1,1072,25122,8739,(~482),(~16383));  //3
+        do Output.create(52,0,24581,584,16323,(~475),0);  //4
+        do Output.create(53,1,7729,(~7661),8483,(~3553),8192);  //5
+        do Output.create(54,1,(~1984),(~15833),8739,(~7651),0);  //6
+        do Output.create(55,0,1536,9154,15904,15873,(~8191));  //7
+        do Output.create(56,1,(~9152),(~7645),8739,(~482),(~16383));  //8
+        do Output.create(57,0,7203,(~7645),12833,(~496),(~16383));  //9
+        do Output.create(58,0,0,408,6528,0,0);  //:
+        do Output.create(59,0,32,920,6528,0,0);  //;
+        do Output.create(60,0,16398,432,12674,2048,0);  //<
+        do Output.create(61,0,(~28662),144,2304,(~28662),0);  //=
+        do Output.create(62,2,2097,(~32335),3584,16384,0);  //>
+        do Output.create(64,1,(~960),(~7677),12066,(~504),(~16383));  //@
+        do Output.create(63,0,3072,(~7325),14112,7680,(~16383));  //?
+        do Output.create(65,3,(~1984),(~16345),611,(~960),(~32767));  //A
+        do Output.create(66,3,(~448),(~7645),8739,(~482),(~16383));  //B
+        do Output.create(67,0,(~2016),(~15609),8227,1560,(~16383));  //C
+        do Output.create(68,3,(~448),(~7677),12385,(~1008),(~32767));  //D
+        do Output.create(69,3,(~448),(~7645),10019,1592,(~8191));  //E
+        do Output.create(70,3,(~448),(~8157),1824,1536,(~8191));  //F
+        do Output.create(71,0,(~2016),(~15609),8737,(~6593),(~16383));  //G
+        do Output.create(72,3,(~448),(~8159),515,(~448),(~8191));  //H
+        do Output.create(73,0,32,9214,16354,512,0);  //I
+        do Output.create(74,1,(~32711),514,16353,(~511),8192);  //J
+        do Output.create(75,3,(~448),(~8159),1795,(~8647),(~8191));  //K
+        do Output.create(76,3,(~448),(~7679),8195,56,0);  //L
+        do Output.create(77,3,(~448),(~16359),387,(~960),(~8191));  //M
+        do Output.create(78,3,(~448),(~8135),3587,(~448),(~8191));  //N
+        do Output.create(79,1,(~960),(~7677),8227,(~480),(~16383));  //O
+        do Output.create(80,3,(~448),(~8157),544,15873,(~16383));  //P
+        do Output.create(81,1,(~960),(~7549),14375,(~416),(~16383));  //Q
+        do Output.create(82,3,(~448),(~8157),1571,(~454),(~16383));  //R
+        do Output.create(83,1,(~29638),(~7629),8739,(~4579),(~16383));  //S
+        do Output.create(84,0,3616,25598,16354,1536,(~8191));  //T
+        do Output.create(85,1,(~448),(~7679),8195,(~480),(~8191));  //U
+        do Output.create(86,0,15887,(~7231),15360,(~508),(~8191));  //V
+        do Output.create(87,1,(~448),(~7743),7171,(~480),(~8191));  //W
+        do Output.create(88,3,1597,(~7943),3971,(~8655),24576);  //X
+        do Output.create(89,0,7715,(~7199),15874,15873,(~8191));  //Y
+        do Output.create(90,3,(~29123),25186,8995,7736,(~8191));  //Z
+        do Output.create(91,0,63,(~7169),8226,512,0);  //[
+        do Output.create(92,0,6147,96,3073,(~32719),0);  //\
+        do Output.create(93,0,32,8706,16355,(~511),0);  //]
+        do Output.create(94,0,0,(~32755),96,3072,(~32767));  //^
+        do Output.create(95,4,64,1024,16388,64,0);  //_
+        do Output.create(96,0,0,8198,192,2048,0);  //`
+        do Output.create(97,1,(~32706),592,7939,(~8159),0);  //a
+        do Output.create(98,1,(~448),(~7663),8963,(~8163),0);  //b
+        do Output.create(99,1,(~8128),528,8451,12306,0);  //c
+        do Output.create(100,1,(~16321),560,8451,(~480),(~8191));  //d
+        do Output.create(101,1,(~8128),592,9475,28694,0);  //e
+        do Output.create(102,2,8255,(~15361),8736,1536,(~16383));  //f
+        do Output.create(103,2,28783,(~31607),18567,(~1984),0);  //g
+        do Output.create(104,3,(~448),(~8159),259,(~4033),0);  //h
+        do Output.create(105,0,33,1014,16226,0,0);  //i
+        do Output.create(106,2,96,1024,16647,(~2496),24576);  //j
+        do Output.create(107,3,(~448),(~7999),7683,12321,0);  //k
+        do Output.create(108,0,32,9214,16354,0,0);  //l
+        do Output.create(109,3,(~4033),48,16128,12350,0);  //m
+        do Output.create(110,3,(~4033),16,259,(~4033),0);  //n
+        do Output.create(111,1,(~8128),528,8451,(~4065),0);  //o
+        do Output.create(112,7,(~8064),272,4353,(~4081),0);  //p
+        do Output.create(113,0,(~8160),272,4359,(~3969),0);  //q
+        do Output.create(114,3,(~4033),560,256,28678,0);  //r
+        do Output.create(115,1,8247,592,10499,(~20461),0);  //s
+        do Output.create(116,0,4127,(~15361),8451,16,0);  //t
+        do Output.create(117,1,(~4032),512,7939,(~4063),0);  //u
+        do Output.create(118,0,(~4064),768,12289,(~4080),0);  //v
+        do Output.create(119,1,(~4032),384,6147,(~4064),0);  //w
+        do Output.create(120,2,4147,480,7683,12321,0);  //x
+        do Output.create(121,4,28751,1152,26627,(~4064),0);  //y
+        do Output.create(122,3,12347,720,9987,12337,0);  //z
+        do Output.create(123,0,8194,508,15842,544,8192);  //{
+        do Output.create(124,0,0,1022,16352,0,0);  //|
+        do Output.create(125,2,544,9182,8128,8194,0);  //}
+        do Output.create(126,0,3072,8198,192,2048,24576);  //~
+
+		return;
+    }
+
+    // Creates the character map array of the given character index, using the given values.
+    function void create(int index, int a, int b, int c, int d, int e,
+                         int f) {
+	var Array map;
+
+	let map = Array.new(6);
+        let charMaps[index] = map;
+
+        let map[0] = a;
+        let map[1] = b;
+        let map[2] = c;
+        let map[3] = d;
+        let map[4] = e;
+        let map[5] = f;
+
+        return;
+    }
+
+	function void drawChar(int s){
+		var Array map;	
+		var int i,j;
+		var int pixel;
+		do Screen.setAddrWindow((19-row)*12, col*8, 12, 8);
+		let map = charMaps[s];
+		let i=0;
+		while (i<6){
+			let j=0;
+			let pixel = map[i];
+			while (j<16){
+				if (pixel<0) {
+					do Screen.paintPixel();
+				}else{
+					do Screen.clearPixel();
+				}
+				let pixel = pixel + pixel;
+				let j=j+1;
+			}
+		let i=i+1;
+		}
+		return;
+	}
+
+    /** Moves the cursor to the j-th column of the i-th row,
+     *  and erases the character displayed there. */
+    function void moveCursor(int i, int j) {
+		if ((i<0) | (i>19) | (j<0) | (j>39)){
+			do Sys.error(20);
+		}
+		let col=j;
+		let row=i;
+		do Output.drawChar(0);
+		return;
+    }
+
+    /** Displays the given character at the cursor location,
+     *  and advances the cursor one column forward. */
+    function void printChar(char c) {
+		if (c=13){
+			do Output.println();
+		}else{
+			if (c = 127){
+				do Output.backSpace();
+			}else{
+				do Output.drawChar(c);
+				let col = col + 1;
+				if (col = 40){
+					do Output.println();
+				}
+			}
+		}
+		return;
+	}
+
+    /** displays the given string starting at the cursor location,
+     *  and advances the cursor appropriately. */
+    function void printString(String s) {
+    	var int i,l;
+		let l=s.length();
+		while(i<l){
+			do Output.printChar(s.charAt(i));
+			let i=i+1;
+		}
+		return;
+	}
+
+    /** Displays the given integer starting at the cursor location,
+     *  and advances the cursor appropriately. */
+    function void printInt(int i) {
+		do string.setInt(i);
+		do Output.printString(string);
+		return;
+	}
+	
+	function void printHex16(int i){
+		do Output.printHex8(i/16);
+		do Output.printHex8(i & 15);
+		return;
+	}	
+
+	function void printHex8(int i){
+		if (i<10) {
+			do Output.printChar(48+i);
+		} else {
+			do Output.printChar(77+i);
+		}
+		return;
+	}
+	
+	function void printArray(Array pData, int pLen){
+		var int i;
+		let i=0;
+		while (i<pLen){
+			do Output.printHex16(pData[i]);
+			do Output.printChar(32);
+			let i = i+1;
+		}
+		return;
+	}
+
+    /** Advances the cursor to the beginning of the next line. */
+    function void println() {
+		let row = row + 2;
+		let col = 0;
+		if (row > 19){
+			let row = row - 20;
+		}
+		while (col < 40){
+			do Output.drawChar(32);
+			let col = col+1;
+		}
+		let col = 0;
+		let row = row - 1;
+		if (row < 0){
+			let row = 19;
+		}
+		return;
+	}
+
+    /** Moves the cursor one column back. */
+    function void backSpace() {
+		if (col > 0){
+			let col = col-1;
+			do Output.drawChar(32);
+		}
+		return;
+    }
+}

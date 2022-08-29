@@ -1,0 +1,16 @@
+/**
+ * Testclass for GPIO
+ */
+
+class Sys {
+
+    function void init() {
+		var int sum;
+		do GPIO.init();
+		while (true){
+			do GPIO.setLed(GPIO.getBut());
+		}		
+		return;
+	}
+
+}

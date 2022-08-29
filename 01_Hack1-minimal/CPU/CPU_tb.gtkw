@@ -1,0 +1,44 @@
+[*]
+[*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
+[*] Sat Jul  4 09:15:54 2020
+[*]
+[dumpfile] "/home/micha/git/gitlab/nand2tetris/CPU/CPU_tb.vcd"
+[dumpfile_mtime] "Sat Jul  4 09:13:39 2020"
+[dumpfile_size] 321260
+[savefile] "/home/micha/git/gitlab/nand2tetris/CPU/CPU_tb.gtkw"
+[timestart] 0
+[size] 1230 488
+[pos] -1 -1
+*-3.516865 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] CPU_tb.
+[sst_width] 238
+[signals_width] 166
+[sst_expanded] 1
+[sst_vpaned_height] 97
+@28
+CPU_tb.clk
+CPU_tb.reset
+@200
+-PC
+@22
+CPU_tb.pc[15:0]
+CPU_tb.instruction[15:0]
+@200
+-RegA
+@22
+CPU_tb.CPU.REGA.out[15:0]
+@200
+-RegD
+@22
+CPU_tb.CPU.REGD.out[15:0]
+@200
+-Memory
+@22
+CPU_tb.addressM[15:0]
+CPU_tb.inM[15:0]
+@28
+CPU_tb.writeM
+@22
+CPU_tb.outM[15:0]
+[pattern_trace] 1
+[pattern_trace] 0

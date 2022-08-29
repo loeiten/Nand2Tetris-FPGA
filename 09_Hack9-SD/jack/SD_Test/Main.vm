@@ -1,0 +1,568 @@
+function Main.main 3
+push constant 8206
+pop static 0
+push constant 0
+pop local 1
+label while2
+push local 1
+push constant 10
+lt
+not
+if-goto whileend2
+push constant 32513
+neg
+call Main.send 1
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto while2
+label whileend2
+push constant 6
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 48
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 64
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 149
+call Main.com 6
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 6
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 56
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 72
+push constant 0
+push constant 0
+push constant 1
+push constant 170
+push constant 135
+call Main.com 6
+call Output.printInt 1
+pop temp 0
+push constant 255
+call Main.send 1
+pop temp 0
+push constant 1
+call String.new 1
+push constant 44
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+call Output.printInt 1
+pop temp 0
+push constant 255
+call Main.send 1
+pop temp 0
+push constant 1
+call String.new 1
+push constant 44
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+call Output.printInt 1
+pop temp 0
+push constant 255
+call Main.send 1
+pop temp 0
+push constant 1
+call String.new 1
+push constant 44
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+call Output.printInt 1
+pop temp 0
+push constant 255
+call Main.send 1
+pop temp 0
+push constant 1
+call String.new 1
+push constant 44
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 0
+pop local 1
+label while44
+push local 1
+push constant 10
+lt
+not
+if-goto whileend44
+push constant 7
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 53
+call String.appendChar 2
+push constant 53
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 119
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Main.com 6
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 255
+call Main.send 1
+pop temp 0
+push constant 255
+call Main.send 1
+pop temp 0
+push constant 7
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 52
+call String.appendChar 2
+push constant 49
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 105
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Main.com 6
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto while44
+label whileend44
+push constant 7
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 49
+call String.appendChar 2
+push constant 54
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 80
+push constant 0
+push constant 0
+push constant 2
+push constant 0
+push constant 0
+call Main.com 6
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 7
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 49
+call String.appendChar 2
+push constant 56
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 82
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Main.com 6
+push constant 0
+eq
+if-goto if71
+goto ifelse71
+label if71
+push constant 10
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 75
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+goto ifend71
+label ifelse71
+push constant 5
+call String.new 1
+push constant 78
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+label ifend71
+call Output.println 0
+pop temp 0
+call Main.read 0
+pop temp 0
+push constant 0
+return
+function Main.read 3
+label while2
+push constant 1
+neg
+not
+if-goto whileend2
+label while4
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 254
+eq
+not
+not
+if-goto whileend4
+push constant 255
+call Main.send 1
+pop temp 0
+goto while4
+label whileend4
+push constant 0
+pop local 0
+label while10
+push local 0
+push constant 512
+lt
+not
+if-goto whileend10
+push constant 255
+call Main.send 1
+pop temp 0
+push local 1
+if-goto if13
+goto ifelse13
+label if13
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+call Output.printChar 1
+pop temp 0
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 10
+eq
+if-goto if16
+goto ifelse16
+label if16
+call Output.println 0
+pop temp 0
+push local 2
+push constant 1
+add
+pop local 2
+push local 2
+push constant 2
+eq
+if-goto if19
+goto ifelse19
+label if19
+push constant 11
+call String.new 1
+push constant 69
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 70
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 70
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+return
+label ifelse19
+goto ifend16
+label ifelse16
+push constant 0
+pop local 2
+label ifend16
+goto ifend13
+label ifelse13
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 48
+eq
+if-goto if30
+goto ifelse30
+label if30
+push local 2
+push constant 1
+add
+pop local 2
+push local 2
+push constant 6
+eq
+if-goto if31
+goto ifelse31
+label if31
+push constant 1
+neg
+pop local 1
+label ifelse31
+goto ifend30
+label ifelse30
+push constant 0
+pop local 2
+label ifend30
+label ifend13
+push local 0
+push constant 1
+add
+pop local 0
+goto while10
+label whileend10
+push constant 255
+call Main.send 1
+pop temp 0
+push constant 255
+call Main.send 1
+pop temp 0
+push constant 255
+call Main.send 1
+pop temp 0
+goto while2
+label whileend2
+push constant 0
+return
+function Main.send 1
+label while2
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 0
+lt
+not
+if-goto whileend2
+push constant 0
+pop local 0
+goto while2
+label whileend2
+push constant 0
+push static 0
+add
+push argument 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label while6
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 0
+lt
+not
+if-goto whileend6
+push constant 0
+pop local 0
+goto while6
+label whileend6
+push constant 0
+return
+function Main.com 1
+push argument 0
+call Main.send 1
+pop temp 0
+push argument 1
+call Main.send 1
+pop temp 0
+push argument 2
+call Main.send 1
+pop temp 0
+push argument 3
+call Main.send 1
+pop temp 0
+push argument 4
+call Main.send 1
+pop temp 0
+push argument 5
+call Main.send 1
+pop temp 0
+push constant 0
+pop local 0
+label while14
+push local 0
+push constant 8
+lt
+not
+if-goto whileend14
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 255
+lt
+if-goto if15
+goto ifelse15
+label if15
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+return
+label ifelse15
+push constant 255
+call Main.send 1
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto while14
+label whileend14
+push constant 255
+return

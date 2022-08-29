@@ -1,0 +1,4 @@
+function GPIO.init 0
+function GPIO.getBut 0
+function GPIO.getLed 0
+function GPIO.setLed 0

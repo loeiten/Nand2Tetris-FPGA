@@ -1,0 +1,29 @@
+/**
+* GPIO provides access to GPIO pins of Hack
+*/
+class GPIO {
+ 	static Array gpio;
+
+	/** memory map of GPIO (leds @addr, but @addr+1) */
+	function void init(int addr){
+		let gpio = addr;
+		return;
+	}
+ 
+	/** returns status of buttons */ 
+	function int getBut() {
+		return gpio[1];
+   	}
+	
+	/** returns status of leds */
+	function int getLed() {
+		return gpio[0];
+   	}
+
+	/** sets leds */
+	function void setLed(int state){
+		let gpio[0] = state;
+		return;
+	}
+
+}

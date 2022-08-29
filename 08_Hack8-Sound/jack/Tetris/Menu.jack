@@ -1,0 +1,51 @@
+class Menu{
+	static Array button;
+	static int last;
+	static boolean pressed;
+	
+	function void init(){
+		let button = Array.new(4);
+		let button[0] = Button.new(0);
+		let button[1] = Button.new(1);
+		let button[2] = Button.new(2);
+		let button[3] = Button.new(3);
+		let last = 0;
+		let pressed = false;
+		return;
+	}
+
+	function void setButtonText(int i, String t){
+		var Button b;
+		if ((i>(-1))&(i<4)) {let b=button[i]; do b.setText(t); do b.draw(false);}
+		return;
+	}
+	
+	function int getButton(){
+		var boolean t;
+		var Button b;
+		let t = Touch.update();
+		if (~t){
+			return -1;
+		}
+		if (pressed){
+			if (~Touch.getPressed()) {
+				let pressed = false;
+				let b=button[last];
+				do b.draw(false);
+			}
+		} else {
+			if (Touch.getPressed() & (Touch.getY()<512)){
+	    		let pressed = true;
+				let b = button[last];
+				do b.draw(false);
+				let last = Touch.getX()/1024;
+				let b = button[last];
+				do b.draw(true);
+				return last;
+			}
+			return -1;
+		}
+		return -1;
+	}
+	
+}

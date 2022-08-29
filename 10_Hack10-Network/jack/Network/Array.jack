@@ -1,0 +1,58 @@
+/**
+ * Represents an array.
+ * In the Jack language, arrays are instances of the Array class.
+ * Once declared, the array entries can be accessed using the usual
+ * syntax arr[i]. Each array entry can hold a primitive data type as 
+ * well as any object type. Different array entries can have different 
+ * data types.
+ */
+class Array {
+
+    /** Constructs a new Array of the given size. */
+    function Array new(int size) {
+		if (~(size>0)){
+			do Sys.error(2);
+		}	
+    	return Memory.alloc(size);
+	}
+
+    /** Disposes this array. */
+    method void dispose() {
+		do Memory.deAlloc(this);
+		return;
+    }
+
+	/** returns true if conntent of array starts with given String */
+	method boolean startsWith(String s) {
+		var int i;
+		var int len;
+		var Array pointer;
+		let pointer = this;
+		let len = s.length();
+		let i = 0;
+		while (i<len){	
+			if (~ (pointer[i] = s.charAt(i))){
+				return false;
+			}
+			let i = i+1;
+		}
+		do s.dispose();
+		return true;
+	}
+
+	/** returns true if first l bytes of given array b equal to this array */
+	method boolean isEqual(Array b, int l){
+		var Array a;
+		var int i;
+		let a = this;
+		let i = 0;
+		while (i < l){
+			if (~(a[i] = b[i])){
+				return false;
+			}
+			let i = i+1;
+		}
+		return true;
+
+	}
+}

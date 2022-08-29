@@ -1,0 +1,180 @@
+/**
+*  stores Sockets in a linked list
+*/
+class Socket{
+
+	field Array client_ip;
+	field int client_port;
+	field Int32 client_sequence;
+	field Int32 my_sequence;
+	field List window;
+	field boolean isClosed;
+	field boolean SYN;
+	field boolean FIN;
+	field int FLAGS;
+	field int service;
+
+	/**
+	* constructs a Socket with:
+	* s = service (own port)
+	* ip = client ip
+	* port = client port
+	*/
+	constructor Socket new(int s, Array ip, int port) {
+  		let service=s;
+		let client_ip = Array.new(4);
+		let client_ip[0] = ip[0];
+		let client_ip[1] = ip[1];
+		let client_ip[2] = ip[2];
+		let client_ip[3] = ip[3];
+  		let client_port = port;
+  		let window = null;
+  		let isClosed = false;
+  		let SYN = false;
+		let FIN = false;
+		let FLAGS = 0;
+		let client_sequence = null;
+		let my_sequence = null;
+		return this;
+	}
+	
+	/** dispose the socket */
+	method void dispose(){
+		do client_ip.dispose();
+		do clearWindow();
+		if (~(client_sequence = null)){
+			do client_sequence.dispose();
+		}
+		if (~(my_sequence = null)) {
+			do my_sequence.dispose();
+		}
+		do Memory.deAlloc(this);
+		return;
+	}
+
+	method int getService(){
+		return service;
+	}
+	
+	/** dispose the transmit window */
+	method void clearWindow() {
+  		var String s;
+		while (~(window = null)) {
+			let window = window.pop();
+    		}
+  		return;
+	}
+
+	/** returns true, when ip and port correspond to this socket */
+	method boolean isClient(Array ip, int port) {
+		if (~ ip.isEqual(client_ip,4)){
+			return false;
+		}
+		if (client_port = port) {
+			return true;
+		}
+		return false;
+	}
+	
+	/** syn handshake from client */
+	method void syn(Int32 sequence) {
+		let client_sequence = Int32.new(sequence.getHigh(), sequence.getLow());
+  		let my_sequence = Int32.new(sequence.getLow(),sequence.getHigh());
+		do client_sequence.add(1);
+  		do clearWindow();
+		let SYN = true;
+		let FIN = false;
+  		let FLAGS = 18;
+		return;
+	}
+
+	/** returns true, when socket is closed */
+	method boolean isClosed(){
+		return isClosed;
+	}	
+
+	/** push command from client */
+	method void psh(Int32 sequence, Array message, int len) {
+  		if (sequence.diff(client_sequence) = 0) {
+    		do client_sequence.add(len);
+    		do Application.processMessage(this, message, len);
+			let FLAGS = (FLAGS | 16);
+  		}
+		return;
+	}
+	
+	/** fin command from client */
+	method void fin(Int32 sequence) {
+		if (sequence.diff(client_sequence) = 0) {
+			do client_sequence.add(1);
+  			if (FIN){
+				let FLAGS = 16;
+			} else {
+				let FIN = true;
+				let FLAGS = FLAGS | 17;
+			}
+		}
+		return;
+	}
+
+	/** ack command from client */
+	method void ack(Int32 acknowledgment_number) {
+		var String s;
+		if (~(window = null)) {
+			let s = window.getData();
+    		if (my_sequence.diff(acknowledgment_number) > s.length()-1) {
+      			do my_sequence.add(s.length());
+				let window = window.pop();
+			}
+		}
+		if ((SYN) & my_sequence.diff(acknowledgment_number) > 0){
+			do my_sequence.add(1);
+			do Application.processNewConnection(this);
+			let SYN = false;
+    		}
+		if ((FIN) & my_sequence.diff(acknowledgment_number) > 0){
+			do my_sequence.add(1);
+			do clearWindow();
+			let isClosed = true;
+			do Application.processClosedConnection(this);
+		}
+		return;
+  	}
+	
+	/** close the socket */
+	method void close() {
+    	let FIN = true;
+		let FLAGS = FLAGS | 17;	
+		return;
+	}
+
+	/** print socket info to UART */
+	method void print(){
+		do Address.printIP(client_ip);
+		do Output.printChar(58);
+		do Output.printInt(client_port);
+		return;
+	}
+
+	/** write message to socket window */
+	method void write(String message) {
+		if (window = null) {
+      		let window = List.new(message,null);
+    	} else {
+			do window.append(message);
+		}
+		let FLAGS = FLAGS | 24;
+		return;
+	}
+
+	/** send window to client */
+	method void send() {
+		if (FLAGS > 0){
+        	do TCP.write(service, client_ip, client_port, my_sequence, client_sequence, FLAGS, window);
+		}
+		let FLAGS = 0;
+		return;
+	}
+
+}
+

@@ -1,0 +1,157 @@
+function Menu.init 0
+push constant 4
+call Array.new 1
+pop static 0
+push constant 0
+push static 0
+add
+push constant 0
+call Button.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push static 0
+add
+push constant 1
+call Button.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push static 0
+add
+push constant 2
+call Button.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push static 0
+add
+push constant 3
+call Button.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+pop static 1
+push constant 0
+pop static 2
+push constant 0
+return
+function Menu.setButtonText 1
+push argument 0
+push constant 1
+neg
+gt
+push argument 0
+push constant 4
+lt
+and
+if-goto if1
+goto ifelse1
+label if1
+push static 0
+push argument 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+push argument 1
+call Button.setText 2
+pop temp 0
+push local 0
+push constant 0
+call Button.draw 2
+pop temp 0
+label ifelse1
+push constant 0
+return
+function Menu.getButton 2
+call Touch.update 0
+pop local 0
+push local 0
+not
+if-goto if1
+goto ifelse1
+label if1
+push constant 1
+neg
+return
+label ifelse1
+push static 2
+if-goto if4
+goto ifelse4
+label if4
+call Touch.getPressed 0
+not
+if-goto if5
+goto ifelse5
+label if5
+push constant 0
+pop static 2
+push static 0
+push static 1
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+push constant 0
+call Button.draw 2
+pop temp 0
+label ifelse5
+goto ifend4
+label ifelse4
+call Touch.getPressed 0
+call Touch.getY 0
+push constant 8
+lt
+and
+if-goto if12
+goto ifelse12
+label if12
+push constant 1
+neg
+pop static 2
+push static 0
+push static 1
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+push constant 0
+call Button.draw 2
+pop temp 0
+call Touch.getX 0
+push constant 8
+call Math.divide 2
+pop static 1
+push static 0
+push static 1
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+push constant 1
+neg
+call Button.draw 2
+pop temp 0
+push static 1
+return
+label ifelse12
+push constant 1
+neg
+return
+label ifend4
+push constant 1
+neg
+return

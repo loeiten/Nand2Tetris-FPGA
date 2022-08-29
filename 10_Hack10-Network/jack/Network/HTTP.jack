@@ -1,0 +1,29 @@
+/**
+*  HTTP implements a minimalistic http-server
+*  When a socket sends a message starting with "GET /",
+*  HTTP will respond with a text-String representign Hacks homepage
+*  after every message, the socket will be closed.
+*/
+
+class HTTP{
+	
+	/** new message received by socket */
+	function void processMessage(Socket socket, Array message, int len) {
+
+		//debug to Output
+		do Screen.setColor(Screen.MAGENTA());
+		do Output.printString("HTTP Request");
+		do Output.println();	
+		do Screen.setColor(Screen.WHITE());
+
+		if (message.startsWith("GET /")){
+			do socket.write("<H1>HACK</H1>");
+			do socket.close();
+		} else {
+			do socket.write("Fuck!");
+			do socket.close();
+		}
+ 		return;	
+  	}
+
+}

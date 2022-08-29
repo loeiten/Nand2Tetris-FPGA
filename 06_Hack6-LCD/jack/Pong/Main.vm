@@ -1,0 +1,31 @@
+function Main.main 1
+label while2
+push constant 1
+neg
+not
+if-goto whileend2
+label while4
+call GPIO.getBut 0
+push constant 3
+eq
+not
+if-goto whileend4
+push constant 50
+call Sys.wait 1
+pop temp 0
+goto while4
+label whileend4
+call PongGame.newInstance 0
+pop temp 0
+call PongGame.getInstance 0
+pop local 0
+push local 0
+call PongGame.run 1
+pop temp 0
+push local 0
+call PongGame.dispose 1
+pop temp 0
+goto while2
+label whileend2
+push constant 0
+return

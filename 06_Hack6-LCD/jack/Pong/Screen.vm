@@ -1,0 +1,69 @@
+function Screen.init 0
+function Screen.clearScreen 0
+function Screen.drawPixel 0
+function Screen.setColor 0
+function Screen.setBackColor 0
+function Screen.paintPixel 0
+function Screen.clearPixel 0
+function Screen.drawLine 0
+function Screen.drawRectangle 0
+function Screen.drawCircle 0
+function Screen.setAddrWindow 0
+function Screen.writeData 0
+function Screen.writeData16 0
+function Screen.writeCommand 0
+function Screen.BLACK 0
+push constant 0
+return
+function Screen.NAVY 0
+push constant 16
+return
+function Screen.BLUE 0
+push constant 31
+return
+function Screen.GREEN 0
+push constant 2016
+return
+function Screen.CYAN 0
+push constant 2047
+return
+function Screen.MAROON 0
+push constant 32767
+not
+return
+function Screen.PURPLE 0
+push constant 32752
+neg
+return
+function Screen.OLIVE 0
+push constant 31744
+neg
+return
+function Screen.DARKGREY 0
+push constant 31728
+neg
+return
+function Screen.LIGHTGREY 0
+push constant 14824
+neg
+return
+function Screen.RED 0
+push constant 2048
+neg
+return
+function Screen.MAGENTA 0
+push constant 2017
+neg
+return
+function Screen.YELLOW 0
+push constant 32
+neg
+return
+function Screen.ORANGE 0
+push constant 736
+neg
+return
+function Screen.WHITE 0
+push constant 1
+neg
+return

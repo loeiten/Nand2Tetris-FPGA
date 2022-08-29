@@ -1,0 +1,57 @@
+/**
+*  Application layer of Network stack.
+*  Implements two services:
+*  On port 6000: Echo Server
+*  On port 80: HTTP Server
+*/
+class Application{
+
+	/** a new socket conects to Server */
+	function void processNewConnection(Socket socket) {
+		do Screen.setColor(Screen.BLUE());
+  		do Output.printString("TCP ");
+  		do socket.print();
+  		do Output.printString(" Start");
+  		do Output.println();
+		do Screen.setColor(Screen.WHITE());
+		return;
+	}
+
+	/** client at socket sends a message of length len */
+	function void processMessage(Socket socket, Array message, int len) {
+		var int i;
+		do Screen.setColor(Screen.BLUE());
+  		do Output.printString("TCP ");
+  		do socket.print();
+  		do Output.printString(" Message: ");
+		let i = 0;
+		while (i<4){
+			if ((i<len) & (message[i]>31)){
+				do Output.printChar(message[i]);
+			}
+			let i=i+1;
+		}
+		do Output.println();
+		do Screen.setColor(Screen.WHITE());
+		if (socket.getService() = 6000){
+			do Echo.processMessage(socket,message,len);
+		}	
+		if (socket.getService() = 80){
+			do HTTP.processMessage(socket,message,len);
+		}	
+ 		return;	
+  	}
+
+	/** client at socket has closed the connection */
+	function void processClosedConnection(Socket socket) {
+		do Screen.setColor(Screen.BLUE());
+  		do Output.printString("TCP ");
+  		do socket.print();
+  		do Output.printString(" Stop");
+  		do Output.println();
+		do Screen.setColor(Screen.WHITE
+());
+		return;
+	}
+	
+}

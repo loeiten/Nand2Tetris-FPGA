@@ -1,0 +1,80 @@
+/**
+ * The main class of the Tetris game.
+ */
+class Main {
+	static Tile tile;
+
+    /** Initializes a Tetris game and starts running it. */
+    function void main() {
+       	var PongGame Pgame;
+		var int time;
+		var boolean isStart;
+        var TetrisGame game;
+		var int menu;
+		let isStart=true;
+		do Menu.init();
+		do Tile.init();
+		do Main.displayStart();
+		do Main.setMenu();
+		while(true){
+			if ((Sound.getTime()-time)<0){
+				do tile.erase();
+				do tile.dispose();
+				let tile = Tile.new();
+				if (isStart) {
+					do tile.move(6,10);
+				}
+				do tile.draw();
+				let time = Sound.getTime();
+			}
+			let menu = Menu.getButton();
+			if (menu = 3) {
+				let isStart=false;
+				do tile.erase();
+				do tile.dispose();
+        		let game = TetrisGame.new();
+        		do game.run();
+        		do game.dispose();
+				do Main.setMenu();
+				let tile = Tile.new();
+				do tile.draw();
+			}
+			if (menu = 0){
+				do tile.dispose();
+				do About.display(isStart);
+				let isStart=true;
+				let tile = Tile.new();
+				do tile.move(6,10);
+				do tile.draw();
+				do Main.setMenu();
+			}
+			if (menu = 2){
+        		do PongGame.newInstance();
+        		let Pgame = PongGame.getInstance();
+        		do Pgame.run();
+        		do Pgame.dispose();
+				do Main.displayStart();
+				do Main.setMenu();
+			}
+		}
+        return;
+    }
+
+	function void setMenu(){
+		do Menu.setButtonText(3,"TETRIS");
+		do Menu.setButtonText(2,null);
+		do Menu.setButtonText(1,null);
+		do Menu.setButtonText(0,null);
+		return;
+	}
+
+	function void displayStart(){
+		do Screen.clearScreen();
+		do Output.moveCursor(5,7);
+	    do Output.printString("nand2tetris-13");
+		let tile = Tile.new();
+		do tile.move(6,10);
+		do tile.draw();
+		return;
+	}
+}

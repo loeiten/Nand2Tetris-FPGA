@@ -1,0 +1,15 @@
+function Sys.init 1
+call GPIO.init 0
+pop temp 0
+label while4
+push constant 1
+neg
+not
+if-goto whileend4
+call GPIO.getBut 0
+call GPIO.setLed 1
+pop temp 0
+goto while4
+label whileend4
+push constant 0
+return

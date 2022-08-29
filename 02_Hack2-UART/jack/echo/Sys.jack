@@ -1,0 +1,9 @@
+class Sys{
+
+	function void init(){
+		do UART.init();
+		while (true){
+			do UART.writeChar(UART.readChar());
+		}
+	}
+}

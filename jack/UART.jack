@@ -1,0 +1,27 @@
+class UART {
+	
+	function void init(){
+	}
+  
+	function int readChar() {
+   	}
+
+   	function void writeChar(int c){
+   	}
+	
+	function void printString(String s){
+	}
+	
+    function void printInt(int i) {
+	}
+	
+	function void println(){
+	}
+    
+	function int readInt(String message) {
+	}
+    
+	function String readLine(String message) {
+	}   
+	
+}

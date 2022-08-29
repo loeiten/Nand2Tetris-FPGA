@@ -1,0 +1,1435 @@
+function Output.init 0
+push constant 0
+pop static 1
+push constant 0
+pop static 0
+push constant 6
+call String.new 1
+pop static 2
+call Output.initMap 0
+pop temp 0
+push constant 0
+return
+function Output.initMap 0
+push constant 127
+call Array.new 1
+pop static 3
+push constant 0
+push constant 3
+push constant 448
+not
+push constant 7169
+not
+push constant 16355
+push constant 448
+not
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 10
+push constant 3
+push constant 448
+not
+push constant 7169
+not
+push constant 16355
+push constant 448
+not
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 32
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 33
+push constant 0
+push constant 1
+push constant 15489
+not
+push constant 14304
+push constant 7168
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 34
+push constant 0
+push constant 0
+push constant 24590
+push constant 0
+push constant 3584
+push constant 24576
+call Output.create 7
+pop temp 0
+push constant 35
+push constant 0
+push constant 28608
+not
+push constant 16239
+not
+push constant 2307
+push constant 1014
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 36
+push constant 0
+push constant 26596
+not
+push constant 14553
+not
+push constant 29281
+push constant 5107
+not
+push constant 32767
+not
+call Output.create 7
+pop temp 0
+push constant 37
+push constant 3
+push constant 6169
+push constant 32575
+not
+push constant 1539
+push constant 12337
+push constant 32767
+not
+call Output.create 7
+pop temp 0
+push constant 38
+push constant 1
+push constant 16321
+not
+push constant 15809
+not
+push constant 7651
+push constant 5085
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 39
+push constant 0
+push constant 0
+push constant 32753
+not
+push constant 96
+push constant 0
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 40
+push constant 0
+push constant 15
+push constant 32259
+not
+push constant 12386
+push constant 512
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 41
+push constant 0
+push constant 32
+push constant 8966
+push constant 8128
+push constant 2047
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 42
+push constant 1
+push constant 20511
+push constant 224
+push constant 3585
+push constant 4074
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 43
+push constant 0
+push constant 16388
+push constant 496
+push constant 7936
+push constant 16388
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 45
+push constant 0
+push constant 16388
+push constant 64
+push constant 1024
+push constant 16388
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 46
+push constant 0
+push constant 0
+push constant 768
+push constant 12288
+push constant 0
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 47
+push constant 3
+push constant 24
+push constant 192
+push constant 1536
+push constant 12289
+push constant 32767
+not
+call Output.create 7
+pop temp 0
+push constant 48
+push constant 0
+push constant 2016
+not
+push constant 15609
+not
+push constant 12385
+push constant 1008
+not
+push constant 32767
+not
+call Output.create 7
+pop temp 0
+push constant 49
+push constant 2
+push constant 2080
+push constant 15361
+not
+push constant 16354
+push constant 32
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 50
+push constant 3
+push constant 31683
+not
+push constant 25186
+push constant 8995
+push constant 7728
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 51
+push constant 1
+push constant 1072
+push constant 25122
+push constant 8739
+push constant 482
+not
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 52
+push constant 0
+push constant 24581
+push constant 584
+push constant 16323
+push constant 475
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 53
+push constant 1
+push constant 7729
+push constant 7661
+not
+push constant 8483
+push constant 3553
+not
+push constant 8192
+call Output.create 7
+pop temp 0
+push constant 54
+push constant 1
+push constant 1984
+not
+push constant 15833
+not
+push constant 8739
+push constant 7651
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 55
+push constant 0
+push constant 1536
+push constant 9154
+push constant 15904
+push constant 15873
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 56
+push constant 1
+push constant 9152
+not
+push constant 7645
+not
+push constant 8739
+push constant 482
+not
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 57
+push constant 0
+push constant 7203
+push constant 7645
+not
+push constant 12833
+push constant 496
+not
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 58
+push constant 0
+push constant 0
+push constant 408
+push constant 6528
+push constant 0
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 59
+push constant 0
+push constant 32
+push constant 920
+push constant 6528
+push constant 0
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 60
+push constant 0
+push constant 16398
+push constant 432
+push constant 12674
+push constant 2048
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 61
+push constant 0
+push constant 28662
+not
+push constant 144
+push constant 2304
+push constant 28662
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 62
+push constant 2
+push constant 2097
+push constant 32335
+not
+push constant 3584
+push constant 16384
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 64
+push constant 1
+push constant 960
+not
+push constant 7677
+not
+push constant 12066
+push constant 504
+not
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 63
+push constant 0
+push constant 3072
+push constant 7325
+not
+push constant 14112
+push constant 7680
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 65
+push constant 3
+push constant 1984
+not
+push constant 16345
+not
+push constant 611
+push constant 960
+not
+push constant 32767
+not
+call Output.create 7
+pop temp 0
+push constant 66
+push constant 3
+push constant 448
+not
+push constant 7645
+not
+push constant 8739
+push constant 482
+not
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 67
+push constant 0
+push constant 2016
+not
+push constant 15609
+not
+push constant 8227
+push constant 1560
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 68
+push constant 3
+push constant 448
+not
+push constant 7677
+not
+push constant 12385
+push constant 1008
+not
+push constant 32767
+not
+call Output.create 7
+pop temp 0
+push constant 69
+push constant 3
+push constant 448
+not
+push constant 7645
+not
+push constant 10019
+push constant 1592
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 70
+push constant 3
+push constant 448
+not
+push constant 8157
+not
+push constant 1824
+push constant 1536
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 71
+push constant 0
+push constant 2016
+not
+push constant 15609
+not
+push constant 8737
+push constant 6593
+not
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 72
+push constant 3
+push constant 448
+not
+push constant 8159
+not
+push constant 515
+push constant 448
+not
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 73
+push constant 0
+push constant 32
+push constant 9214
+push constant 16354
+push constant 512
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 74
+push constant 1
+push constant 32711
+not
+push constant 514
+push constant 16353
+push constant 511
+not
+push constant 8192
+call Output.create 7
+pop temp 0
+push constant 75
+push constant 3
+push constant 448
+not
+push constant 8159
+not
+push constant 1795
+push constant 8647
+not
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 76
+push constant 3
+push constant 448
+not
+push constant 7679
+not
+push constant 8195
+push constant 56
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 77
+push constant 3
+push constant 448
+not
+push constant 16359
+not
+push constant 387
+push constant 960
+not
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 78
+push constant 3
+push constant 448
+not
+push constant 8135
+not
+push constant 3587
+push constant 448
+not
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 79
+push constant 1
+push constant 960
+not
+push constant 7677
+not
+push constant 8227
+push constant 480
+not
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 80
+push constant 3
+push constant 448
+not
+push constant 8157
+not
+push constant 544
+push constant 15873
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 81
+push constant 1
+push constant 960
+not
+push constant 7549
+not
+push constant 14375
+push constant 416
+not
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 82
+push constant 3
+push constant 448
+not
+push constant 8157
+not
+push constant 1571
+push constant 454
+not
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 83
+push constant 1
+push constant 29638
+not
+push constant 7629
+not
+push constant 8739
+push constant 4579
+not
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 84
+push constant 0
+push constant 3616
+push constant 25598
+push constant 16354
+push constant 1536
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 85
+push constant 1
+push constant 448
+not
+push constant 7679
+not
+push constant 8195
+push constant 480
+not
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 86
+push constant 0
+push constant 15887
+push constant 7231
+not
+push constant 15360
+push constant 508
+not
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 87
+push constant 1
+push constant 448
+not
+push constant 7743
+not
+push constant 7171
+push constant 480
+not
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 88
+push constant 3
+push constant 1597
+push constant 7943
+not
+push constant 3971
+push constant 8655
+not
+push constant 24576
+call Output.create 7
+pop temp 0
+push constant 89
+push constant 0
+push constant 7715
+push constant 7199
+not
+push constant 15874
+push constant 15873
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 90
+push constant 3
+push constant 29123
+not
+push constant 25186
+push constant 8995
+push constant 7736
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 91
+push constant 0
+push constant 63
+push constant 7169
+not
+push constant 8226
+push constant 512
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 92
+push constant 0
+push constant 6147
+push constant 96
+push constant 3073
+push constant 32719
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 93
+push constant 0
+push constant 32
+push constant 8706
+push constant 16355
+push constant 511
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 94
+push constant 0
+push constant 0
+push constant 32755
+not
+push constant 96
+push constant 3072
+push constant 32767
+not
+call Output.create 7
+pop temp 0
+push constant 95
+push constant 4
+push constant 64
+push constant 1024
+push constant 16388
+push constant 64
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 96
+push constant 0
+push constant 0
+push constant 8198
+push constant 192
+push constant 2048
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 97
+push constant 1
+push constant 32706
+not
+push constant 592
+push constant 7939
+push constant 8159
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 98
+push constant 1
+push constant 448
+not
+push constant 7663
+not
+push constant 8963
+push constant 8163
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 99
+push constant 1
+push constant 8128
+not
+push constant 528
+push constant 8451
+push constant 12306
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 100
+push constant 1
+push constant 16321
+not
+push constant 560
+push constant 8451
+push constant 480
+not
+push constant 8191
+not
+call Output.create 7
+pop temp 0
+push constant 101
+push constant 1
+push constant 8128
+not
+push constant 592
+push constant 9475
+push constant 28694
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 102
+push constant 2
+push constant 8255
+push constant 15361
+not
+push constant 8736
+push constant 1536
+push constant 16383
+not
+call Output.create 7
+pop temp 0
+push constant 103
+push constant 2
+push constant 28783
+push constant 31607
+not
+push constant 18567
+push constant 1984
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 104
+push constant 3
+push constant 448
+not
+push constant 8159
+not
+push constant 259
+push constant 4033
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 105
+push constant 0
+push constant 33
+push constant 1014
+push constant 16226
+push constant 0
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 106
+push constant 2
+push constant 96
+push constant 1024
+push constant 16647
+push constant 2496
+not
+push constant 24576
+call Output.create 7
+pop temp 0
+push constant 107
+push constant 3
+push constant 448
+not
+push constant 7999
+not
+push constant 7683
+push constant 12321
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 108
+push constant 0
+push constant 32
+push constant 9214
+push constant 16354
+push constant 0
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 109
+push constant 3
+push constant 4033
+not
+push constant 48
+push constant 16128
+push constant 12350
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 110
+push constant 3
+push constant 4033
+not
+push constant 16
+push constant 259
+push constant 4033
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 111
+push constant 1
+push constant 8128
+not
+push constant 528
+push constant 8451
+push constant 4065
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 112
+push constant 7
+push constant 8064
+not
+push constant 272
+push constant 4353
+push constant 4081
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 113
+push constant 0
+push constant 8160
+not
+push constant 272
+push constant 4359
+push constant 3969
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 114
+push constant 3
+push constant 4033
+not
+push constant 560
+push constant 256
+push constant 28678
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 115
+push constant 1
+push constant 8247
+push constant 592
+push constant 10499
+push constant 20461
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 116
+push constant 0
+push constant 4127
+push constant 15361
+not
+push constant 8451
+push constant 16
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 117
+push constant 1
+push constant 4032
+not
+push constant 512
+push constant 7939
+push constant 4063
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 118
+push constant 0
+push constant 4064
+not
+push constant 768
+push constant 12289
+push constant 4080
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 119
+push constant 1
+push constant 4032
+not
+push constant 384
+push constant 6147
+push constant 4064
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 120
+push constant 2
+push constant 4147
+push constant 480
+push constant 7683
+push constant 12321
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 121
+push constant 4
+push constant 28751
+push constant 1152
+push constant 26627
+push constant 4064
+not
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 122
+push constant 3
+push constant 12347
+push constant 720
+push constant 9987
+push constant 12337
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 123
+push constant 0
+push constant 8194
+push constant 508
+push constant 15842
+push constant 544
+push constant 8192
+call Output.create 7
+pop temp 0
+push constant 124
+push constant 0
+push constant 0
+push constant 1022
+push constant 16352
+push constant 0
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 125
+push constant 2
+push constant 544
+push constant 9182
+push constant 8128
+push constant 8194
+push constant 0
+call Output.create 7
+pop temp 0
+push constant 126
+push constant 0
+push constant 3072
+push constant 8198
+push constant 192
+push constant 2048
+push constant 24576
+call Output.create 7
+pop temp 0
+push constant 0
+return
+function Output.create 1
+push constant 6
+call Array.new 1
+pop local 0
+push argument 0
+push static 3
+add
+push local 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+push local 0
+add
+push argument 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 0
+add
+push argument 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push local 0
+add
+push argument 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 0
+add
+push argument 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 0
+add
+push argument 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 0
+add
+push argument 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Output.drawChar 4
+push constant 19
+push static 1
+sub
+push constant 12
+call Math.multiply 2
+push static 0
+push constant 8
+call Math.multiply 2
+push constant 12
+push constant 8
+call Screen.setAddrWindow 4
+pop temp 0
+push static 3
+push argument 0
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 0
+pop local 1
+label while4
+push local 1
+push constant 6
+lt
+not
+if-goto whileend4
+push constant 0
+pop local 2
+push local 0
+push local 1
+add
+pop pointer 1
+push that 0
+pop local 3
+label while6
+push local 2
+push constant 16
+lt
+not
+if-goto whileend6
+push local 3
+push constant 0
+lt
+if-goto if7
+goto ifelse7
+label if7
+call Screen.paintPixel 0
+pop temp 0
+goto ifend7
+label ifelse7
+call Screen.clearPixel 0
+pop temp 0
+label ifend7
+push local 3
+push local 3
+add
+pop local 3
+push local 2
+push constant 1
+add
+pop local 2
+goto while6
+label whileend6
+push local 1
+push constant 1
+add
+pop local 1
+goto while4
+label whileend4
+push constant 0
+return
+function Output.moveCursor 0
+push argument 0
+push constant 0
+lt
+push argument 0
+push constant 19
+gt
+or
+push argument 1
+push constant 0
+lt
+or
+push argument 1
+push constant 39
+gt
+or
+if-goto if1
+goto ifelse1
+label if1
+push constant 20
+call Sys.error 1
+pop temp 0
+label ifelse1
+push argument 1
+pop static 0
+push argument 0
+pop static 1
+push constant 0
+call Output.drawChar 1
+pop temp 0
+push constant 0
+return
+function Output.printChar 0
+push argument 0
+push constant 13
+eq
+if-goto if1
+goto ifelse1
+label if1
+call Output.println 0
+pop temp 0
+goto ifend1
+label ifelse1
+push argument 0
+push constant 127
+eq
+if-goto if6
+goto ifelse6
+label if6
+call Output.backSpace 0
+pop temp 0
+goto ifend6
+label ifelse6
+push argument 0
+call Output.drawChar 1
+pop temp 0
+push static 0
+push constant 1
+add
+pop static 0
+push static 0
+push constant 40
+eq
+if-goto if13
+goto ifelse13
+label if13
+call Output.println 0
+pop temp 0
+label ifelse13
+label ifend6
+label ifend1
+push constant 0
+return
+function Output.printString 2
+push argument 0
+call String.length 1
+pop local 1
+label while2
+push local 0
+push local 1
+lt
+not
+if-goto whileend2
+push argument 0
+push local 0
+call String.charAt 2
+call Output.printChar 1
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto while2
+label whileend2
+push constant 0
+return
+function Output.printInt 0
+push static 2
+push argument 0
+call String.setInt 2
+pop temp 0
+push static 2
+call Output.printString 1
+pop temp 0
+push constant 0
+return
+function Output.printHex16 0
+push argument 0
+push constant 16
+call Math.divide 2
+call Output.printHex8 1
+pop temp 0
+push argument 0
+push constant 15
+and
+call Output.printHex8 1
+pop temp 0
+push constant 0
+return
+function Output.printHex8 0
+push argument 0
+push constant 10
+lt
+if-goto if1
+goto ifelse1
+label if1
+push constant 48
+push argument 0
+add
+call Output.printChar 1
+pop temp 0
+goto ifend1
+label ifelse1
+push constant 77
+push argument 0
+add
+call Output.printChar 1
+pop temp 0
+label ifend1
+push constant 0
+return
+function Output.printArray 1
+push constant 0
+pop local 0
+label while2
+push local 0
+push argument 1
+lt
+not
+if-goto whileend2
+push argument 0
+push local 0
+add
+pop pointer 1
+push that 0
+call Output.printHex16 1
+pop temp 0
+push constant 32
+call Output.printChar 1
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto while2
+label whileend2
+push constant 0
+return
+function Output.println 0
+push static 1
+push constant 2
+add
+pop static 1
+push constant 0
+pop static 0
+push static 1
+push constant 19
+gt
+if-goto if1
+goto ifelse1
+label if1
+push static 1
+push constant 20
+sub
+pop static 1
+label ifelse1
+label while5
+push static 0
+push constant 40
+lt
+not
+if-goto whileend5
+push constant 32
+call Output.drawChar 1
+pop temp 0
+push static 0
+push constant 1
+add
+pop static 0
+goto while5
+label whileend5
+push constant 0
+pop static 0
+push static 1
+push constant 1
+sub
+pop static 1
+push static 1
+push constant 0
+lt
+if-goto if10
+goto ifelse10
+label if10
+push constant 19
+pop static 1
+label ifelse10
+push constant 0
+return
+function Output.backSpace 0
+push static 0
+push constant 0
+gt
+if-goto if1
+goto ifelse1
+label if1
+push static 0
+push constant 1
+sub
+pop static 0
+push constant 32
+call Output.drawChar 1
+pop temp 0
+label ifelse1
+push constant 0
+return

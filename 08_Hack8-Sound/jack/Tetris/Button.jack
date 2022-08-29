@@ -1,0 +1,37 @@
+class Button{
+
+	field int position;
+	field String text;
+
+	constructor Button new(int p){
+		let position = p;
+		let text = null;
+		do draw(false);
+		return this;
+	}
+	method void setText(String t){
+		let text=t;
+		return;
+	}
+
+	method void draw(boolean press){
+		var int x;
+		var int y;
+		let x = position & 3;
+		let y = position/4;
+		if (press) {
+			do Screen.setColor(Screen.DARKGREY());
+			do Screen.drawRectangle(1+(x*60),288-(y*33),58,31);
+			do Screen.setBackColor(Screen.DARKGREY());
+		} else {
+			do Screen.setColor(Screen.LIGHTGREY());
+			do Screen.drawRectangle(1+(x*60),288-(y*33),58,31);
+			do Screen.setBackColor(Screen.LIGHTGREY());
+		}
+			do Screen.setColor(0);
+			do Output.moveCursor(27-(3*y),1+((x*15)/2));
+			if (~(text=null)){do Output.printString(text);}
+			do Screen.setBackColor(-1);
+		return;
+	}	
+}

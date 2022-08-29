@@ -1,0 +1,46 @@
+[*]
+[*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
+[*] Wed Jul  1 08:37:18 2020
+[*]
+[dumpfile] "/home/micha/git/gitlab/nand2tetris/13_hack-final/UartRX/Test_tb.vcd"
+[dumpfile_mtime] "Wed Jul  1 08:36:48 2020"
+[dumpfile_size] 1499261
+[savefile] "/home/micha/git/gitlab/nand2tetris/13_hack-final/UartRX/Test_tb.gtkw"
+[timestart] 3220
+[size] 1280 703
+[pos] -1 -1
+*-11.000000 5512 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Test_tb.
+[sst_width] 238
+[signals_width] 126
+[sst_expanded] 1
+[sst_vpaned_height] 150
+@28
+Test_tb.clk
+@200
+-INPUT
+@28
+Test_tb.reset
+Test_tb.rx
+@200
+-DETAIL
+@28
+Test_tb.UARTRX.start
+Test_tb.UARTRX.stop
+Test_tb.UARTRX.run
+@22
+Test_tb.UARTRX.baud[15:0]
+@28
+Test_tb.UARTRX.is144
+@23
+Test_tb.UARTRX.bits[15:0]
+@28
+Test_tb.UARTRX.shift
+@22
+Test_tb.UARTRX.shifter[9:0]
+@200
+-OUTPUT
+@22
+Test_tb.out[15:0]
+[pattern_trace] 1
+[pattern_trace] 0

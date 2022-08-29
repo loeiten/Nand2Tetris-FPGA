@@ -1,0 +1,13 @@
+class Random {
+	static int r;
+
+    function int nextInt() {
+		let r = (r * 31421) + 6927;
+		return r;
+    }
+
+	function void seed(int i){
+		let r = i;
+		return;
+	}
+}

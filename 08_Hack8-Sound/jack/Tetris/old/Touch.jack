@@ -1,0 +1,85 @@
+class Touch{
+	static Array touch;
+	static Array button;
+	static int last;
+	static boolean pressed;
+	
+	function void init(){
+		let touch = 8205;
+		do Touch.send(85);
+		do Touch.send(1);
+		do Touch.send(18);
+		let button = Array.new(4);
+		let button[0] = Button.new(0);
+		let button[1] = Button.new(1);
+		let button[2] = Button.new(2);
+		let button[3] = Button.new(3);
+		let last = 0;
+		let pressed = false;
+		return;
+	}
+
+	function void setButtonText(int i, String t){
+		var Button b;
+		if ((i>(-1))&(i<4)) {let b=button[i]; do b.setText(t); do b.draw(false);}
+		return;
+	}
+	
+	function int getButton(){
+		var int p;
+		var Button b;
+		let p = Touch.getPoint();
+		if (pressed){
+			if (p>15) {let pressed = false; let b=button[last]; do b.draw(false);}
+		} else {
+			if ((p>(-1)) & (p<4)){
+	    		let pressed = true;
+				let b=button[last];
+				do b.draw(false);
+				let last=p;
+				let b=button[p];
+				do b.draw(true);
+				return p;
+			}
+			return -1;
+		}
+		return -1;
+	}
+	
+	function int getPoint(){
+		var int x,y;
+		let x=Touch.send(0);
+		if (x=77){ return -1;}
+		if (x=129){
+			let x=Touch.send(0);
+			let x=Touch.send(0)/8;
+			let y=Touch.send(0);
+			let y=Touch.send(0)/8;
+			let y= (y * 4) +x;
+			if (y>15) { return -1;}
+			return y;
+		}
+		if (x=128){
+			let x=Touch.send(0);
+			let x=Touch.send(0)/8;
+			let y=Touch.send(0);
+			let y=Touch.send(0)/8;
+			let y= (y * 4) +x;
+			if (y>15) { return -1;}
+			return y+16;
+		}
+		return -1;
+	}
+
+	function int send(int c){
+		while (touch[0]<0){
+			do Sys.wait(1);
+		}
+		let touch[0] = c;
+		while (touch[0]<0){
+			do Sys.wait(1);
+		}
+		return touch[0];
+	}
+
+}

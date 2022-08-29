@@ -1,0 +1,40 @@
+class About{
+
+	function void display(boolean isstart){
+		var int ticks;
+		if (isstart){
+			let ticks=50;
+		}else{
+			let ticks=0;
+		}
+		do Screen.clearScreen();
+		do About.show("nand2tetris-13",6,3,ticks);
+		if (isstart){do Sys.wait(1000);}
+		do About.show(" ... Would'nt it be nice",0,5,ticks);
+		do About.show(" to make Hack or Jack also",0,6,ticks);
+		do About.show(" run on some 'real platform,'",0,7,ticks);
+		do About.show(" made from some 'real stuff'?",0,8,ticks);
+		if (isstart){do Sys.wait(1000);}
+		do About.show("  let real_stuff = FPGA;",0,16,ticks);
+		if (isstart){do Sys.wait(1000);}
+		do About.show("  do FPGA.runJack(Tetris);",0,18,ticks);
+		if (isstart){do Sys.wait(1000);}
+		do About.show("gitlab.com/x653/nand2tetris-13",0,22,ticks);
+		if (isstart){do Sys.wait(1000);}
+		return;
+	}
+
+	function void show(String text,int x, int y,int t){
+		var int p;
+		do Output.moveCursor(y,x);
+		let p=0;	
+		while (p<text.length()){
+			do Output.printChar(text.charAt(p));
+			do Sys.wait(t);
+			let p=p+1;
+		}
+		do text.dispose();
+		return;
+	}	
+}
+

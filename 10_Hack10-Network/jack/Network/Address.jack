@@ -1,0 +1,100 @@
+/**
+* An object of type Address stores the IP (4 bytes) and MAC (6 bytes) of a host
+*/
+
+class Address {
+	
+	field Array ip;
+	field Array mac;
+
+	/** create a new Address using 4 bytes @pip as IP and 6 bytes @pmac as MAC */
+	constructor Address new(Array pip, Array pmac){
+  		let ip = Array.new(4);
+		let ip[0] = pip[0];
+  		let ip[1] = pip[1];
+  		let ip[2] = pip[2];
+  		let ip[3] = pip[3];
+		let mac = Array.new(6);
+		let mac[0] = pmac[0];
+		let mac[1] = pmac[1];
+		let mac[2] = pmac[2];
+		let mac[3] = pmac[3];
+		let mac[4] = pmac[4];
+		let mac[5] = pmac[5];
+		return this;
+	}
+
+	/** dispose the Address */
+	method void dispose(){
+		do ip.dispose();
+		do mac.dispose();
+		do Memory.deAlloc(this);
+		return;
+	}
+
+	/** returns true if given 4 bytes @pip equals to the this IP */
+	method boolean isIP(Array pip){
+		var int i;
+		let i=0;
+		while (i<4){
+			if (~(ip[i]=pip[i])){
+				return false;
+			}
+			let i=i+1;
+		}
+		return true;
+	}
+
+	/** returns a pointer to the MAC address (6 bytes) */
+	method Array getMAC(){
+		return mac;
+	}
+
+	/** copy 6 bytes @pmac to MAC */
+	method void setMAC(Array pmac){
+		let mac[0] = pmac[0];
+		let mac[1] = pmac[1];
+		let mac[2] = pmac[2];
+		let mac[3] = pmac[3];
+		let mac[4] = pmac[4];
+		let mac[5] = pmac[5];
+		return;	
+	}
+	
+	/** print Address as "192.168.1.42 de:ad:be:ef:fe:ad" */
+	method void print(){
+		do Address.printIP(ip);
+		do Output.printChar(32);
+		do Address.printMAC(mac);
+		return;
+	}
+
+	/** print 6 bytes @pmac as "de:ad:be:af:fe:ed" */
+	function void printMAC(Array pmac){
+  		do Output.printHex8(pmac[0]);
+  		do Output.printChar(58);
+  		do Output.printHex8(pmac[1]);
+  		do Output.printChar(58);
+  		do Output.printHex8(pmac[2]);
+  		do Output.printChar(58);
+  		do Output.printHex8(pmac[3]);
+  		do Output.printChar(58);
+  		do Output.printHex8(pmac[4]);
+  		do Output.printChar(58);
+  		do Output.printHex8(pmac[5]);
+		return;
+	}
+
+	/** print 4 bytes @pip as "192.168.1.42" */
+	function void printIP(Array pip){
+		do Output.printInt(pip[0]);
+  		do Output.printChar(46);
+		do Output.printInt(pip[1]);
+  		do Output.printChar(46);
+		do Output.printInt(pip[2]);
+  		do Output.printChar(46);
+		do Output.printInt(pip[3]);
+		return;
+	}
+
+}

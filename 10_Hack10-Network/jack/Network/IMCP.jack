@@ -1,0 +1,96 @@
+/**
+*  Echo or Echo Reply Message
+*
+*  0                   1                   2                   3
+*  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+* |     Type      |     Code      |          Checksum             |
+* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+* |           Identifier          |        Sequence Number        |
+* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+* |     Data ...
+* +-+-+-+-+-
+* Type = 0x00 Code = 0x00 Echo reply
+* Type = 0x08 Code = 0x00 Echo request
+*/
+
+class IMCP{
+
+	static int mySequence;
+
+	/** read IMCP header and reply if necessary */
+	function void read(Array ip, Array header, int len) {
+		var int type;
+		var int code;
+		var int identifier;
+		var int sequence;
+		var Array data;
+		var String answer;
+		var List list;
+		if (len > 7){
+
+	  		let type = header[0];
+    		let code = header[1];
+    		let identifier = (header[4] * 256) | header[5];
+    		let sequence = (header[6] * 256) | header[7];
+			let data = header + 8;
+			let len = len - 8;
+
+			//debug to Output
+			do Screen.setColor(Screen.GREEN());
+   			do Output.printString("IMCP ");
+			do Address.printIP(ip);
+   			do Output.printString(" imcp_sey = ");
+   			do Output.printInt(sequence);
+			do Output.println();
+			do Screen.setColor(Screen.WHITE());
+
+    		if (type = 8) {
+				let answer = String.new(len);
+				do answer.appendArray(data,len);
+				let list = List.new(answer,null);
+      			do IMCP.write(ip, 0, 0, identifier, sequence, list);
+				let list = list.pop();
+    		}
+  		}
+		return;
+	}
+
+	/** write IMCP header and send to IP */
+	function void write(Array ip, int type, int code, int identifier, int sequence, List data) {
+  		var String header;
+		var List packet;
+		var int sum;
+		let header = String.new(8);
+		let packet = List.new(header,data);
+		do header.appendChar(type);
+  		do header.appendChar(code);
+  		do header.appendChar(0);
+  		do header.appendChar(0);
+  		do header.appendChar(Math.getHigh(identifier));
+  		do header.appendChar(Math.getLow(identifier));
+  		do header.appendChar(Math.getHigh(sequence));
+  		do header.appendChar(Math.getLow(sequence));
+
+  		let sum = ~(Checksum.sumList(packet)); // header plus data!
+  		do header.setCharAt(2,Math.getHigh(sum));
+  		do header.setCharAt(3,Math.getLow(sum));
+
+		do IP.write(ip, 1, packet);
+		do packet.pop();
+		return;
+	}
+
+	/** write ping (IMCP) to ip */
+	function void ping(Array ip_dst) {
+		let mySequence = mySequence+1;
+  		do Output.printString("PING ");
+		do Address.printIP(ip_dst);
+  		do Output.printString(": imcp_seq = ");
+  		do Output.printInt(mySequence);
+		do Output.println();
+  		do IMCP.write(ip_dst, 8, 0, 0, mySequence, null);
+		return;
+	}
+
+}

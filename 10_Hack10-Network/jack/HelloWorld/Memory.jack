@@ -1,0 +1,108 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Memory.jack
+
+/**
+ * This library provides two services: direct access to the computer's main
+ * memory (RAM), and allocation and recycling of memory blocks. The Hack RAM
+ * consists of 32,768 words, each holding a 16-bit binary number.
+ */ 
+class Memory {
+	static Array mem;
+	static Array heap; 
+    
+	/** Initializes the class. */
+    function void init() {
+		let mem = 0;
+		let heap = 1024;
+		let heap[0] = 2;
+		let heap[1] = heap + 2;
+		let heap[2] = (4096 - heap) - 2;
+		let heap[3] = null;
+		return;
+    }
+	
+	function void print(){
+		var Array pointer;
+		let pointer = heap;
+		while (true){
+			do Output.printChar(64);//@
+			do Output.printInt(pointer);
+			do Output.printChar(58);//:
+			do Output.printInt(pointer[0]);
+			if (pointer[1]=null){
+				return;
+			}
+			let pointer = pointer[1];
+		}
+		return;
+	}
+
+    /** Returns the RAM value at the given address. */
+    function int peek(int address) {
+		return	mem[address];
+    }
+
+    /** Sets the RAM value at the given address to the given value. */
+    function void poke(int address, int value) {
+		let mem[address]=value;
+		return;
+	}
+
+    /** Finds an available RAM block of the given size and returns
+     *  a reference to its base address. */
+    function int alloc(int size) {
+		var Array pointer;
+		var Array next;
+		let pointer = heap;
+		let next = pointer[1];
+
+		while (next[0] < (size+1)){
+			let pointer = next;
+			let next = next[1];
+			if (next = null){
+				do Sys.error(6);
+			}
+		}
+
+		if (next[0] < (size + 3)){
+			let pointer[1] = next[1];
+			return next + 1;
+		} else {
+			let next[size + 1] = next[0] - (size + 1);
+			let next[0] = size + 1;
+			let next[size+2] = next[1];
+			let pointer[1] = next + size + 1;
+			return next + 1;
+		}
+    }
+
+    /** De-allocates the given object (cast as an array) by making
+     *  it available for future allocations. */
+    function void deAlloc(Array o) {
+		var Array pointer;
+		var Array next;
+		let o = o-1;
+		let pointer = heap;
+		let next = pointer[1];
+		while (next < o){
+			let pointer = next;
+			let next = next[1];
+		}
+		if ((o + o[0]) = next){
+			let o[0] = o[0] + next[0];
+			let o[1] = next[1];
+			let pointer[1] = o;
+		}else{
+			let o[1] = next;
+		}
+		if ((pointer>heap) & ( (pointer+pointer[0]) = o) ){
+			let pointer[0] = pointer[0]+o[0];
+			let pointer[1] = o[1];
+		}else{
+			let pointer[1] = o;
+		}
+		return;
+	}    
+}

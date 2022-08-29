@@ -1,0 +1,411 @@
+function Socket.new 0
+push constant 10
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 9
+push constant 4
+call Array.new 1
+pop this 0
+push constant 0
+push this 0
+add
+push argument 1
+push constant 0
+add
+pop pointer 1
+push that 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 0
+add
+push argument 1
+push constant 1
+add
+pop pointer 1
+push that 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 0
+add
+push argument 1
+push constant 2
+add
+pop pointer 1
+push that 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 0
+add
+push argument 1
+push constant 3
+add
+pop pointer 1
+push that 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push argument 2
+pop this 1
+push constant 0
+pop this 4
+push constant 0
+pop this 5
+push constant 0
+pop this 6
+push constant 0
+pop this 7
+push constant 0
+pop this 8
+push constant 0
+pop this 2
+push constant 0
+pop this 3
+push pointer 0
+return
+function Socket.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Array.dispose 1
+pop temp 0
+push pointer 0
+call Socket.clearWindow 1
+pop temp 0
+push this 2
+push constant 0
+eq
+not
+if-goto if5
+goto ifelse5
+label if5
+push this 2
+call Int32.dispose 1
+pop temp 0
+label ifelse5
+push this 3
+push constant 0
+eq
+not
+if-goto if10
+goto ifelse10
+label if10
+push this 3
+call Int32.dispose 1
+pop temp 0
+label ifelse10
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Socket.getService 0
+push argument 0
+pop pointer 0
+push this 9
+return
+function Socket.clearWindow 1
+push argument 0
+pop pointer 0
+label while2
+push this 4
+push constant 0
+eq
+not
+not
+if-goto whileend2
+push this 4
+call List.pop 1
+pop this 4
+goto while2
+label whileend2
+push constant 0
+return
+function Socket.isClient 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 0
+push constant 4
+call Array.isEqual 3
+not
+if-goto if1
+goto ifelse1
+label if1
+push constant 0
+return
+label ifelse1
+push this 1
+push argument 2
+eq
+if-goto if4
+goto ifelse4
+label if4
+push constant 1
+neg
+return
+label ifelse4
+push constant 0
+return
+function Socket.syn 0
+push argument 0
+pop pointer 0
+push argument 1
+call Int32.getHigh 1
+push argument 1
+call Int32.getLow 1
+call Int32.new 2
+pop this 2
+push argument 1
+call Int32.getLow 1
+push argument 1
+call Int32.getHigh 1
+call Int32.new 2
+pop this 3
+push this 2
+push constant 1
+call Int32.add 2
+pop temp 0
+push pointer 0
+call Socket.clearWindow 1
+pop temp 0
+push constant 1
+neg
+pop this 6
+push constant 0
+pop this 7
+push constant 18
+pop this 8
+push constant 0
+return
+function Socket.isClosed 0
+push argument 0
+pop pointer 0
+push this 5
+return
+function Socket.psh 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 2
+call Int32.diff 2
+push constant 0
+eq
+if-goto if1
+goto ifelse1
+label if1
+push this 2
+push argument 3
+call Int32.add 2
+pop temp 0
+push pointer 0
+push argument 2
+push argument 3
+call Application.processMessage 3
+pop temp 0
+push this 8
+push constant 16
+or
+pop this 8
+label ifelse1
+push constant 0
+return
+function Socket.fin 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 2
+call Int32.diff 2
+push constant 0
+eq
+if-goto if1
+goto ifelse1
+label if1
+push this 2
+push constant 1
+call Int32.add 2
+pop temp 0
+push this 7
+if-goto if4
+goto ifelse4
+label if4
+push constant 16
+pop this 8
+goto ifend4
+label ifelse4
+push constant 1
+neg
+pop this 7
+push this 8
+push constant 17
+or
+pop this 8
+label ifend4
+label ifelse1
+push constant 0
+return
+function Socket.ack 1
+push argument 0
+pop pointer 0
+push this 4
+push constant 0
+eq
+not
+if-goto if1
+goto ifelse1
+label if1
+push this 4
+call List.getData 1
+pop local 0
+push this 3
+push argument 1
+call Int32.diff 2
+push local 0
+call String.length 1
+gt
+push constant 1
+sub
+if-goto if2
+goto ifelse2
+label if2
+push this 3
+push local 0
+call String.length 1
+call Int32.add 2
+pop temp 0
+push this 4
+call List.pop 1
+pop this 4
+label ifelse2
+label ifelse1
+push this 6
+push this 3
+push argument 1
+call Int32.diff 2
+and
+push constant 0
+gt
+if-goto if9
+goto ifelse9
+label if9
+push this 3
+push constant 1
+call Int32.add 2
+pop temp 0
+push pointer 0
+call Application.processNewConnection 1
+pop temp 0
+push constant 0
+pop this 6
+label ifelse9
+push this 7
+push this 3
+push argument 1
+call Int32.diff 2
+and
+push constant 0
+gt
+if-goto if16
+goto ifelse16
+label if16
+push this 3
+push constant 1
+call Int32.add 2
+pop temp 0
+push pointer 0
+call Socket.clearWindow 1
+pop temp 0
+push constant 1
+neg
+pop this 5
+push pointer 0
+call Application.processClosedConnection 1
+pop temp 0
+label ifelse16
+push constant 0
+return
+function Socket.close 0
+push argument 0
+pop pointer 0
+push constant 1
+neg
+pop this 7
+push this 8
+push constant 17
+or
+pop this 8
+push constant 0
+return
+function Socket.print 0
+push argument 0
+pop pointer 0
+push this 0
+call Address.printIP 1
+pop temp 0
+push constant 58
+call Output.printChar 1
+pop temp 0
+push this 1
+call Output.printInt 1
+pop temp 0
+push constant 0
+return
+function Socket.write 0
+push argument 0
+pop pointer 0
+push this 4
+push constant 0
+eq
+if-goto if1
+goto ifelse1
+label if1
+push argument 1
+push constant 0
+call List.new 2
+pop this 4
+goto ifend1
+label ifelse1
+push this 4
+push argument 1
+call List.append 2
+pop temp 0
+label ifend1
+push this 8
+push constant 24
+or
+pop this 8
+push constant 0
+return
+function Socket.send 0
+push argument 0
+pop pointer 0
+push this 8
+push constant 0
+gt
+if-goto if1
+goto ifelse1
+label if1
+push this 9
+push this 0
+push this 1
+push this 3
+push this 2
+push this 8
+push this 4
+call TCP.write 7
+pop temp 0
+label ifelse1
+push constant 0
+pop this 8
+push constant 0
+return

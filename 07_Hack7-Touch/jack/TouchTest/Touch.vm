@@ -1,0 +1,167 @@
+function Touch.init 0
+push constant 8205
+pop static 0
+push constant 85
+call Touch.send 1
+pop temp 0
+push constant 1
+call Touch.send 1
+pop temp 0
+push constant 18
+call Touch.send 1
+pop temp 0
+push constant 0
+return
+function Touch.getX 0
+push static 1
+return
+function Touch.getY 0
+push static 2
+return
+function Touch.getPressed 0
+push static 3
+return
+function Touch.update 1
+push constant 0
+call Touch.send 1
+pop local 0
+push local 0
+push constant 129
+eq
+if-goto if1
+goto ifelse1
+label if1
+push constant 0
+call Touch.send 1
+pop local 0
+push constant 0
+call Touch.send 1
+pop local 0
+push local 0
+push constant 76
+gt
+if-goto if2
+goto ifelse2
+label if2
+push constant 0
+return
+label ifelse2
+push local 0
+pop static 1
+push constant 0
+call Touch.send 1
+pop local 0
+push constant 0
+call Touch.send 1
+pop local 0
+push local 0
+push constant 76
+gt
+if-goto if5
+goto ifelse5
+label if5
+push constant 0
+return
+label ifelse5
+push local 0
+pop static 2
+push constant 0
+pop static 3
+push constant 1
+neg
+return
+label ifelse1
+push local 0
+push constant 128
+eq
+if-goto if10
+goto ifelse10
+label if10
+push constant 0
+call Touch.send 1
+pop local 0
+push constant 0
+call Touch.send 1
+pop local 0
+push local 0
+push constant 76
+gt
+if-goto if11
+goto ifelse11
+label if11
+push constant 0
+return
+label ifelse11
+push local 0
+pop static 1
+push constant 0
+call Touch.send 1
+pop local 0
+push constant 0
+call Touch.send 1
+pop local 0
+push local 0
+push constant 76
+gt
+if-goto if14
+goto ifelse14
+label if14
+push constant 0
+return
+label ifelse14
+push local 0
+pop static 2
+push constant 1
+neg
+pop static 3
+push constant 1
+neg
+return
+label ifelse10
+push constant 0
+return
+function Touch.send 0
+label while2
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 0
+lt
+not
+if-goto whileend2
+push constant 1
+call Sys.wait 1
+pop temp 0
+goto while2
+label whileend2
+push constant 0
+push static 0
+add
+push argument 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label while8
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 0
+lt
+not
+if-goto whileend8
+push constant 1
+call Sys.wait 1
+pop temp 0
+goto while8
+label whileend8
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+return

@@ -1,0 +1,65 @@
+/** bootloader written in Jack
+* Reads bytes over UART-RX and writes the hack code to SRAM
+* when end of transmission is reached hack restarts at address 0 with instruction memory mapped to SRAM
+*/
+
+class Sys{
+
+	function void init(){
+		var int RX;
+		var int LED;
+		var int D;
+		var int SRAM;
+		var int RUN;
+		let RUN = 8198;		// boot logic activates reset and switches instruction memory to SRAM
+		let SRAM = 8196;	// SRAM[0] holds address SRAM[1] read/write data
+		let LED = 8192;		// Led store the state of the finite state machine 
+		let RX = 8195;		// UART-RX module
+	
+			let D = RX[0];	
+			while (~(D=48)){	//wait for first '0'
+				let D = RX[0];
+			}
+			let RX[0] = 0;
+	
+			let LED[0] = 1;		//state = 1 (receive chars)
+			let SRAM[0] = 0;	//first address in SRAM
+
+		while (true){
+			let D = RX[0];
+			while (D<0){
+				let D = RX[0];
+			}
+			let RX[0] = 0;		//clear RX-buffer
+			if (D<20){			//char is nl or cr?
+				if (LED[0]=2){	//is it the second nl?
+					let LED[0]=0;	//state = 0
+					let RUN[0]=0;	//run!!!!!!!!!!!!!!!!!
+				}
+				if (LED[0]=1){	//is it the first nl
+					let SRAM[0] = SRAM[0] + 1;	//next address
+					let LED[0] = 2;					//remember last char was nl
+				}
+			} else {
+				if (D = 48){			//char is '0'
+					let D = SRAM[1];	
+					let SRAM[1] = D + SRAM[1];	//shift data in SRAM to left
+					let LED[0] = 1;		//state is 1 (receive bits)
+				} else {	
+					if (D=49){
+						let D = SRAM[1];
+						let D = D + SRAM[1];
+						let SRAM[1] = D + 1;	//shift data in SRAM to left and add 1
+						let LED[0] = 1;			//state is 1 (receive bits)
+					} else {
+						while (true){			//halt
+							let LED[0] = 3;		//error state
+						}
+					}
+				}
+			}
+		}			
+		return;
+	}
+}
+

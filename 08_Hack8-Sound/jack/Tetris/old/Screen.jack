@@ -1,0 +1,337 @@
+class Screen {
+	static Array screen;
+	static int color;
+	static int backcolor;
+
+	function void init(){
+		let screen = 8200;
+		let color=0;
+		let backcolor=-1;
+  		do Screen.writeCommand(239);//0xEF
+	 	do Screen.writeData(3); 
+		do Screen.writeData(128);
+		do Screen.writeData(2);
+
+  		do Screen.writeCommand(207);//0xCF
+		do Screen.writeData(0);
+		do Screen.writeData(193);
+		do Screen.writeData(48);
+
+  		do Screen.writeCommand(237);//0xED
+		do Screen.writeData(100);
+		do Screen.writeData(3);
+		do Screen.writeData(18);
+		do Screen.writeData(129);
+
+  		do Screen.writeCommand(232);//0xE8
+		do Screen.writeData(133);
+		do Screen.writeData(0);
+		do Screen.writeData(120);
+
+  		do Screen.writeCommand(203);//0xCB
+		do Screen.writeData(57);
+		do Screen.writeData(44);
+		do Screen.writeData(0);
+		do Screen.writeData(52);
+		do Screen.writeData(2);
+
+  		do Screen.writeCommand(247);//0xF7
+		do Screen.writeData(32);
+
+  		do Screen.writeCommand(234);//0xEA
+		do Screen.writeData(0);
+		do Screen.writeData(0);
+
+  		do Screen.writeCommand(192);//0xC0
+		do Screen.writeData(35);
+  		
+		do Screen.writeCommand(193);//0xC1
+		do Screen.writeData(16);
+  		
+		do Screen.writeCommand(197);//0xC5
+		do Screen.writeData(62);
+		do Screen.writeData(40);      // VCM control
+  		
+		do Screen.writeCommand(199);//0xC7
+		do Screen.writeData(134);            // VCM control2
+  		
+		do Screen.writeCommand(54);//0X36
+		do Screen.writeData(72);            // Memory Access Control
+  		
+		do Screen.writeCommand(55);//0x37
+		do Screen.writeData(0);            // Vertical scroll zero
+  		
+		do Screen.writeCommand(58);//0x3A
+		do Screen.writeData(85);
+		
+  		do Screen.writeCommand(177);//0xB1
+		do Screen.writeData(0);
+		do Screen.writeData(24);
+
+  		do Screen.writeCommand(182);
+		do Screen.writeData(8);
+		do Screen.writeData(130);
+		do Screen.writeData(39); // Display Function Control
+  		
+		do Screen.writeCommand(242);//0xF2
+		do Screen.writeData(0);                        // 3Gamma Function Disable
+  		do Screen.writeCommand(38);//0X26
+		do Screen.writeData(1);            // Gamma curve selected
+  		
+		do Screen.writeCommand(224);//0Xe=
+		do Screen.writeData(15);
+		do Screen.writeData(49);
+		do Screen.writeData(43);
+		do Screen.writeData(12);
+		do Screen.writeData(14);
+		do Screen.writeData(8);// Set Gamma
+		do Screen.writeData(78);
+		do Screen.writeData(241); 
+		do Screen.writeData(55);
+		do Screen.writeData(7);
+		do Screen.writeData(16);
+		do Screen.writeData(3);
+		do Screen.writeData(14);
+		do Screen.writeData(9);
+		do Screen.writeData(0);
+
+  		do Screen.writeCommand(225);//0xE1
+		do Screen.writeData(0);
+		do Screen.writeData(14);
+		do Screen.writeData(20); 
+		do Screen.writeData(3); 
+		do Screen.writeData(17); 
+		do Screen.writeData(7); // Set Gamma
+		do Screen.writeData(49);
+		do Screen.writeData(193); 
+		do Screen.writeData(72); 
+		do Screen.writeData(8); 
+		do Screen.writeData(15); 
+		do Screen.writeData(12); 
+		do Screen.writeData(49); 
+		do Screen.writeData(54); 
+		do Screen.writeData(0);
+
+  		do Screen.writeCommand(17);//0x11
+		do Screen.writeData(128);                // Exit Sleep
+  		do Screen.writeCommand(41);//0x29
+		do Screen.writeData(128);                // Display on
+			
+		do Screen.clearScreen();
+		return;
+	}	
+
+	function void clearScreen(){
+		var int dummy;
+		let dummy = color;
+		let color = backcolor;
+		do Screen.drawRectangle(0,0,240,320);
+		let color = dummy;
+		return;
+	}
+
+
+	function void drawPixel(int x,int y){
+		if ((x<0)|(x>239)|(y<0)|(y>319)){
+			do Sys.error(7);
+		}
+    	do Screen.writeCommand(42); // Column addr set
+    	do Screen.writeData16(x);
+    	do Screen.writeData16(x);
+    	do Screen.writeCommand(43); // Row addr set
+    	do Screen.writeData16(y);
+    	do Screen.writeData16(y);
+		do Screen.writeCommand(44); // write to RAM
+		do Screen.writeData16(color);
+		return;
+	}
+	
+	function void setColor(int c){
+		let color=c;
+		return;
+	}
+	
+	function void setBackColor(int c){
+		let backcolor=c;
+		return;
+	}
+	function void paintPixel(){
+		do Screen.writeData16(color);
+		return;
+	}
+	
+	function void clearPixel(){
+		do Screen.writeData16(backcolor);
+		return;
+	}
+	
+	function void drawLine(int x1,int y1,int x2,int y2){
+		var int dx,dy;
+		var int vx,vy;
+		let dx=x2-x1;
+		let dy=y2-y1;
+		if (dx<0){
+			let vx=-1;
+		} else {
+			let vx=1;
+		}
+		if (dy<0){
+			let vy=-1;
+		} else {
+			let vy=1;
+		}
+		if (dy=0){
+			while (~(x1=x2)){
+				do Screen.drawPixel(x1,y1);
+				let x1=x1+vx;
+			}
+			do Screen.drawPixel(x1,y2);
+			return;
+		}
+		if (dx=0){
+			while (~(y1=y2)){
+				do Screen.drawPixel(x1,y1);
+				let y1=y1+vy;
+			}
+			do Screen.drawPixel(x1,y2);
+			return;
+		}
+		while(~((x2=x1)&(y2=y1))){
+			do Screen.drawPixel(x1,y1);
+			if (Math.abs((x2-x1)*dy)>Math.abs((y2-y1)*dx)){
+				let x1=x1+vx;
+			} else {
+				let y1=y1+vy;
+			}
+		}
+		do Screen.drawPixel(x1,y1);
+
+		
+		return;
+	}
+
+	function void drawRectangle(int x, int y, int w, int h){
+		var int i;
+		var int j;
+    	do Screen.setAddrWindow(x, y, w, h);
+		let j=0;
+		while (j<h){
+			let i=0;
+			while (i<w){
+				do Screen.writeData16(color);
+				let i=i+1;
+			}
+			let j=j+1;
+		}
+		return;
+	}
+
+	function void drawCircle(int x, int y, int r){
+		var int dy,x1,x2,s;
+		let dy=0;
+		while (~(dy=r)){
+			let s=Math.sqrt((r*r)-(dy*dy));
+			do Screen.drawLine(x-s,y+dy,x+s,y+dy);
+			do Screen.drawLine(x-s,y-dy,x+s,y-dy);
+			let dy=dy+1;
+		}
+		return;
+	}
+	
+	function void setAddrWindow(int x, int y, int w, int h){
+    	do Screen.writeCommand(42); // Column addr set
+    	do Screen.writeData16(x);
+    	do Screen.writeData16(x+w-1);
+    	do Screen.writeCommand(43); // Row addr set
+    	do Screen.writeData16(y);
+    	do Screen.writeData16(y+h-1);
+		do Screen.writeCommand(44); // write to RAM
+		return;
+	}
+
+	function void writeData(int data){
+//		var boolean ready;
+//		while (ready=(false)){
+//			let ready = screen[1];
+//		}
+		let screen[1] = data;
+		return;
+	}
+	
+	function void writeData16(int data){
+//		var boolean ready;
+//		while (ready=(false)){
+//			let ready = screen[2];
+//		}
+		let screen[2] = data;
+		return;
+	}
+	
+	function void writeCommand(int command){
+//		var boolean ready;
+//		while (ready=(false)){
+//			let ready = screen[0];
+//		}
+		let screen[0]=command;
+		return;
+	}
+	
+	function int BLACK(){
+		return 0;
+	}
+	function int NAVY(){
+		return 15;
+	}
+	function int DARKGREEN(){
+		return 992;
+	}
+	function int DARKCYAN(){
+		return 1007;
+	}
+	function int MAROON(){
+		return 30720;
+	}
+	function int PURPLE(){
+		return 30735;
+	}
+	function int OLIVE(){
+		return 31712;
+	}
+	function int LIGHTGREY(){
+		return -14824;
+	}
+	function int DARKGREY(){
+		return 31727;
+	}
+	function int BLUE(){
+		return 31;
+	}
+	function int GREEN(){
+		return 2016;
+	}
+	function int CYAN(){
+		return 2047;
+	}
+	function int RED(){
+		return -2048;
+	}
+	function int MAGENTA(){
+		return -2017;
+	}
+	function int YELLOW(){
+		return -32;
+	}
+	function int WHITE(){
+		return -1;
+	}
+	function int ORANGE(){
+		return -736;
+	}
+	function int GREENYELLOW(){
+		return -20507;
+	}
+	function int PINK(){
+		return -1000;
+	}
+
+}

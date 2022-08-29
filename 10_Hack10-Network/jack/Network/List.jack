@@ -1,0 +1,80 @@
+/**
+* linked List of Objects
+*/
+class List{
+	field int data;
+	field List next;
+
+	/** construct a new List object */
+	constructor List new(int car, List cdr){
+		let data = car;
+		let next = cdr;
+		return this;
+	}
+
+	/** dispose recursively the list */
+	method void dispose(){
+		if (~(next = null)){
+			do next.dispose();
+		}
+		do Memory.deAlloc(this);
+		return;
+	}
+	
+	/** get the car */
+	method int getData(){
+		return data;
+	}
+
+	/** get the cdr */
+	method List getNext(){
+		return next;
+	}
+
+	/** dispose only the first element of the list, and return the cdr */
+	method List pop(){
+		var List l;
+		var String s;
+		let l = next;
+		let s = data;
+		do s.dispose();
+		do Memory.deAlloc(this);
+		return l;
+	}
+	
+	/** return the total number of bytes stored in a linked list of String objects */
+	function int getLength(List l){
+		var String s;
+		if (l=null){
+			return 0;
+		}
+		let s = l.getData();
+		return s.length()+ List.getLength(l.getNext());
+	}
+
+	/** scan recursevly the list, find the element d and remove it from the list */
+	function List remove(int d, List l){
+		var List m;
+		if (l = null){
+			return null;
+		}
+		if (l.getData() = d){
+			let m = List.remove(d,l.getNext());
+		} else {
+			let m = List.new(l.getData(),List.remove(d,l.getNext()));
+		}
+		do Memory.deAlloc(l);
+		return m;
+	}
+
+	/** append d at the end of the list */
+	method void append(int d){
+		if (next = null){
+			let next = List.new(d,null);
+			return;
+		}
+		do next.append(d);
+		return;
+	}
+
+}

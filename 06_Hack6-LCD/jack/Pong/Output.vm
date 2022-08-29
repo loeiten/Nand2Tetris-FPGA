@@ -1,0 +1,4 @@
+function Output.init 0
+function Output.initMap 0
+push constant 127
+call Array.new 1

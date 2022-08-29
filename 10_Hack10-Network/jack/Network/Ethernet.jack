@@ -1,0 +1,57 @@
+/**
+*  Ethernet-Header (14):
+*
+*   0  1  2  3  4  5  6  7  8  9 10 11 12 13
+*  +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--
+*  |mac_dst          |mac_src          |type |data ...
+*  +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--
+*  |xx xx xx xx xx xx|xx xx xx xx xx xx|xx xx| ...
+*  +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--
+*  type = 0x0806 ARP
+*  type = 0x0800 IP
+*/
+class Ethernet{
+	
+	/** read ethernet header and pass the data to ARP or IP according to type */
+	function void read(Array header, int len){
+		var Array mac_dst;
+		var Array mac_src;
+		var Array data;
+		var int type;
+		do GPIO.setLed(GPIO.getLed() | 8);
+		
+		if (len > 13){
+			let mac_dst = header;
+			let mac_src = header + 6;
+			let type = (header[12] * 256) + header[13];
+			let data = header + 14;			
+
+			if (type = 2054){
+				do ARP.read(data,len-14);
+			}
+			if (type = 2048){
+				do IP.read(data,len-14);
+			} 
+		}	
+		do GPIO.setLed(GPIO.getLed() & 247);
+		return;
+	}
+
+	/** write ethernet header, add it to the list and transmit all to ENC28J60 */
+	function void write(Array mac_dst, int type, List list){
+		var String header;
+		do GPIO.setLed(GPIO.getLed() | 4);
+		let header = String.new(14);
+		do header.appendArray(mac_dst,6);
+		do header.appendArray(Network.getMyMAC(),6);
+		do header.appendChar(Math.getHigh(type));
+		do header.appendChar(Math.getLow(type));
+		let list = List.new(header,list);
+
+		do ENC28J60.transmitPacket(list);
+		let list = list.pop();
+		do GPIO.setLed(GPIO.getLed() & 251);
+		return;	
+	}
+	
+}

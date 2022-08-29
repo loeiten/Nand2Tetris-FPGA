@@ -1,0 +1,269 @@
+function Sound.init 0
+push constant 8203
+pop static 0
+push constant 8
+call Array.new 1
+pop static 1
+push constant 0
+push static 1
+add
+push constant 4735
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push static 1
+add
+push constant 4471
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push static 1
+add
+push constant 7952
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push static 1
+add
+push constant 7086
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push static 1
+add
+push constant 6313
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push static 1
+add
+push constant 5969
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push static 1
+add
+push constant 5315
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push static 1
+add
+push constant 4217
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Sound.new 0
+push constant 4
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 2
+push constant 0
+pop this 1
+push pointer 0
+return
+function Sound.getTime 0
+push static 0
+push constant 1
+add
+pop pointer 1
+push that 0
+return
+function Sound.start 0
+push argument 0
+pop pointer 0
+push constant 0
+pop this 1
+call Sound.getTime 0
+pop this 3
+push constant 0
+return
+function Sound.stop 0
+push argument 0
+pop pointer 0
+push constant 1
+neg
+call Sound.play 1
+pop temp 0
+push constant 0
+return
+function Sound.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call String.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Sound.go 1
+push argument 0
+pop pointer 0
+call Sound.getTime 0
+pop local 0
+push local 0
+push this 3
+sub
+push this 2
+gt
+if-goto if1
+goto ifelse1
+label if1
+push this 3
+push this 2
+add
+pop this 3
+push constant 1
+neg
+call Sound.play 1
+pop temp 0
+push this 0
+push this 1
+call String.charAt 2
+call Sound.play 1
+pop temp 0
+push this 1
+push constant 1
+add
+pop this 1
+push this 1
+push this 0
+call String.length 1
+eq
+if-goto if6
+goto ifelse6
+label if6
+push constant 0
+pop this 1
+label ifelse6
+push this 1
+return
+label ifelse1
+push constant 1
+neg
+return
+function Sound.play 1
+push argument 0
+push constant 1
+neg
+eq
+if-goto if1
+goto ifelse1
+label if1
+push constant 0
+push static 0
+add
+push argument 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+label ifelse1
+push argument 0
+push constant 65
+sub
+pop local 0
+push local 0
+push constant 1
+neg
+gt
+push local 0
+push constant 9
+lt
+and
+if-goto if4
+goto ifelse4
+label if4
+push constant 0
+push static 0
+add
+push static 1
+push local 0
+add
+pop pointer 1
+push that 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+label ifelse4
+push local 0
+push constant 32
+sub
+pop local 0
+push local 0
+push constant 1
+neg
+gt
+push local 0
+push constant 9
+lt
+and
+if-goto if7
+goto ifelse7
+label if7
+push constant 0
+push static 0
+add
+push static 1
+push local 0
+add
+pop pointer 1
+push that 0
+push constant 2
+call Math.divide 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+label ifelse7
+push constant 0
+push static 0
+add
+push constant 1
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 22
+call Sys.error 1
+pop temp 0
+push constant 0
+return

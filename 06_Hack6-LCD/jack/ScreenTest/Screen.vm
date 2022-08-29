@@ -1,0 +1,490 @@
+function Screen.init 0
+push constant 8200
+pop static 0
+push constant 0
+pop static 1
+push constant 1
+neg
+pop static 2
+push constant 54
+call Screen.writeCommand 1
+pop temp 0
+push constant 72
+call Screen.writeData 1
+pop temp 0
+push constant 58
+call Screen.writeCommand 1
+pop temp 0
+push constant 85
+call Screen.writeData 1
+pop temp 0
+push constant 17
+call Screen.writeCommand 1
+pop temp 0
+push constant 500
+call Sys.wait 1
+pop temp 0
+push constant 41
+call Screen.writeCommand 1
+pop temp 0
+push constant 500
+call Sys.wait 1
+pop temp 0
+call Screen.clearScreen 0
+pop temp 0
+push constant 0
+return
+function Screen.clearScreen 1
+push static 1
+pop local 0
+push static 2
+pop static 1
+push constant 0
+push constant 0
+push constant 240
+push constant 320
+call Screen.drawRectangle 4
+pop temp 0
+push local 0
+pop static 1
+push constant 0
+return
+function Screen.drawPixel 0
+push argument 0
+push constant 0
+lt
+push argument 0
+push constant 239
+gt
+or
+push argument 1
+push constant 0
+lt
+or
+push argument 1
+push constant 319
+gt
+or
+if-goto if1
+goto ifelse1
+label if1
+push constant 7
+call Sys.error 1
+pop temp 0
+label ifelse1
+push constant 42
+call Screen.writeCommand 1
+pop temp 0
+push argument 0
+call Screen.writeData16 1
+pop temp 0
+push argument 0
+call Screen.writeData16 1
+pop temp 0
+push constant 43
+call Screen.writeCommand 1
+pop temp 0
+push argument 1
+call Screen.writeData16 1
+pop temp 0
+push argument 1
+call Screen.writeData16 1
+pop temp 0
+push constant 44
+call Screen.writeCommand 1
+pop temp 0
+push static 1
+call Screen.writeData16 1
+pop temp 0
+push constant 0
+return
+function Screen.setColor 0
+push argument 0
+pop static 1
+push constant 0
+return
+function Screen.setBackColor 0
+push argument 0
+pop static 2
+push constant 0
+return
+function Screen.paintPixel 0
+push static 1
+call Screen.writeData16 1
+pop temp 0
+push constant 0
+return
+function Screen.clearPixel 0
+push static 2
+call Screen.writeData16 1
+pop temp 0
+push constant 0
+return
+function Screen.drawLine 4
+push argument 2
+push argument 0
+sub
+pop local 0
+push argument 3
+push argument 1
+sub
+pop local 1
+push local 0
+push constant 0
+lt
+if-goto if1
+goto ifelse1
+label if1
+push constant 1
+neg
+pop local 2
+goto ifend1
+label ifelse1
+push constant 1
+pop local 2
+label ifend1
+push local 1
+push constant 0
+lt
+if-goto if6
+goto ifelse6
+label if6
+push constant 1
+neg
+pop local 3
+goto ifend6
+label ifelse6
+push constant 1
+pop local 3
+label ifend6
+push local 1
+push constant 0
+eq
+if-goto if11
+goto ifelse11
+label if11
+label while13
+push argument 0
+push argument 2
+eq
+not
+not
+if-goto whileend13
+push argument 0
+push argument 1
+call Screen.drawPixel 2
+pop temp 0
+push argument 0
+push local 2
+add
+pop argument 0
+goto while13
+label whileend13
+push argument 0
+push argument 3
+call Screen.drawPixel 2
+pop temp 0
+push constant 0
+return
+label ifelse11
+push local 0
+push constant 0
+eq
+if-goto if22
+goto ifelse22
+label if22
+label while24
+push argument 1
+push argument 3
+eq
+not
+not
+if-goto whileend24
+push argument 0
+push argument 1
+call Screen.drawPixel 2
+pop temp 0
+push argument 1
+push local 3
+add
+pop argument 1
+goto while24
+label whileend24
+push argument 0
+push argument 3
+call Screen.drawPixel 2
+pop temp 0
+push constant 0
+return
+label ifelse22
+label while34
+push argument 2
+push argument 0
+eq
+push argument 3
+push argument 1
+eq
+and
+not
+not
+if-goto whileend34
+push argument 0
+push argument 1
+call Screen.drawPixel 2
+pop temp 0
+push argument 2
+push argument 0
+sub
+push local 1
+call Math.multiply 2
+call Math.abs 1
+push argument 3
+push argument 1
+sub
+push local 0
+call Math.multiply 2
+call Math.abs 1
+gt
+if-goto if37
+goto ifelse37
+label if37
+push argument 0
+push local 2
+add
+pop argument 0
+goto ifend37
+label ifelse37
+push argument 1
+push local 3
+add
+pop argument 1
+label ifend37
+goto while34
+label whileend34
+push argument 0
+push argument 1
+call Screen.drawPixel 2
+pop temp 0
+push constant 0
+return
+function Screen.drawRectangle 2
+push argument 0
+push argument 1
+push argument 2
+push argument 3
+call Screen.setAddrWindow 4
+pop temp 0
+push constant 0
+pop local 1
+label while4
+push local 1
+push argument 3
+lt
+not
+if-goto whileend4
+push constant 0
+pop local 0
+label while6
+push local 0
+push argument 2
+lt
+not
+if-goto whileend6
+push static 1
+call Screen.writeData16 1
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto while6
+label whileend6
+push local 1
+push constant 1
+add
+pop local 1
+goto while4
+label whileend4
+push constant 0
+return
+function Screen.drawCircle 4
+push constant 0
+pop local 0
+label while2
+push local 0
+push argument 2
+eq
+not
+not
+if-goto whileend2
+push argument 2
+push argument 2
+call Math.multiply 2
+push local 0
+push local 0
+call Math.multiply 2
+sub
+call Math.sqrt 1
+pop local 3
+push argument 0
+push local 3
+sub
+push argument 1
+push local 0
+add
+push argument 0
+push local 3
+add
+push argument 1
+push local 0
+add
+call Screen.drawLine 4
+pop temp 0
+push argument 0
+push local 3
+sub
+push argument 1
+push local 0
+sub
+push argument 0
+push local 3
+add
+push argument 1
+push local 0
+sub
+call Screen.drawLine 4
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto while2
+label whileend2
+push constant 0
+return
+function Screen.setAddrWindow 0
+push constant 42
+call Screen.writeCommand 1
+pop temp 0
+push argument 0
+call Screen.writeData16 1
+pop temp 0
+push argument 0
+push argument 2
+add
+push constant 1
+sub
+call Screen.writeData16 1
+pop temp 0
+push constant 43
+call Screen.writeCommand 1
+pop temp 0
+push argument 1
+call Screen.writeData16 1
+pop temp 0
+push argument 1
+push argument 3
+add
+push constant 1
+sub
+call Screen.writeData16 1
+pop temp 0
+push constant 44
+call Screen.writeCommand 1
+pop temp 0
+push constant 0
+return
+function Screen.writeData 0
+push constant 1
+push static 0
+add
+push argument 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Screen.writeData16 0
+push constant 2
+push static 0
+add
+push argument 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Screen.writeCommand 0
+push constant 0
+push static 0
+add
+push argument 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Screen.BLACK 0
+push constant 0
+return
+function Screen.NAVY 0
+push constant 16
+return
+function Screen.BLUE 0
+push constant 31
+return
+function Screen.GREEN 0
+push constant 1024
+return
+function Screen.TEAL 0
+push constant 1040
+return
+function Screen.LIME 0
+push constant 2016
+return
+function Screen.AQUA 0
+push constant 2047
+return
+function Screen.MAROON 0
+push constant 32767
+not
+return
+function Screen.PURPLE 0
+push constant 32752
+neg
+return
+function Screen.OLIVE 0
+push constant 31744
+neg
+return
+function Screen.GRAY 0
+push constant 31728
+neg
+return
+function Screen.SILVER 0
+push constant 14824
+neg
+return
+function Screen.RED 0
+push constant 2048
+neg
+return
+function Screen.FUCHSIA 0
+push constant 2017
+neg
+return
+function Screen.YELLOW 0
+push constant 32
+neg
+return
+function Screen.ORANGE 0
+push constant 736
+neg
+return
+function Screen.WHITE 0
+push constant 1
+neg
+return

@@ -1,0 +1,15 @@
+function Main.main 0
+label while2
+push constant 1
+neg
+not
+if-goto whileend2
+call UART.input 0
+call UART.printString 1
+pop temp 0
+call UART.println 0
+pop temp 0
+goto while2
+label whileend2
+push constant 0
+return

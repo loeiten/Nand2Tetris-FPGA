@@ -1,0 +1,29 @@
+class UART {
+	static Array uart;
+ 
+	function void init(){
+		let uart = 8194;
+		return;
+	}
+  
+	function int readChar() {
+		var int data;
+		let data = -1;
+		while (data<0){
+			let data = uart[1];
+		}
+		let uart[1] = -1;
+		return data;
+   	}
+
+   	function void writeChar(int c){
+		var boolean run;
+		let run = true;
+		while (run) {
+			let run = uart[0];
+		}
+      	let uart[0] = c;
+		return;
+   	}
+	
+}

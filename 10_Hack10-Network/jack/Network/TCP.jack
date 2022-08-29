@@ -1,0 +1,195 @@
+/**  
+*  TCP Header Format
+*
+*    0                   1                   2                   3
+*    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+*   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*   |          Source Port          |       Destination Port        |
+*   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*   |                        Sequence Number                        |
+*   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*   |                    Acknowledgment Number                      |
+*   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*   |  Data |           |U|A|P|R|S|F|                               |
+*   | Offset| Reserved  |R|C|S|S|Y|I|            Window             |
+*   |       |           |G|K|H|T|N|N|                               |
+*   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*   |           Checksum            |         Urgent Pointer        |
+*   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*   |                    Options                    |    Padding    |
+*   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*   |                             data                              |
+*   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
+class TCP{
+	static List sockets;
+	
+	/** reset socket list */
+	function void init(){
+		let sockets = null;
+		return;
+	}
+	
+	/** read TCP header and handle payload to socket */
+	function void read(Array src_ip, Array header, int len){
+  		var int src_port;
+		var int dst_port;
+		var Int32 sequence_number;
+		var Int32 acknowledgment_number;
+		var int flags;
+		var boolean ACK;
+		var boolean PSH;
+		var boolean SYN;
+		var boolean FIN;
+		var Array data;
+		var int data_len;
+		var int offset;
+		var Socket s;
+		do GPIO.setLed(GPIO.getLed() | 128);
+		let offset = header[12] / 16;
+		let data = header + (4 * offset);
+		let data_len = len - (4 * offset);
+
+		let src_port = (header[0] * 256) | header[1];
+		let dst_port = (header[2] * 256) | header[3];
+		let sequence_number = Int32.new((header[4] * 256) | header[5], (header[6] * 256) | header[7]);
+  		let acknowledgment_number = Int32.new((header[8] * 256) | header[9], (header[10] * 256) | header[11]);
+  
+		let flags = header[13];
+  		let ACK = ((flags & 16) = 16);
+  		let PSH = ((flags & 8) = 8);
+  		let SYN = ((flags & 2) = 2);
+  		let FIN = ((flags & 1) = 1);
+  		
+		if ((dst_port = 6000) | (dst_port = 80)) {
+			let s = TCP.getSocket(src_ip, src_port, sockets);
+			if (s = null) {
+				let s = Socket.new(dst_port,src_ip,src_port);
+				let sockets = List.new(s,sockets);
+			}
+    		if (SYN) {
+				do s.syn(sequence_number);
+			} else {
+        		if (ACK) {
+					do s.ack(acknowledgment_number);
+				}
+        		if (PSH) {
+					do s.psh(sequence_number, data, data_len);
+				}
+        		if (FIN) {
+					do s.fin(sequence_number);
+    			}
+			}
+			do s.send();
+			if (s.isClosed()){
+				do s.dispose();
+				let sockets = List.remove(s, sockets);
+  			}
+		}
+		do sequence_number.dispose();
+		do acknowledgment_number.dispose();
+		do GPIO.setLed(GPIO.getLed() & 127);
+		return;
+	}
+
+	/** search recursevly the socket list for a client with given ip and port */
+	function Socket getSocket(Array ip, int port, List list){
+		var Socket s;
+		if (list = null) {
+			return null;
+		}
+		let s = list.getData();
+		if (s.isClient(ip,port)){
+			return s;
+		}
+		return TCP.getSocket(ip,port,list.getNext());
+	}
+	
+	
+	/** write TCP header and send to IP */
+	function void write(int service, Array ip, int port, Int32 sequence, Int32 ack, int flags, List packet) {
+  		var String header;
+		var String pseudo_header;
+		var int len;
+		var int sum;		
+		do GPIO.setLed(GPIO.getLed() | 64);
+
+		let header = String.new(20);	
+		let packet = List.new(header,packet);
+  		let len = List.getLength(packet)+20;
+  		do header.appendChar(Math.getHigh(service));
+  		do header.appendChar(Math.getLow(service));
+  		do header.appendChar(Math.getHigh(port));
+  		do header.appendChar(Math.getLow(port));
+  		do header.appendChar(Math.getHigh(sequence.getHigh()));
+  		do header.appendChar(Math.getLow(sequence.getHigh()));
+  		do header.appendChar(Math.getHigh(sequence.getLow()));
+  		do header.appendChar(Math.getLow(sequence.getLow()));
+  		do header.appendChar(Math.getHigh(ack.getHigh()));
+  		do header.appendChar(Math.getLow(ack.getHigh()));
+  		do header.appendChar(Math.getHigh(ack.getLow()));
+  		do header.appendChar(Math.getLow(ack.getLow()));
+  		do header.appendChar(80);
+  		do header.appendChar(flags);
+  		do header.appendChar(15);
+  		do header.appendChar(255);
+  		do header.appendChar(0); //checksum
+  		do header.appendChar(0); //checksum
+  		do header.appendChar(0);
+  		do header.appendChar(0);
+	
+		let pseudo_header = String.new(12);
+		let packet = List.new(pseudo_header,packet);
+  		do pseudo_header.appendArray(ip, 4);
+  		do pseudo_header.appendArray(Network.getMyIP(), 4);
+  		do pseudo_header.appendChar(0);
+  		do pseudo_header.appendChar(6);
+  		do pseudo_header.appendChar(Math.getHigh(len));
+  		do pseudo_header.appendChar(Math.getLow(len));
+
+  		let sum = ~ Checksum.sumList(packet);
+
+  		do header.setCharAt(16, Math.getHigh(sum));
+  		do header.setCharAt(17, Math.getLow(sum));
+  	
+		let packet = packet.pop();
+	
+		do IP.write(ip, 6, packet);
+		let packet = packet.pop();
+		do GPIO.setLed(GPIO.getLed() & 191);
+		return;
+	}
+	
+	function void printSockets(){
+		var Socket s;
+		var List l;
+		do Output.printString("Open Sockets:");
+		do Output.println();
+		let l = sockets;
+		while (~(l=null)){
+			let s = l.getData();
+			do s.print();
+			do Output.println();
+			let l = l.getNext();
+		}
+		return;
+	}
+	function void clearSockets(){
+		var Socket s;
+		var List n;
+		if (~(sockets = null)){
+			do Output.printString("Clear Sockets:");
+			do Output.println();
+			let n = sockets;
+			while (~(n = null)){
+				let s = n.getData();
+				do s.dispose();
+				let n = n.getNext();
+			}
+			do sockets.dispose();
+			let sockets = null;
+		}
+		return;
+	}
+	
+}

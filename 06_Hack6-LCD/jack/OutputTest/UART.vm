@@ -1,0 +1,160 @@
+function UART.init 0
+push constant 8194
+pop static 0
+push constant 6
+call String.new 1
+pop static 1
+push constant 0
+return
+function UART.readChar 1
+push constant 1
+neg
+pop local 0
+label while2
+push local 0
+push constant 0
+lt
+not
+if-goto whileend2
+push static 0
+push constant 1
+add
+pop pointer 1
+push that 0
+pop local 0
+goto while2
+label whileend2
+push constant 1
+push static 0
+add
+push constant 1
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+return
+function UART.writeChar 1
+push constant 1
+neg
+pop local 0
+label while2
+push local 0
+not
+if-goto whileend2
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+pop local 0
+goto while2
+label whileend2
+push constant 0
+push static 0
+add
+push argument 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function UART.printString 1
+push constant 0
+pop local 0
+label while2
+push local 0
+push argument 0
+call String.length 1
+lt
+not
+if-goto whileend2
+push argument 0
+push local 0
+call String.charAt 2
+call UART.writeChar 1
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto while2
+label whileend2
+push constant 0
+return
+function UART.printInt 0
+push static 1
+push argument 0
+call String.setInt 2
+pop temp 0
+push static 1
+call UART.printString 1
+pop temp 0
+push constant 0
+return
+function UART.println 0
+push constant 13
+call UART.writeChar 1
+pop temp 0
+push constant 10
+call UART.writeChar 1
+pop temp 0
+push constant 0
+return
+function UART.readInt 2
+push argument 0
+call UART.readLine 1
+pop local 0
+push local 0
+call String.intValue 1
+pop local 1
+push local 0
+call String.dispose 1
+pop temp 0
+push local 1
+return
+function UART.readLine 5
+push constant 80
+call String.new 1
+pop local 3
+push argument 0
+call UART.printString 1
+pop temp 0
+call UART.readChar 0
+pop local 0
+label while4
+push local 0
+push constant 13
+eq
+not
+not
+if-goto whileend4
+push local 0
+call UART.writeChar 1
+pop temp 0
+push local 0
+push constant 127
+eq
+if-goto if7
+goto ifelse7
+label if7
+push local 3
+call String.eraseLastChar 1
+pop temp 0
+goto ifend7
+label ifelse7
+push local 3
+push local 0
+call String.appendChar 2
+pop local 3
+label ifend7
+call UART.readChar 0
+pop local 0
+goto while4
+label whileend4
+call UART.println 0
+pop temp 0
+push local 3
+return

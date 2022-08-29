@@ -1,0 +1,121 @@
+/**
+* Network
+* store network configuration:
+* IP 192.168.1.42, MAC de:ad:be:ed:fe:ed, Gateway 192.168.1.1 and subnetmask 255.255.255.0
+*/
+class Network{
+	
+	static Array myIP;
+	static Array myMAC;
+	static Array myGateway;
+	static Array broadcast;
+	static Array netmask;
+	
+	/** init network configuration and map the ethernet controller to address */
+	function void init(int address){
+		let myIP = Array.new(4);
+		let myMAC = Array.new(6);
+		let myGateway = Array.new(4);
+		let broadcast = Array.new(6);
+		let netmask = Array.new(4);
+		let netmask[0] = 255;
+		let netmask[1] = 255;
+		let netmask[2] = 255;
+		let netmask[3] = 0;
+		let broadcast[0] = 255;
+		let broadcast[1] = 255;
+		let broadcast[2] = 255;
+		let broadcast[3] = 255;
+		let broadcast[4] = 255;
+		let broadcast[5] = 255;
+		let myIP[0] = 192;
+		let myIP[1] = 168;
+		let myIP[2] = 1;
+		let myIP[3] = 42;
+		let myGateway[0] = 192;
+		let myGateway[1] = 168;
+		let myGateway[2] = 1;
+		let myGateway[3] = 1;
+		let myMAC[0] = 222;
+		let myMAC[1] = 173;
+		let myMAC[2] = 190;
+		let myMAC[3] = 239;
+		let myMAC[4] = 254;
+		let myMAC[5] = 237;
+		do ENC28J60.init(address, myMAC);
+		do ARP.init();
+		do TCP.init();
+		return;
+	}
+
+	/** returns the MAC Address */
+	function Array getMyMAC(){
+		return myMAC;
+	}
+
+	/** returns the broadcast address */
+	function Array getBroadcast(){
+		return broadcast;
+	}
+
+	/** returns the IP address */
+	function Array getMyIP(){
+		return myIP;
+	}
+
+	/** returns IP of gateway */
+	function Array getMyGateway(){
+		return myGateway;
+	}
+
+	/** returns true if ip is the own IP */
+	function boolean isMyIP(Array ip){
+		return ip.isEqual(myIP, 4);
+	}
+
+	/** returns true id mac is the own MAC address */
+	function boolean isMyMAC(Array mac){
+		return mac.isEqual(myMAC, 6);
+	}
+
+	/** returns true id mac is the Broadcast address */
+	function boolean isBroadcastMAC(Array mac){
+		return mac.isEqual(broadcast, 6);
+	}
+
+	/** returns true if ip is broadcast ip*/
+	function boolean isBroadcastIP(Array ip){
+		return ip.isEqual(broadcast, 4);
+	}
+
+	/** retuns true if ip is in local area network */
+	function boolean isMyLAN(Array ip){
+		var int i;
+		let i=0;
+		while(i<4){
+			if (~((ip[i] & netmask[i]) = (myIP[i] & netmask[i]))){
+				return false;
+			}
+			let i = i+1;
+		}
+		return true;
+	}
+
+	function void print(){
+		do Output.printString("Network:");
+		do Output.println();
+		do Output.printString("MAC: ");
+		do Address.printMAC(myMAC);
+		do Output.println();
+		do Output.printString("IP: ");
+		do Address.printIP(myIP);
+		do Output.println();
+		do Output.printString("gateway: ");
+		do Address.printIP(myGateway);
+		do Output.println();
+		do Output.printString("netmask: ");
+		do Address.printIP(netmask);
+		do Output.println();
+		return;
+	}
+}

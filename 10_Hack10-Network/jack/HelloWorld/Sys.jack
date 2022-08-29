@@ -1,0 +1,58 @@
+/**
+ * A library that supports various program execution services.
+ */
+class Sys {
+
+    /** Performs all the initializations required by the OS. */
+    function void init() {
+		do GPIO.init(8192);
+		do Memory.init();
+		do Array.init();
+		do Math.init();
+		//do UART.init(8193);
+		do Screen.init(8200);
+		do Output.init();
+		//do Time.init(8204);
+		//do Sound.init();
+		//do Touch.init(8203);	
+		//do Network.init(8207);
+		do Main.main();
+		do Sys.halt();
+		return;
+	}
+
+    /** Halts the program execution. */
+    function void halt() {
+		do GPIO.setLed(GPIO.getLed()+2);
+    	while(true){
+
+		}
+		return;
+	}
+
+    /** Waits approximately duration milliseconds and returns.  */
+    function void wait(int duration) {
+    	var int j;
+		if (duration<0){
+			do Sys.error(1);
+		}
+		while (duration>0){
+			let j=500;
+			while(j>0){
+				let j=j-1;
+			}
+			let duration=duration-1;
+		}
+		return;
+	}
+
+    /** Displays the given error code in the form "ERR<errorCode>",
+     *  and halts the program's execution. */
+    function void error(int errorCode) {
+		do GPIO.setLed(1);
+		do Output.printString("ERR");
+		do Output.printInt(errorCode);
+		do Sys.halt();
+		return;
+	}
+}

@@ -1,0 +1,10 @@
+class Main{
+	function void main(){
+		while (true){
+			do Sys.wait(500);
+			do GPIO.setLed(GPIO.getLed()+1);
+		}
+		return;
+	}
+
+}

@@ -1,0 +1,28 @@
+[*]
+[*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
+[*] Wed Jul 22 17:52:13 2020
+[*]
+[dumpfile] "/home/micha/git/gitlab/nand2tetris/06_Hack6-LCD/Hack6/Hack6_tb.vcd"
+[dumpfile_mtime] "Wed Jul 22 17:52:02 2020"
+[dumpfile_size] 6295725
+[savefile] "/home/micha/git/gitlab/nand2tetris/06_Hack6-LCD/Hack6/Hack6_tb.gtkw"
+[timestart] 0
+[size] 1280 703
+[pos] -1 -1
+*-7.000000 54 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Hack6_tb.
+[sst_width] 238
+[signals_width] 94
+[sst_expanded] 1
+[sst_vpaned_height] 174
+@28
+Hack6_tb.clk_in
+@200
+-LCD
+@28
+Hack6_tb.lcd_dcn
+Hack6_tb.lcd_mosi
+Hack6_tb.lcd_sck
+Hack6_tb.lcd_cen
+[pattern_trace] 1
+[pattern_trace] 0

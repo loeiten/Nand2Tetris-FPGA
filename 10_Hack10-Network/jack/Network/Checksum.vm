@@ -1,0 +1,115 @@
+function Checksum.sum 1
+push argument 0
+push argument 1
+add
+pop local 0
+push argument 0
+push constant 0
+lt
+push argument 1
+push constant 0
+lt
+and
+if-goto if1
+goto ifelse1
+label if1
+push local 0
+push constant 1
+add
+return
+label ifelse1
+push argument 0
+push constant 0
+lt
+not
+push argument 1
+push constant 0
+lt
+not
+and
+if-goto if4
+goto ifelse4
+label if4
+push local 0
+return
+label ifelse4
+push local 0
+push constant 0
+lt
+if-goto if7
+goto ifelse7
+label if7
+push local 0
+return
+label ifelse7
+push local 0
+push constant 1
+add
+return
+function Checksum.sumString 4
+push argument 0
+call String.length 1
+pop local 3
+push constant 0
+pop local 0
+push constant 1
+neg
+pop local 1
+push constant 0
+pop local 2
+label while2
+push local 2
+push local 3
+lt
+not
+if-goto whileend2
+push local 1
+if-goto if3
+goto ifelse3
+label if3
+push local 0
+push argument 0
+push local 2
+call String.charAt 2
+push constant 256
+call Math.multiply 2
+call Checksum.sum 2
+pop local 0
+goto ifend3
+label ifelse3
+push local 0
+push argument 0
+push local 2
+call String.charAt 2
+call Checksum.sum 2
+pop local 0
+label ifend3
+push local 1
+not
+pop local 1
+push local 2
+push constant 1
+add
+pop local 2
+goto while2
+label whileend2
+push local 0
+return
+function Checksum.sumList 0
+push argument 0
+push constant 0
+eq
+if-goto if1
+goto ifelse1
+label if1
+push constant 0
+return
+label ifelse1
+push argument 0
+call List.getData 1
+call Checksum.sumString 1
+push argument 0
+call List.getNext 1
+call Checksum.sumList 1
+call Checksum.sum 2
+return

@@ -1,0 +1,49 @@
+[*]
+[*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
+[*] Wed Jun 17 13:06:36 2020
+[*]
+[dumpfile] "/home/micha/git/gitlab/nand2tetris/12_hack-12-nand/lcd/lcd_tb.vcd"
+[dumpfile_mtime] "Wed Jun 17 13:05:40 2020"
+[dumpfile_size] 150367
+[savefile] "/home/micha/git/gitlab/nand2tetris/12_hack-12-nand/lcd/lcd_tb.gtkw"
+[timestart] 0
+[size] 1280 703
+[pos] -1 -1
+*-6.000000 230 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] lcd_tb.
+[treeopen] lcd_tb.LCD.
+[treeopen] lcd_tb.LCD.ISC.
+[sst_width] 238
+[signals_width] 134
+[sst_expanded] 1
+[sst_vpaned_height] 174
+@28
+lcd_tb.startD8
+lcd_tb.LCD.startD16
+@29
+lcd_tb.LCD.startC
+@22
+lcd_tb.in[15:0]
+lcd_tb.in[15:0]
+@28
+lcd_tb.clk
+@22
+lcd_tb.LCD.bitc[4:0]
+@28
+lcd_tb.LCD.spi_mosi
+lcd_tb.LCD.mosi
+lcd_tb.LCD.spi_sck
+lcd_tb.LCD.sck
+lcd_tb.LCD.spi_cen
+lcd_tb.LCD.idle
+lcd_tb.LCD.spi_cdn
+lcd_tb.LCD.dcn
+lcd_tb.LCD.clk_baud
+@22
+lcd_tb.LCD.data_r[17:0]
+@28
+lcd_tb.LCD.load
+lcd_tb.LCD.BAUDRATE.reset
+lcd_tb.LCD.SWITCH_CLOCK.out
+[pattern_trace] 1
+[pattern_trace] 0

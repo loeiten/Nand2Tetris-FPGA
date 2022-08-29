@@ -1,0 +1,4 @@
+function Sys.init 0
+function Sys.halt 0
+function Sys.wait 0
+function Sys.error 0

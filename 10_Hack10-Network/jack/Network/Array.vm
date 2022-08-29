@@ -1,0 +1,107 @@
+function Array.new 0
+push argument 0
+push constant 0
+gt
+not
+if-goto if1
+goto ifelse1
+label if1
+push constant 2
+call Sys.error 1
+pop temp 0
+label ifelse1
+push argument 0
+call Memory.alloc 1
+return
+function Array.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Array.startsWith 3
+push argument 0
+pop pointer 0
+push pointer 0
+pop local 2
+push argument 1
+call String.length 1
+pop local 1
+push constant 0
+pop local 0
+label while2
+push local 0
+push local 1
+lt
+not
+if-goto whileend2
+push local 2
+push local 0
+add
+pop pointer 1
+push that 0
+push argument 1
+push local 0
+call String.charAt 2
+eq
+not
+if-goto if3
+goto ifelse3
+label if3
+push constant 0
+return
+label ifelse3
+push local 0
+push constant 1
+add
+pop local 0
+goto while2
+label whileend2
+push argument 1
+call String.dispose 1
+pop temp 0
+push constant 1
+neg
+return
+function Array.isEqual 2
+push argument 0
+pop pointer 0
+push pointer 0
+pop local 0
+push constant 0
+pop local 1
+label while2
+push local 1
+push argument 2
+lt
+not
+if-goto whileend2
+push local 0
+push local 1
+add
+pop pointer 1
+push that 0
+push argument 1
+push local 1
+add
+pop pointer 1
+push that 0
+eq
+not
+if-goto if3
+goto ifelse3
+label if3
+push constant 0
+return
+label ifelse3
+push local 1
+push constant 1
+add
+pop local 1
+goto while2
+label whileend2
+push constant 1
+neg
+return

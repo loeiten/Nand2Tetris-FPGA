@@ -1,0 +1,186 @@
+/** 
+*  ARP-Header
+*
+*   0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
+*  +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--
+*  |H-Typ|P-Typ|HL|PL|Type |MAC Source       |IP Source  |MAC Destination  |IP Destinat| data ...
+*  +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--
+*  |00 01|08 00|06|04|00 0x|xx xx xx xx xx xx|xx xx xx xx|xx xx xx xx xx xx|xx xx xx xx| ...
+*  +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--
+*  Hardware Type = 0x0001 Ethernet
+*  Protocol Type = 0x0800 IPv4
+*  Hardware Length = 6
+*  Protocol Length = 4
+*  Type = 0x0001 ARP request
+*  Type = 0x0002 ARP response
+*/
+
+class ARP{
+
+	static List addresses;
+
+	/** init ARP and clear list of addresses */	
+	function void init(){
+		let addresses = null;
+		return;
+	}
+
+	/** read ARP header */
+	function void read(Array header, int len){
+		var int hType;
+		var int pType;
+		var int hLen;
+		var int pLen;
+		var int type;
+		var Array mac_src;
+		var Array ip_src;
+		var Array mac_dst;
+		var Array ip_dst;
+		var Array data;
+		var Address a;
+		
+		if (len > 27){
+			let hType = (header[0] * 256) + header[1];
+			let pType = (header[2] * 256) + header[3];
+			let hLen = header[4];
+			let pLen = header[5];
+			let type = (header[6] * 256) + header[7];
+			let mac_src = header + 8;
+			let ip_src = header + 14;
+			let mac_dst = header + 18;
+			let ip_dst = header + 24;
+			let data = header + 28;	
+			
+			// debug to Output	
+			do Screen.setColor(Screen.RED());
+			do Output.printString("ARP ");
+			do Address.printIP(ip_src);
+			if (type = 1){
+				do Output.printString(" who is ");
+				do Address.printIP(ip_dst);
+			}
+			if (type = 2){
+				do Output.printString(" is ");
+				do Address.printMAC(mac_src);
+			}
+			do Output.println();
+			do Screen.setColor(Screen.WHITE());
+			
+			// respond ARP	
+			if ((hType = 1) & (pType = 2048) & (hLen = 6) & (pLen = 4)){
+				do ARP.setAddress(ip_src,mac_src);
+				if (type = 1){
+					if (Network.isMyIP(ip_dst)){
+						do ARP.write(2,mac_src,ip_src);
+					}
+				}
+			}
+		}	
+		return;
+	}
+
+	function void clearAddresses(){
+		var Address a;
+		var List n;
+		if (~(addresses = null)){
+			do Output.printString("Clear ARP-List:");
+			do Output.println();
+			let n = addresses;
+			while (~(n = null)){
+				let a = n.getData();
+				do a.dispose();
+				let n = n.getNext();
+			}
+			do addresses.dispose();
+			let addresses = null;
+		}
+		return;
+	}
+
+	function void setAddress(Array pip, Array pmac){
+		var Address a;
+		let a = ARP.findIP(pip);
+		if (a = null){
+			let a = Address.new(pip,pmac);
+			let addresses = List.new(a,addresses);
+		} else {
+			do a.setMAC(pmac);
+		}
+		return;
+	}
+	
+	function Array getMAC(Array pip){
+		var Address a;
+		let a = ARP.findIP(pip);
+		if (a = null) {
+			return null;
+		}
+		return a.getMAC();
+	}
+
+	function Address findIP(Array pip){
+		var Address a;
+		var List l;
+		let l = addresses;
+		while (~(l=null)){
+			let a = l.getData();
+			if (a.isIP(pip)){
+				return a;
+			}
+			let l = l.getNext();
+		}
+		return null;
+	}
+
+	/** write ARP header and send with Ethernet */
+	function void write(int type, Array mac_dst, Array ip_dst){
+		var String header;
+		var List list;
+		let header = String.new(28);
+		do header.appendChar(0);
+		do header.appendChar(1);
+		do header.appendChar(8);
+		do header.appendChar(0);
+		do header.appendChar(6);
+		do header.appendChar(4);
+		do header.appendChar(Math.getHigh(type));
+		do header.appendChar(Math.getLow(type));
+		do header.appendArray(Network.getMyMAC(),6);
+		do header.appendArray(Network.getMyIP(),4);
+		do header.appendArray(mac_dst,6);
+		do header.appendArray(ip_dst,4);
+		
+		let list = List.new(header,null);		
+		do Ethernet.write(mac_dst, 2054, list);
+		do list.pop();	
+		return;
+	}
+
+	/** print list of stored addresses */
+	function void printAddresses(){
+		var List l;
+		var Address a;
+		let l = addresses;
+		do Output.printString("ARP-List:");
+		do Output.println();
+		while (~(l = null)){
+			let a = l.getData();
+			do a.print();
+			do Output.println();
+			let l = l.getNext();
+		}
+		return;
+	}
+
+	/** send ARPING request for IP */
+	function void ping(Array pip){
+		var String arping;
+		do Output.printString("ARPING ");
+		do Address.printIP(pip);
+		do Output.println();
+
+		do ARP.write(1, Network.getBroadcast(), pip);
+		return;
+	}
+
+}

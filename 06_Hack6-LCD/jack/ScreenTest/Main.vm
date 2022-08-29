@@ -1,0 +1,269 @@
+function Main.main 2
+call Screen.BLACK 0
+call Screen.setColor 1
+pop temp 0
+push constant 5
+push constant 5
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.NAVY 0
+call Screen.setColor 1
+pop temp 0
+push constant 45
+push constant 5
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.BLUE 0
+call Screen.setColor 1
+pop temp 0
+push constant 85
+push constant 5
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.GREEN 0
+call Screen.setColor 1
+pop temp 0
+push constant 125
+push constant 5
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.TEAL 0
+call Screen.setColor 1
+pop temp 0
+push constant 165
+push constant 5
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.LIME 0
+call Screen.setColor 1
+pop temp 0
+push constant 205
+push constant 5
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.AQUA 0
+call Screen.setColor 1
+pop temp 0
+push constant 5
+push constant 45
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.MAROON 0
+call Screen.setColor 1
+pop temp 0
+push constant 45
+push constant 45
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.PURPLE 0
+call Screen.setColor 1
+pop temp 0
+push constant 85
+push constant 45
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.OLIVE 0
+call Screen.setColor 1
+pop temp 0
+push constant 125
+push constant 45
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.GRAY 0
+call Screen.setColor 1
+pop temp 0
+push constant 165
+push constant 45
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.SILVER 0
+call Screen.setColor 1
+pop temp 0
+push constant 205
+push constant 45
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.RED 0
+call Screen.setColor 1
+pop temp 0
+push constant 5
+push constant 85
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.FUCHSIA 0
+call Screen.setColor 1
+pop temp 0
+push constant 45
+push constant 85
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.YELLOW 0
+call Screen.setColor 1
+pop temp 0
+push constant 85
+push constant 85
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.ORANGE 0
+call Screen.setColor 1
+pop temp 0
+push constant 125
+push constant 85
+push constant 30
+push constant 30
+call Screen.drawRectangle 4
+pop temp 0
+call Screen.BLACK 0
+call Screen.setColor 1
+pop temp 0
+push constant 0
+pop local 0
+label while68
+push local 0
+push constant 240
+lt
+not
+if-goto whileend68
+push local 0
+push constant 150
+call Screen.drawPixel 2
+pop temp 0
+push local 0
+push constant 2
+add
+pop local 0
+goto while68
+label whileend68
+push constant 120
+push constant 200
+push constant 170
+push constant 200
+call Screen.drawLine 4
+pop temp 0
+push constant 120
+push constant 200
+push constant 170
+push constant 250
+call Screen.drawLine 4
+pop temp 0
+push constant 120
+push constant 200
+push constant 120
+push constant 250
+call Screen.drawLine 4
+pop temp 0
+push constant 120
+push constant 200
+push constant 70
+push constant 250
+call Screen.drawLine 4
+pop temp 0
+push constant 120
+push constant 200
+push constant 70
+push constant 200
+call Screen.drawLine 4
+pop temp 0
+push constant 120
+push constant 200
+push constant 70
+push constant 150
+call Screen.drawLine 4
+pop temp 0
+push constant 120
+push constant 200
+push constant 120
+push constant 150
+call Screen.drawLine 4
+pop temp 0
+push constant 120
+push constant 200
+push constant 170
+push constant 150
+call Screen.drawLine 4
+pop temp 0
+push constant 120
+pop local 0
+push constant 10
+pop local 1
+label while90
+push constant 1
+neg
+not
+if-goto whileend90
+push constant 100
+call Sys.wait 1
+pop temp 0
+call Screen.WHITE 0
+call Screen.setColor 1
+pop temp 0
+push local 0
+push constant 280
+push constant 5
+call Screen.drawCircle 3
+pop temp 0
+push local 0
+push local 1
+add
+pop local 0
+call Screen.RED 0
+call Screen.setColor 1
+pop temp 0
+push local 0
+push constant 280
+push constant 5
+call Screen.drawCircle 3
+pop temp 0
+push local 0
+push constant 220
+gt
+if-goto if101
+goto ifelse101
+label if101
+push constant 10
+neg
+pop local 1
+label ifelse101
+push local 0
+push constant 20
+lt
+if-goto if104
+goto ifelse104
+label if104
+push constant 10
+pop local 1
+label ifelse104
+goto while90
+label whileend90
+push constant 0
+return

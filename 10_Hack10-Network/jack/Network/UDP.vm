@@ -1,0 +1,207 @@
+function UDP.read 5
+push argument 2
+push constant 7
+gt
+if-goto if1
+goto ifelse1
+label if1
+push argument 1
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 256
+call Math.multiply 2
+push argument 1
+push constant 1
+add
+pop pointer 1
+push that 0
+or
+pop local 0
+push argument 1
+push constant 2
+add
+pop pointer 1
+push that 0
+push constant 256
+call Math.multiply 2
+push argument 1
+push constant 3
+add
+pop pointer 1
+push that 0
+or
+pop local 1
+push argument 1
+push constant 4
+add
+pop pointer 1
+push that 0
+push constant 256
+call Math.multiply 2
+push argument 1
+push constant 5
+add
+pop pointer 1
+push that 0
+or
+pop local 2
+push argument 1
+push constant 6
+add
+pop pointer 1
+push that 0
+push constant 256
+call Math.multiply 2
+push argument 1
+push constant 7
+add
+pop pointer 1
+push that 0
+or
+pop local 3
+push argument 1
+push constant 8
+add
+pop local 4
+push local 1
+push constant 67
+eq
+if-goto if2
+goto ifelse2
+label if2
+push local 4
+push argument 2
+push constant 8
+sub
+call DHCP.read 2
+pop temp 0
+label ifelse2
+label ifelse1
+push constant 0
+return
+function UDP.write 4
+push constant 8
+call String.new 1
+pop local 0
+push local 0
+push argument 3
+call List.new 2
+pop argument 3
+push argument 3
+call List.getLength 1
+pop local 2
+push local 0
+push argument 1
+call Math.getHigh 1
+call String.appendChar 2
+pop temp 0
+push local 0
+push argument 1
+call Math.getLow 1
+call String.appendChar 2
+pop temp 0
+push local 0
+push argument 2
+call Math.getHigh 1
+call String.appendChar 2
+pop temp 0
+push local 0
+push argument 2
+call Math.getLow 1
+call String.appendChar 2
+pop temp 0
+push local 0
+push local 2
+call Math.getHigh 1
+call String.appendChar 2
+pop temp 0
+push local 0
+push local 2
+call Math.getLow 1
+call String.appendChar 2
+pop temp 0
+push local 0
+push constant 0
+call String.appendChar 2
+pop temp 0
+push local 0
+push constant 0
+call String.appendChar 2
+pop temp 0
+push constant 12
+call String.new 1
+pop local 1
+push argument 3
+call List.getLength 1
+push constant 12
+add
+pop local 2
+push local 1
+push argument 3
+call List.new 2
+pop argument 3
+push local 1
+push argument 0
+push constant 4
+call String.appendArray 3
+pop temp 0
+push local 1
+call Network.getMyIP 0
+push constant 4
+call String.appendArray 3
+pop temp 0
+push local 1
+push constant 0
+call String.appendChar 2
+pop temp 0
+push local 1
+push constant 17
+call String.appendChar 2
+pop temp 0
+push local 1
+push local 2
+call Math.getHigh 1
+call String.appendChar 2
+pop temp 0
+push local 1
+push local 2
+call Math.getLow 1
+call String.appendChar 2
+pop temp 0
+push argument 3
+call Checksum.sumList 1
+not
+pop local 3
+push local 0
+push constant 16
+push local 3
+call Math.getHigh 1
+call String.setCharAt 3
+pop temp 0
+push local 0
+push constant 17
+push local 3
+call Math.getLow 1
+call String.setCharAt 3
+pop temp 0
+push argument 3
+call List.pop 1
+pop argument 3
+push local 1
+call String.dispose 1
+pop temp 0
+push argument 0
+push constant 17
+push argument 3
+call IP.write 3
+pop temp 0
+push argument 3
+call List.pop 1
+pop argument 3
+push local 0
+call String.dispose 1
+pop temp 0
+push constant 0
+return

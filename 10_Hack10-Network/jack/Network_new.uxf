@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>783</x>
+      <y>468</y>
+      <w>315</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>Address
+--
+- ip : Array
+- mac : Array
+--
++ new(pip: Array, pmac: Array): Address
++ dispose()
++ isIP(Array pip): boolean
++ getMAC(): Array
++ setMAC(pmac: Array)
++ print()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>468</y>
+      <w>360</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>ARP
+--
+- addresses: List
+--
++ read(header: String)
++ write(type: int, mac_dst: Array, ip_dst: Array)
++ ping(pip: Array)
++ setAddress(pip: Array, pmac: Array)
++ getAddress(pip: Array): Address
++ print()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>711</y>
+      <w>360</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>ENC28J60
+--
+- spi: Array
+- int: nextPacketPtr
+--
++ readControlRegister(address: int): int
++ readBufferMemory(data: Array, len: int)
++ writeControlRegister(address: int, data: int)
++ writeBufferMemory(data: Array, len: int)
++ bitFieldSet(address: int, bits: int)
++ bitFieldClear(address: int, bits: int)
++ systemResetCommand()
++ init(address: int, mac: Array)
++ writePacket(packet: List)
++ readNextPacket()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>594</y>
+      <w>360</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Ethernet
+--
+
+--
++ read(header: String)
++ write(mac_dst: Array, type: int, payload: List)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>567</x>
+      <y>351</y>
+      <w>621</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>TCP
+--
+- sockets: List
+--
++ read(src_ip: Array, header: String)
++ write(service: int, ip: Array, port: int, sequence: Int32, ack: Int32, flags: int, payload: Buffer)
++ getSocket(ip: Array, port: int)
++ print()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1233</x>
+      <y>351</y>
+      <w>360</w>
+      <h>387</h>
+    </coordinates>
+    <panel_attributes>Socket
+--
+- client_ip: Array
+- client_port: int
+- client_sequence: Int32
+- my_sequence: Int32
+- window: List
+- isClosed: boolean
+- SYN: boolean
+- FIN: boolean
+- FLAGS: int
+- service: int
+--
++ new(s: int, ip: Array, port: int): Socket
++ dispose()
++ getService(): int
++ clearWindow()
++ isClient(ip: Array, port: int): boolean
++ syn(sequence: Int32)
++ isClosed(): boolean
++ psh(sequence: Int32, message: String)
++ fin(sequence: Int32)
++ ack(acknoledgment_number: Int32)
++ close()
++ print()
++ write(message: String)
++ send()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>9</y>
+      <w>270</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Network
+--
+- myAdress: Address
+- gateway: Address
+- broadcast: Address
+--
++ init(address: int)
++ getMyAddress(): Address
++ getBroadcast(): Address
++ getGateway(): Address
++ isMyLAN(ip: Array): boolean
++ update()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>9</y>
+      <w>360</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>List
+--
+- data: int
+- next: List
+--
++ new(int car, List: cdr): List
++ dispose()
++ getData(): int
++ getNext(): List
++ remove(d: int, l: List): List
++ add(d: int, l: List): List
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>468</y>
+      <w>360</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>IP
+--
+
+--
++ read(header: String)
++ write(ip_dst: Array, protocol: int, payload: List)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>216</y>
+      <w>360</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Echo
+--
+
+--
++ processNewConnection(socket: Socket)
++ processMessage(socket: Socket, message: String)
++ processClosedConnection(socket: Socket)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>711</x>
+      <y>9</y>
+      <w>315</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>CheckSum
+--
+
+--
++ sum16(a: int, b: int): int
++ header(header: String): int
++ list(payload: List): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>216</y>
+      <w>351</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>HTTP
+--
+
+--
++ processMessage(socket: Socket, message: String)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>351</y>
+      <w>549</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>IMCP
+--
+- mySequence: int
+--
++ read(ip: Array, header: String)
++ write(ip: Array, type: int, code: int, identifier: int, sequence: int, payload: List)
++ ping(pip: Array)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1062</x>
+      <y>0</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Int32
+--
+- high: int
+- low: int
+--
++ new(h: int, l: int): Int32
++ dispose()
++ diff(i: Int32): int
++ getHigh(): int
++ getLow(): int
++ add(int v)
++ print()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>648</y>
+      <w>324</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>DHCP
+--
+
+--
++ read()
++ write()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>774</y>
+      <w>324</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>UDP
+--
+
+--
++ read(ip: Array, header: String)
++ write(ip: Array, type: int, payload: List)</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

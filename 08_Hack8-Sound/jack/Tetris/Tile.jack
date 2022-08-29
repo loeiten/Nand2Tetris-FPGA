@@ -1,0 +1,261 @@
+/**
+ * A graphical tile. Characterized by a screen location and color.
+ * Has methods for drawing, erasing and moving on the screen.
+ */
+
+class Tile {
+    field int x, y, r, type;
+	field Grid grid;
+	static Array colors;
+	static Array bits;
+
+	function void init(){
+		let colors = Array.new(7);
+		let colors[0] = Screen.YELLOW();
+		let colors[1] = Screen.CYAN();
+		let colors[2] = Screen.MAGENTA();
+		let colors[3] = Screen.GREEN();
+		let colors[4] = Screen.RED();
+		let colors[5] = Screen.BLUE();
+		let colors[6] = Screen.ORANGE();
+		
+		let bits = Array.new(28);
+		let bits[0] = 1632;
+		let bits[1] = 1632;
+		let bits[2] = 1632;
+		let bits[3] = 1632;
+		
+		let bits[4] = 3840;
+		let bits[5] = 8738;
+		let bits[6] = 240;
+		let bits[7] = 17476;
+
+		let bits[8] = 19968;
+		let bits[9] =  17984;
+		let bits[10] = 3648;
+		let bits[11] = 19520;
+
+		let bits[12] = 27648;
+		let bits[13] = 17952;
+		let bits[14] = 1728;
+		let bits[15] = ~29631;
+
+		let bits[16] = ~14847;
+		let bits[17] = 9792;
+		let bits[18] = 3168;
+		let bits[19] = 19584;
+		
+		let bits[20] = ~29183;
+		let bits[21] = 25664;
+		let bits[22] = 3616;
+		let bits[23] = 17600;
+
+		let bits[24] = 11776;
+		let bits[25] = 17504;
+		let bits[26] = 3712;
+		let bits[27] = ~15295;
+		return;
+	}
+
+    /** Constructs a new Tile
+	*/
+    constructor Tile new() {
+		var int r;
+		let grid = null;
+		let type=7;
+		while (type = 7){
+			let type = Random.nextInt() & 7;
+		}
+		let x = 11;		
+	    let y = 6;
+		let r = 0;
+        return this;
+    }
+
+	method void move(int px,int py){
+		let x=px;
+		let y=py;
+		return;
+	}	
+    /** Deallocates the Tile's memory. */
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+	method boolean check(){
+		var int i,j;
+		var int bit;
+		let i = 0;
+		let j = 0;
+		let bit = bits[(type*4)+r];
+		while (j<4){
+			let i=0;
+			while (i<4){
+				if (bit<0){
+                	if (((x+i)>9) | ((x+i)<0) | ((y+j)>21) | ((y+j)<0)) {
+						return false;
+					}
+					if (grid.hasTile(x+i,y+j)) { return false;}
+				}
+				let i=i+1;
+				let bit = bit + bit;
+			}
+			let j = j+1;
+		}
+        return true;
+    }
+   	
+	method int getScore(Sound music){
+		return grid.clearRow(music);
+	} 
+    
+	method void rotateRight(){
+        do erase();
+        let r = r+1;
+		if (r>3) {
+			let r=r-4;
+		}
+        if (check()) {
+			do draw();
+		} else {
+            let r = r-1;
+			if (r<0) {
+				let r=r+4;
+			}
+            do draw();
+        }
+		return;
+    }
+    
+    method void rotateLeft(){
+        do erase();
+        let r = r-1;
+		if (r<0) {
+			let r=r+4;
+		}
+        if (check()) {
+			do draw();
+		} else {
+            let r = r+1;
+			if (r>3) {
+				let r=r-4;
+			}
+            do draw();
+        }
+		return;
+    }
+    
+    method void moveRight(){
+        do erase();
+        let x = x + 1;
+        if (check()) {
+			do draw();
+		} else {
+            let x = x-1;
+            do draw();
+        }
+		return;
+    }
+    
+    method void moveLeft(){
+        do erase();
+        let x = x - 1;
+        if (check()) {
+			do draw();
+		} else {
+            let x = x + 1;
+            do draw();
+        }
+		return;
+    }
+    
+    method void moveUp(){
+        do erase();
+        let y = y - 1;
+        if (check()) {
+			do draw();
+		} else {
+            let y = y + 1;
+            do draw();
+        }
+		return;
+    }
+    
+    method boolean moveDown(){
+        do erase();
+        let y = y + 1;
+        if (check()) {
+			do draw();
+			return true;
+		} else {
+            let y = y - 1;
+            do draw();
+			return false;
+        }
+    }
+
+   	method boolean span(Grid g){
+		do erase();
+		let grid=g;
+		let x=3;
+		let y=0;
+		if (check()){
+			do draw();
+			return true;
+		}
+		return false;
+	} 
+    
+    method void draw(){
+		var int i,j;
+		var int bit;
+		let i = 0;
+		let j = 0;
+		let bit = bits[(type*4)+r];
+		while (j<4){
+			let i=0;
+			while (i<4){
+				if (bit<0){
+                	if (~(grid=null)) {do grid.draw(x+i,y+j,colors[type]);}
+					else {
+						do Screen.setColor(colors[type]);
+						do Screen.drawRectangle(((x+i)*14)+6,((y+j)*14)-24,13,13);
+						do Screen.setColor(0);
+					}
+				}
+				let i = i+1;
+				let bit = bit + bit;
+			}
+			let j = j+1;
+		}
+        return;
+    }
+    
+    method void erase(){
+		var int i,j;
+		var int bit;
+		let i = 0;
+		let j = 0;
+		let bit = bits[(type*4)+r];
+		while (j<4){
+			let i=0;
+			while (i<4){
+				if (bit<0){
+                	if (~(grid=null)) {do grid.draw(x+i,y+j,-1);}
+					else {
+						do Screen.setColor(-1);
+        				do Screen.drawRectangle(((x+i)*14)+6,((y+j)*14)-24,13,13);
+						do Screen.setColor(0);
+					}
+				}
+				let i = i+1;
+				let bit = bit + bit;
+			}
+			let j = j+1;
+		}
+        return;
+    }
+    
+
+}

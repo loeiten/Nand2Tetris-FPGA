@@ -1,0 +1,10 @@
+# physical constrain file
+# assign io-pins to pin numbering of iCE40-HX1K on olimex board iCE40-HX1K-EVB
+# compare to the schematic of the board and the datasheet of fpga
+
+# add the following lines with used pin number to your pcf file 
+
+set_io sd_miso 
+set_io sd_mosi 
+set_io sd_sck 
+set_io sd_cen 

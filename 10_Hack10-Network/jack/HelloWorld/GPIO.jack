@@ -1,0 +1,22 @@
+class GPIO {
+ 	static Array gpio;
+
+	function void init(int addr){
+		let gpio = addr;
+		return;
+	}
+  
+	function int getBut() {
+		return gpio[1];
+   	}
+	
+	function int getLed() {
+		return gpio[0];
+   	}
+
+   function void setLed(int state){
+		let gpio[0] = state;
+		return;
+   }
+
+}

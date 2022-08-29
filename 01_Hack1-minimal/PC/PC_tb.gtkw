@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
+[*] Thu Jul  2 18:24:50 2020
+[*]
+[dumpfile] "/home/micha/git/gitlab/nand2tetris/PC/PC_tb.vcd"
+[dumpfile_mtime] "Thu Jul  2 18:24:46 2020"
+[dumpfile_size] 56138
+[savefile] "/home/micha/git/gitlab/nand2tetris/PC/PC_tb.gtkw"
+[timestart] 0
+[size] 1172 431
+[pos] -1 -1
+*-3.204921 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 238
+[signals_width] 102
+[sst_expanded] 1
+[sst_vpaned_height] 79
+@28
+PC_tb.clk
+@200
+-INPUT
+@22
+PC_tb.in[15:0]
+@29
+PC_tb.reset
+@28
+PC_tb.load
+PC_tb.inc
+@22
+PC_tb.out[15:0]
+@200
+-OUTPUT
+[pattern_trace] 1
+[pattern_trace] 0

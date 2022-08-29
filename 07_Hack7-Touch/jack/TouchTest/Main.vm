@@ -1,0 +1,28 @@
+function Main.main 1
+label while2
+push constant 1
+neg
+not
+if-goto whileend2
+call Touch.update 0
+pop local 0
+push local 0
+if-goto if3
+goto ifelse3
+label if3
+call Touch.getX 0
+call UART.printInt 1
+pop temp 0
+call Touch.getY 0
+call UART.printInt 1
+pop temp 0
+call Touch.getPressed 0
+call UART.printInt 1
+pop temp 0
+call UART.println 0
+pop temp 0
+label ifelse3
+goto while2
+label whileend2
+push constant 0
+return

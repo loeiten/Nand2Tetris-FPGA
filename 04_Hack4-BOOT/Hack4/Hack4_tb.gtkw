@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
+[*] Sat Jul  4 14:35:27 2020
+[*]
+[dumpfile] "/home/micha/git/gitlab/nand2tetris/Hack4/Hack4_tb.vcd"
+[dumpfile_mtime] "Sat Jul  4 14:35:10 2020"
+[dumpfile_size] 341133264
+[savefile] "/home/micha/git/gitlab/nand2tetris/Hack4/Hack4_tb.gtkw"
+[timestart] 0
+[size] 1162 428
+[pos] -1 -1
+*-17.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Hack4_tb.
+[sst_width] 238
+[signals_width] 158
+[sst_expanded] 1
+[sst_vpaned_height] 78
+@28
+Hack4_tb.rx
+@22
+Hack4_tb.HACK4.led[7:0]
+Hack4_tb.HACK4.sram_addr[17:0]
+@28
+Hack4_tb.HACK4.sram_cen
+@22
+Hack4_tb.HACK4.sram_dataR[15:0]
+Hack4_tb.HACK4.sram_dataW[15:0]
+Hack4_tb.HACK4.sram_data[15:0]
+@28
+Hack4_tb.HACK4.sram_oen
+Hack4_tb.HACK4.sram_wen
+Hack4_tb.HACK4.run
+@29
+Hack4_tb.HACK4.loadRUN
+[pattern_trace] 1
+[pattern_trace] 0

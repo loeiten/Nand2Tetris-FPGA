@@ -1,0 +1,9 @@
+# physical constrain file
+# assign io-pins to pin numbering of iCE40-HX1K on olimex board iCE40-HX1K-EVB
+# compare to the schematic of the board and the datasheet of fpga
+
+# add pin numbers of UartRX and UartTX to your pcf file:
+
+set_io rx 
+set_io tx
+

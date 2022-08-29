@@ -1,0 +1,37 @@
+[*]
+[*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
+[*] Wed Jul 22 18:11:00 2020
+[*]
+[dumpfile] "/home/micha/git/gitlab/nand2tetris/07_Hack7-Touch/Hack7/Hack7_tb.vcd"
+[dumpfile_mtime] "Wed Jul 22 18:06:57 2020"
+[dumpfile_size] 4926824
+[savefile] "/home/micha/git/gitlab/nand2tetris/07_Hack7-Touch/Hack7/Hack7_tb.gtkw"
+[timestart] 0
+[size] 1280 703
+[pos] -1 -1
+*-6.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Hack7_tb.
+[treeopen] Hack7_tb.HACK7.
+[sst_width] 238
+[signals_width] 166
+[sst_expanded] 1
+[sst_vpaned_height] 174
+@28
+Hack7_tb.clk_in
+@200
+-CPU
+@22
+Hack7_tb.HACK7.CPU.regA[15:0]
+Hack7_tb.HACK7.CPU.regD[15:0]
+@23
+Hack7_tb.HACK7.TOUCH.out[15:0]
+@28
+Hack7_tb.HACK7.CPU.writeM
+@200
+-SPI
+@28
+Hack7_tb.tp_miso
+Hack7_tb.tp_mosi
+Hack7_tb.tp_sck
+[pattern_trace] 1
+[pattern_trace] 0

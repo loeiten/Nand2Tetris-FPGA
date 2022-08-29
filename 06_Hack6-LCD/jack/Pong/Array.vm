@@ -1,0 +1,5 @@
+function Array.init 0
+function Array.new 0
+function Array.dispose 0
+push argument 0
+pop pointer 0

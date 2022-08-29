@@ -1,0 +1,33 @@
+/** 
+* Main class of Network project.
+* receive packets from Ethernet module in an endless loop.
+*/
+class Main{
+
+	function void main(){
+		var int button;
+		while(true){
+			let button = ~GPIO.getBut();
+			if (button & 4){
+				do ARP.printAddresses();
+			}
+			if (button & 8){
+				do ARP.clearAddresses();
+			}
+			if (button & 16){
+				do Network.print();	
+			}
+			if (button & 32){
+				
+			}
+			if (button & 64){
+				do TCP.printSockets();	
+			}
+			if (button & 128){
+				do TCP.clearSockets();
+			}
+			do ENC28J60.receivePacket();
+		}
+		return;
+	}
+}

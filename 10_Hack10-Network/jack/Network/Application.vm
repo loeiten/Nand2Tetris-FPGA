@@ -1,0 +1,194 @@
+function Application.processNewConnection 0
+call Screen.BLUE 0
+call Screen.setColor 1
+pop temp 0
+push constant 4
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push argument 0
+call Socket.print 1
+pop temp 0
+push constant 6
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+call Screen.WHITE 0
+call Screen.setColor 1
+pop temp 0
+push constant 0
+return
+function Application.processMessage 1
+call Screen.BLUE 0
+call Screen.setColor 1
+pop temp 0
+push constant 4
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push argument 0
+call Socket.print 1
+pop temp 0
+push constant 10
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+pop local 0
+label while10
+push local 0
+push constant 4
+lt
+not
+if-goto whileend10
+push local 0
+push argument 2
+lt
+push argument 1
+push local 0
+add
+pop pointer 1
+push that 0
+push constant 31
+gt
+and
+if-goto if11
+goto ifelse11
+label if11
+push argument 1
+push local 0
+add
+pop pointer 1
+push that 0
+call Output.printChar 1
+pop temp 0
+label ifelse11
+push local 0
+push constant 1
+add
+pop local 0
+goto while10
+label whileend10
+call Output.println 0
+pop temp 0
+call Screen.WHITE 0
+call Screen.setColor 1
+pop temp 0
+push argument 0
+call Socket.getService 1
+push constant 6000
+eq
+if-goto if22
+goto ifelse22
+label if22
+push argument 0
+push argument 1
+push argument 2
+call Echo.processMessage 3
+pop temp 0
+label ifelse22
+push argument 0
+call Socket.getService 1
+push constant 80
+eq
+if-goto if27
+goto ifelse27
+label if27
+push argument 0
+push argument 1
+push argument 2
+call HTTP.processMessage 3
+pop temp 0
+label ifelse27
+push constant 0
+return
+function Application.processClosedConnection 0
+call Screen.BLUE 0
+call Screen.setColor 1
+pop temp 0
+push constant 4
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push argument 0
+call Socket.print 1
+pop temp 0
+push constant 5
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+call Screen.WHITE 0
+call Screen.setColor 1
+pop temp 0
+push constant 0
+return

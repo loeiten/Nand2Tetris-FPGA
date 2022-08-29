@@ -1,0 +1,134 @@
+function List.new 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push pointer 0
+return
+function List.dispose 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 0
+eq
+not
+if-goto if1
+goto ifelse1
+label if1
+push this 1
+call List.dispose 1
+pop temp 0
+label ifelse1
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function List.getData 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function List.getNext 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function List.pop 2
+push argument 0
+pop pointer 0
+push this 1
+pop local 0
+push this 0
+pop local 1
+push local 1
+call String.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push local 0
+return
+function List.getLength 1
+push argument 0
+push constant 0
+eq
+if-goto if1
+goto ifelse1
+label if1
+push constant 0
+return
+label ifelse1
+push argument 0
+call List.getData 1
+pop local 0
+push local 0
+call String.length 1
+push argument 0
+call List.getNext 1
+call List.getLength 1
+add
+return
+function List.remove 1
+push argument 1
+push constant 0
+eq
+if-goto if1
+goto ifelse1
+label if1
+push constant 0
+return
+label ifelse1
+push argument 1
+call List.getData 1
+push argument 0
+eq
+if-goto if4
+goto ifelse4
+label if4
+push argument 0
+push argument 1
+call List.getNext 1
+call List.remove 2
+pop local 0
+goto ifend4
+label ifelse4
+push argument 1
+call List.getData 1
+push argument 0
+push argument 1
+call List.getNext 1
+call List.remove 2
+call List.new 2
+pop local 0
+label ifend4
+push argument 1
+call Memory.deAlloc 1
+pop temp 0
+push local 0
+return
+function List.append 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 0
+eq
+if-goto if1
+goto ifelse1
+label if1
+push argument 1
+push constant 0
+call List.new 2
+pop this 1
+push constant 0
+return
+label ifelse1
+push this 1
+push argument 1
+call List.append 2
+pop temp 0
+push constant 0
+return

@@ -1,0 +1,86 @@
+/** Implements UART-Communication
+*/
+class UART {
+	static Array uart;
+ 
+	function void init(int addr){
+		let uart = addr;
+		return;
+	}
+  
+	function int readChar() {
+		var int data;
+		let data = -1;
+		while (data<0){
+			let data = uart[1];
+		}
+		let uart[1] = -1;
+		return data;
+   	}
+
+   	function void writeChar(int c){
+		var boolean run;
+		let run = true;
+		while (run) {
+			let run = uart[0];
+		}
+      	let uart[0] = c;
+		return;
+   	}
+	
+	function void printString(String s){
+		var int i;
+		let i=0;
+		while (i<(s.length())){
+			do UART.writeChar(s.charAt(i));
+			let i=i+1;
+		}
+		do s.dispose();
+		return;
+	}
+	
+    function void printInt(int i) {
+		var String s;
+		let s = String.new(6);
+		do s.setInt(i);
+		do UART.printString(s);
+		return;
+	}
+	
+	function void println(){
+		do UART.writeChar(13);
+		do UART.writeChar(10);
+		return;
+	}
+    
+	function int readInt(String message) {
+   		var String val;
+		var int v;
+		let val = UART.readLine(message);
+		let v = val.intValue();
+		do val.dispose();
+		return v; 
+	}
+    
+	function String readLine(String message) {
+		var int v0,nl,bs;
+   		var String line;
+		var boolean key;
+		let line=String.new(80);
+		do UART.printString(message);
+		
+		let v0=UART.readChar();
+		while (~(v0=13)){
+			do UART.writeChar(v0);
+			if (v0=127){
+				do line.eraseLastChar();
+			}else{
+				let line=line.appendChar(v0);
+			}
+			let v0=UART.readChar();
+		}
+		do UART.println();
+		return line;
+	}   
+	
+}

@@ -1,0 +1,293 @@
+function Grid.new 1
+push constant 1
+call Memory.alloc 1
+pop pointer 0
+push constant 220
+call Array.new 1
+pop this 0
+call Screen.DARKGREY 0
+call Screen.setColor 1
+pop temp 0
+push constant 2
+push constant 4
+push constant 2
+push constant 280
+call Screen.drawRectangle 4
+pop temp 0
+push constant 2
+push constant 284
+push constant 146
+push constant 2
+call Screen.drawRectangle 4
+pop temp 0
+push constant 146
+push constant 4
+push constant 2
+push constant 280
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push constant 0
+pop local 0
+label while12
+push local 0
+push constant 220
+lt
+not
+if-goto whileend12
+push local 0
+push this 0
+add
+push constant 1
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto while12
+label whileend12
+push pointer 0
+return
+function Grid.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Array.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Grid.draw 0
+push argument 0
+pop pointer 0
+push argument 3
+call Screen.setColor 1
+pop temp 0
+push argument 1
+push constant 14
+call Math.multiply 2
+push constant 6
+add
+push argument 2
+push constant 14
+call Math.multiply 2
+push constant 24
+sub
+push constant 13
+push constant 13
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push argument 1
+push constant 10
+lt
+if-goto if7
+goto ifelse7
+label if7
+push argument 2
+push constant 10
+call Math.multiply 2
+push argument 1
+add
+push this 0
+add
+push argument 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label ifelse7
+push constant 0
+return
+function Grid.hasTile 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 2
+push constant 10
+call Math.multiply 2
+push argument 1
+add
+add
+pop pointer 1
+push that 0
+push constant 1
+neg
+eq
+not
+return
+function Grid.isClear 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 2
+push constant 10
+call Math.multiply 2
+push argument 1
+add
+add
+pop pointer 1
+push that 0
+call Screen.DARKGREY 0
+eq
+return
+function Grid.clearRow 6
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+push constant 0
+pop local 3
+label while2
+push local 1
+push constant 22
+lt
+not
+if-goto whileend2
+push constant 1
+neg
+pop local 5
+push constant 0
+pop local 0
+label while4
+push local 0
+push constant 10
+lt
+not
+if-goto whileend4
+push pointer 0
+push local 0
+push local 1
+call Grid.hasTile 3
+not
+if-goto if5
+goto ifelse5
+label if5
+push constant 0
+pop local 5
+label ifelse5
+push local 0
+push constant 1
+add
+pop local 0
+goto while4
+label whileend4
+push local 5
+if-goto if10
+goto ifelse10
+label if10
+push local 3
+push constant 1
+add
+pop local 3
+push constant 0
+pop local 0
+label while12
+push local 0
+push constant 10
+lt
+not
+if-goto whileend12
+push argument 1
+call Sound.go 1
+pop local 4
+push pointer 0
+push local 0
+push local 1
+call Screen.DARKGREY 0
+call Grid.draw 4
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto while12
+label whileend12
+label ifelse10
+push local 1
+push constant 1
+add
+pop local 1
+goto while2
+label whileend2
+push constant 1
+pop local 1
+label while22
+push local 1
+push constant 22
+lt
+not
+if-goto whileend22
+push constant 0
+pop local 0
+label while24
+push local 0
+push constant 10
+lt
+not
+if-goto whileend24
+push pointer 0
+push local 0
+push local 1
+call Grid.isClear 3
+if-goto if25
+goto ifelse25
+label if25
+push local 1
+pop local 2
+label while27
+push local 2
+push constant 0
+gt
+not
+if-goto whileend27
+push argument 1
+call Sound.go 1
+pop local 4
+push pointer 0
+push local 0
+push local 2
+push this 0
+push local 2
+push constant 10
+call Math.multiply 2
+push constant 10
+sub
+push local 0
+add
+add
+pop pointer 1
+push that 0
+call Grid.draw 4
+pop temp 0
+push local 2
+push constant 1
+sub
+pop local 2
+goto while27
+label whileend27
+label ifelse25
+push local 0
+push constant 1
+add
+pop local 0
+goto while24
+label whileend24
+push local 1
+push constant 1
+add
+pop local 1
+goto while22
+label whileend22
+push local 3
+return

@@ -1,0 +1,41 @@
+/** 
+* TOP-level module of HACK
+* It connects the external pins of our fpga (hack.pcf)
+* to the modules (cpu,mem,ram,rom,sram,but,led,uart,lcd,sd,sound,touch)
+*/
+
+`default_nettype none
+module Hack9( 
+    input clk_in,				// external clock 100 MHz	
+    input [7:0] but,			// buttons	(0 if pressed, 1 if released)
+	output [7:0] led,			// leds 	(0 off, 1 on)
+	input rx,					// rx line of UART
+	output tx,					// tx line of UART
+	output [17:0] sram_addr,	// SRAM Address 18 Bit = 256K
+	inout [15:0] sram_data,		// SRAM Data 16 Bit
+	output sram_wen,			// SRAM write_enable_not
+	output sram_oen,			// SRAM output_enable_not
+	output sram_cen, 			// SRAM chip_enable_not
+	output lcd_dcn,				// LCD spi data/command not
+	output lcd_mosi,			// LCD spi mosi
+	output lcd_sck,				// LCD spi sck
+	output lcd_cen,				// LCD spi chip enable#
+	input tp_miso,				// TP spi miso
+	output tp_mosi,				// TP spi mosi
+	output tp_sck,				// TP spi sck
+	output snd,				 	// SND speaker
+	input sd_miso,				// SD spi miso
+	output sd_mosi,				// SD spi mosi
+	output sd_sck,				// SD spi sck
+	output sd_cen				// SD spi chip enable#
+);
+
+//your implementation comes here:
+
+
+
+
+
+
+
+endmodule

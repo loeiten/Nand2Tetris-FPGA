@@ -1,0 +1,85 @@
+/** 
+* stores a 32 bit integer and performs simple math.
+*/
+class Int32{
+
+	field int high;
+	field int low;
+
+	/** construct 32 bit integer out of two 16 bit integers representing high/low */ 
+	constructor Int32 new(int h, int l){
+		let high = h;
+		let low = l;
+		return this;
+	}
+		
+	/** dispose the 32 bit integer */
+	method void dispose(){
+		do Memory.deAlloc(this);
+		return;
+	}
+
+	/**
+	* calculates the difference to the given 32 bit integer i.
+	* the result is given as a 15 bit positive number.
+	* returns -1 if the difference is negative, or if the difference is more than 32767
+	*/
+	method int diff(Int32 i){
+		var int d;
+		let d = i.getLow()-low;
+		if (d<0) {
+			return -1;
+		}
+		if ((i.getLow()<0) & (low<0) & (i.getHigh() = high)){
+			return d;
+		}
+		if (~(i.getLow()<0) & ~(low<0) & (i.getHigh() = high)){
+			return d;
+		}
+		if ((i.getLow()<0) & ~(low<0) & ((i.getHigh() + 1) = high)){
+			return d;
+		}
+		return -1;
+	}
+	
+	/** returns highest 16 bit */
+	method int getHigh(){
+		return high;
+	}
+
+	/** returns lower 16 bit */
+	method int getLow(){
+		return low;
+	}
+
+	/** adds 16 bit v */
+	method void add(int  v){
+ 	 	var int s;
+		let s = v + low;
+  		if ((v<0) & (low<0)){
+			let low = s;
+			let high = high + 1;
+			return;
+		}
+  		if (~(v<0) & ~(low<0)){
+			let low = s;
+			return;
+		}
+  		if (s<0){
+			let low = s;
+			return;
+		}
+		let low = s;
+		let high = high +1;
+  		return;
+	}
+	
+	/* print 32 bit in hexadecimal to UART */
+	method void print(){
+		do Output.printHex8(Math.getHigh(high));
+		do Output.printHex8(Math.getLow(high));
+		do Output.printHex8(Math.getHigh(low));
+		do Output.printHex8(Math.getLow(low));
+		return;
+	}
+}

@@ -1,0 +1,908 @@
+function Tile.init 0
+push constant 7
+call Array.new 1
+pop static 0
+push constant 0
+push static 0
+add
+call Screen.YELLOW 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push static 0
+add
+call Screen.CYAN 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push static 0
+add
+call Screen.MAGENTA 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push static 0
+add
+call Screen.GREEN 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push static 0
+add
+call Screen.RED 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push static 0
+add
+call Screen.BLUE 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push static 0
+add
+call Screen.ORANGE 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 28
+call Array.new 1
+pop static 1
+push constant 0
+push static 1
+add
+push constant 1632
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push static 1
+add
+push constant 1632
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push static 1
+add
+push constant 1632
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push static 1
+add
+push constant 1632
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push static 1
+add
+push constant 3840
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push static 1
+add
+push constant 8738
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push static 1
+add
+push constant 240
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push static 1
+add
+push constant 17476
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 8
+push static 1
+add
+push constant 19968
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 9
+push static 1
+add
+push constant 17984
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 10
+push static 1
+add
+push constant 3648
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 11
+push static 1
+add
+push constant 19520
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 12
+push static 1
+add
+push constant 27648
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 13
+push static 1
+add
+push constant 17952
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 14
+push static 1
+add
+push constant 1728
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 15
+push static 1
+add
+push constant 29631
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 16
+push static 1
+add
+push constant 14847
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 17
+push static 1
+add
+push constant 9792
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 18
+push static 1
+add
+push constant 3168
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 19
+push static 1
+add
+push constant 19584
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 20
+push static 1
+add
+push constant 29183
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 21
+push static 1
+add
+push constant 25664
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 22
+push static 1
+add
+push constant 3616
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 23
+push static 1
+add
+push constant 17600
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 24
+push static 1
+add
+push constant 11776
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 25
+push static 1
+add
+push constant 17504
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 26
+push static 1
+add
+push constant 3712
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 27
+push static 1
+add
+push constant 15295
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Tile.new 1
+push constant 5
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 4
+push constant 7
+pop this 3
+label while2
+push this 3
+push constant 7
+eq
+not
+if-goto whileend2
+call Random.nextInt 0
+push constant 7
+and
+pop this 3
+goto while2
+label whileend2
+push constant 11
+pop this 0
+push constant 6
+pop this 1
+push constant 0
+pop this 2
+push pointer 0
+return
+function Tile.move 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 0
+push argument 2
+pop this 1
+push constant 0
+return
+function Tile.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Tile.check 3
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 0
+pop local 1
+push static 1
+push this 3
+push constant 4
+call Math.multiply 2
+push this 2
+add
+add
+pop pointer 1
+push that 0
+pop local 2
+label while2
+push local 1
+push constant 4
+lt
+not
+if-goto whileend2
+push constant 0
+pop local 0
+label while4
+push local 0
+push constant 4
+lt
+not
+if-goto whileend4
+push local 2
+push constant 0
+lt
+if-goto if5
+goto ifelse5
+label if5
+push this 0
+push local 0
+add
+push constant 9
+gt
+push this 0
+push local 0
+add
+push constant 0
+lt
+or
+push this 1
+push local 1
+add
+push constant 21
+gt
+or
+push this 1
+push local 1
+add
+push constant 0
+lt
+or
+if-goto if6
+goto ifelse6
+label if6
+push constant 0
+return
+label ifelse6
+push this 4
+push this 0
+push local 0
+add
+push this 1
+push local 1
+add
+call Grid.hasTile 3
+if-goto if9
+goto ifelse9
+label if9
+push constant 0
+return
+label ifelse9
+label ifelse5
+push local 0
+push constant 1
+add
+pop local 0
+push local 2
+push local 2
+add
+pop local 2
+goto while4
+label whileend4
+push local 1
+push constant 1
+add
+pop local 1
+goto while2
+label whileend2
+push constant 1
+neg
+return
+function Tile.getScore 0
+push argument 0
+pop pointer 0
+push this 4
+push argument 1
+call Grid.clearRow 2
+return
+function Tile.rotateRight 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Tile.erase 1
+pop temp 0
+push this 2
+push constant 1
+add
+pop this 2
+push this 2
+push constant 3
+gt
+if-goto if3
+goto ifelse3
+label if3
+push this 2
+push constant 4
+sub
+pop this 2
+label ifelse3
+push pointer 0
+call Tile.check 1
+if-goto if6
+goto ifelse6
+label if6
+push pointer 0
+call Tile.draw 1
+pop temp 0
+goto ifend6
+label ifelse6
+push this 2
+push constant 1
+sub
+pop this 2
+push this 2
+push constant 0
+lt
+if-goto if11
+goto ifelse11
+label if11
+push this 2
+push constant 4
+add
+pop this 2
+label ifelse11
+push pointer 0
+call Tile.draw 1
+pop temp 0
+label ifend6
+push constant 0
+return
+function Tile.rotateLeft 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Tile.erase 1
+pop temp 0
+push this 2
+push constant 1
+sub
+pop this 2
+push this 2
+push constant 0
+lt
+if-goto if3
+goto ifelse3
+label if3
+push this 2
+push constant 4
+add
+pop this 2
+label ifelse3
+push pointer 0
+call Tile.check 1
+if-goto if6
+goto ifelse6
+label if6
+push pointer 0
+call Tile.draw 1
+pop temp 0
+goto ifend6
+label ifelse6
+push this 2
+push constant 1
+add
+pop this 2
+push this 2
+push constant 3
+gt
+if-goto if11
+goto ifelse11
+label if11
+push this 2
+push constant 4
+sub
+pop this 2
+label ifelse11
+push pointer 0
+call Tile.draw 1
+pop temp 0
+label ifend6
+push constant 0
+return
+function Tile.moveRight 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Tile.erase 1
+pop temp 0
+push this 0
+push constant 1
+add
+pop this 0
+push pointer 0
+call Tile.check 1
+if-goto if3
+goto ifelse3
+label if3
+push pointer 0
+call Tile.draw 1
+pop temp 0
+goto ifend3
+label ifelse3
+push this 0
+push constant 1
+sub
+pop this 0
+push pointer 0
+call Tile.draw 1
+pop temp 0
+label ifend3
+push constant 0
+return
+function Tile.moveLeft 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Tile.erase 1
+pop temp 0
+push this 0
+push constant 1
+sub
+pop this 0
+push pointer 0
+call Tile.check 1
+if-goto if3
+goto ifelse3
+label if3
+push pointer 0
+call Tile.draw 1
+pop temp 0
+goto ifend3
+label ifelse3
+push this 0
+push constant 1
+add
+pop this 0
+push pointer 0
+call Tile.draw 1
+pop temp 0
+label ifend3
+push constant 0
+return
+function Tile.moveUp 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Tile.erase 1
+pop temp 0
+push this 1
+push constant 1
+sub
+pop this 1
+push pointer 0
+call Tile.check 1
+if-goto if3
+goto ifelse3
+label if3
+push pointer 0
+call Tile.draw 1
+pop temp 0
+goto ifend3
+label ifelse3
+push this 1
+push constant 1
+add
+pop this 1
+push pointer 0
+call Tile.draw 1
+pop temp 0
+label ifend3
+push constant 0
+return
+function Tile.moveDown 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Tile.erase 1
+pop temp 0
+push this 1
+push constant 1
+add
+pop this 1
+push pointer 0
+call Tile.check 1
+if-goto if3
+goto ifelse3
+label if3
+push pointer 0
+call Tile.draw 1
+pop temp 0
+push constant 1
+neg
+return
+goto ifend3
+label ifelse3
+push this 1
+push constant 1
+sub
+pop this 1
+push pointer 0
+call Tile.draw 1
+pop temp 0
+push constant 0
+return
+label ifend3
+function Tile.span 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Tile.erase 1
+pop temp 0
+push argument 1
+pop this 4
+push constant 3
+pop this 0
+push constant 0
+pop this 1
+push pointer 0
+call Tile.check 1
+if-goto if3
+goto ifelse3
+label if3
+push pointer 0
+call Tile.draw 1
+pop temp 0
+push constant 1
+neg
+return
+label ifelse3
+push constant 0
+return
+function Tile.draw 3
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 0
+pop local 1
+push static 1
+push this 3
+push constant 4
+call Math.multiply 2
+push this 2
+add
+add
+pop pointer 1
+push that 0
+pop local 2
+label while2
+push local 1
+push constant 4
+lt
+not
+if-goto whileend2
+push constant 0
+pop local 0
+label while4
+push local 0
+push constant 4
+lt
+not
+if-goto whileend4
+push local 2
+push constant 0
+lt
+if-goto if5
+goto ifelse5
+label if5
+push this 4
+push constant 0
+eq
+not
+if-goto if6
+goto ifelse6
+label if6
+push this 4
+push this 0
+push local 0
+add
+push this 1
+push local 1
+add
+push static 0
+push this 3
+add
+pop pointer 1
+push that 0
+call Grid.draw 4
+pop temp 0
+goto ifend6
+label ifelse6
+push static 0
+push this 3
+add
+pop pointer 1
+push that 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push local 0
+add
+push constant 14
+call Math.multiply 2
+push constant 6
+add
+push this 1
+push local 1
+add
+push constant 14
+call Math.multiply 2
+push constant 24
+sub
+push constant 13
+push constant 13
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+label ifend6
+label ifelse5
+push local 0
+push constant 1
+add
+pop local 0
+push local 2
+push local 2
+add
+pop local 2
+goto while4
+label whileend4
+push local 1
+push constant 1
+add
+pop local 1
+goto while2
+label whileend2
+push constant 0
+return
+function Tile.erase 3
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 0
+pop local 1
+push static 1
+push this 3
+push constant 4
+call Math.multiply 2
+push this 2
+add
+add
+pop pointer 1
+push that 0
+pop local 2
+label while2
+push local 1
+push constant 4
+lt
+not
+if-goto whileend2
+push constant 0
+pop local 0
+label while4
+push local 0
+push constant 4
+lt
+not
+if-goto whileend4
+push local 2
+push constant 0
+lt
+if-goto if5
+goto ifelse5
+label if5
+push this 4
+push constant 0
+eq
+not
+if-goto if6
+goto ifelse6
+label if6
+push this 4
+push this 0
+push local 0
+add
+push this 1
+push local 1
+add
+push constant 1
+neg
+call Grid.draw 4
+pop temp 0
+goto ifend6
+label ifelse6
+push constant 1
+neg
+call Screen.setColor 1
+pop temp 0
+push this 0
+push local 0
+add
+push constant 14
+call Math.multiply 2
+push constant 6
+add
+push this 1
+push local 1
+add
+push constant 14
+call Math.multiply 2
+push constant 24
+sub
+push constant 13
+push constant 13
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+label ifend6
+label ifelse5
+push local 0
+push constant 1
+add
+pop local 0
+push local 2
+push local 2
+add
+pop local 2
+goto while4
+label whileend4
+push local 1
+push constant 1
+add
+pop local 1
+goto while2
+label whileend2
+push constant 0
+return

@@ -1,0 +1,88 @@
+class Grid {
+    field Array grid;
+
+    /** Constructs a new Tile
+	*/
+    constructor Grid new() {
+		var int i;
+        let grid = Array.new(220);
+		do Screen.setColor(Screen.DARKGREY());
+		do Screen.drawRectangle(2,4,2,280);
+		do Screen.drawRectangle(2,284,146,2);
+		do Screen.drawRectangle(146,4,2,280);
+		do Screen.setColor(0);
+		let i=0;
+		while (i<220){
+			let grid[i]=-1;
+			let i=i+1;
+		}
+		return this;
+    }
+	
+    /** Deallocates the Tile's memory. */
+    method void dispose() {
+		do grid.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void draw(int x, int y, int color){
+		do Screen.setColor(color);
+		do Screen.drawRectangle((x*14)+6,(y*14)-24,13,13);
+		do Screen.setColor(0);
+		if (x<10) {let grid[(y*10)+x] = color;}
+        return;
+    }
+    
+	method boolean hasTile(int x, int y){
+		return ~(grid[(y*10)+x]=-1);
+	}
+	method boolean isClear(int x, int y){
+		return (grid[(y*10)+x]=Screen.DARKGREY());
+	}
+
+	method int clearRow(Sound music){
+		var int x,y,z;
+		var int r;
+		var int bla;
+		var boolean isClear;
+		let y=0;
+		let r=0;
+		while (y<22){
+			let isClear = true;
+			let x=0;
+			while (x<10){
+				if (~hasTile(x,y)) { let isClear = false;}
+				let x=x+1;
+			}
+			if (isClear){
+				let r=r+1;
+				let x=0;
+				while (x<10){
+					let bla=music.go();
+					do draw(x,y,Screen.DARKGREY());
+					let x=x+1;
+				}
+			}
+			let y = y+1;
+		}
+		let y=1;
+		while (y<22){
+			let x=0;
+			while (x<10){
+				if (isClear(x,y)) {
+					let z=y;
+					while (z>0){
+						let bla=music.go();
+						do draw(x,z,grid[(z*10)-10+x]);
+						let z=z-1;
+					} 
+				}
+				let x=x+1;
+			}
+			let y = y+1;
+		}
+		
+		return r;		
+	}
+}

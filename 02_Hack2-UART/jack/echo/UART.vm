@@ -1,0 +1,60 @@
+function UART.init 0
+push constant 8194
+pop static 0
+push constant 0
+return
+function UART.readChar 1
+push constant 1
+neg
+pop local 0
+label while2
+push local 0
+push constant 0
+lt
+not
+if-goto whileend2
+push static 0
+push constant 1
+add
+pop pointer 1
+push that 0
+pop local 0
+goto while2
+label whileend2
+push constant 1
+push static 0
+add
+push constant 1
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+return
+function UART.writeChar 1
+push constant 1
+neg
+pop local 0
+label while2
+push local 0
+not
+if-goto whileend2
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+pop local 0
+goto while2
+label whileend2
+push constant 0
+push static 0
+add
+push argument 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return

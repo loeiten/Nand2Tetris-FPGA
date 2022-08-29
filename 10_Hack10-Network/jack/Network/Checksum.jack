@@ -1,0 +1,53 @@
+/** 
+* calculates internet checksum of String or linked List of Strings
+*/
+
+class Checksum{
+
+	/** sums to integers (16 bit) in 2s complement */
+	function int  sum(int  a, int b){
+ 	 	var int s;
+		let s = a + b;
+  		if ((a<0) & (b<0)){
+			 return s+1;
+		}
+  		if (~(a<0) & ~(b<0)){
+			return s;
+		}
+  		if (s<0){
+			return s;
+		}
+  		return s+1;
+	}
+
+	/** returns the internet checksum (2s complement) of given String */
+	function int sumString(String data){
+		var int s;
+		var boolean h;
+		var int i;
+		var int len;
+		let len = data.length();
+		let s = 0;
+		let h = true;
+		let i = 0;
+		while (i<len){
+			if (h) {
+				let s = Checksum.sum(s,data.charAt(i)*256);		
+			}else{
+				let s = Checksum.sum(s,data.charAt(i));
+			}
+			let h = ~ h;
+			let i = i + 1;
+		}
+		return s;
+	}	
+	
+	/** returns the internet checksum (2s complement) of all bytes stored in the linked list as Strings */
+	function int sumList(List list){
+		if (list = null){
+			return 0;
+		}
+		return Checksum.sum(Checksum.sumString(list.getData()),Checksum.sumList(list.getNext()));
+	}
+	
+}

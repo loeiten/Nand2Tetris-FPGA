@@ -1,0 +1,295 @@
+function PongGame.new 0
+push constant 7
+call Memory.alloc 1
+pop pointer 0
+call Screen.clearScreen 0
+pop temp 0
+push constant 40
+pop this 6
+push constant 100
+push constant 293
+push this 6
+push constant 7
+call Bat.new 4
+pop this 0
+push constant 117
+push constant 286
+push constant 0
+push constant 239
+push constant 0
+push constant 293
+call Ball.new 6
+pop this 1
+push this 1
+push constant 400
+push constant 0
+call Ball.setDestination 3
+pop temp 0
+push constant 0
+push constant 302
+push constant 240
+push constant 2
+push constant 0
+call Screen.drawRectangle 5
+pop temp 0
+push constant 28
+push constant 0
+call Output.moveCursor 2
+pop temp 0
+push constant 8
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 48
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+pop this 3
+push constant 0
+pop this 4
+push constant 0
+pop this 2
+push constant 0
+pop this 5
+push pointer 0
+return
+function PongGame.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Bat.dispose 1
+pop temp 0
+push this 1
+call Ball.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function PongGame.newInstance 0
+call PongGame.new 0
+pop static 0
+push constant 0
+return
+function PongGame.getInstance 0
+push static 0
+return
+function PongGame.run 1
+push argument 0
+pop pointer 0
+push constant 0
+pop this 3
+label while2
+push this 3
+not
+not
+if-goto whileend2
+call GPIO.getBut 0
+pop local 0
+push local 0
+push constant 3
+eq
+if-goto if3
+goto ifelse3
+label if3
+push this 0
+push constant 0
+call Bat.setDirection 2
+pop temp 0
+label ifelse3
+push local 0
+push constant 1
+eq
+if-goto if8
+goto ifelse8
+label if8
+push this 0
+push constant 1
+call Bat.setDirection 2
+pop temp 0
+label ifelse8
+push local 0
+push constant 2
+eq
+if-goto if13
+goto ifelse13
+label if13
+push this 0
+push constant 1
+neg
+call Bat.setDirection 2
+pop temp 0
+label ifelse13
+push local 0
+push constant 0
+eq
+if-goto if18
+goto ifelse18
+label if18
+push constant 1
+neg
+pop this 3
+label ifelse18
+push this 0
+call Bat.move 1
+pop temp 0
+push pointer 0
+call PongGame.moveBall 1
+pop temp 0
+push constant 50
+call Sys.wait 1
+pop temp 0
+push this 3
+if-goto if27
+goto ifelse27
+label if27
+push constant 10
+push constant 10
+call Output.moveCursor 2
+pop temp 0
+push constant 9
+call String.new 1
+push constant 71
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+label ifelse27
+goto while2
+label whileend2
+push constant 0
+return
+function PongGame.moveBall 5
+push argument 0
+pop pointer 0
+push this 1
+call Ball.move 1
+pop this 2
+push this 2
+push constant 0
+gt
+push this 2
+push this 5
+eq
+not
+and
+if-goto if1
+goto ifelse1
+label if1
+push this 2
+pop this 5
+push constant 0
+pop local 0
+push this 0
+call Bat.getLeft 1
+pop local 1
+push this 0
+call Bat.getRight 1
+pop local 2
+push this 1
+call Ball.getLeft 1
+pop local 3
+push this 1
+call Ball.getRight 1
+pop local 4
+push this 2
+push constant 4
+eq
+if-goto if2
+goto ifelse2
+label if2
+push local 1
+push local 4
+gt
+push local 2
+push local 3
+lt
+or
+pop this 3
+push this 3
+not
+if-goto if3
+goto ifelse3
+label if3
+push local 4
+push local 1
+push constant 10
+add
+lt
+if-goto if4
+goto ifelse4
+label if4
+push constant 1
+neg
+pop local 0
+goto ifend4
+label ifelse4
+push local 3
+push local 2
+push constant 10
+sub
+gt
+if-goto if7
+goto ifelse7
+label if7
+push constant 1
+pop local 0
+label ifelse7
+label ifend4
+push this 6
+push constant 2
+sub
+pop this 6
+push this 0
+push this 6
+call Bat.setWidth 2
+pop temp 0
+push this 4
+push constant 1
+add
+pop this 4
+push constant 28
+push constant 7
+call Output.moveCursor 2
+pop temp 0
+push this 4
+call Output.printInt 1
+pop temp 0
+label ifelse3
+label ifelse2
+push this 1
+push local 0
+call Ball.bounce 2
+pop temp 0
+label ifelse1
+push constant 0
+return

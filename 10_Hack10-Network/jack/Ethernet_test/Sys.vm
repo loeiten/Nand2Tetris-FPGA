@@ -1,0 +1,46 @@
+function Sys.init 0
+call Main.main 0
+pop temp 0
+call Sys.halt 0
+pop temp 0
+push constant 0
+return
+function Sys.halt 0
+label while2
+push constant 1
+neg
+not
+if-goto whileend2
+goto while2
+label whileend2
+push constant 0
+return
+function Sys.wait 1
+label while2
+push argument 0
+push constant 0
+gt
+not
+if-goto whileend2
+push constant 500
+pop local 0
+label while4
+push local 0
+push constant 0
+gt
+not
+if-goto whileend4
+push local 0
+push constant 1
+sub
+pop local 0
+goto while4
+label whileend4
+push argument 0
+push constant 1
+sub
+pop argument 0
+goto while2
+label whileend2
+push constant 0
+return

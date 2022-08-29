@@ -1,0 +1,46 @@
+class Touch{
+	static Array touch;
+	
+	function void init(){
+		let touch = 8205;
+		do Touch.send(85);
+		do Touch.send(1);
+		do Touch.send(18);
+		return;
+	}
+
+	function int getPoint(){
+		var int x,y;
+		let x = Touch.send(0);
+		if (x = 129){
+			let x=Touch.send(0);
+			let x=Touch.send(0)/8;
+			let y=Touch.send(0);
+			let y=Touch.send(0)/8;
+			let y= (y * 4) +x;
+			if (y>15) { return -1;}
+			return y;
+		}
+		if (x = 128){
+			let x=Touch.send(0);
+			let x=Touch.send(0)/8;
+			let y=Touch.send(0);
+			let y=Touch.send(0)/8;
+			let y= (y * 4) +x;
+			if (y>15) { return -1;}
+			return y+16;
+		}
+		return -1;
+	}
+
+	function int send(int c){
+		while (touch[0]<0){
+			do Sys.wait(1);
+		}
+		let touch[0] = c;
+		while (touch[0]<0){
+			do Sys.wait(1);
+		}
+		return touch[0];
+	}
+}

@@ -1,0 +1,23 @@
+/**
+*  Echo implements a simple echo-server
+*  Returns all incoming messages to each socket.
+*  Closes the socket, when received message starts with "quit".
+*/
+
+class Echo{
+
+	/** new message received by socket */
+	function void processMessage(Socket socket, Array message, int len) {
+  		var String answer;
+		if (message.startsWith("quit")){
+			do socket.close();
+		}else {
+			let answer = String.new(len+1);
+			do answer.appendChar(62);
+			do answer.appendArray(message,len);
+			do socket.write(answer);
+		}
+ 		return;	
+  	}
+
+}

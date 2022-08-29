@@ -1,0 +1,70 @@
+class Main {
+	function void main() {
+		var int x;
+		var int vx;
+		do Screen.setColor(Screen.BLACK());
+		do Screen.drawRectangle(5,5,30,30);
+		do Screen.setColor(Screen.NAVY());
+		do Screen.drawRectangle(45,5,30,30);
+		do Screen.setColor(Screen.BLUE());
+		do Screen.drawRectangle(85,5,30,30);
+		do Screen.setColor(Screen.GREEN());
+		do Screen.drawRectangle(125,5,30,30);
+		do Screen.setColor(Screen.TEAL());
+		do Screen.drawRectangle(165,5,30,30);
+		do Screen.setColor(Screen.LIME());
+		do Screen.drawRectangle(205,5,30,30);
+		do Screen.setColor(Screen.AQUA());
+		do Screen.drawRectangle(5,45,30,30);
+		do Screen.setColor(Screen.MAROON());
+		do Screen.drawRectangle(45,45,30,30);
+		do Screen.setColor(Screen.PURPLE());
+		do Screen.drawRectangle(85,45,30,30);
+		do Screen.setColor(Screen.OLIVE());
+		do Screen.drawRectangle(125,45,30,30);
+		do Screen.setColor(Screen.GRAY());
+		do Screen.drawRectangle(165,45,30,30);
+		do Screen.setColor(Screen.SILVER());
+		do Screen.drawRectangle(205,45,30,30);
+		do Screen.setColor(Screen.RED());
+		do Screen.drawRectangle(5,85,30,30);
+		do Screen.setColor(Screen.FUCHSIA());
+		do Screen.drawRectangle(45,85,30,30);
+		do Screen.setColor(Screen.YELLOW());
+		do Screen.drawRectangle(85,85,30,30);	
+		do Screen.setColor(Screen.ORANGE());
+		do Screen.drawRectangle(125,85,30,30);
+		
+		do Screen.setColor(Screen.BLACK());
+		let x=0;
+		while (x<240){
+			do Screen.drawPixel(x,150);
+			let x=x+2;
+		}
+		do Screen.drawLine(120,200,170,200);
+		do Screen.drawLine(120,200,170,250);
+		do Screen.drawLine(120,200,120,250);
+		do Screen.drawLine(120,200,70,250);
+		do Screen.drawLine(120,200,70,200);
+		do Screen.drawLine(120,200,70,150);
+		do Screen.drawLine(120,200,120,150);
+		do Screen.drawLine(120,200,170,150);
+		let x=120;
+		let vx=10;
+		while (true){
+			do Sys.wait(100);
+			do Screen.setColor(Screen.WHITE());
+			do Screen.drawCircle(x,280,5);
+			let x=x+vx;
+			do Screen.setColor(Screen.RED());
+			do Screen.drawCircle(x,280,5);
+			if (x>220) {
+				let vx=-10;
+			}
+			if (x<20) {
+				let vx=10;
+			}
+		}
+		return;
+	}
+}

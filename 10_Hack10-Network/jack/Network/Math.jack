@@ -1,0 +1,136 @@
+/**
+ * A library of commonly used mathematical functions.
+ * Note: Jack compilers implement multiplication and division using OS method calls.
+ */
+class Math {
+	static Array b;
+
+    /** Initializes the library. */
+    function void init() {
+		var int i;
+		var int x;
+		let b=Array.new(16);
+		let i=0;
+		let x=1;
+		while (i<16){
+			let b[i]=x;
+			let x=x+x;
+			let i=i+1;
+		}
+		return;
+    }
+
+    /** Returns the absolute value of x. */
+    function int abs(int x) {
+		if (x<0){
+			return -x;
+		}
+		return x;
+    }
+
+    /** Returns the product of x and y. 
+     *  When a Jack compiler detects the multiplication operator '*' in the 
+     *  program's code, it handles it by invoking this method. In other words,
+     *  the Jack expressions x*y and multiply(x,y) return the same value.
+     */
+    function int multiply(int x, int y) {
+		var int p;
+		var int i;
+		let p=0;
+		let i=0;
+		while (i<16){
+			if ((b[i]&x)=0){
+ 
+			}else{
+				let p=p+y;
+			}
+			let i=i+1;
+			let y=y+y;
+		}
+		return p;
+    }
+
+    /** Returns the integer part of x/y.
+     *  When a Jack compiler detects the multiplication operator '/' in the 
+     *  program's code, it handles it by invoking this method. In other words,
+     *  the Jack expressions x/y and divide(x,y) return the same value.
+     */
+    function int divide(int x, int y) {
+		var int q;
+		var boolean vz;
+		let vz=false;
+		if (x<0){
+			let x=Math.abs(x);
+			let vz=~vz;
+		}
+		if (y<0){
+			let y=Math.abs(y);
+			let vz=~vz;
+		}
+		if (x<y){
+			return 0;
+		}
+		if (x<(y+y)) {
+			if (vz) {
+				return -1;
+			}
+			return 1;
+		}
+		let q=Math.divide(x,y+y);
+		let q=q+q+Math.divide(x-(q*(y+y)),y);
+		if (vz){
+			return -q;
+		}
+		return q;
+	}
+
+    /** Returns the integer part of the square root of x. */
+    function int sqrt(int x) {
+		var int i;
+		var int r;
+		var int rn;
+		if (x<0) {
+			return 0;
+		}
+		let i=7;
+		let r=0;
+		while (~(i<0)){
+			let rn=(r+b[i])*(r+b[i]);
+			if ((rn<0)|(rn>x)){
+				
+			} else {
+				let r=r+b[i];
+			}
+			let i=i-1;
+		}
+    	return r;
+	}
+
+    /** Returns the greater number. */
+    function int max(int a, int b) {
+    	if (a>b){
+			return a;
+		}
+		return b;
+	}
+
+    /** Returns the smaller number. */
+    function int min(int a, int b) {
+    	if (a<b){
+			return a;
+		}
+		return b;
+	}
+	
+	function int getHigh(int a){
+		if (a<0){
+			return (~((~a) / 256)) & 255;
+		}
+		return a / 256;
+	}
+
+	function int getLow(int a){
+		return a & 255;
+	}
+
+}

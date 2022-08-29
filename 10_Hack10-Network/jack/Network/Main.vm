@@ -1,0 +1,67 @@
+function Main.main 1
+label while2
+push constant 1
+neg
+not
+if-goto whileend2
+call GPIO.getBut 0
+not
+pop local 0
+push local 0
+push constant 4
+and
+if-goto if3
+goto ifelse3
+label if3
+call ARP.printAddresses 0
+pop temp 0
+label ifelse3
+push local 0
+push constant 8
+and
+if-goto if8
+goto ifelse8
+label if8
+call ARP.clearAddresses 0
+pop temp 0
+label ifelse8
+push local 0
+push constant 16
+and
+if-goto if13
+goto ifelse13
+label if13
+call Network.print 0
+pop temp 0
+label ifelse13
+push local 0
+push constant 32
+and
+if-goto if18
+goto ifelse18
+label if18
+label ifelse18
+push local 0
+push constant 64
+and
+if-goto if21
+goto ifelse21
+label if21
+call TCP.printSockets 0
+pop temp 0
+label ifelse21
+push local 0
+push constant 128
+and
+if-goto if26
+goto ifelse26
+label if26
+call TCP.clearSockets 0
+pop temp 0
+label ifelse26
+call ENC28J60.receivePacket 0
+pop temp 0
+goto while2
+label whileend2
+push constant 0
+return

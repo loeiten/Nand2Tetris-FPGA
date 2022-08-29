@@ -1,0 +1,17 @@
+class Main{
+	
+	function void main(){
+		var int p;
+		while (true){
+			let p = Touch.update();
+			if (p){
+				do UART.printInt(Touch.getX());
+				do UART.printInt(Touch.getY());
+				do UART.printInt(Touch.getPressed());
+				do UART.println();
+			}
+		}
+		return;
+	}
+	
+}

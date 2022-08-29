@@ -1,0 +1,92 @@
+class Screen {
+
+	function void init(){
+	}	
+
+	function void clearScreen(){
+	}
+
+
+	function void drawPixel(int x,int y){
+	}
+	
+	function void setColor(int c){
+	}
+	
+	function void setBackColor(int c){
+	}
+	
+	function void paintPixel(){
+	}
+	
+	function void clearPixel(){
+	}
+	
+	function void drawLine(int x1,int y1,int x2,int y2){
+	}
+
+	function void drawRectangle(int x, int y, int w, int h){
+	}
+
+	function void drawCircle(int x, int y, int r){
+	}
+	
+	function void setAddrWindow(int x, int y, int w, int h){
+	}
+
+	function void writeData(int data){
+	}
+	
+	function void writeData16(int data){
+	}
+	
+	function void writeCommand(int command){
+	}
+	
+	function int BLACK(){
+		return 0;	//00000 000000 00000
+	}
+	function int NAVY(){
+		return 16;  //00000 000000 10000
+	}
+	function int BLUE(){
+		return 31;  //00000 000000 11111
+	}
+	function int GREEN(){
+		return 2016; //00000 111111 00000
+	}
+	function int CYAN(){
+		return 2047; //00000 111111 11111
+	}
+	function int MAROON(){
+		return ~32767; //10000 000000 00000
+	}
+	function int PURPLE(){
+		return -32752; //10000 000000 10000
+	}
+	function int OLIVE(){
+		return -31744; //10000 100000 00000
+	}
+
+	function int DARKGREY(){
+		return -31728; //10000 100000 10000
+	}
+	function int LIGHTGREY(){
+		return -14824; //11000 110000 11000
+	}
+	function int RED(){
+		return -2048; //11111 000000 00000
+	}
+	function int MAGENTA(){
+		return -2017; //11111 000000 11111
+	}
+	function int YELLOW(){
+		return -32; //11111 111111 00000
+	}
+	function int ORANGE(){
+		return -736; //11111 101001 00000
+	}
+	function int WHITE(){
+		return -1; //11111 111111 11111
+	}
+}

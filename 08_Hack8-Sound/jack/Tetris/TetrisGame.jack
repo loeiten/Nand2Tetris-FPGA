@@ -1,0 +1,114 @@
+/**
+ * Represents a Tetris game.
+ */
+class TetrisGame {
+
+    field String S_next;
+    field String S_score;
+    field String S_game;
+	field Tile tile;          // the tile
+	field Tile next;
+    field boolean exit;       // true when the game is over
+    field int score;          // the current score.
+	field boolean update;
+	field Sound music;
+	field Grid grid;
+		
+    /** Constructs a new Tetris game. */
+    constructor TetrisGame new() {
+	    let score = 0;
+		let S_next = "Next:";
+		let S_score = "Score:";
+		let S_game = "Game over!";
+		let music = Sound.new("EEEGHHGEAAAceedcHHHcddeeccAAAAAAfffgaagfeeefeedcHHHcddeeccAAAAAA",1200);
+	    do Screen.clearScreen();
+		do Output.moveCursor(4,20);
+	    do Output.printString(S_next);
+		do Output.moveCursor(13,20);
+	    do Output.printString(S_score);
+		do Output.moveCursor(15,21);
+	    do Output.printInt(score);
+	    let exit = false;
+		let grid = Grid.new();
+		let next = Tile.new();
+		do next.draw();
+        return this;
+    }
+
+    /** Deallocates the object's memory. */
+    method void dispose() {
+		do next.dispose();
+		do S_next.dispose();
+		do S_score.dispose();
+		do S_game.dispose();
+		do grid.dispose();
+		do music.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+    
+	method void score(int r){
+		if (r=1) {let score =score + 40; }
+		if (r=2) {let score =score + 100; }
+		if (r=3) {let score =score + 300; }
+		if (r=4) {let score =score + 500; }
+		do Output.moveCursor(15,21);
+	    do Output.printInt(score);
+		return;	
+	}
+    /** Starts the game, and handles inputs from the user that control
+     *  the bat's movement direction. */
+    method void run() {
+		var int p;
+		do Menu.setButtonText(0,"  <-");
+		do Menu.setButtonText(1,"   L");
+		do Menu.setButtonText(2,"  R");
+		do Menu.setButtonText(3,"  ->");
+		do Sys.wait(1000);
+		let exit = false;
+		let tile = next;
+		do tile.span(grid);
+		let next = Tile.new();
+		do next.draw();
+		let exit = false;
+		do music.start();
+		while (~exit){
+			let p = Menu.getButton();
+			let update = music.update();
+	    	if (p = 3) { do tile.moveRight();}
+	    	if (p = 2) { do tile.rotateRight();}
+    		if (p = 0) { do tile.moveLeft();}
+	    	if (p = 1) { do tile.rotateLeft();}
+    		
+			if (update & (music.getIndex()&1)) {
+				if (~(tile.moveDown())){
+					do score(tile.getScore(music));
+					do tile.dispose();
+					if (music.getSpeed() > 500){
+						do music.setSpeed(music.getSpeed()-50);
+					}
+					let tile = next;
+					if (~(tile.span(grid))) {
+						do tile.dispose();
+						let exit = true;
+					} else {
+						let next = Tile.new();
+						do next.draw();
+					}
+				}
+			}
+	    	//if (c = 119) { do tile.moveUp(); }
+	    	//if (c = 110) { do tile.rotateLeft(); }
+	   		//if (c = 113) { let exit = true; }
+
+
+	    	if (exit) {
+				do music.stop();
+            	do Output.moveCursor(10,5);
+	        	do Output.printString(S_game);
+	    	}
+        }
+        return;
+    }
+	
+}

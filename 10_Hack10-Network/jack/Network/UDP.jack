@@ -1,0 +1,82 @@
+/**
+*  User Datagram Header Format (UDP)
+*
+*  0                   1                   2                   3
+*  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+* |          Source Port          |       Destination Port        |
+* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+* |             Length            |           Checksum            |
+* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+* |     Data ...
+* +-+-+-+-+-
+*/
+
+class UDP{
+
+	/** read UDP header and send data to application layer */
+	function void read(Array ip, Array header, int len) {
+		var int src_port;
+		var int dst_port;
+		var int length;
+		var int checksum;
+		var Array data;
+
+		if (len > 7){
+			let src_port = header[0]*256 | header[1];
+			let dst_port = header[2]*256 | header[3];
+			let length = header[4]*256 | header[5];
+			let checksum = header[6]*256 | header[7];
+			let data = header + 8;
+    		if (dst_port = 67) {
+				do DHCP.read(data,len-8);
+			}
+  		}
+		return;
+	}
+
+	/** write UDP header and send packet to IP */
+	function void write(Array ip, int src_port, int dst_port, List packet) {
+		var String header;
+		var String pseudo_header;
+		var int length;
+		var int checksum;
+		let header = String.new(8);
+		let packet = List.new(header, packet);
+		let length = List.getLength(packet);
+		
+		do header.appendChar(Math.getHigh(src_port));
+		do header.appendChar(Math.getLow(src_port));
+		do header.appendChar(Math.getHigh(dst_port));
+		do header.appendChar(Math.getLow(dst_port));
+		do header.appendChar(Math.getHigh(length));
+		do header.appendChar(Math.getLow(length));
+		do header.appendChar(0); //checksum
+		do header.appendChar(0); //checksum
+
+		let pseudo_header = String.new(12);
+		let length = List.getLength(packet) + 12;
+		let packet = List.new(pseudo_header,packet);
+		do pseudo_header.appendArray(ip,4);
+		do pseudo_header.appendArray(Network.getMyIP(),4);
+  		do pseudo_header.appendChar(0);
+  		do pseudo_header.appendChar(17);
+  		do pseudo_header.appendChar(Math.getHigh(length));
+  		do pseudo_header.appendChar(Math.getLow(length));
+
+  		let checksum = ~ Checksum.sumList(packet);
+
+  		do header.setCharAt(16, Math.getHigh(checksum));
+  		do header.setCharAt(17, Math.getLow(checksum));
+		
+		let packet = packet.pop();
+		do pseudo_header.dispose();
+		
+		do IP.write(ip, 17, packet);
+
+		let packet = packet.pop();
+		do header.dispose();
+		return;
+	}
+
+}

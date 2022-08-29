@@ -1,0 +1,87 @@
+/**
+* DHCP - Dynamic Host Confiduration Protocol
+*    0                   1                   2                   3
+*    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+*   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*   |     op (1)    |   htype (1)   |   hlen (1)    |   hops (1)    |
+*   +---------------+---------------+---------------+---------------+
+*   |                            xid (4)                            |
+*   +-------------------------------+-------------------------------+
+*   |           secs (2)            |           flags (2)           |
+*   +-------------------------------+-------------------------------+
+*   |                          ciaddr  (4)                          |
+*   +---------------------------------------------------------------+
+*   |                          yiaddr  (4)                          |
+*   +---------------------------------------------------------------+
+*   |                          siaddr  (4)                          |
+*   +---------------------------------------------------------------+
+*   |                          giaddr  (4)                          |
+*   +---------------------------------------------------------------+
+*   |                                                               |
+*   |                          chaddr  (16)                         |
+*   |                                                               |
+*   |                                                               |
+*   +---------------------------------------------------------------+
+*   |                                                               |
+*   |                          sname   (64)                         |
+*   +---------------------------------------------------------------+
+*   |                                                               |
+*   |                          file    (128)                        |
+*   +---------------------------------------------------------------+
+*   |                                                               |
+*   |                          options (312)                        |
+*   +---------------------------------------------------------------+
+*/
+
+class DHCP{
+
+	function void read(Array data, int len){
+		var int op;
+		var int htype;
+		var int hlen;
+		var int hops;
+		var Int32 xid;
+		var int secs;
+		var int flags;
+		var Int32 ciaddr;
+		var Int32 yiaddr;
+		var Int32 siaddr;
+		var Int32 giaddr;
+		
+		if (len>13){
+			let op = Math.getHigh(data[0]);
+			let htype = Math.getLow(data[0]);
+			let hlen = Math.getHigh(data[1]);
+			let hops = Math.getLow(data[1]);
+			let xid = Int32.new(data[2],data[3]);
+			let secs = Math.getHigh(data[4]);
+			let flags = Math.getLow(data[5]);
+			let ciaddr = Int32.new(data[6],data[7]);
+			let yiaddr = Int32.new(data[8],data[9]);
+			let siaddr = Int32.new(data[10],data[11]);
+			let giaddr = Int32.new(data[12],data[13]);
+			do Output.printString("DHCP");
+			do Output.println();
+			do x.print();
+			do Output.println();
+			do ciaddr.print();
+			do Output.println();
+			do yiaddr.print();
+			do Output.println();
+			do siaddr.print();
+			do Output.println();
+			do giadddr.print();
+			do Output.println();
+			do xid.dispose();
+			do ciaddr.dispose();
+			do yiaddr.dispose();
+			do siaddr.dispose();
+			do giaddr.dispose();
+		}
+		return;
+	}
+
+	function void write(){
+		return;
+	}
+}

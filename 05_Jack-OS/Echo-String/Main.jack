@@ -1,0 +1,10 @@
+class Main{
+
+	function void main(){
+		while (true){
+			do UART.printString(UART.input());
+			do UART.println();
+		}
+		return;
+	}
+}

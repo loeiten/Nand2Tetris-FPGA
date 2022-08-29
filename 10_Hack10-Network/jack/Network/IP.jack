@@ -1,0 +1,103 @@
+/**
+*  IP-Header
+*
+*  0                   1                   2                   3
+*  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+*  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*  |Version|  IHL  |Type of Service|          Total Length         |
+*  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*  |         Identification        |Flags|      Fragment Offset    |
+*  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*  |  Time to Live |    Protocol   |         Header Checksum       |
+*  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*  |                       Source Address                          |
+*  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*  |                    Destination Address                        |
+*  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*  |                    Options                    |    Padding    |
+*  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*  Version = 4
+*  IHL = 5 IP-header length (5 * 4 byte)
+*  Protocol = 1 ICMP, 6 TCP, 17 UDP
+*/
+class IP{
+
+	/** read IP header and send payload to ICMP or TCP according to the protocol */
+	function void read(Array header, int len){
+		var int version;
+		var int length;
+		var int protocol;
+		var Array ip_src;
+		var Array ip_dst;
+		var Array data;
+
+		do GPIO.setLed(GPIO.getLed() | 32);
+		let version = header[0];
+		let length = (header[2] * 256) | header[3];
+		let protocol = header[9];
+		let ip_src = header + 12;
+		let ip_dst = header + 16;
+		let data = header + 20;
+	
+		if (version = 69){
+			if (Network.isMyIP(ip_dst) | Network.isBroadcastIP(ip_dst)){
+      			if (protocol = 1) {
+					do IMCP.read(ip_src, data, length - 20);
+				}
+				if (protocol = 6) {
+					do TCP.read(ip_src, data, length - 20);
+				}
+    		}
+  		}
+		do GPIO.setLed(GPIO.getLed() & 223);
+		return;
+	}
+
+	/** write IP header and send it together with the payload to Ethernet */
+	function void write(Array ip_dst, int protocol, List data) {
+		var String header;
+		var int length;
+		var int checksum;
+		var Array mac;
+		var List list;
+		do GPIO.setLed(GPIO.getLed() | 16);
+		let header = String.new(20);
+		let list = List.new(header,data);
+		let length = List.getLength(data) + 20;
+
+		do header.appendChar(69);
+  		do header.appendChar(0);
+  		do header.appendChar(Math.getHigh(length));
+  		do header.appendChar(Math.getLow(length));
+  		do header.appendChar(0);
+  		do header.appendChar(0);
+  		do header.appendChar(0);
+ 		do header.appendChar(0);
+ 		do header.appendChar(64);
+  		do header.appendChar(protocol);
+  		do header.appendChar(0);
+  		do header.appendChar(0);
+		do header.appendArray(Network.getMyIP(), 4);
+		do header.appendArray(ip_dst, 4);
+  		
+  		let checksum =  ~(Checksum.sumString(header));
+  		do header.setCharAt(10, Math.getHigh(checksum));
+  		do header.setCharAt(11, Math.getLow(checksum));
+
+  		if (~Network.isMyLAN(ip_dst)){
+  			let ip_dst = Network.getMyGateway();
+		}
+		let mac = ARP.getMAC(ip_dst);
+	  			
+		if (mac = null){
+ 			do ARP.ping(ip_dst);
+		} else {
+			do Ethernet.write(mac, 2048, list);
+		}
+
+		do list.pop();
+		do GPIO.setLed(GPIO.getLed() & 239);
+		return;
+	}
+
+}

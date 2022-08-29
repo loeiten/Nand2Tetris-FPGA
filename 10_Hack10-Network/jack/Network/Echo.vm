@@ -1,0 +1,42 @@
+function Echo.processMessage 1
+push argument 1
+push constant 4
+call String.new 1
+push constant 113
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+call Array.startsWith 2
+if-goto if1
+goto ifelse1
+label if1
+push argument 0
+call Socket.close 1
+pop temp 0
+goto ifend1
+label ifelse1
+push argument 2
+push constant 1
+add
+call String.new 1
+pop local 0
+push local 0
+push constant 62
+call String.appendChar 2
+pop temp 0
+push local 0
+push argument 1
+push argument 2
+call String.appendArray 3
+pop temp 0
+push argument 0
+push local 0
+call Socket.write 2
+pop temp 0
+label ifend1
+push constant 0
+return

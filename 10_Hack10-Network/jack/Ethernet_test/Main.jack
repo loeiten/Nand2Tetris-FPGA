@@ -1,0 +1,86 @@
+class Main{
+
+	static Array spi;
+
+	function void main(){
+		var Array buffer;
+		do Main.systemResetCommand();
+		let buffer = 2000;
+		let buffer[0] = 55;
+		let buffer[1] = 77;
+		let buffer[2] = 88;
+		let buffer[3] = 99;
+		let buffer[4] = 111;
+		do Main.writeBufferMemory(buffer,5);
+		return;
+	}
+
+	function void systemResetCommand(){
+		// 4.2.7 system reset command
+		let spi[0] = 512 | 255;
+		let spi[0] = 256;
+		return;
+	}
+
+	function void bitFieldClear(int address, int bits){
+		// 4.2.6 bit field clear command
+		let spi[0] = (512 | 160 | address);
+		let spi[0] = (512 | bits);
+		let spi[0] = 256;
+		return;
+	}
+
+	function void bitFieldSet(int address, int bits){
+		// 4.2.5 bit field set command
+		let spi[0] = (512 | 128 | address);
+		let spi[0] = (512 | bits);
+		let spi[0] = 256;
+		return;
+	}
+
+	function void writeBufferMemory(Array data,int len){
+		// 4.2.4 write buffer memory command
+		var int i;
+		let spi[0] = (512 | 122);
+		let i=0;
+		while (i<len) {
+			let spi[0] = 512 | data[i];
+			let i = i+1; 
+		}
+		let spi[0] = 256;
+		return;
+	}
+	
+	function void readBufferMemory(Array data, int len){
+		// 4.2.2 read buffer memory command
+		var int i;
+		let spi[0] = 512 | 58;
+		let i=0;
+		while (i<len) {
+			let spi[0] = 512;
+			let data[i] = spi[0];
+			let i = i+1; 
+		}
+		let spi[0] = 256;
+		return;
+	}
+	
+	function void writeControlRegister(int address, int data){
+		// 4.2.3 write control register command
+		let spi[0] = (512 + 64) | address;
+		let spi[0] = 512 | data;
+		let spi[0] = 256;
+		return;	
+	}
+		
+	function int readControlRegister(int address){
+		// 4.2.1 read control register command
+		var int r;
+		let spi[0] = 512 | address;
+		let spi[0] = 512;
+		let r = spi[0];
+		let spi[0] = 256; 
+		return r;
+	}
+
+}

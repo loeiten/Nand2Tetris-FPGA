@@ -1,0 +1,142 @@
+/** 
+* function main initialises SD-card in SPI mode
+* then reads the whole content of SD-card
+* when start tag "000000" is found: output to Screen till endtag "\n\n" is reached
+*
+* prepare SD-card: format FAT, write hack-file to SD-card (with 000000 at beginning)
+*/
+
+class Main{
+	static Array sdcard;
+
+	function void main(){
+		var int c;
+		var int n;
+		var boolean ok;
+		let sdcard = 8206;
+		let n=0;
+		while (n<10){
+			do Main.send(-32513);	//send 8 sck clocks with cen=1
+			let n=n+1;
+		}
+		do Output.printString("CMD0: ");
+		do Output.printInt(Main.com(64,0,0,0,0,149));
+		do Output.println();
+		do Output.printString("CMD8: ");
+		do Output.printInt(Main.com(72,0,0,1,170,135));
+		do Main.send(255);
+		do Output.printString(",");
+		do Output.printInt(sdcard[0]);
+		do Main.send(255);
+		do Output.printString(",");
+		do Output.printInt(sdcard[0]);
+		do Main.send(255);
+		do Output.printString(",");
+		do Output.printInt(sdcard[0]);
+		do Main.send(255);
+		do Output.printString(",");
+		do Output.printInt(sdcard[0]);
+		do Output.println();
+		let n=0;
+		while (n<10){
+			//for MMC cards:
+			//CMD55+CMD41 has to be replaced with CMD1
+			do Output.printString("CMD55: ");
+			do Output.printInt(Main.com(119,0,0,0,0,0));
+			do Output.println();
+			do Main.send(255);
+			do Main.send(255);
+
+			do Output.printString("CMD41: ");
+			do Output.printInt(Main.com(105,0,0,0,0,0));
+			do Output.println();
+			let n=n+1;
+		}
+
+		do Output.printString("CMD16: ");
+		do Output.printInt(Main.com(80,0,0,2,0,0));
+		do Output.println();
+		do Output.printString("CMD18: ");
+		if (Main.com(82,0,0,0,0,0)=0) {
+			do Output.printString("SD CARD OK");
+		}else {
+			do Output.printString("NO SD");
+		}
+		do Output.println();
+		do Main.read();
+		return;
+	}
+
+	function void read(){
+		var int n;
+		var boolean ok;
+		var int c;
+		while (true){
+			while (~(sdcard[0]=254)){
+				do Main.send(255);
+			}
+			let n=0;
+			while (n<512){
+				do Main.send(255);
+				if (ok){
+					do Output.printChar(sdcard[0]);
+					if (sdcard[0]=10){
+						do Output.println();
+						let c=c+1;
+						if (c=2){
+							do Output.printString("END OF FILE");
+							return;
+						}
+					} else {
+						let c=0;
+					}
+				} else {
+					if (sdcard[0]=48){
+						let c=c+1;
+						if (c=6){
+							let ok=true;
+						}
+					} else {
+						let c=0;
+					}
+				}
+				let n=n+1;
+			}	
+			do Main.send(255);
+			do Main.send(255);
+			do Main.send(255);
+		}
+		return;
+
+	}
+	function void send(int b){
+		var int n;
+		while (sdcard[0]<0){
+			let n=0;
+		}	
+		let sdcard[0] = b;
+		while (sdcard[0]<0){
+			let n=0;
+		}	
+		return;
+	}
+	
+	function int com(int c,int a1,int a2,int a3,int a4,int crc){
+		var int n;
+		do Main.send(c);
+		do Main.send(a1);
+		do Main.send(a2);
+		do Main.send(a3);
+		do Main.send(a4);
+		do Main.send(crc);
+		let n=0;
+		while (n<8){
+			if (sdcard[0]<255){
+				return sdcard[0];
+			}
+			do Main.send(255);
+			let n=n+1;
+		}
+		return 255;
+	}
+}

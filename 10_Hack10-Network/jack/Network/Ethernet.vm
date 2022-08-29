@@ -1,0 +1,116 @@
+function Ethernet.read 4
+call GPIO.getLed 0
+push constant 8
+or
+call GPIO.setLed 1
+pop temp 0
+push argument 1
+push constant 13
+gt
+if-goto if3
+goto ifelse3
+label if3
+push argument 0
+pop local 0
+push argument 0
+push constant 6
+add
+pop local 1
+push argument 0
+push constant 12
+add
+pop pointer 1
+push that 0
+push constant 256
+call Math.multiply 2
+push argument 0
+push constant 13
+add
+pop pointer 1
+push that 0
+add
+pop local 3
+push argument 0
+push constant 14
+add
+pop local 2
+push local 3
+push constant 2054
+eq
+if-goto if4
+goto ifelse4
+label if4
+push local 2
+push argument 1
+push constant 14
+sub
+call ARP.read 2
+pop temp 0
+label ifelse4
+push local 3
+push constant 2048
+eq
+if-goto if9
+goto ifelse9
+label if9
+push local 2
+push argument 1
+push constant 14
+sub
+call IP.read 2
+pop temp 0
+label ifelse9
+label ifelse3
+call GPIO.getLed 0
+push constant 247
+and
+call GPIO.setLed 1
+pop temp 0
+push constant 0
+return
+function Ethernet.write 1
+call GPIO.getLed 0
+push constant 4
+or
+call GPIO.setLed 1
+pop temp 0
+push constant 14
+call String.new 1
+pop local 0
+push local 0
+push argument 0
+push constant 6
+call String.appendArray 3
+pop temp 0
+push local 0
+call Network.getMyMAC 0
+push constant 6
+call String.appendArray 3
+pop temp 0
+push local 0
+push argument 1
+call Math.getHigh 1
+call String.appendChar 2
+pop temp 0
+push local 0
+push argument 1
+call Math.getLow 1
+call String.appendChar 2
+pop temp 0
+push local 0
+push argument 2
+call List.new 2
+pop argument 2
+push argument 2
+call ENC28J60.transmitPacket 1
+pop temp 0
+push argument 2
+call List.pop 1
+pop argument 2
+call GPIO.getLed 0
+push constant 251
+and
+call GPIO.setLed 1
+pop temp 0
+push constant 0
+return
