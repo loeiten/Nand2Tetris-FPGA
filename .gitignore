@@ -4,4 +4,6 @@
 *.bin
 *.out
 *.vcd
-*.py
+*.pyc
+*.backup
+*.bak
