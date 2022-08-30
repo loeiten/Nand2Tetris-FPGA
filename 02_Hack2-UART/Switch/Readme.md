@@ -15,7 +15,7 @@ Testbench toggles switch on/off.
 ![](Switch_tb.png)
 
 ## Project
-* Implement the module `Switch.v` and all needed submodules (Bit, ...).  
+* Implement the module `Switch.v` and all needed submodules (Bit, ...).
 **Note:** DFF and Nand are considered primitive and thus there is no need to implement them.
 * Simulate your implementation with the supplied testbench `Switch_tb.v`.
 * Verify by comparing with screenshot of `Switch_tb.png`.

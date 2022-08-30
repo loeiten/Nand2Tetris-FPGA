@@ -4,11 +4,11 @@ module Test_tb();
 	localparam BITRATE = (BAUD << 1);
 	localparam FRAME = (BITRATE * 11);
 	localparam FRAME_WAIT = (BITRATE * 4);
-  
+
 	task send_car;
     	input [7:0] car;
   		begin
-    		rx <= 0;                 //-- Bit start 
+    		rx <= 0;                 //-- Bit start
     		#BITRATE rx <= car[0];   //-- Bit 0
     		#BITRATE rx <= car[1];   //-- Bit 1
     		#BITRATE rx <= car[2];   //-- Bit 2

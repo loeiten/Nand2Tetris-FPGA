@@ -16,7 +16,7 @@ The state is stored @8192 so you can see what hack is doing at leds!
 run `apio sim` with Hack4 and `jack/boot/out.hack` preloaded in ROM and check read and write-timings of SRAM. When Hack receives to consecutive `\n` chars. The bootloader should switch execution to external SRAM.
 
 Check that HACK receives 12 bytes over UART-RX: ``0,0,0,0,0,\n,1,1,1,\n,\n`` and write two bytes to SRAM (SRAM[0]=0, SRAM[1]=7). Assert that leds show the state of the bootloader.
- 
+
 ![](../../Hack4/Hack4_tb.png)
 
 Inspect details after receiving two consecutive bytes ``\n,\n`` where execution goes to SRAM (bootloader mode 00 = RUN!). From this point sram_addr outputs the programmcounter (pc).
@@ -69,4 +69,3 @@ e.g.:
 $ cd asm/blinky
 $ make
 ```
-

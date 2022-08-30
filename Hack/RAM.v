@@ -13,8 +13,8 @@ module RAM(
 	input wire load,
 	output wire [15:0] out
 );
-	
-	reg [15:0] regRAM [0:3839]; 
+
+	reg [15:0] regRAM [0:3839];
 	always @(negedge clk)
 		if (load) regRAM[address[11:0]] <= in;
 	parameter ROMFILE = "../asm/bootSD/SDINIT.BIN";

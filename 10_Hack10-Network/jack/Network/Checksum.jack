@@ -1,4 +1,4 @@
-/** 
+/**
 * calculates internet checksum of String or linked List of Strings
 */
 
@@ -32,7 +32,7 @@ class Checksum{
 		let i = 0;
 		while (i<len){
 			if (h) {
-				let s = Checksum.sum(s,data.charAt(i)*256);		
+				let s = Checksum.sum(s,data.charAt(i)*256);
 			}else{
 				let s = Checksum.sum(s,data.charAt(i));
 			}
@@ -40,8 +40,8 @@ class Checksum{
 			let i = i + 1;
 		}
 		return s;
-	}	
-	
+	}
+
 	/** returns the internet checksum (2s complement) of all bytes stored in the linked list as Strings */
 	function int sumList(List list){
 		if (list = null){
@@ -49,5 +49,5 @@ class Checksum{
 		}
 		return Checksum.sum(Checksum.sumString(list.getData()),Checksum.sumList(list.getNext()));
 	}
-	
+
 }

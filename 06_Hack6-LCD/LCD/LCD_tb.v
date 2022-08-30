@@ -19,7 +19,7 @@ always #1 clk = ~clk;
 
 
 initial begin
-	
+
   $dumpfile("LCD_tb.vcd");
   $dumpvars(0, LCD_tb);
 	# 2 loadC = 1;

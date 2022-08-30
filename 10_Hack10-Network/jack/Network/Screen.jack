@@ -1,6 +1,6 @@
 /**
 * library to draw on the little MOD-LCD28RTP screen
-* screen has 320 x 240 pixels and 16 bit color codes. 
+* screen has 320 x 240 pixels and 16 bit color codes.
 */
 class Screen {
 	static Array screen;
@@ -12,23 +12,23 @@ class Screen {
 		let screen = addr;
 		let color=-1;
 		let backcolor=0;
-  		
+
 		do Screen.writeCommand(54);//0X36
 		do Screen.writeData(72);            // Memory Access Control
-  		
-  		
+
+
 		do Screen.writeCommand(58);//0x3A //RGB 16 bit !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 		do Screen.writeData(85);
-		
+
   		do Screen.writeCommand(17);//0x11
 		do Sys.wait(500);
-  		
+
 		do Screen.writeCommand(41);//0x29
 		do Sys.wait(500);
-			
+
 		do Screen.clearScreen();
 		return;
-	}	
+	}
 
 	/** paint all pixels on the screen in backcolor */
 	function void clearScreen(){
@@ -62,25 +62,25 @@ class Screen {
 		return;
 	}
 
-	/** change backgroung color to 16 bit value c */	
+	/** change backgroung color to 16 bit value c */
 	function void setBackColor(int c){
 		let backcolor=c;
 		return;
 	}
-	
+
 	/** set next pixel to selected color */
 	function void paintPixel(){
 		do Screen.writeData16(color);
 		return;
 	}
-	
+
 	/** set next pixel to backgroundcolor */
 	function void clearPixel(){
 		do Screen.writeData16(backcolor);
 		return;
 	}
 
-	/** draw line in selected color between points (x1,y1) and (x2,y2) */	
+	/** draw line in selected color between points (x1,y1) and (x2,y2) */
 	function void drawLine(int x1,int y1,int x2,int y2){
 		var int dx,dy;
 		var int vx,vy;
@@ -122,7 +122,7 @@ class Screen {
 		}
 		do Screen.drawPixel(x1,y1);
 
-		
+
 		return;
 	}
 
@@ -156,7 +156,7 @@ class Screen {
 		return;
 	}
 
-	/** set addresswindow of MOD-LCD28RTP */	
+	/** set addresswindow of MOD-LCD28RTP */
 	function void setAddrWindow(int x, int y, int w, int h){
     	do Screen.writeCommand(42); // Column addr set
     	do Screen.writeData16(x);
@@ -173,19 +173,19 @@ class Screen {
 		let screen[1] = data;
 		return;
 	}
-	
+
 	/** write 16 bit data to MOD-LCD28RTP */
 	function void writeData16(int data){
 		let screen[2] = data;
 		return;
 	}
-	
+
 	/** write 8 bit command to MOD-LCD28RTP */
 	function void writeCommand(int command){
 		let screen[0]=command;
 		return;
 	}
-	
+
 	/** a list of 16 bit color codes (rrrrrggggggbbbbb) */
 	function int BLACK(){
 		return 0;	//00000 000000 00000

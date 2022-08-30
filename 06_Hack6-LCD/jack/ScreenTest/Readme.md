@@ -11,7 +11,7 @@ writeData(0x48);        //RGB mode
 
 writeCommand(0x3A);     //Pixel format set
 writeData(0x55);        //RGB mode 16 bit
-		
+
 writecommand(0x11);     //Sleep out (exit sleep mode)
 delay(120 ms);
 
@@ -95,7 +95,7 @@ Colors are enter as 16 bit numbers composed of Red(5bit) Green(6bit) and Blue(5b
 
 ## Project
 * run `Hack6.v` in real hardware with `asm/boot` preloaded to `ROM.v`
-* Implement `Screen.jack` with Specifications 1.-4. 
+* Implement `Screen.jack` with Specifications 1.-4.
 * compile `ScreenTest`
 * upload to Hack
 * check if LCD shows the following:

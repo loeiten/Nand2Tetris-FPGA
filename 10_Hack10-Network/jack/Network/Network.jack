@@ -4,13 +4,13 @@
 * IP 192.168.1.42, MAC de:ad:be:ed:fe:ed, Gateway 192.168.1.1 and subnetmask 255.255.255.0
 */
 class Network{
-	
+
 	static Array myIP;
 	static Array myMAC;
 	static Array myGateway;
 	static Array broadcast;
 	static Array netmask;
-	
+
 	/** init network configuration and map the ethernet controller to address */
 	function void init(int address){
 		let myIP = Array.new(4);

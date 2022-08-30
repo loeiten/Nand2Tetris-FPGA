@@ -37,7 +37,7 @@ class Socket{
 		let my_sequence = null;
 		return this;
 	}
-	
+
 	/** dispose the socket */
 	method void dispose(){
 		do client_ip.dispose();
@@ -55,7 +55,7 @@ class Socket{
 	method int getService(){
 		return service;
 	}
-	
+
 	/** dispose the transmit window */
 	method void clearWindow() {
   		var String s;
@@ -75,7 +75,7 @@ class Socket{
 		}
 		return false;
 	}
-	
+
 	/** syn handshake from client */
 	method void syn(Int32 sequence) {
 		let client_sequence = Int32.new(sequence.getHigh(), sequence.getLow());
@@ -91,7 +91,7 @@ class Socket{
 	/** returns true, when socket is closed */
 	method boolean isClosed(){
 		return isClosed;
-	}	
+	}
 
 	/** push command from client */
 	method void psh(Int32 sequence, Array message, int len) {
@@ -102,7 +102,7 @@ class Socket{
   		}
 		return;
 	}
-	
+
 	/** fin command from client */
 	method void fin(Int32 sequence) {
 		if (sequence.diff(client_sequence) = 0) {
@@ -140,11 +140,11 @@ class Socket{
 		}
 		return;
   	}
-	
+
 	/** close the socket */
 	method void close() {
     	let FIN = true;
-		let FLAGS = FLAGS | 17;	
+		let FLAGS = FLAGS | 17;
 		return;
 	}
 
@@ -177,4 +177,3 @@ class Socket{
 	}
 
 }
-

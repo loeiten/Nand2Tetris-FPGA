@@ -12,7 +12,7 @@ class Sys {
 		do UART.init();
 		do Screen.init();
 		do Output.init();
-		do Touch.init();	
+		do Touch.init();
 		do Main.main();
 		do Sys.halt();
 		return;

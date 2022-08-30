@@ -14,7 +14,7 @@ Testbench increments loads and resets the PC. Generates `PC.out` which can be co
 
 ![](PC_tb.png)
 ## Project
-* Implement the module `PC.v` and all needed submodules (Bit, Register, HalfAdder ...).  
+* Implement the module `PC.v` and all needed submodules (Bit, Register, HalfAdder ...).
 **Note:** DFF and Nand are considered primitive and thus there is no need to implement them.
 * Simulate your implementation with the supplied testbench `PC_tb.v`.
 * Compare `PC.out` with `PC.cmp`

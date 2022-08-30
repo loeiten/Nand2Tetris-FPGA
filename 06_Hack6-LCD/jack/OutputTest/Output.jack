@@ -1,11 +1,11 @@
 /**
  * A library of functions for writing text on the screen.
  * The Hack physical screen consists of 320 rows of 240 pixels each.
- * The library uses a fixed font, in which each character is displayed 
- * within a frame which is 11 pixels high (including 1 pixel for inter-line 
+ * The library uses a fixed font, in which each character is displayed
+ * within a frame which is 11 pixels high (including 1 pixel for inter-line
  * spacing) and 8 pixels wide (including 2 pixels for inter-character spacing).
  * The resulting grid accommodates 29 rows (indexed 0..28, top to bottom)
- * of 30 characters each (indexed 0..29, left to right). The top left 
+ * of 30 characters each (indexed 0..29, left to right). The top left
  * character position on the screen is indexed (0,0). A cursor, implemented
  * as a small filled square, indicates where the next character will be displayed.
  */
@@ -17,7 +17,7 @@ class Output {
 	static String string;
 	static Array charMaps;
 	static Array bit;
-	
+
     /** Initializes the screen, and locates the cursor at the screen's top-left. */
     function void init() {
 		let row=0;
@@ -34,13 +34,13 @@ class Output {
 		let bit[7]=64;
 
 		do Output.initMap();
-		return;		
+		return;
     }
 
     // Initializes the character map array
     function void initMap() {
         let charMaps = Array.new(127);
-        
+
         // Black square, used for displaying non-printable characters.
         do Output.create(0,63,63,63,63,63,63,63,63,63,0,0);
         do Output.create(10,63,63,63,63,63,63,63,63,63,0,0);
@@ -62,9 +62,9 @@ class Output {
         do Output.create(43,0,0,0,12,12,63,12,12,0,0,0);     // +
         do Output.create(44,0,0,0,0,0,0,0,12,12,6,0);        // ,
         do Output.create(45,0,0,0,0,0,63,0,0,0,0,0);         // -
-        do Output.create(46,0,0,0,0,0,0,0,12,12,0,0);        // .    
+        do Output.create(46,0,0,0,0,0,0,0,12,12,0,0);        // .
         do Output.create(47,0,0,32,48,24,12,6,3,1,0,0);      // /
-        
+
         do Output.create(48,12,30,51,51,51,51,51,30,12,0,0); // 0
         do Output.create(49,12,14,15,12,12,12,12,12,63,0,0); // 1
         do Output.create(50,30,51,48,24,12,6,3,51,63,0,0);   // 2
@@ -75,7 +75,7 @@ class Output {
         do Output.create(55,63,49,48,48,24,12,12,12,12,0,0); // 7
         do Output.create(56,30,51,51,51,30,51,51,51,30,0,0); // 8
         do Output.create(57,30,51,51,51,62,48,48,24,14,0,0); // 9
-        
+
         do Output.create(58,0,0,12,12,0,0,12,12,0,0,0);      // :
         do Output.create(59,0,0,12,12,0,0,12,12,6,0,0);      // ;
         do Output.create(60,0,0,24,12,6,3,6,12,24,0,0);      // <
@@ -144,7 +144,7 @@ class Output {
         do Output.create(120,0,0,0,51,30,12,12,30,51,0,0);     // x
         do Output.create(121,0,0,0,51,51,51,62,48,24,15,0);    // y
         do Output.create(122,0,0,0,63,27,12,6,51,63,0,0);      // z
-        
+
         do Output.create(123,56,12,12,12,7,12,12,12,56,0,0);   // {
         do Output.create(124,12,12,12,12,12,12,12,12,12,0,0);  // |
         do Output.create(125,7,12,12,12,56,12,12,12,7,0,0);    // }
@@ -177,7 +177,7 @@ class Output {
     }
 
 	function void drawChar(int s){
-		var Array map;	
+		var Array map;
 		var int i,j;
 		do Screen.setAddrWindow(col*8, row*11+1, 8, 11);
 		let map = charMaps[s];

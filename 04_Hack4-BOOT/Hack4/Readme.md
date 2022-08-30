@@ -31,16 +31,15 @@ The Testbench `Hack_tb.v` transmitts a few bytes representing hack-code to rx. W
 
 * Implement `Hack4.v` (Version A)
 * Preload `ROM.v` with `jack/boot/out.hack`
-* Simulate with testbench `Hack4_tb.v`  
+* Simulate with testbench `Hack4_tb.v`
 `$ apio sim`
 * Compare output with `Hack4_tb.png`
-* Build and upload to iCE40-HX1K-EVB  
+* Build and upload to iCE40-HX1K-EVB
  `$ apio upload`
 * Run `jack/boot` on real hardware (Hack4). Connect your PC to Hack over UART and send some Hack-code to store in SRAM and run from SRAM:
-  
+
   ```
   $ cat asm/led.hack > /dev/ttyACM0
   $ cat asm/blinky.hack > /dev/ttyACM0
   $ cat asm/echo.hack > /dev/ttyACM0
   ```
-  

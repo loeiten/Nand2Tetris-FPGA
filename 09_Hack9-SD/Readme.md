@@ -35,7 +35,7 @@ SD cards are able to communicate via SPI to Hack. The connection is done with a 
  |address | memory|R/W|function|
  |-|-|-|-|
  |82xx|SD|W|write 8bit data to SD-card|
- |82xx|SD|R|read 8bit from SD-card (<0 busy)| 
+ |82xx|SD|R|read 8bit from SD-card (<0 busy)|
 
 * Match `Hack9.pcf` pin numbering of iCE40-HX1K (FPGA) with jumper wires used to connect to SD card reader.
 

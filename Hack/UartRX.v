@@ -9,7 +9,7 @@
 *
 *  after 9-bit out[7:0] holds the received byte with out[15] = 0
 *  (valid byte)
-*  
+*
 *  if (reset = 1) out[15] = 1 (receive buffer not valid)
 *
 *  Important implementation detail:

@@ -1,4 +1,4 @@
-/** 
+/**
 * function main initialises SD-card in SPI mode
 * then reads the whole content of SD-card
 * when start tag "000000" is found: output to Screen till endtag "\n\n" is reached
@@ -101,7 +101,7 @@ class Main{
 					}
 				}
 				let n=n+1;
-			}	
+			}
 			do Main.send(255);
 			do Main.send(255);
 			do Main.send(255);
@@ -113,14 +113,14 @@ class Main{
 		var int n;
 		while (sdcard[0]<0){
 			let n=0;
-		}	
+		}
 		let sdcard[0] = b;
 		while (sdcard[0]<0){
 			let n=0;
-		}	
+		}
 		return;
 	}
-	
+
 	function int com(int c,int a1,int a2,int a3,int a4,int crc){
 		var int n;
 		do Main.send(c);

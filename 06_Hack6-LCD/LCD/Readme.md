@@ -33,6 +33,6 @@ Testbench, that starts transmission of:
 ![](LCD_tb.png)
 ## Project
 * Implement `LCD.v`
-* Test with testbench `LCD_tb.v`  
+* Test with testbench `LCD_tb.v`
 `$ apio sim`
 * Compare timing diagram with `LCD_tb.png`

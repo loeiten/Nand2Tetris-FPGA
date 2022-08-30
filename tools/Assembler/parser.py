@@ -1,6 +1,6 @@
 # uncompyle6 version 3.8.0
 # Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.13 (default, Mar 28 2022, 06:16:26) 
+# Decompiled from: Python 3.8.13 (default, Mar 28 2022, 06:16:26)
 # [Clang 12.0.0 ]
 # Embedded file name: /home/micha/git/gitlab/nand2tetris-13/tools/Assembler/parser.py
 # Compiled at: 2020-05-05 23:20:52
@@ -77,11 +77,11 @@ class DEA:
                80  STORE_ATTR               commandType
 
  L.  24        82  LOAD_FAST                'self'
-               84  DUP_TOP          
+               84  DUP_TOP
                86  LOAD_ATTR                comp
                88  LOAD_FAST                'c'
-               90  INPLACE_ADD      
-               92  ROT_TWO          
+               90  INPLACE_ADD
+               92  ROT_TWO
                94  STORE_ATTR               comp
 
  L.  25        96  LOAD_CONST               4
@@ -108,11 +108,11 @@ class DEA:
             132_0  COME_FROM           122  '122'
 
  L.  31       132  LOAD_FAST                'self'
-              134  DUP_TOP          
+              134  DUP_TOP
               136  LOAD_ATTR                symbol
               138  LOAD_FAST                'c'
-              140  INPLACE_ADD      
-              142  ROT_TWO          
+              140  INPLACE_ADD
+              142  ROT_TWO
               144  STORE_ATTR               symbol
           146_148  JUMP_FORWARD        406  'to 406'
             150_0  COME_FROM           114  '114'
@@ -135,11 +135,11 @@ class DEA:
             176_0  COME_FROM           166  '166'
 
  L.  36       176  LOAD_FAST                'self'
-              178  DUP_TOP          
+              178  DUP_TOP
               180  LOAD_ATTR                symbol
               182  LOAD_FAST                'c'
-              184  INPLACE_ADD      
-              186  ROT_TWO          
+              184  INPLACE_ADD
+              186  ROT_TWO
               188  STORE_ATTR               symbol
             190_0  COME_FROM           174  '174'
               190  JUMP_FORWARD        406  'to 406'
@@ -194,11 +194,11 @@ class DEA:
             268_0  COME_FROM           256  '256'
 
  L.  47       268  LOAD_FAST                'self'
-              270  DUP_TOP          
+              270  DUP_TOP
               272  LOAD_ATTR                comp
               274  LOAD_FAST                'c'
-              276  INPLACE_ADD      
-              278  ROT_TWO          
+              276  INPLACE_ADD
+              278  ROT_TWO
               280  STORE_ATTR               comp
             282_0  COME_FROM           266  '266'
             282_1  COME_FROM           248  '248'
@@ -236,11 +236,11 @@ class DEA:
 
  L.  54       332  LOAD_FAST                'self'
             334_0  COME_FROM            32  '32'
-              334  DUP_TOP          
+              334  DUP_TOP
               336  LOAD_ATTR                comp
               338  LOAD_FAST                'c'
-              340  INPLACE_ADD      
-              342  ROT_TWO          
+              340  INPLACE_ADD
+              342  ROT_TWO
               344  STORE_ATTR               comp
             346_0  COME_FROM           330  '330'
             346_1  COME_FROM           312  '312'
@@ -267,12 +267,12 @@ class DEA:
             378_0  COME_FROM           366  '366'
 
  L.  59       378  LOAD_FAST                'self'
-              380  DUP_TOP          
+              380  DUP_TOP
               382  LOAD_ATTR                jump
               384  LOAD_FAST                'c'
-              386  INPLACE_ADD      
+              386  INPLACE_ADD
             388_0  COME_FROM           130  '130'
-              388  ROT_TWO          
+              388  ROT_TWO
               390  STORE_ATTR               jump
             392_0  COME_FROM           376  '376'
               392  JUMP_FORWARD        406  'to 406'

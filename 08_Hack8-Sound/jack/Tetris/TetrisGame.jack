@@ -13,7 +13,7 @@ class TetrisGame {
 	field boolean update;
 	field Sound music;
 	field Grid grid;
-		
+
     /** Constructs a new Tetris game. */
     constructor TetrisGame new() {
 	    let score = 0;
@@ -46,7 +46,7 @@ class TetrisGame {
         do Memory.deAlloc(this);
         return;
     }
-    
+
 	method void score(int r){
 		if (r=1) {let score =score + 40; }
 		if (r=2) {let score =score + 100; }
@@ -54,7 +54,7 @@ class TetrisGame {
 		if (r=4) {let score =score + 500; }
 		do Output.moveCursor(15,21);
 	    do Output.printInt(score);
-		return;	
+		return;
 	}
     /** Starts the game, and handles inputs from the user that control
      *  the bat's movement direction. */
@@ -79,7 +79,7 @@ class TetrisGame {
 	    	if (p = 2) { do tile.rotateRight();}
     		if (p = 0) { do tile.moveLeft();}
 	    	if (p = 1) { do tile.rotateLeft();}
-    		
+
 			if (update & (music.getIndex()&1)) {
 				if (~(tile.moveDown())){
 					do score(tile.getScore(music));
@@ -110,5 +110,5 @@ class TetrisGame {
         }
         return;
     }
-	
+
 }

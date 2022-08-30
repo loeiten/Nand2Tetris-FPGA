@@ -9,7 +9,7 @@ The Hack physical screen consists of 320 rows of 240 pixels each. The library us
 ## Project
 * run `Hack6.v` in real hardware with `asm/boot` preloaded to `ROM.v`
 * Implement `Output.jack` with new specifications.
-(Use Screen.setAddressWindow(), Screen.paintPixel() and Screen.clearPixel()) 
+(Use Screen.setAddressWindow(), Screen.paintPixel() and Screen.clearPixel())
 * compile `OutputTest`
 * upload to Hack
 * check if LCD shows the following:

@@ -1,12 +1,12 @@
-/** 
+/**
 * TOP-level module of HACK
 * It connects the external pins of our fpga (hack.pcf)
 * to the modules (cpu,mem,ram,rom,sram,but,led,uart,lcd,sd,sound,touch)
 */
 
 `default_nettype none
-module Hack10( 
-    input clk_in,				// external clock 100 MHz	
+module Hack10(
+    input clk_in,				// external clock 100 MHz
     input [7:0] but,			// buttons	(0 if pressed, 1 if released)
 	output [7:0] led,			// leds 	(0 off, 1 on)
 	input rx,					// rx line of UART
@@ -33,7 +33,7 @@ module Hack10(
 	output eth_sck,
 	output eth_cs
 );
-	
+
 	SB_GB Clock_Buffer (// required for a user’s internally generated FPGA signal that is heavily loaded and requires global buffering. For example, a user’s logic-generated clock.
 		.USER_SIGNAL_TO_GLOBAL_BUFFER (clk_out),
 		.GLOBAL_BUFFER_OUTPUT (clk)
@@ -55,7 +55,7 @@ module Hack10(
 	wire loadM;
 	wire [15:0] outM;
 	wire [15:0] inM;
-	CPU CPU(						
+	CPU CPU(
 		.clk(clk),
     	.inM(inM),         			// M value input  (M = contents of RAM[A])
     	.instruction(instruction), 	// Instruction for execution
@@ -63,11 +63,11 @@ module Hack10(
                          			// program (rstn==0) or continue executing
                          			// the current program (rstn==1).
     	.outM(outM),       			// M value output
-    	.writeM(loadM),          	// Write to M? 
+    	.writeM(loadM),          	// Write to M?
     	.addressM(addressM),    	// Address in data memory to Read(of M)
     	.pc(pc)          			// address of next instruction
 	);
-	
+
 	//memory map
 	Memory MEMORY(.address(addressM),.load(loadM),.out(inM),
 			.loadRAM(loadRAM),.inRAM(outRAM),
@@ -93,16 +93,16 @@ module Hack10(
 	wire [15:0] outRAM;
 	wire loadRAM;
 	RAM RAM(.clk(clk),.address(addressM),.in(outM),.load(loadRAM),.out(outRAM));
-	
+
 	// leds
 	wire [15:0] outLED;
 	wire loadLED;
 	Register LED(.clk(clk),.load(loadLED),.in(outM),.out(outLED));
 	assign led = outLED[7:0];
-	
+
 	// but
 	wire [15:0] outBUT;
-	Register BUT(.clk(clk),.load(1'b1),.in({8'b00000000,but}),.out(outBUT));	
+	Register BUT(.clk(clk),.load(1'b1),.in({8'b00000000,but}),.out(outBUT));
 
 	// UART TX
 	wire [15:0] outTX;
@@ -113,7 +113,7 @@ module Hack10(
 	wire [15:0] outRX;
 	wire loadRX;
 	UartRX UARTRX(.clk(clk),.reset(loadRX),.rx(rx),.out(outRX));
-	
+
 	//SRAM
 	wire loadSRAM_ADDR;
 	wire loadSRAM_DATA;
@@ -122,13 +122,13 @@ module Hack10(
 	Register PROM_D(.clk(clk),.load(loadSRAM_DATA),.in(outM),.out(sram_dataW));
 	Switch WE(.clk(clk),.on(loadSRAM_DATA),.off(1'b1),.out(we));
 	wire we;
-	
+
 	//Tristate
-	wire [15:0] sram_dataR;	
-	wire [15:0] sram_dataW;	
+	wire [15:0] sram_dataR;
+	wire [15:0] sram_dataW;
 	Tristate SRAM_DATA(.pin(sram_data),.oe(sram_oen),.dataW(sram_dataW),.dataR(sram_dataR));
-	Mux16 INSTR(.a(instructionROM),.b(sram_dataR),.sel(run),.out(instruction));	
-	Mux16 SRAMA(.a(boot_sram_addr),.b(pc),.sel(run),.out(sram_addr[15:0]));	
+	Mux16 INSTR(.a(instructionROM),.b(sram_dataR),.sel(run),.out(instruction));
+	Mux16 SRAMA(.a(boot_sram_addr),.b(pc),.sel(run),.out(sram_addr[15:0]));
 	Or OEN(.a(run),.b(~we),.out(sram_wen));
 	Not WEN(.in(sram_wen),.out(sram_oen));
 	assign sram_addr[17:16]=2'b00;
@@ -137,19 +137,19 @@ module Hack10(
 	//assign sram_wen = (run) ? 1: ~we;
 	//assign sram_oen = (run) ? 0: we;
 	assign sram_cen = 0;
-	
+
 	// internal ROM with bootloader
-	wire [15:0] instructionROM;	
+	wire [15:0] instructionROM;
 	ROM ROM(
 		.pc(pc),
 		.instruction(instructionROM)
 	);
-	
+
 	//boot logic
 	wire loadRUN;
 	wire run;
 	Switch BOOT(.clk(clk),.on(loadRUN),.off(1'b0),.out(run));
-	
+
 	//SD-card
 	wire loadSD;
 	wire [15:0] outSD;
@@ -163,7 +163,7 @@ module Hack10(
 		.miso(sd_miso),
 		.sck(sd_sck)
 	);
-	
+
 	//LCD
 	wire [15:0] outLCD;
 	wire loadLCD_C;
@@ -181,14 +181,14 @@ module Hack10(
 		.mosi(lcd_mosi),
 		.sck(lcd_sck)
 	);
-	
+
 
 	// sound
 	wire [15:0] outSOUND;
 	wire loadSOUND;
 	Register SOUND(.clk(clk),.load(loadSOUND),.in(outM),.out(outSOUND));
 	Sound SND(.clk(clk),.in(outSOUND),.out(snd));
-	
+
 	//timer
 	wire [15:0] outTIME;
 	Timer TIMER(.clk(clk),.out(outTIME));
@@ -201,7 +201,7 @@ module Hack10(
 		.load(loadTOUCH),.in(outM[7:0]),.out(outTOUCH),
 		.mosi(tp_mosi),.miso(tp_miso),.sck(tp_sck)
 	);
-	
+
 	//Ethernet
 	wire [15:0] outETHERNET;
 	wire loadETHERNET;

@@ -2,8 +2,8 @@
 # assign io-pins to pin numbering of iCE40-HX1K on olimex board iCE40-HX1K-EVB
 # compare to the schematic of the board and the datasheet of fpga
 
-set_io clk_in 15				
-set_io -pullup yes but[0] 41	
+set_io clk_in 15
+set_io -pullup yes but[0] 41
 set_io -pullup yes but[1] 42
 set_io -pullup yes but[2] 34
 set_io -pullup yes but[3] 33
@@ -72,4 +72,3 @@ set_io lcd_cen 4
 set_io tp_miso 7
 set_io tp_mosi 8
 set_io tp_sck 9
-

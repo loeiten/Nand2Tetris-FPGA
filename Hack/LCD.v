@@ -1,7 +1,7 @@
-/** 
+/**
  * LCD-Screen
  * LCD is controlled over four line serial peripherial interface (SPI)
- * 
+ *
  * dcn	= high when 8 bit data is send / low when command is send.
  * cen = chip enable not is low to enable chip
  * mosi = master out slave in serial data line

@@ -1,6 +1,6 @@
 # uncompyle6 version 3.8.0
 # Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.13 (default, Mar 28 2022, 06:16:26) 
+# Decompiled from: Python 3.8.13 (default, Mar 28 2022, 06:16:26)
 # [Clang 12.0.0 ]
 # Embedded file name: /home/micha/git/gitlab/nand2tetris-13/tools/VMTranslator/parser.py
 # Compiled at: 2020-05-05 23:21:09
@@ -47,8 +47,8 @@ class Parse:
                52  LOAD_STR                 '//'
                54  CALL_METHOD_1         1  '1 positional argument'
                56  LOAD_CONST               None
-               58  BUILD_SLICE_2         2 
-               60  BINARY_SUBSCR    
+               58  BUILD_SLICE_2         2
+               60  BINARY_SUBSCR
                62  LOAD_METHOD              strip
                64  LOAD_STR                 '\n'
                66  CALL_METHOD_1         1  '1 positional argument'
@@ -61,7 +61,7 @@ class Parse:
                76  LOAD_STR                 '//'
                78  CALL_METHOD_1         1  '1 positional argument'
                80  LOAD_CONST               0
-               82  BINARY_SUBSCR    
+               82  BINARY_SUBSCR
                84  STORE_FAST               'lin'
 
  L.  12        86  LOAD_FAST                'lin'
@@ -84,7 +84,7 @@ class Parse:
 
  L.  15       116  LOAD_FAST                'lin'
               118  LOAD_CONST               0
-              120  BINARY_SUBSCR    
+              120  BINARY_SUBSCR
               122  LOAD_METHOD              strip
               124  CALL_METHOD_0         0  '0 positional arguments'
               126  LOAD_FAST                'self'
@@ -128,7 +128,7 @@ class Parse:
 
  L.  21       190  LOAD_FAST                'lin'
               192  LOAD_CONST               1
-              194  BINARY_SUBSCR    
+              194  BINARY_SUBSCR
               196  LOAD_METHOD              strip
               198  CALL_METHOD_0         0  '0 positional arguments'
               200  LOAD_FAST                'self'
@@ -136,7 +136,7 @@ class Parse:
 
  L.  22       204  LOAD_FAST                'lin'
               206  LOAD_CONST               0
-              208  BINARY_SUBSCR    
+              208  BINARY_SUBSCR
               210  LOAD_STR                 'label'
               212  COMPARE_OP               ==
               214  POP_JUMP_IF_FALSE   226  'to 226'
@@ -150,7 +150,7 @@ class Parse:
 
  L.  24       226  LOAD_FAST                'lin'
               228  LOAD_CONST               0
-              230  BINARY_SUBSCR    
+              230  BINARY_SUBSCR
               232  LOAD_STR                 'goto'
               234  COMPARE_OP               ==
               236  POP_JUMP_IF_FALSE   248  'to 248'
@@ -164,7 +164,7 @@ class Parse:
 
  L.  26       248  LOAD_FAST                'lin'
               250  LOAD_CONST               0
-              252  BINARY_SUBSCR    
+              252  BINARY_SUBSCR
               254  LOAD_STR                 'if-goto'
               256  COMPARE_OP               ==
           258_260  POP_JUMP_IF_FALSE   272  'to 272'
@@ -184,7 +184,7 @@ class Parse:
               282  CALL_FUNCTION_1       1  '1 positional argument'
               284  CALL_METHOD_1         1  '1 positional argument'
               286  CALL_FUNCTION_1       1  '1 positional argument'
-              288  POP_TOP          
+              288  POP_TOP
             290_0  COME_FROM           270  '270'
             290_1  COME_FROM           246  '246'
             290_2  COME_FROM           224  '224'
@@ -200,14 +200,14 @@ class Parse:
 
  L.  31       306  LOAD_FAST                'lin'
               308  LOAD_CONST               0
-              310  BINARY_SUBSCR    
+              310  BINARY_SUBSCR
               312  LOAD_METHOD              strip
               314  CALL_METHOD_0         0  '0 positional arguments'
               316  STORE_FAST               'comm'
 
  L.  32       318  LOAD_FAST                'lin'
               320  LOAD_CONST               1
-              322  BINARY_SUBSCR    
+              322  BINARY_SUBSCR
               324  LOAD_METHOD              strip
               326  CALL_METHOD_0         0  '0 positional arguments'
               328  LOAD_FAST                'self'
@@ -215,7 +215,7 @@ class Parse:
 
  L.  33       332  LOAD_FAST                'lin'
               334  LOAD_CONST               2
-              336  BINARY_SUBSCR    
+              336  BINARY_SUBSCR
               338  LOAD_METHOD              strip
               340  CALL_METHOD_0         0  '0 positional arguments'
               342  STORE_FAST               'arg2'
@@ -228,7 +228,7 @@ class Parse:
  L.  35       354  LOAD_GLOBAL              int
               356  LOAD_FAST                'lin'
               358  LOAD_CONST               2
-              360  BINARY_SUBSCR    
+              360  BINARY_SUBSCR
               362  LOAD_METHOD              strip
               364  CALL_METHOD_0         0  '0 positional arguments'
               366  CALL_FUNCTION_1       1  '1 positional argument'
@@ -293,7 +293,7 @@ class Parse:
               462  CALL_FUNCTION_1       1  '1 positional argument'
               464  CALL_METHOD_1         1  '1 positional argument'
               466  CALL_FUNCTION_1       1  '1 positional argument'
-              468  POP_TOP          
+              468  POP_TOP
             470_0  COME_FROM           450  '450'
             470_1  COME_FROM           430  '430'
             470_2  COME_FROM           410  '410'

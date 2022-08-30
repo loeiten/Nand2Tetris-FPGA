@@ -10,6 +10,6 @@ module Xor(
 	output wire out
 );
 
-	
-	
+
+
 endmodule

@@ -1,4 +1,4 @@
-/** 
+/**
 * SD connects hack to a sd-card reader
 *
 * if (load == 1) & (run == 0) transmission of in[7:0] is started and run is

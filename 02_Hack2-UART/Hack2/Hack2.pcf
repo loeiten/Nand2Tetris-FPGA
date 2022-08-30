@@ -4,6 +4,5 @@
 
 # add pin numbers of UartRX and UartTX to your pcf file:
 
-set_io rx 
+set_io rx
 set_io tx
-

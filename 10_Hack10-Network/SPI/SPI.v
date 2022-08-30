@@ -1,4 +1,4 @@
-/** 
+/**
 * SPI controller.
 * load=1: (write to controller)
 * in[7:0] data
@@ -47,12 +47,12 @@ module SPI(
 	Bit LATCH(.clk(clk),.in(miso),.load(sample),.out(inLSB));
 
 	wire shift;
-	assign shift=run&sck;	
+	assign shift=run&sck;
 	wire [7:0] data;
 	ShifterL SHIFTER(.clk(clk),.in(in[7:0]),.out(data),.load(start),.shift(shift),.inLSB(inLSB));
 	assign mosi=data[7];
 
-	
+
 	wire stop;
 	assign stop=bits[3]&bits[2]&bits[1]&sck;
 

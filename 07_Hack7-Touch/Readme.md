@@ -33,7 +33,7 @@ Check datasheet of iCE40-HX1K-EVB and MOD-LCD2.8RTP.
  |address | memory|R/W|function|
  |-|-|-|-|
  |8203|TP|W|write 8bit data to Touch-Panel|
- |8203|TP|R|read 8bit from Touch-Panel (<0 busy)| 
+ |8203|TP|R|read 8bit from Touch-Panel (<0 busy)|
 
 * Match `Hack7.pcf` pin numbering of iCE40-HX1K (FPGA) with jumper wires used to connect to Touch panel controller.
 

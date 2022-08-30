@@ -11,7 +11,7 @@ class Sys {
 		do GPIO.init();
 		while (true){
 			do GPIO.setLed(GPIO.getBut());
-		}		
+		}
 		return;
 	}
 }
@@ -20,21 +20,21 @@ class Sys {
 
 ### GPIO.jack
 The class `GPIO.jack` gives acces to GPIO pins connected to leds and buttons.
- 
+
 ```
 class GPIO {
 
 	// init() function is called at startup to initialise GPIO-class
 	function void init(){
 	}
-  
+
   	// returns the state of the buttons on bit 1 and bit 0
   	// 0 = button released
   	// 1 = button pressed
 	function int getBut() {
 
    	}
-	
+
 	// returns the state of the leds on bit 1 and bit 0
   	// 0 = led off
   	// 1 = led on
@@ -46,7 +46,7 @@ class GPIO {
 	// 1 = led on
 	// 0 = led off
    function void setLed(int state){
-		
+
    }
 
 }

@@ -15,14 +15,14 @@ if (address[13]==1 and address[3:0]=0010) data = data0010
 ...
 ```
 
-![](Memory.png)	
+![](Memory.png)
 
 ## Memory_tb.v
 Testbench to generate load signals for every Memory mapped module.
 
-![](Memory_tb.png)	
+![](Memory_tb.png)
 ## Project
-* Implement the module `Memory.v` and all needed submodules.  
+* Implement the module `Memory.v` and all needed submodules.
 **Note:** DFF and Nand are considered primitive and thus there is no need to implement them.
 * Simulate your implementation with the supplied testbench `Memory.v`.
 * Verify by comparing with screenshot of `Memory_tb.png`.

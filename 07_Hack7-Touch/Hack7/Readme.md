@@ -25,7 +25,7 @@ Writing to memory address 8203 sends the lower 8 bits to Touchpanel. Reading fro
  |8203|Touch|W|write 8bit data to Touchpanel|
  |8203|Touch|R|last received byte, or (<0) if busy|
 
- 
+
 ## Hack7_tb.v
 The Testbench `Hack7_tb.v` performs the following tasks:
 * writes data: 55 to MOSI
@@ -37,13 +37,12 @@ The Testbench `Hack7_tb.v` performs the following tasks:
 
 * Implement `Hack7.v`
 * Preload `ROM.v` with `asm/touch/touch.hack`
-* Simulate with testbench `Hack7_tb.v`  
+* Simulate with testbench `Hack7_tb.v`
 `$ apio sim`
 * Compare output with `Hack7_tb.png`
 * Connect Touchpanel controller of MOD-LCD-2.8RTP to iCE40-HX1K-EVB with three more jumper wires.
 * Preload `ROM.v` with `asm/boot/boot.hack`
-* Build and upload to iCE40-HX1K-EVB  
+* Build and upload to iCE40-HX1K-EVB
  `$ apio upload`
 * Run `boot.hack` on Hack7 in real hardware.
 * Do software part of project `jack/TouchTest`
-  

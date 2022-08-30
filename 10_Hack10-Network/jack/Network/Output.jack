@@ -1,11 +1,11 @@
 /**
  * A library of functions for writing text on the screen.
  * The Hack physical screen consists of 240 rows of 320 pixels each.
- * The library uses a fixed font, in which each character is displayed 
- * within a frame which is 12 pixels high (including 2 pixel for inter-line 
+ * The library uses a fixed font, in which each character is displayed
+ * within a frame which is 12 pixels high (including 2 pixel for inter-line
  * spacing) and 8 pixels wide (including 2 pixels for inter-character spacing).
  * The resulting grid accommodates 20 rows (indexed 0..19, top to bottom)
- * of 40 characters each (indexed 0..39, left to right). The top left 
+ * of 40 characters each (indexed 0..39, left to right). The top left
  * character position on the screen is indexed (0,0). A cursor, implemented
  * as a small filled square, indicates where the next character will be displayed.
  */
@@ -15,13 +15,13 @@ class Output {
     // Character map for displaying characters
     static int col,row;
 	static Array charMaps;
-	
+
     /** Initializes the screen, and locates the cursor at the screen's top-left. */
     function void init() {
 		let row=0;
 		let col=0;
 		do Output.initMap();
-		return;		
+		return;
     }
 
     // Initializes the character map array
@@ -31,7 +31,7 @@ class Output {
         do Output.create(0,3,(~448),(~7169),16355,(~448),(~8191));  //
         do Output.create(10,3,(~448),(~7169),16355,(~448),(~8191));  //
 
-        do Output.create(32,0,0,0,0,0,0);  // 
+        do Output.create(32,0,0,0,0,0,0);  //
         do Output.create(33,0,1,(~15489),14304,7168,0);  //!
         do Output.create(34,0,0,24590,0,3584,24576);  //"
         do Output.create(35,0,(~28608),(~16239),2307,(~1014),0);  //#
@@ -147,7 +147,7 @@ class Output {
 
 	/** draw the given character s at the position of the cursor */
 	function void drawChar(int s){
-		var Array map;	
+		var Array map;
 		var int i,j;
 		var int pixel;
 		do Screen.setAddrWindow((19-row)*12, col*8, 12, 8);
@@ -228,7 +228,7 @@ class Output {
 		do Output.printHex4(i/16);
 		do Output.printHex4(i & 15);
 		return;
-	}	
+	}
 
 	function void printHex4(int i){
 		if (i<10) {
@@ -239,7 +239,7 @@ class Output {
 		return;
 	}
 
-	/** print content of array in hexadecimal representation */	
+	/** print content of array in hexadecimal representation */
 	function void printArray(Array pData, int pLen){
 		var int i;
 		let i=0;

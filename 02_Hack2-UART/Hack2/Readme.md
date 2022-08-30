@@ -26,10 +26,10 @@ The Testbench `Hack2_tb.v` transmitts a few bytes to. When ROM.v is loaded with 
 
 * Implement `Hack2.v`
 * Preload `ROM.v` with `echo.hack`
-* Simulate with testbench `Hack2_tb.v`  
+* Simulate with testbench `Hack2_tb.v`
 `$ apio sim`
 * Compare output with `Hack2_tb.png`
-* Build and upload to iCE40-HX1K-EVB  
+* Build and upload to iCE40-HX1K-EVB
  `$ apio upload`
 * Test `echo` running on fpga with UART
 `screen /dev/ttyACM0`

@@ -2,7 +2,7 @@ class Menu{
 	static Array button;
 	static int last;
 	static boolean pressed;
-	
+
 	function void init(){
 		let button = Array.new(4);
 		let button[0] = Button.new(0);
@@ -19,7 +19,7 @@ class Menu{
 		if ((i>(-1))&(i<4)) {let b=button[i]; do b.setText(t); do b.draw(false);}
 		return;
 	}
-	
+
 	function int getButton(){
 		var boolean t;
 		var Button b;
@@ -47,5 +47,5 @@ class Menu{
 		}
 		return -1;
 	}
-	
+
 }

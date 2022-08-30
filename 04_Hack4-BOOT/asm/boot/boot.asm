@@ -8,7 +8,7 @@ D;JNE
 @8195
 M=0
 
-(LOOP)		
+(LOOP)
 @8192		//state 01
 M=1
 
@@ -93,4 +93,3 @@ M=0
 @8198		//jump to SRAM
 AMD=0
 0;JMP
-

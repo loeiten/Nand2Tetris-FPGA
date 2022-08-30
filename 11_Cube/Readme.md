@@ -34,4 +34,3 @@ On the rear cover you see connectors for power supply (5V), RJ45 Ethernet connec
 
 On the front side you see the screen (MOD-LCD2.8RTP) and a slit to insert the SD-card.
 ![](pics/cube_front.jpg)
-

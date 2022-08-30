@@ -12,13 +12,13 @@ Testbench performs some operations and generates `CPU.out`, which can be compare
 ![](CPU_tb.png)
 
 ## Project
-* Implement the `CPU` and all needed submodules.  
-  
+* Implement the `CPU` and all needed submodules.
+
   Use translation guide at `00_Requirement/Xor` to see how to translate your HDL-files into verilog.
-  
+
   **Note:** Nand and DFF are considered primitive and thus there is no need to implement them.
 
-* Simulate your implementation with the supplied Testbench `CPU_tb.v`.  
+* Simulate your implementation with the supplied Testbench `CPU_tb.v`.
 `$ apio sim`
 
 * Verify by comparing `CPU.out` with `CPU.cmp`.

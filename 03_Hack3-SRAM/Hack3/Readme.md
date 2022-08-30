@@ -46,11 +46,11 @@ The Testbench `Hack_tb.v` transmitts a few bytes to rx. When ROM.v is loaded wit
 * Implement `Hack3.v`
 * Add pin numbering to `Hack3.pcf` according to schematic of iCE40HX1K-EVB.
 * Preload `ROM.v` with `sram.hack`
-* Simulate with testbench `Hack3_tb.v`  
+* Simulate with testbench `Hack3_tb.v`
 `$ apio sim`
 * Compare output with `Hack3_tb.png`
-* Build and upload to iCE40-HX1K-EVB  
+* Build and upload to iCE40-HX1K-EVB
  `$ apio upload`
 * Test `sram.hack` running on fpga with a terminal programm.
-  
+
   `screen /dev/ttyACM0`

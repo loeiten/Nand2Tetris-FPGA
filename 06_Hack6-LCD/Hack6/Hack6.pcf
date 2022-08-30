@@ -8,4 +8,3 @@ set_io lcd_dcn 1
 set_io lcd_mosi 2
 set_io lcd_sck 3
 set_io lcd_cen 4
-

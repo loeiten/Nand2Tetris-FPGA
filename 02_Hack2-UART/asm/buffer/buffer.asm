@@ -12,7 +12,7 @@ M=0
 @8195
 D=M
 @WAIT_RX
-D;JLT		
+D;JLT
 
 @8195		//clear uart_rx
 M=-1

@@ -15,6 +15,5 @@ module Tristate(
 
 	assign pin = (oe)? dataW: 16'bzzzzzzzzzzzzzzzz;
 	assign dataR = pin;
-	
-endmodule
 
+endmodule

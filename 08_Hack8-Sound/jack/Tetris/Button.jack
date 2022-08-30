@@ -33,5 +33,5 @@ class Button{
 			if (~(text=null)){do Output.printString(text);}
 			do Screen.setBackColor(-1);
 		return;
-	}	
+	}
 }

@@ -8,9 +8,9 @@ This is done because Hack will not run errorfree in real hardware when clocked t
 ## Clock_tb.v
 Testbench to generate clock signal.
 
-![](Clock_tb.png)	
+![](Clock_tb.png)
 ## Project
-* Implement the module `Clock.v` and all needed submodules.  
+* Implement the module `Clock.v` and all needed submodules.
 **Note:** DFF and Nand are considered primitive and thus there is no need to implement them.
 * Simulate your implementation with the supplied testbench `Clock_tb.v`.
 * Verify by comparing with screenshot of `Clock_tb.png`.

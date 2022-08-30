@@ -17,7 +17,7 @@ class Echo{
 			do answer.appendArray(message,len);
 			do socket.write(answer);
 		}
- 		return;	
+ 		return;
   	}
 
 }

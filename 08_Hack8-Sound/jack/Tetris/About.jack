@@ -27,7 +27,7 @@ class About{
 	function void show(String text,int x, int y,int t){
 		var int p;
 		do Output.moveCursor(y,x);
-		let p=0;	
+		let p=0;
 		while (p<text.length()){
 			do Output.printChar(text.charAt(p));
 			do Sys.wait(t);
@@ -35,6 +35,5 @@ class About{
 		}
 		do text.dispose();
 		return;
-	}	
+	}
 }
-

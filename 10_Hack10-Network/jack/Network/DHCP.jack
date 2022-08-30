@@ -47,7 +47,7 @@ class DHCP{
 		var Int32 yiaddr;
 		var Int32 siaddr;
 		var Int32 giaddr;
-		
+
 		if (len>13){
 			let op = Math.getHigh(data[0]);
 			let htype = Math.getLow(data[0]);

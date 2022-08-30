@@ -44,7 +44,7 @@ class UDP{
 		let header = String.new(8);
 		let packet = List.new(header, packet);
 		let length = List.getLength(packet);
-		
+
 		do header.appendChar(Math.getHigh(src_port));
 		do header.appendChar(Math.getLow(src_port));
 		do header.appendChar(Math.getHigh(dst_port));
@@ -68,10 +68,10 @@ class UDP{
 
   		do header.setCharAt(16, Math.getHigh(checksum));
   		do header.setCharAt(17, Math.getLow(checksum));
-		
+
 		let packet = packet.pop();
 		do pseudo_header.dispose();
-		
+
 		do IP.write(ip, 17, packet);
 
 		let packet = packet.pop();

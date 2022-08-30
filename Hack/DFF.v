@@ -17,4 +17,3 @@ module DFF(
 		else out <= 1'b0;
 
 endmodule
-

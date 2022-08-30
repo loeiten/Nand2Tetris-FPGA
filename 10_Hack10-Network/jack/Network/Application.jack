@@ -35,11 +35,11 @@ class Application{
 		do Screen.setColor(Screen.WHITE());
 		if (socket.getService() = 6000){
 			do Echo.processMessage(socket,message,len);
-		}	
+		}
 		if (socket.getService() = 80){
 			do HTTP.processMessage(socket,message,len);
-		}	
- 		return;	
+		}
+ 		return;
   	}
 
 	/** client at socket has closed the connection */
@@ -53,5 +53,5 @@ class Application{
 ());
 		return;
 	}
-	
+
 }

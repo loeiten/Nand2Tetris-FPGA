@@ -6,14 +6,14 @@
 */
 
 class HTTP{
-	
+
 	/** new message received by socket */
 	function void processMessage(Socket socket, Array message, int len) {
 
 		//debug to Output
 		do Screen.setColor(Screen.MAGENTA());
 		do Output.printString("HTTP Request");
-		do Output.println();	
+		do Output.println();
 		do Screen.setColor(Screen.WHITE());
 
 		if (message.startsWith("GET /")){
@@ -23,7 +23,7 @@ class HTTP{
 			do socket.write("Fuck!");
 			do socket.close();
 		}
- 		return;	
+ 		return;
   	}
 
 }

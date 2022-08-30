@@ -25,6 +25,6 @@ Check clock rate of sck. It should be half of clock rate clk, to ensure error fr
 ![](Touch_tb.png)
 ## Project
 * Implement `Touch.v`
-* Test with testbench `Touch_tb.v`  
+* Test with testbench `Touch_tb.v`
 `$ apio sim`
 * Compare timing diagram with `Touch_tb.png`

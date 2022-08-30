@@ -20,7 +20,7 @@ class List{
 		do Memory.deAlloc(this);
 		return;
 	}
-	
+
 	/** get the car */
 	method int getData(){
 		return data;
@@ -41,7 +41,7 @@ class List{
 		do Memory.deAlloc(this);
 		return l;
 	}
-	
+
 	/** return the total number of bytes stored in a linked list of String objects */
 	function int getLength(List l){
 		var String s;

@@ -9,12 +9,12 @@ class GPIO {
 		let gpio = addr;
 		return;
 	}
- 
-	/** returns status of buttons */ 
+
+	/** returns status of buttons */
 	function int getBut() {
 		return gpio[1];
    	}
-	
+
 	/** returns status of leds */
 	function int getLed() {
 		return gpio[0];

@@ -1,4 +1,4 @@
-/**  
+/**
 *  TCP Header Format
 *
 *    0                   1                   2                   3
@@ -23,13 +23,13 @@
 */
 class TCP{
 	static List sockets;
-	
+
 	/** reset socket list */
 	function void init(){
 		let sockets = null;
 		return;
 	}
-	
+
 	/** read TCP header and handle payload to socket */
 	function void read(Array src_ip, Array header, int len){
   		var int src_port;
@@ -54,13 +54,13 @@ class TCP{
 		let dst_port = (header[2] * 256) | header[3];
 		let sequence_number = Int32.new((header[4] * 256) | header[5], (header[6] * 256) | header[7]);
   		let acknowledgment_number = Int32.new((header[8] * 256) | header[9], (header[10] * 256) | header[11]);
-  
+
 		let flags = header[13];
   		let ACK = ((flags & 16) = 16);
   		let PSH = ((flags & 8) = 8);
   		let SYN = ((flags & 2) = 2);
   		let FIN = ((flags & 1) = 1);
-  		
+
 		if ((dst_port = 6000) | (dst_port = 80)) {
 			let s = TCP.getSocket(src_ip, src_port, sockets);
 			if (s = null) {
@@ -104,17 +104,17 @@ class TCP{
 		}
 		return TCP.getSocket(ip,port,list.getNext());
 	}
-	
-	
+
+
 	/** write TCP header and send to IP */
 	function void write(int service, Array ip, int port, Int32 sequence, Int32 ack, int flags, List packet) {
   		var String header;
 		var String pseudo_header;
 		var int len;
-		var int sum;		
+		var int sum;
 		do GPIO.setLed(GPIO.getLed() | 64);
 
-		let header = String.new(20);	
+		let header = String.new(20);
 		let packet = List.new(header,packet);
   		let len = List.getLength(packet)+20;
   		do header.appendChar(Math.getHigh(service));
@@ -137,7 +137,7 @@ class TCP{
   		do header.appendChar(0); //checksum
   		do header.appendChar(0);
   		do header.appendChar(0);
-	
+
 		let pseudo_header = String.new(12);
 		let packet = List.new(pseudo_header,packet);
   		do pseudo_header.appendArray(ip, 4);
@@ -151,15 +151,15 @@ class TCP{
 
   		do header.setCharAt(16, Math.getHigh(sum));
   		do header.setCharAt(17, Math.getLow(sum));
-  	
+
 		let packet = packet.pop();
-	
+
 		do IP.write(ip, 6, packet);
 		let packet = packet.pop();
 		do GPIO.setLed(GPIO.getLed() & 191);
 		return;
 	}
-	
+
 	function void printSockets(){
 		var Socket s;
 		var List l;
@@ -191,5 +191,5 @@ class TCP{
 		}
 		return;
 	}
-	
+
 }

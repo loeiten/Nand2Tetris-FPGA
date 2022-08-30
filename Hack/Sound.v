@@ -7,7 +7,7 @@
 * 2. a counter which increments every 16 cycles (ovf of prescaler)
 * when counter2  ovfs: 1. counter2 is preloaded with in, and 2. out toggles
 * this way out has a square signal with frequency dependending on in.
-* 
+*
 * when in=0 out = 0 (mute)
 */
 

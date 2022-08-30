@@ -25,7 +25,7 @@ We will add a speaker to Hack8. To control the speaker we implement two modules 
  |address | memory|R/W|function|
  |-|-|-|-|
  |8204|Timer|R|real time in 0.1 ms from startup (overflows every...s)|
- |8205|Sound|R/W|square wave signal period in (..ms) or 0=mute| 
+ |8205|Sound|R/W|square wave signal period in (..ms) or 0=mute|
 
 * Match `Hack8.pcf` pin numbering of iCE40-HX1K (FPGA) with jumper wires used to connect to Speaker.
 

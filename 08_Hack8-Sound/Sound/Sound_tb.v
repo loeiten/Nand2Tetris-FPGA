@@ -14,7 +14,7 @@ always #1 clk = ~clk;
 
 
 initial begin
-	
+
   $dumpfile("Sound_tb.vcd");
   $dumpvars(0, Sound_tb);
 	# 2 in=0;

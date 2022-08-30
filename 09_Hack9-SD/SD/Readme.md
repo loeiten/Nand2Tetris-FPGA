@@ -24,6 +24,6 @@ Testbench starts transmission of two 8 bit data packets (load=1). Received byte 
 ![](SD_tb.png)
 ## Project
 * Implement `SD.v`
-* Test with testbench `SD_tb.v`  
+* Test with testbench `SD_tb.v`
 `$ apio sim`
 * Compare timing diagram with `SD_tb.png`

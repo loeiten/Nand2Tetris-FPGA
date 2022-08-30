@@ -29,7 +29,7 @@ SB_PLL40_CORE #(
 		.REFERENCECLK(in),
 		.PLLOUTGLOBAL(clk_out)
 		);
-	
+
 	SB_GB Clock_Buffer (
 		.USER_SIGNAL_TO_GLOBAL_BUFFER (clk_out),
 		.GLOBAL_BUFFER_OUTPUT (out)

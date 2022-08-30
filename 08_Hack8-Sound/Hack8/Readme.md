@@ -40,13 +40,12 @@ The Testbench `Hack8_tb.v` performs the following tasks:
 
 * Implement `Hack8.v`
 * Preload `ROM.v` with `asm/sound/sound.hack`
-* Simulate with testbench `Hack8_tb.v`  
+* Simulate with testbench `Hack8_tb.v`
 `$ apio sim`
 * Compare output with `Hack8_tb.png`
 * Connect Speaker to GPIO.
 * Preload `ROM.v` with `asm/boot/boot.hack`
-* Build and upload to iCE40-HX1K-EVB  
+* Build and upload to iCE40-HX1K-EVB
  `$ apio upload`
 * Run `boot.hack` on Hack8 in real hardware.
 * Do software part of project `jack/SoundTest`
-  

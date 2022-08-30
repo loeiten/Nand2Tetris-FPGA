@@ -2,12 +2,12 @@
 */
 class UART {
 	static Array uart;
- 
+
 	function void init(int addr){
 		let uart = addr;
 		return;
 	}
-  
+
 	function int readChar() {
 		var int data;
 		let data = -1;
@@ -27,7 +27,7 @@ class UART {
       	let uart[0] = c;
 		return;
    	}
-	
+
 	function void printString(String s){
 		var int i;
 		let i=0;
@@ -38,7 +38,7 @@ class UART {
 		do s.dispose();
 		return;
 	}
-	
+
     function void printInt(int i) {
 		var String s;
 		let s = String.new(6);
@@ -46,29 +46,29 @@ class UART {
 		do UART.printString(s);
 		return;
 	}
-	
+
 	function void println(){
 		do UART.writeChar(13);
 		do UART.writeChar(10);
 		return;
 	}
-    
+
 	function int readInt(String message) {
    		var String val;
 		var int v;
 		let val = UART.readLine(message);
 		let v = val.intValue();
 		do val.dispose();
-		return v; 
+		return v;
 	}
-    
+
 	function String readLine(String message) {
 		var int v0,nl,bs;
    		var String line;
 		var boolean key;
 		let line=String.new(80);
 		do UART.printString(message);
-		
+
 		let v0=UART.readChar();
 		while (~(v0=13)){
 			do UART.writeChar(v0);
@@ -81,6 +81,6 @@ class UART {
 		}
 		do UART.println();
 		return line;
-	}   
-	
+	}
+
 }

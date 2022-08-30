@@ -2,7 +2,7 @@
 
 In this project we will add network connectivity and implement a minimal HTTP-Server. For this we use MOD-ENC28J60.
 > The ENC28J60 is a stand-alone Ethernet controller with an industry standard Serial Peripheral Interface (SPI). It is designed to serve as an Ethernet network interface for any controller equipped with SPI.
-> 
+>
 > *Datasheet*
 
 ### Layer 1: Physical (outside FPGA)
@@ -31,7 +31,7 @@ We map the SPI-Module to a memory, so Hack-CPU can read/write to ENC28J60.
  |address | memory|R/W|function|
  |-|-|-|-|
  |82xx|Network|W|write 8bit data to ENC28J60|
- |82xx|Network|R|read 8bit from ENC28J60 (<0 busy)| 
+ |82xx|Network|R|read 8bit from ENC28J60 (<0 busy)|
 
 * Match `Hack10.pcf` pin numbering of iCE40-HX1K (FPGA) with jumper wires used to connect to ENC28J60 ethernet controller.
 

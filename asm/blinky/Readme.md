@@ -1,6 +1,6 @@
 ## blinky.asm
 
-`blinky.asm` runs a counter, to realise a delay of 1 second. Every second then the led-register is incremented. 
+`blinky.asm` runs a counter, to realise a delay of 1 second. Every second then the led-register is incremented.
 ```
 @0
 (LOOP)
@@ -31,5 +31,5 @@ M=M+1
 ## Project
 * Translate `blinky.asm` to hack machine code with your Assembler.
 * Preload `ROM.v` with the corresponding hack-code.
-* Build and upload to iCE40-HX1K-EVB and test in real hardware.  
+* Build and upload to iCE40-HX1K-EVB and test in real hardware.
 `$ apio upload`

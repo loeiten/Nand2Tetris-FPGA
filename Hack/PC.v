@@ -14,7 +14,7 @@ module PC(
 	input wire load,
 	input wire inc,
 	output wire [15:0] out
-);	
+);
 
 
 

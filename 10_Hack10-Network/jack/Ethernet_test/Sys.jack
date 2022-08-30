@@ -13,7 +13,7 @@ class Sys {
 		//do Screen.init();
 		//do Output.init();
 		//do Sound.init();
-		//do Touch.init();	
+		//do Touch.init();
 		do Main.main();
 		do Sys.halt();
 		return;

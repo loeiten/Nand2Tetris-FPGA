@@ -5,11 +5,11 @@ class GPIO {
 		let gpio = addr;
 		return;
 	}
-  
+
 	function int getBut() {
 		return gpio[1];
    	}
-	
+
 	function int getLed() {
 		return gpio[0];
    	}

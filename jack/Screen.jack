@@ -1,7 +1,7 @@
 class Screen {
 
 	function void init(){
-	}	
+	}
 
 	function void clearScreen(){
 	}
@@ -9,19 +9,19 @@ class Screen {
 
 	function void drawPixel(int x,int y){
 	}
-	
+
 	function void setColor(int c){
 	}
-	
+
 	function void setBackColor(int c){
 	}
-	
+
 	function void paintPixel(){
 	}
-	
+
 	function void clearPixel(){
 	}
-	
+
 	function void drawLine(int x1,int y1,int x2,int y2){
 	}
 
@@ -30,19 +30,19 @@ class Screen {
 
 	function void drawCircle(int x, int y, int r){
 	}
-	
+
 	function void setAddrWindow(int x, int y, int w, int h){
 	}
 
 	function void writeData(int data){
 	}
-	
+
 	function void writeData16(int data){
 	}
-	
+
 	function void writeCommand(int command){
 	}
-	
+
 	function int BLACK(){
 		return 0;	//00000 000000 00000
 	}

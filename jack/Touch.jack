@@ -1,17 +1,17 @@
 class Touch{
-		
+
 	function void init(){
 	}
-	
+
 	function int getX(){
 	}
-	
+
 	function int getY(){
 	}
-	
+
 	function boolean getPressed(){
 	}
-	
+
 	function boolean update(){
 	}
 

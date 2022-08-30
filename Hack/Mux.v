@@ -1,4 +1,4 @@
-/** 
+/**
  * Multiplexor:
  * out = a if sel == 0
  *       b otherwise

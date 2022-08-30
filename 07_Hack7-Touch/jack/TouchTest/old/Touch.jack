@@ -1,6 +1,6 @@
 class Touch{
 	static Array touch;
-	
+
 	function void init(){
 		let touch = 8205;
 		do Touch.send(85);

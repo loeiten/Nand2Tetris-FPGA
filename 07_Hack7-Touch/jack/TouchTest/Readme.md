@@ -22,7 +22,7 @@ return y-coordinate of last touch event (12 bit).
 
 #### function boolean update()
 
-receive next touch event composed of 5 consecutive bytes, holding: 0b1000000P, 0b0XXXXXXX, 0b000XXXXX, 0b0YYYYYYY, 0b000YYYYY (compare datasheet p. 19). returns true on success. Return false, if received bytes are not a valid touch event. 
+receive next touch event composed of 5 consecutive bytes, holding: 0b1000000P, 0b0XXXXXXX, 0b000XXXXX, 0b0YYYYYYY, 0b000YYYYY (compare datasheet p. 19). returns true on success. Return false, if received bytes are not a valid touch event.
 
 #### function int send(int byte)
 

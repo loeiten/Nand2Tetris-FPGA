@@ -9,7 +9,7 @@ class Sys {
 		do GPIO.init();
 		while (true){
 			do GPIO.setLed(GPIO.getBut());
-		}		
+		}
 		return;
 	}
 

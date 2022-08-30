@@ -21,7 +21,7 @@ always #1 clk = ~clk;
 
 
 initial begin
-	
+
   $dumpfile("ShifterR_tb.vcd");
   $dumpvars(0, ShifterR_tb);
 	# 4 load = 1;

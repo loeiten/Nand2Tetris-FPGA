@@ -3,5 +3,4 @@
 # compare to the schematic of the board and the datasheet of fpga
 
 # add the following line with used pin number to your pcf file:
-set_io snd 
-
+set_io snd

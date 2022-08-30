@@ -1,13 +1,13 @@
 class Main {
    function void main() {
-      var Array a; 
+      var Array a;
       var int length;
       var int i, sum;
 	let i = UART.readChar();
 	while (true){
     	  let length = UART.readInt("How many numbers?");
     	  let a = Array.new(length); // constructs the array
-     
+
      	 let i = 0;
 		let sum=0;
       	while (i < length) {
@@ -15,7 +15,7 @@ class Main {
     	     let sum = sum + a[i];
     	     let i = i + 1;
     	  }
-		
+
     	  do UART.printString("The average is ");
     	  do UART.printInt(sum / length);
 		 do UART.println();

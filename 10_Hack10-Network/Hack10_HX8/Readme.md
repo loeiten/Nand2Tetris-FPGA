@@ -41,13 +41,12 @@ The Testbench `Hack9_tb.v` performs the following tasks:
 
 * Implement `Hack9.v`
 * Preload `ROM.v` with `asm/sd/sd.hack`
-* Simulate with testbench `Hack9_tb.v`  
+* Simulate with testbench `Hack9_tb.v`
 `$ apio sim`
 * Compare output with `Hack9_tb.png`
 * Connect SD card reader to GPIO.
 * Preload `ROM.v` with `asm/boot/boot.hack`
-* Build and upload to iCE40-HX1K-EVB  
+* Build and upload to iCE40-HX1K-EVB
  `$ apio upload`
 * Run `boot.hack` on Hack9 in real hardware.
 * Do software part of project `jack/SDTest`
-  

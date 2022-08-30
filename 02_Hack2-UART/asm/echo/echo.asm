@@ -5,7 +5,7 @@ M=0
 @8195
 D=M
 @WAIT_RX
-D;JLT		
+D;JLT
 
 @DATA	//store Received data
 M=D

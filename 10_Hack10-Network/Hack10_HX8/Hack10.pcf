@@ -3,7 +3,7 @@
 # compare to the schematic of the board and the datasheet of fpga
 # to use internal pullup set (-pullup yes)
 
-set_io clk_in J3				
+set_io clk_in J3
 set_io but[0] K11 # BUT1 on board
 set_io but[1] P13 # BUT2 on board
 set_io but[2] J4 # GPIO 20

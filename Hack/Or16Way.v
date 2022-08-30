@@ -1,5 +1,5 @@
 /**
- * 16-way Or: 
+ * 16-way Or:
  * out = (in[0] or in[1] or ... or in[15])
  */
 `default_nettype none

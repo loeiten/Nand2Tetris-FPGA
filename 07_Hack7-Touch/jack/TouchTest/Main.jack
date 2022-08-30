@@ -1,5 +1,5 @@
 class Main{
-	
+
 	function void main(){
 		var int p;
 		while (true){
@@ -13,5 +13,5 @@ class Main{
 		}
 		return;
 	}
-	
+
 }

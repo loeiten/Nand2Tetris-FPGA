@@ -1,4 +1,4 @@
-/** 
+/**
 * stores a 32 bit integer and performs simple math.
 */
 class Int32{
@@ -6,13 +6,13 @@ class Int32{
 	field int high;
 	field int low;
 
-	/** construct 32 bit integer out of two 16 bit integers representing high/low */ 
+	/** construct 32 bit integer out of two 16 bit integers representing high/low */
 	constructor Int32 new(int h, int l){
 		let high = h;
 		let low = l;
 		return this;
 	}
-		
+
 	/** dispose the 32 bit integer */
 	method void dispose(){
 		do Memory.deAlloc(this);
@@ -41,7 +41,7 @@ class Int32{
 		}
 		return -1;
 	}
-	
+
 	/** returns highest 16 bit */
 	method int getHigh(){
 		return high;
@@ -73,7 +73,7 @@ class Int32{
 		let high = high +1;
   		return;
 	}
-	
+
 	/* print 32 bit in hexadecimal to UART */
 	method void print(){
 		do Output.printHex8(Math.getHigh(high));

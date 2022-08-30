@@ -1,11 +1,11 @@
 class UART {
 	static Array uart;
- 
+
 	function void init(){
 		let uart = 8194;
 		return;
 	}
-  
+
 	function int readChar() {
 		var int data;
 		let data = -1;
@@ -25,5 +25,5 @@ class UART {
       	let uart[0] = c;
 		return;
    	}
-	
+
 }

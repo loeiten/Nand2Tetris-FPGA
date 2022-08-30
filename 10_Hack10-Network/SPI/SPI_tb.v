@@ -23,7 +23,7 @@ always #1 clk = ~clk;
 
 
 initial begin
-	
+
   $dumpfile("SPI_tb.vcd");
   $dumpvars(0, SPI_tb);
 	# 3 load = 1;

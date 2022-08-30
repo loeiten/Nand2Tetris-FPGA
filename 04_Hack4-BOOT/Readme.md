@@ -29,5 +29,5 @@ To Test the boot circuit we can:
 	- Upload and run `asm/echo` over UART
 
 ## Conclusion
-  
+
 We have a Hack System capable of uploading and running Hack-code up to 64K x 256 bytes.

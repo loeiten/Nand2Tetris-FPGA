@@ -2,15 +2,15 @@ class Sound{
 
 	function void init(){
 	}
-	
+
 	constructor Sound new(String s, int sp){
 	}
-	
+
 	function int getTime(){
 	}
-	
+
 	method void start(){
-	}	
+	}
 
 	method void stop(){
 	}
@@ -23,9 +23,9 @@ class Sound{
 
 	method int getSpeed(){
 	}
-	
+
 	method boolean update(){
-	}	
+	}
 
 	function void play(int t){
 	}

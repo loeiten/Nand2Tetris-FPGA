@@ -38,7 +38,7 @@ class IP{
 		let ip_src = header + 12;
 		let ip_dst = header + 16;
 		let data = header + 20;
-	
+
 		if (version = 69){
 			if (Network.isMyIP(ip_dst) | Network.isBroadcastIP(ip_dst)){
       			if (protocol = 1) {
@@ -79,7 +79,7 @@ class IP{
   		do header.appendChar(0);
 		do header.appendArray(Network.getMyIP(), 4);
 		do header.appendArray(ip_dst, 4);
-  		
+
   		let checksum =  ~(Checksum.sumString(header));
   		do header.setCharAt(10, Math.getHigh(checksum));
   		do header.setCharAt(11, Math.getLow(checksum));
@@ -88,7 +88,7 @@ class IP{
   			let ip_dst = Network.getMyGateway();
 		}
 		let mac = ARP.getMAC(ip_dst);
-	  			
+
 		if (mac = null){
  			do ARP.ping(ip_dst);
 		} else {

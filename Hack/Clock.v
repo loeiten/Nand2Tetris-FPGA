@@ -1,4 +1,4 @@
-/** 
+/**
  * input clk_in: clock input 100 MHz
  * output clk: clock output 33.333333 MHz
  *

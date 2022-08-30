@@ -1,11 +1,12 @@
 # uncompyle6 version 3.8.0
 # Python bytecode 3.7.0 (3394)
-# Decompiled from: Python 3.8.13 (default, Mar 28 2022, 06:16:26) 
+# Decompiled from: Python 3.8.13 (default, Mar 28 2022, 06:16:26)
 # [Clang 12.0.0 ]
 # Embedded file name: /home/micha/git/gitlab/nand2tetris-13/tools/JackCompiler/JackTokenizer.py
 # Compiled at: 2020-05-05 23:21:19
 # Size of source mod 2**32: 3284 bytes
 import sys
+
 
 class JackTokenizer:
     symbols = '{}()[].,;+-*/&|<>=~'
@@ -34,7 +35,7 @@ class JackTokenizer:
  L.  23         8  LOAD_FAST                'self'
                10  LOAD_ATTR                line
                12  LOAD_CONST               1
-               14  BINARY_ADD       
+               14  BINARY_ADD
                16  LOAD_FAST                'self'
                18  STORE_ATTR               line
              20_0  COME_FROM             6  '6'
@@ -78,9 +79,9 @@ class JackTokenizer:
                76  LOAD_METHOD              append
                78  LOAD_STR                 'symbol'
                80  LOAD_FAST                'c'
-               82  BUILD_TUPLE_2         2 
+               82  BUILD_TUPLE_2         2
                84  CALL_METHOD_1         1  '1 positional argument'
-               86  POP_TOP          
+               86  POP_TOP
 
  L.  31        88  LOAD_CONST               0
                90  LOAD_FAST                'self'
@@ -152,7 +153,7 @@ class JackTokenizer:
               188  CALL_FUNCTION_1       1  '1 positional argument'
               190  CALL_METHOD_1         1  '1 positional argument'
               192  CALL_METHOD_1         1  '1 positional argument'
-              194  POP_TOP          
+              194  POP_TOP
           196_198  JUMP_FORWARD        742  'to 742'
             200_0  COME_FROM            28  '28'
 
@@ -169,11 +170,11 @@ class JackTokenizer:
               220  POP_JUMP_IF_FALSE   238  'to 238'
 
  L.  47       222  LOAD_FAST                'self'
-              224  DUP_TOP          
+              224  DUP_TOP
               226  LOAD_ATTR                token
               228  LOAD_FAST                'c'
-              230  INPLACE_ADD      
-              232  ROT_TWO          
+              230  INPLACE_ADD
+              232  ROT_TWO
               234  STORE_ATTR               token
               236  JUMP_FORWARD        742  'to 742'
             238_0  COME_FROM           220  '220'
@@ -199,9 +200,9 @@ class JackTokenizer:
               276  LOAD_STR                 'integerConstant'
               278  LOAD_FAST                'self'
               280  LOAD_ATTR                token
-              282  BUILD_TUPLE_2         2 
+              282  BUILD_TUPLE_2         2
               284  CALL_METHOD_1         1  '1 positional argument'
-              286  POP_TOP          
+              286  POP_TOP
 
  L.  51       288  LOAD_CONST               0
               290  LOAD_FAST                'self'
@@ -211,7 +212,7 @@ class JackTokenizer:
               296  LOAD_METHOD              readChar
               298  LOAD_FAST                'c'
               300  CALL_METHOD_1         1  '1 positional argument'
-              302  POP_TOP          
+              302  POP_TOP
               304  JUMP_FORWARD        742  'to 742'
             306_0  COME_FROM           266  '266'
             306_1  COME_FROM           250  '250'
@@ -220,7 +221,7 @@ class JackTokenizer:
               308  LOAD_METHOD              error
               310  LOAD_STR                 'int'
               312  CALL_METHOD_1         1  '1 positional argument'
-              314  POP_TOP          
+              314  POP_TOP
           316_318  JUMP_FORWARD        742  'to 742'
             320_0  COME_FROM           208  '208'
 
@@ -243,11 +244,11 @@ class JackTokenizer:
             356_0  COME_FROM           340  '340'
 
  L.  57       356  LOAD_FAST                'self'
-              358  DUP_TOP          
+              358  DUP_TOP
               360  LOAD_ATTR                token
               362  LOAD_FAST                'c'
-              364  INPLACE_ADD      
-              366  ROT_TWO          
+              364  INPLACE_ADD
+              366  ROT_TWO
               368  STORE_ATTR               token
               370  JUMP_FORWARD        742  'to 742'
             372_0  COME_FROM           352  '352'
@@ -265,9 +266,9 @@ class JackTokenizer:
               392  LOAD_STR                 'keyword'
               394  LOAD_FAST                'self'
               396  LOAD_ATTR                token
-              398  BUILD_TUPLE_2         2 
+              398  BUILD_TUPLE_2         2
               400  CALL_METHOD_1         1  '1 positional argument'
-              402  POP_TOP          
+              402  POP_TOP
               404  JUMP_FORWARD        424  'to 424'
             406_0  COME_FROM           382  '382'
 
@@ -277,9 +278,9 @@ class JackTokenizer:
               412  LOAD_STR                 'identifier'
               414  LOAD_FAST                'self'
               416  LOAD_ATTR                token
-              418  BUILD_TUPLE_2         2 
+              418  BUILD_TUPLE_2         2
               420  CALL_METHOD_1         1  '1 positional argument'
-              422  POP_TOP          
+              422  POP_TOP
             424_0  COME_FROM           404  '404'
 
  L.  63       424  LOAD_CONST               0
@@ -290,7 +291,7 @@ class JackTokenizer:
               432  LOAD_METHOD              readChar
               434  LOAD_FAST                'c'
               436  CALL_METHOD_1         1  '1 positional argument'
-              438  POP_TOP          
+              438  POP_TOP
           440_442  JUMP_FORWARD        742  'to 742'
             444_0  COME_FROM           328  '328'
 
@@ -311,9 +312,9 @@ class JackTokenizer:
               472  LOAD_STR                 'stringConstant'
               474  LOAD_FAST                'self'
               476  LOAD_ATTR                token
-              478  BUILD_TUPLE_2         2 
+              478  BUILD_TUPLE_2         2
               480  CALL_METHOD_1         1  '1 positional argument'
-              482  POP_TOP          
+              482  POP_TOP
 
  L.  68       484  LOAD_CONST               0
               486  LOAD_FAST                'self'
@@ -330,16 +331,16 @@ class JackTokenizer:
               504  LOAD_METHOD              error
               506  LOAD_STR                 'string'
               508  CALL_METHOD_1         1  '1 positional argument'
-              510  POP_TOP          
+              510  POP_TOP
               512  JUMP_FORWARD        528  'to 528'
             514_0  COME_FROM           498  '498'
 
  L.  72       514  LOAD_FAST                'self'
-              516  DUP_TOP          
+              516  DUP_TOP
               518  LOAD_ATTR                token
               520  LOAD_FAST                'c'
-              522  INPLACE_ADD      
-              524  ROT_TWO          
+              522  INPLACE_ADD
+              524  ROT_TWO
               526  STORE_ATTR               token
             528_0  COME_FROM           512  '512'
             528_1  COME_FROM           490  '490'
@@ -380,7 +381,7 @@ class JackTokenizer:
               584  LOAD_CONST               ('symbol', '/')
               586  CALL_METHOD_1         1  '1 positional argument'
             588_0  COME_FROM            44  '44'
-              588  POP_TOP          
+              588  POP_TOP
 
  L.  80       590  LOAD_CONST               0
               592  LOAD_FAST                'self'
@@ -391,7 +392,7 @@ class JackTokenizer:
               600  LOAD_FAST                'c'
               602  CALL_METHOD_1         1  '1 positional argument'
             604_0  COME_FROM            60  '60'
-              604  POP_TOP          
+              604  POP_TOP
             606_0  COME_FROM           576  '576'
             606_1  COME_FROM           558  '558'
               606  JUMP_FORWARD        742  'to 742'
@@ -483,7 +484,7 @@ class JackTokenizer:
               734  LOAD_ATTR                status
               736  CALL_METHOD_1         1  '1 positional argument'
               738  CALL_METHOD_1         1  '1 positional argument'
-              740  POP_TOP          
+              740  POP_TOP
             742_0  COME_FROM           722  '722'
             742_1  COME_FROM           666  '666'
             742_2  COME_FROM           656  '656'

@@ -31,10 +31,10 @@ class Main {
 		do Screen.setColor(Screen.FUCHSIA());
 		do Screen.drawRectangle(45,85,30,30);
 		do Screen.setColor(Screen.YELLOW());
-		do Screen.drawRectangle(85,85,30,30);	
+		do Screen.drawRectangle(85,85,30,30);
 		do Screen.setColor(Screen.ORANGE());
 		do Screen.drawRectangle(125,85,30,30);
-		
+
 		do Screen.setColor(Screen.BLACK());
 		let x=0;
 		while (x<240){

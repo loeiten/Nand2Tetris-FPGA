@@ -6,8 +6,8 @@
 3. Halt loop
 
 ```
-@10		//play tone 
-D=-A	
+@10		//play tone
+D=-A
 @8205
 M=D
 

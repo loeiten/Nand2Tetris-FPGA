@@ -13,15 +13,15 @@ class Sys{
 		var int RUN;
 		let RUN = 8198;		// boot logic activates reset and switches instruction memory to SRAM
 		let SRAM = 8196;	// SRAM[0] holds address SRAM[1] read/write data
-		let LED = 8192;		// Led store the state of the finite state machine 
+		let LED = 8192;		// Led store the state of the finite state machine
 		let RX = 8195;		// UART-RX module
-	
-			let D = RX[0];	
+
+			let D = RX[0];
 			while (~(D=48)){	//wait for first '0'
 				let D = RX[0];
 			}
 			let RX[0] = 0;
-	
+
 			let LED[0] = 1;		//state = 1 (receive chars)
 			let SRAM[0] = 0;	//first address in SRAM
 
@@ -42,10 +42,10 @@ class Sys{
 				}
 			} else {
 				if (D = 48){			//char is '0'
-					let D = SRAM[1];	
+					let D = SRAM[1];
 					let SRAM[1] = D + SRAM[1];	//shift data in SRAM to left
 					let LED[0] = 1;		//state is 1 (receive bits)
-				} else {	
+				} else {
 					if (D=49){
 						let D = SRAM[1];
 						let D = D + SRAM[1];
@@ -58,8 +58,7 @@ class Sys{
 					}
 				}
 			}
-		}			
+		}
 		return;
 	}
 }
-

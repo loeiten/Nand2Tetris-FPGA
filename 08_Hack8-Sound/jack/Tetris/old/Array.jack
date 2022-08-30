@@ -2,8 +2,8 @@
  * Represents an array.
  * In the Jack language, arrays are instances of the Array class.
  * Once declared, the array entries can be accessed using the usual
- * syntax arr[i]. Each array entry can hold a primitive data type as 
- * well as any object type. Different array entries can have different 
+ * syntax arr[i]. Each array entry can hold a primitive data type as
+ * well as any object type. Different array entries can have different
  * data types.
  */
 class Array {
@@ -16,7 +16,7 @@ class Array {
     function Array new(int size) {
 		if (~(size>0)){
 			do Sys.error(2);
-		}	
+		}
     	return Memory.alloc(size);
 	}
 

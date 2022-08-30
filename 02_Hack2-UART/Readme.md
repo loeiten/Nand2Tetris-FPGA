@@ -34,7 +34,7 @@ To switch between the modes press the hardware button on olimexino 32u4 (HWB).
  | 8194    | UART-TX|W|write char to be send|
  | 8195    | UART-RX|R|>=0 received byte, <0 busy|
  | 8195    | UART-RX|W|write -1 to clear buffer|
- 
+
 ### Layer 4: Assembler
 
 * Simulate and test [`asm/echo`](asm/echo) in real hardware.

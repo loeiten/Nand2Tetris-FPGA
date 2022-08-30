@@ -1,15 +1,15 @@
 # nand2tetris-FPGA
 
-> ... _Would'nt it be nice to make Hack or Jack also run on some "real platform," made from some "real stuff"?_ ... 
+> ... _Would'nt it be nice to make Hack or Jack also run on some "real platform," made from some "real stuff"?_ ...
 >
 >---Noam Nisan and Shimon Schocken
 
-This project is about building Hack on real hardware as proposed in Chapter 13 of the course [nand2tetris](https://www.nand2tetris.org/) using only FOSS, free and open source hard- and software. 
+This project is about building Hack on real hardware as proposed in Chapter 13 of the course [nand2tetris](https://www.nand2tetris.org/) using only FOSS, free and open source hard- and software.
 
 We build hack in 9 steps, starting with Hack-1, a minimal working Hack-CPU connected to some leds and buttons and ending at Hack-9, the final implementation of Hack running Jack-Compiled code with specs:
 * original CPU/ALU design of HACK from nand2tetris
 * implemented on iCE40 FPGA
-* clocked at 33.333333 MHz 
+* clocked at 33.333333 MHz
 * RAM 3840 x 16 bit (R0-R15/static/stack/heap)
 * Programmable instruction memory PROM 64K x 16 bit
 * 2.8 Inch Color LCD with 320x240 Pixel
@@ -76,5 +76,5 @@ Add SD-card reader MOD-SDMMC. Reimplement bootloader capable of loading Jack-com
 * Icons made by <a href="https://www.flaticon.com/free-icon/cpu_483131?term=cpu&page=3&position=86" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 
 ---
-For questions or comments write an email to 
+For questions or comments write an email to
 mi.schroeder@netcologne.de

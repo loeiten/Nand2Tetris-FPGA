@@ -74,7 +74,7 @@ class String {
 		}
 		return this;
 	}
-	
+
     /** Erases the last character from this string. */
     method void eraseLastChar() {
 		if (length=0){
@@ -84,7 +84,7 @@ class String {
 		return;
     }
 
-    /** Returns the integer value of this string, 
+    /** Returns the integer value of this string,
      *  until a non-digit character is detected. */
     method int intValue() {
 		var int pos,val,digit;
@@ -130,7 +130,7 @@ class String {
 			let s[pos]=48+(val-(c*10));
 			let pos=pos+1;
 			let val=c;
-	
+
 		}
 		if (vz){
 			let s[pos]=45;

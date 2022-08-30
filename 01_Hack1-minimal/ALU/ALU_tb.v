@@ -28,17 +28,17 @@ module ALU_tb();
 		.zr(zr),
 		.ng(ng)
 	);
-	  
+
 	task display;
     	#1 $fwrite(file, "| %16b | %16b | %1b | %1b | %1b | %1b | %1b | %1b | %16b | %1b | %1b |\n",x,y,zx,nx,zy,ny,f,no,out,zr,ng);
   	endtask
-  	
+
   	initial begin
   		$dumpfile("ALU_tb.vcd");
   		$dumpvars(0, ALU_tb);
 		file = $fopen("ALU.out","w");
     	$fwrite(file, "|        x         |        y         |zx |nx |zy |ny | f |no |       out        |zr |ng |\n");
-		
+
 	x = 16'b0000000000000000;  // x ==0
 	y = 16'b1111111111111111;  // y = -1
 

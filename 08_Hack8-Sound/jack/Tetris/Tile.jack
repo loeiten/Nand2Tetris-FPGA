@@ -18,13 +18,13 @@ class Tile {
 		let colors[4] = Screen.RED();
 		let colors[5] = Screen.BLUE();
 		let colors[6] = Screen.ORANGE();
-		
+
 		let bits = Array.new(28);
 		let bits[0] = 1632;
 		let bits[1] = 1632;
 		let bits[2] = 1632;
 		let bits[3] = 1632;
-		
+
 		let bits[4] = 3840;
 		let bits[5] = 8738;
 		let bits[6] = 240;
@@ -44,7 +44,7 @@ class Tile {
 		let bits[17] = 9792;
 		let bits[18] = 3168;
 		let bits[19] = 19584;
-		
+
 		let bits[20] = ~29183;
 		let bits[21] = 25664;
 		let bits[22] = 3616;
@@ -66,7 +66,7 @@ class Tile {
 		while (type = 7){
 			let type = Random.nextInt() & 7;
 		}
-		let x = 11;		
+		let x = 11;
 	    let y = 6;
 		let r = 0;
         return this;
@@ -76,7 +76,7 @@ class Tile {
 		let x=px;
 		let y=py;
 		return;
-	}	
+	}
     /** Deallocates the Tile's memory. */
     method void dispose() {
         do Memory.deAlloc(this);
@@ -105,11 +105,11 @@ class Tile {
 		}
         return true;
     }
-   	
+
 	method int getScore(Sound music){
 		return grid.clearRow(music);
-	} 
-    
+	}
+
 	method void rotateRight(){
         do erase();
         let r = r+1;
@@ -127,7 +127,7 @@ class Tile {
         }
 		return;
     }
-    
+
     method void rotateLeft(){
         do erase();
         let r = r-1;
@@ -145,7 +145,7 @@ class Tile {
         }
 		return;
     }
-    
+
     method void moveRight(){
         do erase();
         let x = x + 1;
@@ -157,7 +157,7 @@ class Tile {
         }
 		return;
     }
-    
+
     method void moveLeft(){
         do erase();
         let x = x - 1;
@@ -169,7 +169,7 @@ class Tile {
         }
 		return;
     }
-    
+
     method void moveUp(){
         do erase();
         let y = y - 1;
@@ -181,7 +181,7 @@ class Tile {
         }
 		return;
     }
-    
+
     method boolean moveDown(){
         do erase();
         let y = y + 1;
@@ -205,8 +205,8 @@ class Tile {
 			return true;
 		}
 		return false;
-	} 
-    
+	}
+
     method void draw(){
 		var int i,j;
 		var int bit;
@@ -231,7 +231,7 @@ class Tile {
 		}
         return;
     }
-    
+
     method void erase(){
 		var int i,j;
 		var int bit;
@@ -256,6 +256,6 @@ class Tile {
 		}
         return;
     }
-    
+
 
 }

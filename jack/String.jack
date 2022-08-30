@@ -7,10 +7,10 @@
  */
 
 class String {
-	
+
 	function void init(){
 	}
-    
+
 	/** constructs a new empty string with a maximum length of maxLength
      *  and initial length of 0. */
     constructor String new(int maxLength) {
@@ -40,7 +40,7 @@ class String {
     method void eraseLastChar() {
     }
 
-    /** Returns the integer value of this string, 
+    /** Returns the integer value of this string,
      *  until a non-digit character is detected. */
     method int intValue() {
     }

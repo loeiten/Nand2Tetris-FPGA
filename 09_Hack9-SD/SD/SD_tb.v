@@ -23,7 +23,7 @@ always #1 clk = ~clk;
 
 
 initial begin
-	
+
   $dumpfile("SD_tb.vcd");
   $dumpvars(0, SD_tb);
 	# 2 load = 1;

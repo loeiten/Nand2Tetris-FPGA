@@ -24,7 +24,7 @@ Implementation of Xor in HDL (nand2tetris).
 // by Nisan and Schocken, MIT Press.
 // File name: projects/01/Xor.hdl
 
-/** 
+/**
 * Xor (exclusive or) gate:
 * If a<>b out=1 else out=0.
 */
@@ -45,7 +45,7 @@ CHIP Xor {
 ## Xor.v
 Xor.hdl can be translated to Xor.v (verilog).
 ```
-/** 
+/**
 * Xor (exclusive or) gate:
 * If a<>b out=1 else out=0.
 */
@@ -59,7 +59,7 @@ module Xor(
 	wire notb;
 	Not NOT1(.in(a), .out(nota));	 //NOT1 is instance name
 	Not NOT2(.in(b), .out(notb));
-	
+
 	wire w1;
 	wire w2;
 	And AND1(.a(a),.b(notb),.out(w1));
@@ -113,7 +113,7 @@ module Xor_tb();
 	reg a = 0;
 	reg b = 0;
 	wire out;
-	
+
 	Xor XOR(
 	    .a(a),
 		.b(b),
@@ -123,25 +123,25 @@ module Xor_tb();
 	task display;
     	#1 $fwrite(file, "| %1b | %1b | %1b |\n", a,b,out);
   	endtask
-  	
+
   	initial begin
   		$dumpfile("Xor_tb.vcd");
   		$dumpvars(0, Xor_tb);
 		file = $fopen("Xor.out","w");
     	$fwrite(file, "| a | b |out|\n");
-		
+
 		a=0;b=0;
 		display();
-  		
+
 		a=0;b=1;
 		display();
-		
+
 		a=1;b=0;
 		display();
-		
+
 		a=1;b=1;
 		display();
-		$finish();	
+		$finish();
 	end
 
 endmodule

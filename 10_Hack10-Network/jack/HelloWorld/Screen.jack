@@ -7,23 +7,23 @@ class Screen {
 		let screen = addr;
 		let color=0;
 		let backcolor=-1;
-  		
+
 		do Screen.writeCommand(54);//0X36
 		do Screen.writeData(72);            // Memory Access Control
-  		
-  		
+
+
 		do Screen.writeCommand(58);//0x3A //RGB 16 bit !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 		do Screen.writeData(85);
-		
+
   		do Screen.writeCommand(17);//0x11
 		do Sys.wait(500);
-  		
+
 		do Screen.writeCommand(41);//0x29
 		do Sys.wait(500);
-			
+
 		do Screen.clearScreen();
 		return;
-	}	
+	}
 
 	function void clearScreen(){
 		var int dummy;
@@ -49,12 +49,12 @@ class Screen {
 		do Screen.writeData16(color);
 		return;
 	}
-	
+
 	function void setColor(int c){
 		let color=c;
 		return;
 	}
-	
+
 	function void setBackColor(int c){
 		let backcolor=c;
 		return;
@@ -63,12 +63,12 @@ class Screen {
 		do Screen.writeData16(color);
 		return;
 	}
-	
+
 	function void clearPixel(){
 		do Screen.writeData16(backcolor);
 		return;
 	}
-	
+
 	function void drawLine(int x1,int y1,int x2,int y2){
 		var int dx,dy;
 		var int vx,vy;
@@ -110,7 +110,7 @@ class Screen {
 		}
 		do Screen.drawPixel(x1,y1);
 
-		
+
 		return;
 	}
 
@@ -141,7 +141,7 @@ class Screen {
 		}
 		return;
 	}
-	
+
 	function void setAddrWindow(int x, int y, int w, int h){
     	do Screen.writeCommand(42); // Column addr set
     	do Screen.writeData16(x);
@@ -157,17 +157,17 @@ class Screen {
 		let screen[1] = data;
 		return;
 	}
-	
+
 	function void writeData16(int data){
 		let screen[2] = data;
 		return;
 	}
-	
+
 	function void writeCommand(int command){
 		let screen[0]=command;
 		return;
 	}
-	
+
 	function int BLACK(){
 		return 0;	//00000 000000 00000
 	}

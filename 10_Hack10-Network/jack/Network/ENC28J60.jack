@@ -1,4 +1,4 @@
-/**  
+/**
 *  Driver class for ENC28J60
 *  see Datasheet for details
 */
@@ -8,17 +8,17 @@ class ENC28J60{
 	static Array spi;
 	static int nextPacketPtr;
 
-	/** 4.2.1 read control register command */		
+	/** 4.2.1 read control register command */
 	function int readControlRegister(int address){
 		var int r;
 		let spi[0] = 512 | address;
 		let spi[0] = 512;
 		let r = spi[0];
-		let spi[0] = 256; 
+		let spi[0] = 256;
 		return r;
 	}
 
-	/** 4.2.2 read buffer memory command */	
+	/** 4.2.2 read buffer memory command */
 	function void readBufferMemory(Array data, int len){
 		var int i;
 		let spi[0] = 512 | 58;
@@ -26,18 +26,18 @@ class ENC28J60{
 		while (i<len) {
 			let spi[0] = 512;
 			let data[i] = spi[0];
-			let i = i+1; 
+			let i = i+1;
 		}
 		let spi[0] = 256;
 		return;
 	}
 
-	/** 4.2.3 write control register command */	
+	/** 4.2.3 write control register command */
 	function void writeControlRegister(int address, int data){
 		let spi[0] = (512 + 64) | address;
 		let spi[0] = 512 | data;
 		let spi[0] = 256;
-		return;	
+		return;
 	}
 
 	/** 4.2.4 write buffer memory command */
@@ -49,13 +49,13 @@ class ENC28J60{
 		let i=0;
 		while (i<len) {
 			let spi[0] = 512 | data.charAt(i);
-			let i = i + 1; 
+			let i = i + 1;
 		}
 		let spi[0] = 256;
 		return;
 	}
 
-	/** 4.2.5 bit field set command */	
+	/** 4.2.5 bit field set command */
 	function void bitFieldSet(int address, int bits){
 		let spi[0] = (512 | 128 | address);
 		let spi[0] = (512 | bits);
@@ -91,20 +91,20 @@ class ENC28J60{
 		// see errata 5: Memory
 		// ERXST = 0x0000
 		// first address of receive buffer
-		do ENC28J60.writeControlRegister(8,0);	
+		do ENC28J60.writeControlRegister(8,0);
 		do ENC28J60.writeControlRegister(9,0);
 		// ERXND = 0x0FFF
 		// last address of receive buffer
-		do ENC28J60.writeControlRegister(10,255);	
+		do ENC28J60.writeControlRegister(10,255);
 		do ENC28J60.writeControlRegister(11,15);
 		// see errata 14: Memory
 		// ERXRDPT = 0x0FFF
-		do ENC28J60.writeControlRegister(12,255);	
-		do ENC28J60.writeControlRegister(13,15);	
-		let nextPacketPtr = 0;		
-		
+		do ENC28J60.writeControlRegister(12,255);
+		do ENC28J60.writeControlRegister(13,15);
+		let nextPacketPtr = 0;
+
 		// 6.2 transmit buffer
-		// no explicit action needed 
+		// no explicit action needed
 
 		// 6.3 receive filter
 		// ERXFCON = 0b10100001 (default)
@@ -140,7 +140,7 @@ class ENC28J60{
 		do ENC28J60.writeControlRegister(3,mac[3]);
 		do ENC28J60.writeControlRegister(0,mac[4]);
 		do ENC28J60.writeControlRegister(1,mac[5]);
-		
+
 		// 6.6 PHY initialisation
 		// select bank 2
 		do ENC28J60.bitFieldClear(31,1);
@@ -156,7 +156,7 @@ class ENC28J60{
 		// LFRQ = 00 stretch normal (40 ms)
 		// STRCH = 1 stretch
 
-		// 7.2 receiving packets	
+		// 7.2 receiving packets
 		// switch to bank 0
 		do ENC28J60.bitFieldClear(31,3);
 		// ECON1 = 0b00000100
@@ -178,7 +178,7 @@ class ENC28J60{
 		let controlByte = String.new(1);
 		do controlByte.appendChar(0);
 		let packet = List.new(controlByte,list);
-		
+
 		// write transmit buffer
 		let ETXND = 16*256;
 		let list = packet;
@@ -190,38 +190,38 @@ class ENC28J60{
 		}
 		let ETXND = ETXND-1;
 		let packet = packet.pop();
-  		
+
 		// set ETXST and ETXND
   		do ENC28J60.writeControlRegister(4,0);
   		do ENC28J60.writeControlRegister(5,16);
   		do ENC28J60.writeControlRegister(6,ETXND & 255);
   		do ENC28J60.writeControlRegister(7,ETXND / 256);
-  
+
   		// See Rev. B7 Silicon Errata issues 12 and 13
   		// Reset the transmit logic problem. Errata 12
   		// ECON1 (0x1F) = 0b1000000
   		// TXRST = 1 transmission reset
   		do ENC28J60.bitFieldSet(31, 128);
   		do ENC28J60.bitFieldClear(31, 128);
-  
+
   		// ECON1 (0x1F) = 0b00001000
   		// TXRTS = 1 transmision request to send
   		do ENC28J60.bitFieldSet(31, 8);
-	
-		// wait for transmit 
+
+		// wait for transmit
 		while ((ENC28J60.readControlRegister(31) & 8) = 8){
 			//do Output.printChar(46);
 		}
 		return;
-	} 
+	}
 
-	/** 7.2 Receiving Packets */	
+	/** 7.2 Receiving Packets */
 	function void receivePacket(){
 		var Array buffer;
 		var int len;
 		var int freePtr;
 		var int EPKTCNT;
-		
+
 		// read packet counter
 		do ENC28J60.bitFieldSet(31,1);
 		let EPKTCNT = ENC28J60.readControlRegister(25);
@@ -231,7 +231,7 @@ class ENC28J60{
 			// set pointer to next packet
 			do ENC28J60.writeControlRegister(0,nextPacketPtr & 255);
 			do ENC28J60.writeControlRegister(1,nextPacketPtr / 256);
-			
+
 			// status of packet in first 6 bytes
 			let buffer = Array.new(6);
 			do ENC28J60.readBufferMemory(buffer,6);
@@ -241,11 +241,11 @@ class ENC28J60{
 //			do UART.printString("ENC28J60 received: ");
 //			do UART.printInt(len);
 //			do UART.printString(" bytes");
-//			do UART.println();	
+//			do UART.println();
 //			do UART.printString("Packet pointer: ");
 //			do UART.printInt(nextPacketPtr);
-//			do UART.println();			
-			
+//			do UART.println();
+
 			// save next packet pointer
 			let nextPacketPtr = buffer[0] | (buffer[1]*256);
 			do buffer.dispose();
@@ -253,7 +253,7 @@ class ENC28J60{
 			// read buffer for data
 			let buffer = Array.new(len);
 			do ENC28J60.readBufferMemory(buffer,len);
-			
+
 			// freeing receive buffer
 			// see errata 14: Memory
 			let freePtr = nextPacketPtr;
@@ -264,8 +264,8 @@ class ENC28J60{
 			}
 			do ENC28J60.writeControlRegister(12,freePtr&255);
 			do ENC28J60.writeControlRegister(13,freePtr/256);
-			
-			// decrement packet counter	
+
+			// decrement packet counter
 			do ENC28J60.bitFieldSet(30,64);
 
 			// read ethernet header

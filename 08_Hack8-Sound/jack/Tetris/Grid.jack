@@ -18,7 +18,7 @@ class Grid {
 		}
 		return this;
     }
-	
+
     /** Deallocates the Tile's memory. */
     method void dispose() {
 		do grid.dispose();
@@ -33,7 +33,7 @@ class Grid {
 		if (x<10) {let grid[(y*10)+x] = color;}
         return;
     }
-    
+
 	method boolean hasTile(int x, int y){
 		return ~(grid[(y*10)+x]=-1);
 	}
@@ -76,13 +76,13 @@ class Grid {
 						let bla=music.go();
 						do draw(x,z,grid[(z*10)-10+x]);
 						let z=z-1;
-					} 
+					}
 				}
 				let x=x+1;
 			}
 			let y = y+1;
 		}
-		
-		return r;		
+
+		return r;
 	}
 }

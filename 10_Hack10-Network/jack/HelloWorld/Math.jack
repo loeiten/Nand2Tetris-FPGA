@@ -28,8 +28,8 @@ class Math {
 		return x;
     }
 
-    /** Returns the product of x and y. 
-     *  When a Jack compiler detects the multiplication operator '*' in the 
+    /** Returns the product of x and y.
+     *  When a Jack compiler detects the multiplication operator '*' in the
      *  program's code, it handles it by invoking this method. In other words,
      *  the Jack expressions x*y and multiply(x,y) return the same value.
      */
@@ -40,7 +40,7 @@ class Math {
 		let i=0;
 		while (i<16){
 			if ((b[i]&x)=0){
- 
+
 			}else{
 				let p=p+y;
 			}
@@ -51,7 +51,7 @@ class Math {
     }
 
     /** Returns the integer part of x/y.
-     *  When a Jack compiler detects the multiplication operator '/' in the 
+     *  When a Jack compiler detects the multiplication operator '/' in the
      *  program's code, it handles it by invoking this method. In other words,
      *  the Jack expressions x/y and divide(x,y) return the same value.
      */
@@ -97,7 +97,7 @@ class Math {
 		while (~(i<0)){
 			let rn=(r+b[i])*(r+b[i]);
 			if ((rn<0)|(rn>x)){
-				
+
 			} else {
 				let r=r+b[i];
 			}
@@ -121,7 +121,7 @@ class Math {
 		}
 		return b;
 	}
-	
+
 	function int getHigh(int a){
 		if (a<0){
 			return (~((~a) / 256)) & 255;

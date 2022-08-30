@@ -28,13 +28,13 @@ always #1
 	task display;
     	$fwrite(file, "|%5d| %5d | %1b | %1b | %1b | %5d |\n",t,in,reset,load,inc,out);
   	endtask
-  	
+
   	initial begin
   		$dumpfile("PC_tb.vcd");
   		$dumpvars(0, PC_tb);
 		file = $fopen("PC.out","w");
     	$fwrite(file, "|time |  in   |rst|ld |inc|  out  |\n");
-		
+
 
 		#2 in=0;reset=0;load=0;inc= 0;
 		#2 inc=1;

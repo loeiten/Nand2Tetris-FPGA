@@ -18,7 +18,7 @@ See [datasheet of SRAM-chip](../datasheets/K6R4016V1D-TC10.pdf) for timing diagr
 The control lines are:
 * sram_cen = 0 continuosly.
 While reading SRAM:
-* sram_oen = 0 
+* sram_oen = 0
 * sram_wen = 1
 
 On write cycle (when `loadSRAM=1`)

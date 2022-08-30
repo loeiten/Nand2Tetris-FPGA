@@ -8,7 +8,7 @@ class Screen {
 		let color=0;
 		let backcolor=-1;
   		do Screen.writeCommand(239);//0xEF
-	 	do Screen.writeData(3); 
+	 	do Screen.writeData(3);
 		do Screen.writeData(128);
 		do Screen.writeData(2);
 
@@ -44,26 +44,26 @@ class Screen {
 
   		do Screen.writeCommand(192);//0xC0
 		do Screen.writeData(35);
-  		
+
 		do Screen.writeCommand(193);//0xC1
 		do Screen.writeData(16);
-  		
+
 		do Screen.writeCommand(197);//0xC5
 		do Screen.writeData(62);
 		do Screen.writeData(40);      // VCM control
-  		
+
 		do Screen.writeCommand(199);//0xC7
 		do Screen.writeData(134);            // VCM control2
-  		
+
 		do Screen.writeCommand(54);//0X36
 		do Screen.writeData(72);            // Memory Access Control
-  		
+
 		do Screen.writeCommand(55);//0x37
 		do Screen.writeData(0);            // Vertical scroll zero
-  		
+
 		do Screen.writeCommand(58);//0x3A
 		do Screen.writeData(85);
-		
+
   		do Screen.writeCommand(177);//0xB1
 		do Screen.writeData(0);
 		do Screen.writeData(24);
@@ -72,12 +72,12 @@ class Screen {
 		do Screen.writeData(8);
 		do Screen.writeData(130);
 		do Screen.writeData(39); // Display Function Control
-  		
+
 		do Screen.writeCommand(242);//0xF2
 		do Screen.writeData(0);                        // 3Gamma Function Disable
   		do Screen.writeCommand(38);//0X26
 		do Screen.writeData(1);            // Gamma curve selected
-  		
+
 		do Screen.writeCommand(224);//0Xe=
 		do Screen.writeData(15);
 		do Screen.writeData(49);
@@ -86,7 +86,7 @@ class Screen {
 		do Screen.writeData(14);
 		do Screen.writeData(8);// Set Gamma
 		do Screen.writeData(78);
-		do Screen.writeData(241); 
+		do Screen.writeData(241);
 		do Screen.writeData(55);
 		do Screen.writeData(7);
 		do Screen.writeData(16);
@@ -98,28 +98,28 @@ class Screen {
   		do Screen.writeCommand(225);//0xE1
 		do Screen.writeData(0);
 		do Screen.writeData(14);
-		do Screen.writeData(20); 
-		do Screen.writeData(3); 
-		do Screen.writeData(17); 
+		do Screen.writeData(20);
+		do Screen.writeData(3);
+		do Screen.writeData(17);
 		do Screen.writeData(7); // Set Gamma
 		do Screen.writeData(49);
-		do Screen.writeData(193); 
-		do Screen.writeData(72); 
-		do Screen.writeData(8); 
-		do Screen.writeData(15); 
-		do Screen.writeData(12); 
-		do Screen.writeData(49); 
-		do Screen.writeData(54); 
+		do Screen.writeData(193);
+		do Screen.writeData(72);
+		do Screen.writeData(8);
+		do Screen.writeData(15);
+		do Screen.writeData(12);
+		do Screen.writeData(49);
+		do Screen.writeData(54);
 		do Screen.writeData(0);
 
   		do Screen.writeCommand(17);//0x11
 		do Screen.writeData(128);                // Exit Sleep
   		do Screen.writeCommand(41);//0x29
 		do Screen.writeData(128);                // Display on
-			
+
 		do Screen.clearScreen();
 		return;
-	}	
+	}
 
 	function void clearScreen(){
 		var int dummy;
@@ -145,12 +145,12 @@ class Screen {
 		do Screen.writeData16(color);
 		return;
 	}
-	
+
 	function void setColor(int c){
 		let color=c;
 		return;
 	}
-	
+
 	function void setBackColor(int c){
 		let backcolor=c;
 		return;
@@ -159,12 +159,12 @@ class Screen {
 		do Screen.writeData16(color);
 		return;
 	}
-	
+
 	function void clearPixel(){
 		do Screen.writeData16(backcolor);
 		return;
 	}
-	
+
 	function void drawLine(int x1,int y1,int x2,int y2){
 		var int dx,dy;
 		var int vx,vy;
@@ -206,7 +206,7 @@ class Screen {
 		}
 		do Screen.drawPixel(x1,y1);
 
-		
+
 		return;
 	}
 
@@ -237,7 +237,7 @@ class Screen {
 		}
 		return;
 	}
-	
+
 	function void setAddrWindow(int x, int y, int w, int h){
     	do Screen.writeCommand(42); // Column addr set
     	do Screen.writeData16(x);
@@ -257,7 +257,7 @@ class Screen {
 		let screen[1] = data;
 		return;
 	}
-	
+
 	function void writeData16(int data){
 //		var boolean ready;
 //		while (ready=(false)){
@@ -266,7 +266,7 @@ class Screen {
 		let screen[2] = data;
 		return;
 	}
-	
+
 	function void writeCommand(int command){
 //		var boolean ready;
 //		while (ready=(false)){
@@ -275,7 +275,7 @@ class Screen {
 		let screen[0]=command;
 		return;
 	}
-	
+
 	function int BLACK(){
 		return 0;
 	}

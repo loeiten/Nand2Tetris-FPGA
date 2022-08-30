@@ -12,7 +12,7 @@ class Sys {
 		do Screen.init(8200);
 		do Output.init();
 		//do Sound.init();
-		//do Touch.init(8203);	
+		//do Touch.init(8203);
 		do Network.init(8207);
 		do Main.main();
 		do Sys.halt();

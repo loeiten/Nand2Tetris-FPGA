@@ -2,7 +2,7 @@
 module CPU_tb();
 
 	integer file;
-	reg clk=0;	
+	reg clk=0;
 	reg [15:0] inM=0;
 	reg [15:0] instruction=0;
 	reg reset=0;
@@ -20,19 +20,19 @@ module CPU_tb();
 		.addressM(addressM),
 		.pc(pc)
 	);
-	 
+
 	always #1 clk = ~clk;
 
 	task display;
     	#1 $fwrite(file, "| %16b | %16b | %16b | %1b | %16b | %1b | %16b |\n",pc,inM,instruction,reset,outM,writeM,addressM);
   	endtask
-  	
+
   	initial begin
   		$dumpfile("CPU_tb.vcd");
   		$dumpvars(0, CPU_tb);
 		file = $fopen("CPU.out","w");
     	$fwrite(file, "|       pc         |       inM        |    instruction   |rst|       outM       |wM |    addressM      |\n");
-		
+
 
 #2 instruction = 16'b0011000000111001; // @12345
 display();

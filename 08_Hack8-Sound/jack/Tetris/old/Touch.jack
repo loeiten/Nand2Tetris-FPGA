@@ -3,7 +3,7 @@ class Touch{
 	static Array button;
 	static int last;
 	static boolean pressed;
-	
+
 	function void init(){
 		let touch = 8205;
 		do Touch.send(85);
@@ -24,7 +24,7 @@ class Touch{
 		if ((i>(-1))&(i<4)) {let b=button[i]; do b.setText(t); do b.draw(false);}
 		return;
 	}
-	
+
 	function int getButton(){
 		var int p;
 		var Button b;
@@ -45,7 +45,7 @@ class Touch{
 		}
 		return -1;
 	}
-	
+
 	function int getPoint(){
 		var int x,y;
 		let x=Touch.send(0);

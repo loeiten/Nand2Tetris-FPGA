@@ -1,4 +1,4 @@
-/** 
+/**
 * Main class of Network project.
 * receive packets from Ethernet module in an endless loop.
 */
@@ -15,13 +15,13 @@ class Main{
 				do ARP.clearAddresses();
 			}
 			if (button & 16){
-				do Network.print();	
+				do Network.print();
 			}
 			if (button & 32){
-				
+
 			}
 			if (button & 64){
-				do TCP.printSockets();	
+				do TCP.printSockets();
 			}
 			if (button & 128){
 				do TCP.clearSockets();
