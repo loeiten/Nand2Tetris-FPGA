@@ -1,13 +1,13 @@
-# nand2tetris-FPGA
+# Nand2Tetris-FPGA
 
 > ... _Would'nt it be nice to make Hack or Jack also run on some "real platform," made from some "real stuff"?_ ...
 >
 >---Noam Nisan and Shimon Schocken
 
-This project is about building Hack on real hardware as proposed in Chapter 13 of the course [nand2tetris](https://www.nand2tetris.org/) using only FOSS, free and open source hard- and software.
+This project is about building Hack on real hardware as proposed in Chapter 13 of the course [Nand2Tetris](https://www.Nand2Tetris.org/) using only FOSS, free and open source hard- and software.
 
 We build hack in 9 steps, starting with Hack-1, a minimal working Hack-CPU connected to some leds and buttons and ending at Hack-9, the final implementation of Hack running Jack-Compiled code with specs:
-* original CPU/ALU design of HACK from nand2tetris
+* original CPU/ALU design of HACK from Nand2Tetris
 * implemented on iCE40 FPGA
 * clocked at 33.333333 MHz
 * RAM 3840 x 16 bit (R0-R15/static/stack/heap)
@@ -68,11 +68,11 @@ Add SD-card reader MOD-SDMMC. Reimplement bootloader capable of loading Jack-com
 
 ## Credits
 
-* Noam Nisan and Shimon Schocken: Visit [nand2tetris](https://nand2tetris.org) and learn to build a modern general-purpose computer system from ground up.
-* [Olimex Ltd](https://www.olimex.com/): Buy your hardware from the Company with highest number of registered OSHW projects :)
+* Noam Nisan and Shimon Schocken: Visit [Nand2Tetris](https://Nand2Tetris.org) and learn to build a modern general-purpose computer system from ground up.
+* [Olimex Ltd](https://www.Olimex.com/): Buy your hardware from the Company with highest number of registered OSHW projects :)
 * Wolf Clifford: The master of open source FPGA with iCE40 and  [Project IceStorm](http://www.clifford.at/icestorm/)
 * Jesús Arroyo Torrens, Juan González (Obijuan): Open source ecosystem for open FPGA boards [APIO](https://github.com/FPGAwars/apio)
-* Juan González-Gomez (Obijuan): Lern verilog with [open-fpga-verilog-tutorial](https://github.com/Obijuan/open-fpga-verilog-tutorial/), best tutorial!
+* Juan González-Gomez (Obijuan): Lern Verilog with [open-FPGA-Verilog-tutorial](https://github.com/Obijuan/open-FPGA-Verilog-tutorial/), best tutorial!
 * Icons made by <a href="https://www.flaticon.com/free-icon/cpu_483131?term=cpu&page=3&position=86" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 
 ---

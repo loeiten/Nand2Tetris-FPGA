@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
 [*] Wed Jul  8 14:41:49 2020
 [*]
-[dumpfile] "/home/micha/git/gitlab/nand2tetris/01_Hack1-minimal/Memory/Memory_tb.vcd"
+[dumpfile] "/home/micha/git/gitlab/Nand2Tetris/01_Hack1-minimal/Memory/Memory_tb.vcd"
 [dumpfile_mtime] "Wed Jul  8 14:40:36 2020"
 [dumpfile_size] 290379
-[savefile] "/home/micha/git/gitlab/nand2tetris/01_Hack1-minimal/Memory/Memory_tb.gtkw"
+[savefile] "/home/micha/git/gitlab/Nand2Tetris/01_Hack1-minimal/Memory/Memory_tb.gtkw"
 [timestart] 0
 [size] 1153 633
 [pos] -1 -1

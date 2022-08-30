@@ -7,7 +7,7 @@ In this project we will add network connectivity and implement a minimal HTTP-Se
 
 ### Layer 1: Physical (outside FPGA)
 
-We connect the ENC28J60 with a 4 wire SPI to GPIO of fpga.
+We connect the ENC28J60 with a 4 wire SPI to GPIO of FPGA.
 
 |wire|iCE40HX1K (FPGA)|iCE40HX1K-EVB (GPIO1)|MOD-ENC28J60 (UEXT)|
 |-|-|-|-|
@@ -19,7 +19,7 @@ We connect the ENC28J60 with a 4 wire SPI to GPIO of fpga.
 |CEN|18|27|10|
 
 ### Layer 2: Hardware (inside FPGA)
-Inside the fpga we will implement a SPI-Module to read and write bytes to ENC28J60.
+Inside the FPGA we will implement a SPI-Module to read and write bytes to ENC28J60.
 * Use shiftregister `ShifterL` from last project.
 * Build and test the module `ENC28J60.v`.
 

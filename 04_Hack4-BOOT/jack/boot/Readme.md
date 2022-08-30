@@ -62,7 +62,7 @@ cat asm/echo/echo.hack > /dev/ttyACM0
 
 **Note 2:** Your HACK-assembler has to be modified to handle jumps to memory > 32767.
 
-**Note 3:** The assembler provided in `tools/Assembler` does the job. Simply use the provided `Makefile`s to compile and upload assembler/JACK programs to fpga.
+**Note 3:** The assembler provided in `tools/Assembler` does the job. Simply use the provided `Makefile`s to compile and upload assembler/JACK programs to FPGA.
 
 e.g.:
 ```

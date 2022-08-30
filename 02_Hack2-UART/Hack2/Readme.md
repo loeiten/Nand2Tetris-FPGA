@@ -31,5 +31,5 @@ The Testbench `Hack2_tb.v` transmitts a few bytes to. When ROM.v is loaded with 
 * Compare output with `Hack2_tb.png`
 * Build and upload to iCE40-HX1K-EVB
  `$ apio upload`
-* Test `echo` running on fpga with UART
+* Test `echo` running on FPGA with UART
 `screen /dev/ttyACM0`

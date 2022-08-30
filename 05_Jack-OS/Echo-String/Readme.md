@@ -18,7 +18,7 @@ class Main{
 ```
 
 ### Sys.jack
-`Sys.jack` needs little modification from original nand2tetris:
+`Sys.jack` needs little modification from original Nand2Tetris:
 
 * `Sys.wait()` must be adapted to CPU speed (see project blinky).
 * `Sys.error()` should output to UART using `UART.printString()`.
@@ -71,7 +71,7 @@ class UART {
 ```
 
 ### Memory.jack
-Memory.jack has to be adapted because RAM is smaller then original nand2tetris RAM. Proposed Memory map:
+Memory.jack has to be adapted because RAM is smaller then original Nand2Tetris RAM. Proposed Memory map:
 
 |Address|Memory|
 |-|-|
@@ -81,14 +81,14 @@ Memory.jack has to be adapted because RAM is smaller then original nand2tetris R
 |1024-3839| heap (stores objects: arrays, String ...)|
 
 ### Array.jack
-Original nand2tetris version of `Array.jack` can be used without modification.
+Original Nand2Tetris version of `Array.jack` can be used without modification.
 
 ### String.jack
-Original nand2tetris version of `String.jack` can be used with minor changes to values for `newLine()` and `backSpace()`. Check what chars your terminal program sends over UART (linux char-10, windows char-13).
+Original Nand2Tetris version of `String.jack` can be used with minor changes to values for `newLine()` and `backSpace()`. Check what chars your terminal program sends over UART (linux char-10, windows char-13).
 **Tipp:** Modify Echo-char to echo `c+32` then open a terminal program and see what you get back sending the chars `newline`, `backspace` `enter` or whatever.
 
 ### Math.jack
-Original nand2tetris version of `Math.jack` can be used without modification.
+Original Nand2Tetris version of `Math.jack` can be used without modification.
 
 
 ## Project
@@ -99,6 +99,6 @@ Original nand2tetris version of `Math.jack` can be used without modification.
 * Copy your version of`Sys.jack` to project folder.
 * Do the changes described above.
 * Implement `UART.jack`
-* Run supplied `Main.jack` class on fpga
+* Run supplied `Main.jack` class on FPGA
 
 **Tipp:** If you are hunting for bugs, write some debug code that outputs debug infos to leds or to UART.

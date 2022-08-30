@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
 [*] Sun Jul 26 15:03:23 2020
 [*]
-[dumpfile] "/home/micha/git/gitlab/nand2tetris/09_Hack9-SD/Hack9/Hack9_tb.vcd"
+[dumpfile] "/home/micha/git/gitlab/Nand2Tetris/09_Hack9-SD/Hack9/Hack9_tb.vcd"
 [dumpfile_mtime] "Sun Jul 26 15:02:55 2020"
 [dumpfile_size] 6489628
-[savefile] "/home/micha/git/gitlab/nand2tetris/09_Hack9-SD/Hack9/Hack9_tb.gtkw"
+[savefile] "/home/micha/git/gitlab/Nand2Tetris/09_Hack9-SD/Hack9/Hack9_tb.gtkw"
 [timestart] 0
 [size] 1280 703
 [pos] -1 -1

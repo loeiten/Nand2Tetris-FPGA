@@ -12,7 +12,7 @@ The subfolder `files/` containes the blender files, the corresponging STL-files 
 ### modules
 The modules are mounted on trays with little screws (M3x5/M2.4x5 selfcutting). From left to right:
 1. Olimexino 32u4: Programmer/UART bridge
-2. iCE40HX8K-EVB: fpga development board
+2. iCE40HX8K-EVB: FPGA development board
 3. SD-Card + Ethernet connector
 
 The rear cover holds a small piezo speaker (2cm diameter).
@@ -26,7 +26,7 @@ A look inide: All the modules fit nicely inside.
 
 ### rear
 On the rear cover you see connectors for power supply (5V), RJ45 Ethernet connector and the USB connector which has dual usage:
-1. upload bitstream files to iCE40 fpga
+1. upload bit stream files to iCE40 FPGA
 2. communicate to Hack-Computer over UART
 ![](pics/cube_rear.jpg)
 

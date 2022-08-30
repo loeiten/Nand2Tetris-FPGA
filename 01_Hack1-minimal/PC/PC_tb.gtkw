@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
 [*] Thu Jul  2 18:24:50 2020
 [*]
-[dumpfile] "/home/micha/git/gitlab/nand2tetris/PC/PC_tb.vcd"
+[dumpfile] "/home/micha/git/gitlab/Nand2Tetris/PC/PC_tb.vcd"
 [dumpfile_mtime] "Thu Jul  2 18:24:46 2020"
 [dumpfile_size] 56138
-[savefile] "/home/micha/git/gitlab/nand2tetris/PC/PC_tb.gtkw"
+[savefile] "/home/micha/git/gitlab/Nand2Tetris/PC/PC_tb.gtkw"
 [timestart] 0
 [size] 1172 431
 [pos] -1 -1

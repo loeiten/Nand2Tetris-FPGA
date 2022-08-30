@@ -51,6 +51,6 @@ The Testbench `Hack_tb.v` transmitts a few bytes to rx. When ROM.v is loaded wit
 * Compare output with `Hack3_tb.png`
 * Build and upload to iCE40-HX1K-EVB
  `$ apio upload`
-* Test `sram.hack` running on fpga with a terminal programm.
+* Test `sram.hack` running on FPGA with a terminal programm.
 
   `screen /dev/ttyACM0`

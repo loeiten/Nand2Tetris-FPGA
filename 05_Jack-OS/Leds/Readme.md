@@ -59,5 +59,5 @@ class GPIO {
 	- compile `Sys.jack` to `Sys.vm`
 	- translate VM-code to assembler
 	- translate assembler to hack code
-	- run Hack5 on fpga
+	- run Hack5 on FPGA
 	- upload `out.hack`

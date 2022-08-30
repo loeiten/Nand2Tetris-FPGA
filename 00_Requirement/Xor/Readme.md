@@ -1,7 +1,7 @@
 
 # Translation guide: HDL to Verilog
 
-The hardware part of the project nand2tetris-13 is implemented in verilog, a hardware description language similar to HDL used in the original nand2tetris course. There is no need to learn verilog, as you can easily translate all your hdl-files into verilog following the given example for `Xor`.
+The hardware part of the project Nand2Tetris-13 is implemented in Verilog, a hardware description language similar to HDL used in the original Nand2Tetris course. There is no need to learn Verilog, as you can easily translate all your HDL-files into Verilog following the given example for `Xor`.
 
 **Note:**
 The following modules are considered primitive and thus there is no need to implement them.
@@ -10,16 +10,16 @@ The following modules are considered primitive and thus there is no need to impl
 |-|-|
 |Nand.v|Nand-gate. Basic building block for combinatorial logic|
 |DFF.v|Data Flip Flop. Basic building block for sequential logic|
-|RAM.v|uses Block Ram (BRAM) of iCE40|
-|ROM.v|uses Block Ram (BRAM) of iCE40 preloaded with HACK-code at startup|
+|RAM.v|uses block RAM (BRAM) of iCE40|
+|ROM.v|uses Block RAM (BRAM) of iCE40 preloaded with HACK-code at startup|
 |Tristate.v|Tristate buffer, used to connect to databus of SRAM|
 
 
 
 ## Xor.hdl
-Implementation of Xor in HDL (nand2tetris).
+Implementation of Xor in HDL (Nand2Tetris).
 ```
-// This file is part of www.nand2tetris.org
+// This file is part of www.Nand2Tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
 // File name: projects/01/Xor.hdl
@@ -43,7 +43,7 @@ CHIP Xor {
 ```
 
 ## Xor.v
-Xor.hdl can be translated to Xor.v (verilog).
+Xor.hdl can be translated to Xor.v (Verilog).
 ```
 /**
 * Xor (exclusive or) gate:
@@ -70,9 +70,9 @@ module Xor(
 ```
 
 ## Xor.tst
-Testfile for Xor written in Testscript language of nand2tetris course.
+Testfile for Xor written in Testscript language of Nand2Tetris course.
 ```
-// This file is part of www.nand2tetris.org
+// This file is part of www.Nand2Tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
 // File name: projects/01/Xor.tst
@@ -147,7 +147,7 @@ module Xor_tb();
 endmodule
 ```
 ## Xor.out
-Similar to `Xor.tst` of nand2tetris, the testbench `Xor_tb.v` generates an output-file `Xor.out`, which can then be compare to `Xor.cmp`.
+Similar to `Xor.tst` of Nand2Tetris, the testbench `Xor_tb.v` generates an output-file `Xor.out`, which can then be compare to `Xor.cmp`.
 
 ### Simulation
 Simulation of testbench `Xor_tb.v` is done by launching the apio command:
@@ -181,8 +181,8 @@ To synthesize the modules and upload them to iCE40-FPGA you need one additional 
 
 ```
 # physical constrain file
-# assign io-pins to pin numbering of iCE40-HX1K on olimex board iCE40-HX1K-EVB
-# compare to the schematic of the board and the datasheet of fpga
+# assign io-pins to pin numbering of iCE40-HX1K on Olimex board iCE40-HX1K-EVB
+# compare to the schematic of the board and the datasheet of FPGA
 
 set_io a 41
 set_io b 42

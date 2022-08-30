@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
 [*] Wed Jul  1 07:37:17 2020
 [*]
-[dumpfile] "/home/micha/git/gitlab/nand2tetris/13_hack-final/Timer/Test_tb.vcd"
+[dumpfile] "/home/micha/git/gitlab/Nand2Tetris/13_hack-final/Timer/Test_tb.vcd"
 [dumpfile_mtime] "Wed Jul  1 07:37:04 2020"
 [dumpfile_size] 17251887
-[savefile] "/home/micha/git/gitlab/nand2tetris/13_hack-final/Timer/Test_tb.gtkw"
+[savefile] "/home/micha/git/gitlab/Nand2Tetris/13_hack-final/Timer/Test_tb.gtkw"
 [timestart] 0
 [size] 1264 449
 [pos] -1 -1

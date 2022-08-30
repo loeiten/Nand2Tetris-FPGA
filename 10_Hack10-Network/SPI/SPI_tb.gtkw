@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
 [*] Tue Nov  3 17:33:04 2020
 [*]
-[dumpfile] "/home/micha/git/gitlab/nand2tetris/10_Hack-Network/SPI/SPI_tb.vcd"
+[dumpfile] "/home/micha/git/gitlab/Nand2Tetris/10_Hack-Network/SPI/SPI_tb.vcd"
 [dumpfile_mtime] "Tue Nov  3 17:32:38 2020"
 [dumpfile_size] 86166
-[savefile] "/home/micha/git/gitlab/nand2tetris/10_Hack-Network/SPI/SPI_tb.gtkw"
+[savefile] "/home/micha/git/gitlab/Nand2Tetris/10_Hack-Network/SPI/SPI_tb.gtkw"
 [timestart] 0
 [size] 1000 600
 [pos] -1 -1

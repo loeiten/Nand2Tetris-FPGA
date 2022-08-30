@@ -1,7 +1,7 @@
 /**
 * TOP-level module of HACK
-* It connects the external pins of our fpga (hack.pcf)
-* to the modules (cpu,mem,ram,rom,sram,but,led,uart,lcd,sd,sound,touch)
+* It connects the external pins of our FPGA (hack.pcf)
+* to the modules (cpu,mem,RAM,rom,sram,but,led,uart,lcd,sd,sound,touch)
 */
 
 `default_nettype none

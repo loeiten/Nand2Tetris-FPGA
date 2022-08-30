@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
 [*] Wed Jun 17 13:06:36 2020
 [*]
-[dumpfile] "/home/micha/git/gitlab/nand2tetris/12_hack-12-nand/lcd/lcd_tb.vcd"
+[dumpfile] "/home/micha/git/gitlab/Nand2Tetris/12_hack-12-nand/lcd/lcd_tb.vcd"
 [dumpfile_mtime] "Wed Jun 17 13:05:40 2020"
 [dumpfile_size] 150367
-[savefile] "/home/micha/git/gitlab/nand2tetris/12_hack-12-nand/lcd/lcd_tb.gtkw"
+[savefile] "/home/micha/git/gitlab/Nand2Tetris/12_hack-12-nand/lcd/lcd_tb.gtkw"
 [timestart] 0
 [size] 1280 703
 [pos] -1 -1

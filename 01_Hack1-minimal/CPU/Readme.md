@@ -14,7 +14,7 @@ Testbench performs some operations and generates `CPU.out`, which can be compare
 ## Project
 * Implement the `CPU` and all needed submodules.
 
-  Use translation guide at `00_Requirement/Xor` to see how to translate your HDL-files into verilog.
+  Use translation guide at `00_Requirement/Xor` to see how to translate your HDL-files into Verilog.
 
   **Note:** Nand and DFF are considered primitive and thus there is no need to implement them.
 

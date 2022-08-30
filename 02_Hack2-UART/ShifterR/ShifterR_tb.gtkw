@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
 [*] Sun Jul  5 16:20:18 2020
 [*]
-[dumpfile] "/home/micha/git/gitlab/nand2tetris/02_Hack2-UART/ShifterR/ShifterR_tb.vcd"
+[dumpfile] "/home/micha/git/gitlab/Nand2Tetris/02_Hack2-UART/ShifterR/ShifterR_tb.vcd"
 [dumpfile_mtime] "Sun Jul  5 16:19:19 2020"
 [dumpfile_size] 17797
-[savefile] "/home/micha/git/gitlab/nand2tetris/02_Hack2-UART/ShifterR/ShifterR_tb.gtkw"
+[savefile] "/home/micha/git/gitlab/Nand2Tetris/02_Hack2-UART/ShifterR/ShifterR_tb.gtkw"
 [timestart] 1
 [size] 1138 550
 [pos] -1 -1

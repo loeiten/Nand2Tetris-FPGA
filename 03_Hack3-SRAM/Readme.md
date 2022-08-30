@@ -26,7 +26,7 @@ On write cycle (when `loadSRAM=1`)
 * sram_wen = 0
 
 
-See [datasheet of iCE40-HX1K-EVB](../datasheets/iCE40-HX1K-EVB.pdf) for pin numbering of fpga connected to SRAM.
+See [datasheet of iCE40-HX1K-EVB](../datasheets/iCE40-HX1K-EVB.pdf) for pin numbering of FPGA connected to SRAM.
 
 |wire|iCE40HX1K (FPGA)|
 |-|-|

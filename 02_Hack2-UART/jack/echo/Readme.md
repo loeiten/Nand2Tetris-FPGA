@@ -30,6 +30,6 @@ wait until UART-Transmit is ready then start transmition of the byte c.
 * Compile with `$ make`. This runs Jack-compiler, VM-Translator and Assembler generating `out.hack`.
 * Preload `ROM.v` with `out.hack`.
 * Simulate with `Hack2_tb.v`
-* Build and upload to fpga.
+* Build and upload to FPGA.
 * run a terminal connected to UART to test echo.
 `screen /dev/ttyACM0`

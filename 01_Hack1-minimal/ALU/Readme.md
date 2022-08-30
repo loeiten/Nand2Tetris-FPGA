@@ -25,7 +25,7 @@ Testbench performs some operations with ALU and generates `ALU.out`, which can b
 ## Project
 * Implement the ALU and all needed submodules (Add16, And16, And, FullAdder, HalfAdder, Mux16, Mux, Not16, Not, Or8Way, Or, Xor).
 
-Use translation Guide at `00_Requirement/Xor` to see how HDL-files translate into verilog.
+Use translation Guide at `00_Requirement/Xor` to see how HDL-files translate into Verilog.
 
 **Note:** Nand is considered primitive and thus there is no need to implement it.
 

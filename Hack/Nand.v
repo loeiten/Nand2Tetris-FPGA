@@ -3,7 +3,7 @@
  * out = 0 if (a == 1 and b == 1)
  *       1 otherwise
  *
- * This module is implemented using verilog primitives
+ * This module is implemented using Verilog primitives
  */
 
 `default_nettype none

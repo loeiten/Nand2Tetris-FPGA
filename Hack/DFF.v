@@ -2,7 +2,7 @@
 * Data-Flip-Flop
 * out[t+1] = in[t]
 *
-* This module is implemented using reg-variables in verilog
+* This module is implemented using reg-variables in Verilog
 */
 
 `default_nettype none

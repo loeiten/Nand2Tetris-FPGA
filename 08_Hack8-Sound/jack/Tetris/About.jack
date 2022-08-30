@@ -8,7 +8,7 @@ class About{
 			let ticks=0;
 		}
 		do Screen.clearScreen();
-		do About.show("nand2tetris-13",6,3,ticks);
+		do About.show("Nand2Tetris-13",6,3,ticks);
 		if (isstart){do Sys.wait(1000);}
 		do About.show(" ... Would'nt it be nice",0,5,ticks);
 		do About.show(" to make Hack or Jack also",0,6,ticks);
@@ -19,7 +19,7 @@ class About{
 		if (isstart){do Sys.wait(1000);}
 		do About.show("  do FPGA.runJack(Tetris);",0,18,ticks);
 		if (isstart){do Sys.wait(1000);}
-		do About.show("gitlab.com/x653/nand2tetris-13",0,22,ticks);
+		do About.show("gitlab.com/x653/Nand2Tetris-13",0,22,ticks);
 		if (isstart){do Sys.wait(1000);}
 		return;
 	}

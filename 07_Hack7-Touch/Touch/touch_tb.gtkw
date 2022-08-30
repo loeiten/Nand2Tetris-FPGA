@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.3.98 (w)1999-2019 BSI
 [*] Tue Jun 23 14:13:29 2020
 [*]
-[dumpfile] "/home/micha/git/gitlab/nand2tetris/12_hack-12-nand/touch/touch_tb.vcd"
+[dumpfile] "/home/micha/git/gitlab/Nand2Tetris/12_hack-12-nand/touch/touch_tb.vcd"
 [dumpfile_mtime] "Tue Jun 23 14:12:14 2020"
 [dumpfile_size] 736096
-[savefile] "/home/micha/git/gitlab/nand2tetris/12_hack-12-nand/touch/touch_tb.gtkw"
+[savefile] "/home/micha/git/gitlab/Nand2Tetris/12_hack-12-nand/touch/touch_tb.gtkw"
 [timestart] 0
 [size] 1280 703
 [pos] -1 -1

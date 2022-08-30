@@ -2,7 +2,7 @@
 # Python bytecode 3.7.0 (3394)
 # Decompiled from: Python 3.8.13 (default, Mar 28 2022, 06:16:26)
 # [Clang 12.0.0 ]
-# Embedded file name: /home/micha/git/gitlab/nand2tetris-13/tools/VMTranslator/codeWriter.py
+# Embedded file name: /home/micha/git/gitlab/Nand2Tetris-13/tools/VMTranslator/codeWriter.py
 # Compiled at: 2020-05-05 23:21:09
 # Size of source mod 2**32: 7554 bytes
 

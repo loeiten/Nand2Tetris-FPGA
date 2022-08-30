@@ -71,7 +71,7 @@ class Main {
 	function void displayStart(){
 		do Screen.clearScreen();
 		do Output.moveCursor(5,7);
-	    do Output.printString("nand2tetris-13");
+	    do Output.printString("Nand2Tetris-13");
 		let tile = Tile.new();
 		do tile.move(6,10);
 		do tile.draw();

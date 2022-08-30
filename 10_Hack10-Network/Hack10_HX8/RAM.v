@@ -18,7 +18,7 @@ module RAM(
 	always @(posedge clk)
 		if (load) regRAM[address[12:0]] <= in;
 
-	parameter ROMFILE = "../../asm/debug/ram.bin";
+	parameter ROMFILE = "../../asm/debug/RAM.bin";
 	initial begin
 		$readmemb(ROMFILE,regRAM);
 	end

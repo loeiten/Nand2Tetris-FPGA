@@ -17,7 +17,7 @@ if len(sys.argv) != 2:
 fhack = open(sys.argv[1].replace(".asm", ".hack"), "w")
 fasm = Parser(sys.argv[1])
 t = SymbolTable()
-ram = 16
+RAM = 16
 i = 0
 while fasm.hasMoreCommands():
     fasm.advance()
@@ -60,8 +60,8 @@ while opti == False:
                 i += 1
             else:
                 if not t.contains(fasm.symbol()):
-                    t.addEntry(fasm.symbol(), ram)
-                    ram += 1
+                    t.addEntry(fasm.symbol(), RAM)
+                    RAM += 1
                     i += 1
                 else:
                     if t.getAddress(fasm.symbol()) < 32768:
@@ -89,8 +89,8 @@ while fasm.hasMoreCommands():
             s = int(fasm.symbol())
         else:
             if not t.contains(fasm.symbol()):
-                t.addEntry(fasm.symbol(), ram)
-                ram += 1
+                t.addEntry(fasm.symbol(), RAM)
+                RAM += 1
             s = t.getAddress(fasm.symbol())
         if s < 32768:
             binary = "{0:016b}".format(s)
