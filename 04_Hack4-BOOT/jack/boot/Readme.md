@@ -10,12 +10,12 @@ The bootloader is written in Jack. It implements a finate state machine with 4 s
 ![](bootloader.png)
 
 
-The state is stored @8192 so you can see what hack is doing at leds!
+The state is stored @8192 so you can see what hack is doing at LEDs!
 
 ### Simulation
 run `apio sim` with Hack4 and `jack/boot/out.hack` preloaded in ROM and check read and write-timings of SRAM. When Hack receives to consecutive `\n` chars. The bootloader should switch execution to external SRAM.
 
-Check that HACK receives 12 bytes over UART-RX: ``0,0,0,0,0,\n,1,1,1,\n,\n`` and write two bytes to SRAM (SRAM[0]=0, SRAM[1]=7). Assert that leds show the state of the bootloader.
+Check that HACK receives 12 bytes over UART-RX: ``0,0,0,0,0,\n,1,1,1,\n,\n`` and write two bytes to SRAM (SRAM[0]=0, SRAM[1]=7). Assert that LEDs show the state of the bootloader.
 
 ![](../../Hack4/Hack4_tb.png)
 
@@ -32,13 +32,13 @@ $ screen /dev/ttyACM0 115200
 
 Now you should be able to enter Hack code in the terminal. After entering two consecutive `\n` chars execution should go to external SRAM running your program.
 
-While entering `leds.hack` in your terminal you should inspect status of bootloader shown on leds of board.
+While entering `LEDs.hack` in your terminal you should inspect status of bootloader shown on LEDs of board.
 * 01 = while entering 0 or 1
 * 10 = after new line is entered (bootloader writes to SRAM)
 * 11 = error (you entered some strange char)
 * 00 = after entering two consecutive new lines, bootloader starts programm execution in SRAM!
 
-After programm execution is switched to SRAM you should be able to control leds with but, since the entered hack-code just demands this.
+After programm execution is switched to SRAM you should be able to control LEDs with but, since the entered hack-code just demands this.
 
 ```
 0010000000000001 <enter>
@@ -53,7 +53,7 @@ After programm execution is switched to SRAM you should be able to control leds 
 Test Hack-4 with the following programs:
 
 ```
-cat asm/leds/leds.hack > /dev/ttyACM0
+cat asm/LEDs/LEDs.hack > /dev/ttyACM0
 cat asm/blinky/blinky.hack > /dev/ttyACM0
 cat asm/echo/echo.hack > /dev/ttyACM0
 ```

@@ -1,6 +1,6 @@
 ## led.asm
 
-`led.asm` runs an infinite loop, which reads the button state and ouputs the result to leds.
+`led.asm` runs an infinite loop, which reads the button state and ouputs the result to LEDs.
 ```
 // led.asm
 // execute an infinite loop to

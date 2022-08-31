@@ -1,9 +1,9 @@
-## Leds - GPIO
+## LEDs - GPIO
 
-This is the Jack-Version of `leds.asm`. It makes use of the Jack class `GPIO.jack` which will be part of our new Jack-OS.
+This is the Jack-Version of `LEDs.asm`. It makes use of the Jack class `GPIO.jack` which will be part of our new Jack-OS.
 
 ### Sys.jack
-`Sys.init()` is the entry function called after starting Jack-OS. It's a loop continuosly writing the button state to the led as in `leds.asm`.
+`Sys.init()` is the entry function called after starting Jack-OS. It's a loop continuosly writing the button state to the led as in `LEDs.asm`.
 ```
 class Sys {
 
@@ -19,7 +19,7 @@ class Sys {
 ```
 
 ### GPIO.jack
-The class `GPIO.jack` gives acces to GPIO pins connected to leds and buttons.
+The class `GPIO.jack` gives acces to GPIO pins connected to LEDs and buttons.
 
 ```
 class GPIO {
@@ -35,14 +35,14 @@ class GPIO {
 
    	}
 
-	// returns the state of the leds on bit 1 and bit 0
+	// returns the state of the LEDs on bit 1 and bit 0
   	// 0 = led off
   	// 1 = led on
 	function int getLed() {
 
    	}
 
-	// sets the state of the leds (bit 1 and bit 0)
+	// sets the state of the LEDs (bit 1 and bit 0)
 	// 1 = led on
 	// 0 = led off
    function void setLed(int state){

@@ -16,7 +16,7 @@ Hack4 adds a bootlogic. At startup the bootloader `boot.asm` preloaded in ROM.v.
 To Test the boot circuit we can:
 * Preload ROM (2048 words) with [`jack/boot`](jack/boot) of `Hack4`.
 * Run `jack/boot` in real hardware and test with:
-	- Upload and run [`asm/leds`](asm/leds) over UART
+	- Upload and run [`asm/LEDs`](asm/LEDs) over UART
 	- Upload and run [`asm/blinky`](asm/blinky) over UART
 	- Upload and run [`asm/echo`](asm/echo) over UART
 
@@ -24,7 +24,7 @@ To Test the boot circuit we can:
 * Reimplement bootloader in assembler [`asm/boot`](asm/boot) fitting in 256x16 bit of ROM.
 * Shrink ROM of Hack4 to 256 x 16bit and preload with `asm/boot`, extend RAM of Hack4 to 3840 x 16 bit.
 * Run `asm/boot` in real hardware.
-	- Upload and run `asm/leds` over UART
+	- Upload and run `asm/LEDs` over UART
 	- Upload and run `asm/blinky` over UAR
 	- Upload and run `asm/echo` over UART
 

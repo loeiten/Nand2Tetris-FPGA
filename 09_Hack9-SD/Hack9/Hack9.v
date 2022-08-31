@@ -8,7 +8,7 @@
 module Hack9(
     input clk_in,				// external clock 100 MHz
     input [7:0] but,			// buttons	(0 if pressed, 1 if released)
-	output [7:0] led,			// leds 	(0 off, 1 on)
+	output [7:0] led,			// LEDs 	(0 off, 1 on)
 	input rx,					// rx line of UART
 	output tx,					// tx line of UART
 	output [17:0] sram_addr,	// SRAM Address 18 Bit = 256K

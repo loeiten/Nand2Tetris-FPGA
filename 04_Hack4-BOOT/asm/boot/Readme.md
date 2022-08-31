@@ -11,7 +11,7 @@ Rewrite `jack/boot` directly in assembler `boot.asm`. Without the overhead of Ja
 * Upload assembler programms with bootloader:
 
 ```
-$ cat asm/leds/leds.hack > /dev/ttyACM0
+$ cat asm/LEDs/LEDs.hack > /dev/ttyACM0
 $ cat asm/blinky/blinky.hack > /dev/ttyACM0
 $ cat asm/echo/echo.hack > /dev/ttyACM0
 ```

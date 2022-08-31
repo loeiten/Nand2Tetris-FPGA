@@ -101,4 +101,4 @@ Original Nand2Tetris version of `Math.jack` can be used without modification.
 * Implement `UART.jack`
 * Run supplied `Main.jack` class on FPGA
 
-**Tipp:** If you are hunting for bugs, write some debug code that outputs debug infos to leds or to UART.
+**Tipp:** If you are hunting for bugs, write some debug code that outputs debug infos to LEDs or to UART.

@@ -6,7 +6,7 @@ Now that we have a Hack-CPU capable of uploading and running big Hack applocatio
 ## Layer 5: Jack-OS
 * Preload ROM with `asm/boot` of `Hack4`.
 * Upload `Hack4` to iCE40-HX1K-EVB and run in real hardware.
-* Do project [`Leds`](Leds) (Implement `GPIO.jack`)
+* Do project [`LEDs`](LEDs) (Implement `GPIO.jack`)
 * Do project [`Echo-String`](Echo-String) (Implement `UART.jack`, `String.jack`, `Memory.jack`, `Math.jack` and `Array.jack`)
 * Do project [`Blinky`](Blinky) (Implement `Sys.wait()`)
 * Do project [`Average`](Average) to test Full-Jack-OS.

@@ -93,8 +93,8 @@ pip install -U git+https://github.com/FPGAwars/apio.git@develop#egg=apio
 
 ```bash
 apio install examples
-apio examples -d iCE40-HX1K-EVB/leds
-cd iCE40-HX1K-EVB/leds
+apio examples -d iCE40-HX1K-EVB/LEDs
+cd iCE40-HX1K-EVB/LEDs
 apio sim
 apio build
 apio upload

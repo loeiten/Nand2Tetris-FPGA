@@ -1,5 +1,5 @@
 ## Blinky
-Jack version of blinky using Jack-OS. Leds are incremented every 0.5 seconds.
+Jack version of blinky using Jack-OS. LEDs are incremented every 0.5 seconds.
 
 ### Main.jack
 ```

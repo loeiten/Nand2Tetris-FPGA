@@ -4,7 +4,7 @@
 class GPIO {
  	static Array gpio;
 
-	/** memory map of GPIO (leds @addr, but @addr+1) */
+	/** memory map of GPIO (LEDs @addr, but @addr+1) */
 	function void init(int addr){
 		let gpio = addr;
 		return;
@@ -15,12 +15,12 @@ class GPIO {
 		return gpio[1];
    	}
 
-	/** returns status of leds */
+	/** returns status of LEDs */
 	function int getLed() {
 		return gpio[0];
    	}
 
-	/** sets leds */
+	/** sets LEDs */
 	function void setLed(int state){
 		let gpio[0] = state;
 		return;
