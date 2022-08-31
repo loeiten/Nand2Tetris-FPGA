@@ -1,6 +1,8 @@
 # Nand2Tetris-FPGA
 
-> ... _Would'nt it be nice to make Hack or Jack also run on some "real platform," made from some "real stuff"?_ ...
+Implementation of [Nand2Tetris-FPGA](https://gitlab.com/x653/nand2tetris-fpga) initially developed by Michael Schröder.
+
+> ... _Wouldn't it be nice to make Hack or Jack also run on some "real platform," made from some "real stuff"?_ ...
 >
 >---Noam Nisan and Shimon Schocken
 
