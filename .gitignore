@@ -8,3 +8,5 @@
 *.backup
 *.bak
 .DS_Store
+iCE40*
+__pycache__/

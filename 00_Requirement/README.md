@@ -82,27 +82,66 @@ Apio (pronounced [ˈa.pjo]) is a multi platform toolbox, with static pre-built p
 * iCE40 tools: [Project Icestorm](http://www.clifford.at/icestorm/)
 * Signal visualizer: [gtkwave](http://gtkwave.sourceforge.net/)
 
-**Note:** apio will support Olimex from version 0.5.5. on.
-Meanwhile you should install apio with the following command, to have support for Olimex boards:
-
 ```bash
-pip install -U git+https://github.com/FPGAwars/apio.git@develop#egg=apio
+pip install -U apio
+apio install -a
 ```
 
- To learn usage of apio do the example projects provided by apio.
+##### Install on MacOX
+
+A few extra steps are required to install on MacOX
 
 ```bash
-apio install examples
+brew install gtkwave
+# From https://ughe.github.io/2018/11/06/gtkwave-osx
+cpan install Switch  # Go with the standard option
+```
+
+followed by
+
+```bash
+perl -V:'installsitelib'
+```
+
+If this does not return `/Library/Perl/5.*/`, do `sudo cp /usr/local/Cellar/perl/5.*/lib/perl5/site_perl/5.*/Switch.pm /Library/Perl/5.*/`
+
+The following should now work
+
+```bash
+/Applications/gtkwave.app/Contents/Resources/bin/gtkwave
+```
+
+Add the following to either `~/.bash_profile` or `~/.zshrc`
+
+```bash
+export PATH=/Applications/gtkwave.app/Contents/Resources/bin/:$PATH
+```
+
+##### Learn apio
+
+To learn usage of apio do the example projects provided by apio.
+
+```bash
 apio examples -d iCE40-HX1K-EVB/LEDs
 cd iCE40-HX1K-EVB/LEDs
 apio sim
 apio build
-apio upload
 ```
 
-#### Programmer Olimexino-32u4
+If you go with Olimex boards you additionally have to install the programmer software `iceprogduino` on your Olimexino-32u4.
 
-If you go with Olimex boards you additionally have to install the programmer software [iceprogduino](https://github.com/Olimex/iCE40HX1K-EVB/tree/master/programmer/olimexino-32u4%20firmware) on your Olimexino-32u4.
+```bash
+git clone https://github.com/OLIMEX/iCE40HX1K-EVB.git
+cd iCE40HX1K-EVB/programmer/iceprogduino
+make
+sudo make install
+```
+
+Uploading can now be done with
+
+```bash
+apio upload
+```
 
 Test the programmer with the test project provided by Olimex.
 
