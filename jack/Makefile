@@ -1,13 +1,17 @@
 all: jack vm asm prog
 
 jack:
-	../../tools/JackCompiler/JackCompiler.pyc ./
+	python3 ../tools/jack_compiler/jack_compiler.py ./
+
 vm:
-	../../tools/VMTranslator/VMTranslator.pyc ./
+	python3 ../tools/vm_translator/vm_translator.py ./
+
 asm:
-	../../tools/Assembler/assembler.pyc out.asm
+	python3 ../tools/assembler/assembler.py jack.asm
+
 prog:
-	cat out.hack > /dev/ttyACM0
+	cat jack.hack > /dev/ttyACM0
+
 clean:
 	rm -f *.vm *.asm *.hack *~
 
