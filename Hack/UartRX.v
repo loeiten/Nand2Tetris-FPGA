@@ -18,11 +18,11 @@
 `default_nettype none
 
 module UartRX(
-	input wire clk,
-	input wire reset,
-	input wire rx,
-	output wire [15:0] out
-);
+    input wire clk,
+    input wire reset,
+    input wire rx,
+    output wire [15:0] out
+  );
 
 
 

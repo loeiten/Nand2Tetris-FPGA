@@ -12,12 +12,12 @@
 
 `default_nettype none
 module UartTX(
-	input wire clk,
-	input wire load,
-	input wire [7:0] in,
-	output wire tx,
-	output wire [15:0] out
-);
+    input wire clk,
+    input wire load,
+    input wire [7:0] in,
+    output wire tx,
+    output wire [15:0] out
+  );
 
 
 

@@ -5,9 +5,9 @@
 `default_nettype none
 
 module Or16Way(
-	input [15:0] in,
-	output out
-);
+    input [15:0] in,
+    output out
+  );
 
 
 

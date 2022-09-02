@@ -23,8 +23,8 @@
 
 `default_nettype none
 module ALU(
-	input wire [15:0] x,		// input x (16 bit)
-	input wire [15:0] y,		// input y (16 bit)
+    input wire [15:0] x,		// input x (16 bit)
+    input wire [15:0] y,		// input y (16 bit)
     input wire zx, 				// zero the x input?
     input wire nx, 				// negate the x input?
     input wire zy, 				// zero the y input?
@@ -34,9 +34,9 @@ module ALU(
     output wire [15:0] out, 	// 16-bit output
     output wire zr, 			// 1 if (out == 0), 0 otherwise
     output wire ng 			// 1 if (out < 0),  0 otherwise
-);
+  );
 
-// your implementation comes here:
+  // your implementation comes here:
 
 
 

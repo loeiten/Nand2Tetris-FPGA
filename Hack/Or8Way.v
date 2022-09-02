@@ -5,9 +5,9 @@
 `default_nettype none
 
 module Or8Way(
-	input [7:0] in,
-	output out
-);
+    input [7:0] in,
+    output out
+  );
 
 
 

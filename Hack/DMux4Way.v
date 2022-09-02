@@ -7,14 +7,14 @@
  */
 
 module DMux4Way(
-	input wire in,
-	input wire [1:0] sel,
+    input wire in,
+    input wire [1:0] sel,
     output wire a,
-	output wire b,
-	output wire c,
-	output wire d
-	);
-// your implementation comes here:
+    output wire b,
+    output wire c,
+    output wire d
+  );
+  // your implementation comes here:
 
 
 

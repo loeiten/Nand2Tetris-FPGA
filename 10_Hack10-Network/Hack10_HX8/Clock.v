@@ -10,16 +10,16 @@
 `default_nettype none
 
 module Clock(
-	input wire in,			//external clock 100Mz
-	output wire out			//Hack clock 33.333333 MHz
-);
+    input wire in,			//external clock 100Mz
+    output wire out			//Hack clock 33.333333 MHz
+  );
 
-	wire time1;
-	wire time0;
-	DFF TIME1(.clk(in),.in(time0),.out(time1));
-	DFF TIME2(.clk(in),.in(time1),.out(out));
-	Or OR(.a(time1),.b(out),.out(wtf));
-	wire wtf;
-	Not NOT(.in(wtf),.out(time0));
+  wire time1;
+  wire time0;
+  DFF TIME1(.clk(in),.in(time0),.out(time1));
+  DFF TIME2(.clk(in),.in(time1),.out(out));
+  Or OR(.a(time1),.b(out),.out(wtf));
+  wire wtf;
+  Not NOT(.in(wtf),.out(time0));
 
 endmodule

@@ -10,11 +10,11 @@
 `default_nettype none
 
 module Clock(
-	input wire in,			//external clock 100Mz
-	output wire out			//Hack clock 33.333333 MHz
-);
+    input wire in,			//external clock 100Mz
+    output wire out			//Hack clock 33.333333 MHz
+  );
 
-// your implementation comes here:
+  // your implementation comes here:
 
 
 

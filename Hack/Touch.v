@@ -12,14 +12,14 @@
 `default_nettype none
 
 module Touch(
-	input wire clk,
-	input wire load,
-	input wire [7:0] in,
-	output wire [15:0] out,
-	output wire mosi,
-	input wire miso,
-	output wire sck
-);
+    input wire clk,
+    input wire load,
+    input wire [7:0] in,
+    output wire [15:0] out,
+    output wire mosi,
+    input wire miso,
+    output wire sck
+  );
 
 
 

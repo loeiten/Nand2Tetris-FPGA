@@ -5,12 +5,12 @@
 
 `default_nettype none
 module And16(
-	input wire [15:0] a,
-	input wire [15:0] b,
-	output wire [15:0] out
-);
+    input wire [15:0] a,
+    input wire [15:0] b,
+    output wire [15:0] out
+  );
 
-// your implementation comes here:
+  // your implementation comes here:
 
 
 

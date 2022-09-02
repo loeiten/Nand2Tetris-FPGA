@@ -22,20 +22,20 @@
 
 `default_nettype none
 module CPU(
-		input clk,
-    	input [15:0] inM,         	// M value input  (M = contents of RAM[A])
-    	input [15:0] instruction, 	// Instruction for execution
-		input reset,           	// Signals whether to re-start the current
-                         				// program (reset==1) or continue executing
-                         				// the current program (reset==0).
+    input clk,
+    input [15:0] inM,         	// M value input  (M = contents of RAM[A])
+    input [15:0] instruction, 	// Instruction for execution
+    input reset,           	// Signals whether to re-start the current
+    // program (reset==1) or continue executing
+    // the current program (reset==0).
 
-    	output [15:0] outM,        // M value output
-    	output writeM,          	// Write to M?
-    	output [15:0] addressM,    // Address in data memory (of M) to read
-    	output [15:0] pc         	// address of next instruction
-);
+    output [15:0] outM,        // M value output
+    output writeM,          	// Write to M?
+    output [15:0] addressM,    // Address in data memory (of M) to read
+    output [15:0] pc         	// address of next instruction
+  );
 
-// your implementation comes here:
+  // your implementation comes here:
 
 
 

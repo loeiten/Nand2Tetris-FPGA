@@ -7,21 +7,23 @@
 
 `default_nettype none
 module RAM(
-	input wire clk,
-	input wire [15:0] address,
-	input wire [15:0] in,
-	input wire load,
-	output wire [15:0] out
-);
+    input wire clk,
+    input wire [15:0] address,
+    input wire [15:0] in,
+    input wire load,
+    output wire [15:0] out
+  );
 
-	reg [15:0] regRAM [0:7679];
-	always @(posedge clk)
-		if (load) regRAM[address[12:0]] <= in;
+  reg [15:0] regRAM [0:7679];
+  always @(posedge clk)
+    if (load)
+      regRAM[address[12:0]] <= in;
 
-	parameter ROMFILE = "../../asm/debug/RAM.bin";
-	initial begin
-		$readmemb(ROMFILE,regRAM);
-	end
+  parameter ROMFILE = "../../asm/debug/RAM.bin";
+  initial
+    begin
+      $readmemb(ROMFILE,regRAM);
+    end
 
-	assign out = regRAM[address[12:0]];
+  assign out = regRAM[address[12:0]];
 endmodule

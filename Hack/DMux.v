@@ -6,13 +6,13 @@
 `default_nettype none
 
 module DMux(
-	input wire in,
-	input wire sel,
+    input wire in,
+    input wire sel,
     output wire a,
-	output wire b
-);
+    output wire b
+  );
 
-// your implementation comes here:
+  // your implementation comes here:
 
 
 

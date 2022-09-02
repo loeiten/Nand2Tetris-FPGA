@@ -7,11 +7,11 @@
 `default_nettype none
 
 module Register(
-	input clk,
-	input [15:0] in,
-	input load,
-	output [15:0] out
-);
+    input clk,
+    input [15:0] in,
+    input load,
+    output [15:0] out
+  );
 
 
 

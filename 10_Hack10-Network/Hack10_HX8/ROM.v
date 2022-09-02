@@ -8,20 +8,21 @@
 `default_nettype none
 
 module ROM(
-	input wire [15:0] pc,
-	output wire [15:0] instruction
-);
+    input wire [15:0] pc,
+    output wire [15:0] instruction
+  );
 
-	// ROM file of hack
-	//parameter ROMFILE = "../asm/ethernet/ethernet.hack";
-	//parameter ROMFILE = "../../asm/blinky/blinky.hack";
-	parameter ROMFILE = "../../asm/debug/debug.hack";
+  // ROM file of hack
+  //parameter ROMFILE = "../asm/ethernet/ethernet.hack";
+  //parameter ROMFILE = "../../asm/blinky/blinky.hack";
+  parameter ROMFILE = "../../asm/debug/debug.hack";
 
-	reg [15:0] mem [0:511];
-	assign instruction = mem[pc[8:0]];
+  reg [15:0] mem [0:511];
+  assign instruction = mem[pc[8:0]];
 
-	initial begin
-		$readmemb(ROMFILE,mem);
-	end
+  initial
+    begin
+      $readmemb(ROMFILE,mem);
+    end
 
 endmodule

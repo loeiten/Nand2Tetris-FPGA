@@ -11,12 +11,12 @@
  */
 `default_nettype none
 module Reset(
-	input clk,
-	output reset
-	);
-	wire clk;
-	wire reset;
-	wire nreset;
-	DFF dff(.clk(clk),.in(reset | nreset),.out(nreset));
-	Not nr(.in(nreset),.out(reset));
+    input clk,
+    output reset
+  );
+  wire clk;
+  wire reset;
+  wire nreset;
+  DFF dff(.clk(clk),.in(reset | nreset),.out(nreset));
+  Not nr(.in(nreset),.out(reset));
 endmodule

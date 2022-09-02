@@ -13,10 +13,10 @@
 
 `default_nettype none
 module Sound(
-		input wire clk,
-		input wire [15:0] in,
-		output wire out
-);
+    input wire clk,
+    input wire [15:0] in,
+    output wire out
+  );
 
 
 

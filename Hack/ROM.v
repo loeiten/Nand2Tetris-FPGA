@@ -8,18 +8,19 @@
 `default_nettype none
 
 module ROM(
-	input wire [15:0] pc,
-	output wire [15:0] instruction
-);
+    input wire [15:0] pc,
+    output wire [15:0] instruction
+  );
 
-	// ROM file of hack
-	parameter ROMFILE = "../asm/bootSD/bootSD.hack";
+  // ROM file of hack
+  parameter ROMFILE = "../asm/bootSD/bootSD.hack";
 
-	reg [15:0] mem [0:255];
-	assign instruction = mem[pc[7:0]];
+  reg [15:0] mem [0:255];
+  assign instruction = mem[pc[7:0]];
 
-	initial begin
-		$readmemb(ROMFILE,mem);
-	end
+  initial
+    begin
+      $readmemb(ROMFILE,mem);
+    end
 
 endmodule

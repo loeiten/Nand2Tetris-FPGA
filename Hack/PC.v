@@ -8,13 +8,13 @@
 `default_nettype none
 
 module PC(
-	input wire clk,
-	input wire reset,
-	input wire [15:0] in,
-	input wire load,
-	input wire inc,
-	output wire [15:0] out
-);
+    input wire clk,
+    input wire reset,
+    input wire [15:0] in,
+    input wire load,
+    input wire inc,
+    output wire [15:0] out
+  );
 
 
 

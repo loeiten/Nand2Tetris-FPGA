@@ -7,13 +7,13 @@
 `default_nettype none
 
 module ShifterL(
-	input wire clk,
-	input wire [7:0] in,
-	input wire load,
-	input wire shift,
-	output wire [7:0] out,
-	input wire inLSB
-);
+    input wire clk,
+    input wire [7:0] in,
+    input wire load,
+    input wire shift,
+    output wire [7:0] out,
+    input wire inLSB
+  );
 
 
 

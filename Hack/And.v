@@ -7,12 +7,12 @@
 `default_nettype none
 
 module And(
-	input a,
-	input b,
-	output out
-);
+    input a,
+    input b,
+    output out
+  );
 
-// your implementation comes here:
+  // your implementation comes here:
 
 
 

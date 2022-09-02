@@ -8,11 +8,11 @@
 */
 `default_nettype none
 module Switch(
-	input wire clk,
-	input wire on,
-	input wire off,
-	output wire out
-	);
+    input wire clk,
+    input wire on,
+    input wire off,
+    output wire out
+  );
 
 
 

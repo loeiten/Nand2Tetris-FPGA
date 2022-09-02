@@ -7,13 +7,13 @@
 `default_nettype none
 
 module Tristate(
-	inout wire [15:0] pin,
-	input wire [15:0] dataW,
-	output wire [15:0] dataR,
-	input wire oe
-	);
+    inout wire [15:0] pin,
+    input wire [15:0] dataW,
+    output wire [15:0] dataR,
+    input wire oe
+  );
 
-	assign pin = (oe)? dataW: 16'bzzzzzzzzzzzzzzzz;
-	assign dataR = pin;
+  assign pin = (oe)? dataW: 16'bzzzzzzzzzzzzzzzz;
+  assign dataR = pin;
 
 endmodule

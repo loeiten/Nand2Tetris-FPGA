@@ -7,9 +7,9 @@
 
 `default_nettype none
 module Timer(
-	input wire clk,
-	output wire [15:0] out
-);
+    input wire clk,
+    output wire [15:0] out
+  );
 
 
 

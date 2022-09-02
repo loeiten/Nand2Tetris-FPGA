@@ -44,5 +44,30 @@ repos:
             types: [python]
             args:
               [
-                --rcfile=.pylintrc
+                --rcfile=linters/.pylintrc
+              ]
+          # Note: istyle to be run locally (must be executable by shell):
+          # https://github.com/thomasrussellmurphy/istyle-verilog-formatter
+          # The binary must reside in the linters directory
+          - id: iStyle
+            name: iStyle
+            entry: linters/istyle
+            language: system
+            types: [verilog]
+            args:
+              [
+                --style=gnu
+              ]
+          # Note: verilator must be run locally (must be executable by shell):
+          # https://www.veripool.org/verilator/
+          # Verible aslo seems like a nice linter, but does not support MacOs at the present
+          # https://github.com/chipsalliance/verible
+          - id: verilator
+            name: verilator
+            entry: verilator
+            language: system
+            types: [verilog]
+            args:
+              [
+                --lint-only, -Wall
               ]

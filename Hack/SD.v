@@ -10,17 +10,17 @@
 `default_nettype none
 
 module SD(
-	input wire clk,
-	input wire load,
-	input wire [15:0] in,
-	output wire [15:0] out,
-	output wire cen,
-	output wire mosi,
-	input wire miso,
-	output wire sck
-);
+    input wire clk,
+    input wire load,
+    input wire [15:0] in,
+    output wire [15:0] out,
+    output wire cen,
+    output wire mosi,
+    input wire miso,
+    output wire sck
+  );
 
-// your implementation comes here:
+  // your implementation comes here:
 
 
 

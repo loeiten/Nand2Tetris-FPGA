@@ -6,13 +6,13 @@
 
 `default_nettype none
 module Bit(
-	input wire clk,
-	input wire in,
-	input wire load,
-	output wire out
-);
+    input wire clk,
+    input wire in,
+    input wire load,
+    output wire out
+  );
 
-// your implementation comes here:
+  // your implementation comes here:
 
 
 

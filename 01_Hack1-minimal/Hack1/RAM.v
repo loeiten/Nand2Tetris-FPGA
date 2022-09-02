@@ -7,16 +7,17 @@
 
 `default_nettype none
 module RAM(
-	input wire clk,
-	input wire [15:0] address,
-	input wire [15:0] in,
-	input wire load,
-	output wire [15:0] out
-);
+    input wire clk,
+    input wire [15:0] address,
+    input wire [15:0] in,
+    input wire load,
+    output wire [15:0] out
+  );
 
-	reg [15:0] regRAM [0:2047];
-	always @(negedge clk)
-		if (load) regRAM[address[10:0]] <= in;
+  reg [15:0] regRAM [0:2047];
+  always @(negedge clk)
+    if (load)
+      regRAM[address[10:0]] <= in;
 
-	assign out = regRAM[address[10:0]];
+  assign out = regRAM[address[10:0]];
 endmodule

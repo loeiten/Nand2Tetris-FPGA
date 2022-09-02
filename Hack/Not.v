@@ -5,9 +5,9 @@
 `default_nettype none
 
 module Not(
-	input in,
-	output out
-);
+    input in,
+    output out
+  );
 
 
 

@@ -17,19 +17,19 @@
 
 `default_nettype none
 module LCD(
-		input wire clk,			//clock 33.333333 MHz
-		input wire loadC,		//start send command over SPI
-		input wire loadD8,		//start send data (8 bits)
-		input wire loadD16,		//start send data (16 bits)
-		input wire [15:0] in,	//data to be send
-		output wire [15:0] out,		//data to be send
-		output wire dcn,		//SPI-line data/command not
-		output wire cen,		//SPI-line chip enabled not
-		output wire mosi,		//SPI-Line master out slave in
-		output wire sck			//SPI-clock
-);
+    input wire clk,			//clock 33.333333 MHz
+    input wire loadC,		//start send command over SPI
+    input wire loadD8,		//start send data (8 bits)
+    input wire loadD16,		//start send data (16 bits)
+    input wire [15:0] in,	//data to be send
+    output wire [15:0] out,		//data to be send
+    output wire dcn,		//SPI-line data/command not
+    output wire cen,		//SPI-line chip enabled not
+    output wire mosi,		//SPI-Line master out slave in
+    output wire sck			//SPI-clock
+  );
 
-// your implementation comes here:
+  // your implementation comes here:
 
 
 
