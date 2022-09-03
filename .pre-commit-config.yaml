@@ -69,5 +69,5 @@ repos:
             types: [verilog]
             args:
               [
-                --lint-only, -Wall
+                --lint-only, -Wall, -I./Hack
               ]

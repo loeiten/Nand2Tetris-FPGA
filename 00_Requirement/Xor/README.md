@@ -206,7 +206,6 @@ set_io a 41
 set_io b 42
 
 set_io out 40
-
 ```
 
 ## Project

@@ -7,13 +7,14 @@
 `default_nettype none
 
 module And(
-    input a,
-    input b,
-    output out
+    input wire a,
+    input wire b,
+    output wire out
   );
 
-  // your implementation comes here:
+  wire nandAB;
 
-
+  Nand NAND1(.a(a), .b(b), .out(nandAB));
+  Not NOT(.in(nandAB), .out(out));
 
 endmodule

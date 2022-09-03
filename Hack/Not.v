@@ -5,10 +5,10 @@
 `default_nettype none
 
 module Not(
-    input in,
-    output out
+    input wire in,
+    output wire out
   );
 
-
+  Nand NAND1(.a(in), .b(in), .out(out));
 
 endmodule
