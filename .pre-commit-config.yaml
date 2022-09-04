@@ -69,5 +69,8 @@ repos:
             types: [verilog]
             args:
               [
-                --lint-only, -Wall, -I./Hack
+                --lint-only,
+                -Wall,
+                -I./Hack,
+                -report-unoptflat
               ]

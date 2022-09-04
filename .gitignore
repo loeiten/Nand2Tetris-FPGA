@@ -11,3 +11,8 @@
 .DS_Store
 iCE40*
 __pycache__/
+*delme*
+obj_dir
+*.dot
+a.pdf
+.sconsign.dblite

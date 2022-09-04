@@ -14,7 +14,7 @@ module Xor_tb();
       );
 
   task display;
-    #1 $fwrite(file, "| %1b | %1b | %1b |\n", a,b,out);
+    $fwrite(file, "| %1b | %1b | %1b |\n", a,b,out);
   endtask
 
   initial
