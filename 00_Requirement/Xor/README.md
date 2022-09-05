@@ -47,6 +47,8 @@ CHIP Xor {
 
 Xor.hdl can be translated to Xor.v (Verilog).
 
+> NOTE: When running `apio sim` all used modules must be present in the simulation directory.
+
 ```verilog
 /**
 * Xor (exclusive or) gate:
@@ -111,6 +113,7 @@ output;
 ## Xor_tb.v
 
 `Xor.tst` can be translated to a so called test bench `Xor_tb.v` used to simulate `Xor.v`.
+The test bench could look something similar to
 
 ```verilog
 `default_nettype none
@@ -129,12 +132,13 @@ module Xor_tb();
       );
 
     task display;
-        #1 $fwrite(file, "| %1b | %1b | %1b |\n", a,b,out);
-      endtask
+        #1 $fwrite(file, "| %1b | %1b | %1b |\n", a, b, out);
+    endtask
 
-      initial begin
-          $dumpfile("Xor_tb.vcd");
-          $dumpvars(0, Xor_tb);
+    initial
+    begin
+        $dumpfile("Xor_tb.vcd");
+        $dumpvars(0, Xor_tb);
         file = $fopen("Xor.out","w");
         $fwrite(file, "| a | b |out|\n");
 

@@ -10,20 +10,18 @@ module Xor(
     output wire out
   );
 
-  wire notA;
-  wire notB;
+  // NOTE: Verilog has "built in" chips for unary, binary and ternary operators
+  // NOTE: This includes XOR (symbol ^ used)
+  // NOTE: XOR can be built from NOT, AND and OR, however, here we will built it
+  //       entirely from NAND gates as described on:
+  //       https://en.wikipedia.org/wiki/NAND_logic#XOR
+  wire aNandB;
+  wire bNandANandB;
+  wire aNandANandB;
 
-  // Invert the input signals
-  Not NOT1(.in(a), .out(notA));
-  Not NOT2(.in(b), .out(notB));
-
-  // We use temporary wires for the and output
-  wire w1;
-  wire w2;
-  And AND1(.a(a), .b(notB), .out(w1));
-  And AND2(.a(notA), .b(b), .out(w2));
-
-  // Use the temporary wires for the final output
-  Or OR(.a(w1), .b(w2), .out(out));
+  Nand NAND1(.a(a), .b(b), .out(aNandB));
+  Nand NAND2(.a(b), .b(aNandB), .out(bNandANandB));
+  Nand NAND3(.a(a), .b(aNandB), .out(aNandANandB));
+  Nand NAND4(.a(aNandANandB), .b(bNandANandB), .out(out));
 
 endmodule
