@@ -87,6 +87,8 @@ pip install -U apio
 apio install -a
 ```
 
+Apio currently runs [Icarus verilog](https://iverilog.fandom.com/wiki/Main_Page) under the hood
+
 ##### Install on MacOX
 
 A few extra steps are required to install on MacOX

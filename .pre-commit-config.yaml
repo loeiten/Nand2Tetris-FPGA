@@ -58,19 +58,12 @@ repos:
               [
                 --style=gnu
               ]
-          # Note: verilator must be run locally (must be executable by shell):
-          # https://www.veripool.org/verilator/
-          # Verible aslo seems like a nice linter, but does not support MacOs at the present
+          # A note about other linters:
+          # verilator (https://www.veripool.org/verilator/) seems to be a much
+          # used option, however for the current project it emits noise around
+          # delay statements (unsupported) and around the
+          # "Signal unoptimizable" (https://verilator.org/warn/UNOPTFLAT?v=4.224)
+          # bug
+          # (see https://github.com/verilator/verilator/issues/63)
+          # Verible also seems like a nice linter, but does not support MacOs at the present
           # https://github.com/chipsalliance/verible
-          - id: verilator
-            name: verilator
-            entry: verilator
-            language: system
-            types: [verilog]
-            args:
-              [
-                --lint-only,
-                -Wall,
-                -I./Hack,
-                -report-unoptflat
-              ]
