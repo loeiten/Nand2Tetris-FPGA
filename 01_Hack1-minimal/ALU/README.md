@@ -1,4 +1,7 @@
+# ALU
+
 ## ALU.v
+
 The ALU (Arithmetic Logic Unit).
 
 ![ALU chip](ALU.png)
@@ -51,6 +54,6 @@ The test bench performs some operations with ALU and generates `ALU.out`, which 
 
 * Implement the `ALU` and all needed submodules (`Add16`, `And16`, `And`, `FullAdder`, `HalfAdder`, `Mux16`, `Mux`, `Not16`, `Not`, `Or8Way`, `Or`, `Xor`).
   You can use the translation Guide at `00_Requirement/Xor` to see how HDL-files can be translated into Verilog.
-  (**Note:** `Nand` is considered primitive and thus there is no need to implement it.)
+  (**Note:** `NAND` is considered primitive and thus there is no need to implement it.)
 * Simulate your implementation with the supplied Testbench `ALU_tb.v`.
 * Verify by comparing `ALU.out` with `ALU.cmp`.
