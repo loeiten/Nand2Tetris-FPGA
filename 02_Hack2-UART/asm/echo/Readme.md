@@ -35,7 +35,7 @@ M=D
 ## Project
 * Translate `echo.asm` to Hack-machine code using your Assembler.
 * Preload `ROM.v` with `echo.hack`
-* Simulate using testbench `Hack2_tb.v`
+* Simulate using test bench `Hack2_tb.v`
 * Build and upload to iCE40-HX1K-EVB.
 * Test in real hardware with
 `$ screen /dev/ttyACM0`

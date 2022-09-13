@@ -38,7 +38,7 @@ Check datasheet of iCE40-HX1K-EVB and MOD-LCD2.8RTP.
 * Match `Hack7.pcf` pin numbering of iCE40-HX1K (FPGA) with jumper wires used to connect to Touch panel controller.
 
 To test hardware:
-* Preload ROM of Hack7 with [`asm/touch`](asm/touch) and run testbench `Hack7_tb.v`
+* Preload ROM of Hack7 with [`asm/touch`](asm/touch) and run test bench `Hack7_tb.v`
 
 ### Layer 4: Jack-OS
 

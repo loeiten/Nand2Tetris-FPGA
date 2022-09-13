@@ -16,7 +16,7 @@ Hack2 has added support for UART (Universal asynchronous receive transmit) modul
 
 
 ## Hack2_tb.v
-The Testbench `Hack2_tb.v` transmitts a few bytes to. When ROM.v is loaded with `echo.asm` you should be able to see the echo.
+The Test bench `Hack2_tb.v` transmitts a few bytes to. When ROM.v is loaded with `echo.asm` you should be able to see the echo.
 
 **Note:** After startup UartTX transmitts a byte 0x00 due to the fact, that UartRX has a buffer entry of 0x00 with highest bit=0 (valid byte).
 
@@ -26,7 +26,7 @@ The Testbench `Hack2_tb.v` transmitts a few bytes to. When ROM.v is loaded with 
 
 * Implement `Hack2.v`
 * Preload `ROM.v` with `echo.hack`
-* Simulate with testbench `Hack2_tb.v`
+* Simulate with test bench `Hack2_tb.v`
 `$ apio sim`
 * Compare output with `Hack2_tb.png`
 * Build and upload to iCE40-HX1K-EVB

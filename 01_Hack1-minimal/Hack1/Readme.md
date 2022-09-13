@@ -15,7 +15,7 @@ Hack1 is a minimal version of our hack computer consisting of  six hardware modu
 Hack1 connects over external pins of our FPGA to Oscillator 100 MHz (clk_in), the two buttons (but[1:0]) and the two LEDs (led[1:0]).
 
 ## Hack1_tb.v
-Testbench, that simulates closing and opening of buttons but[1:0].
+Test bench, that simulates closing and opening of buttons but[1:0].
 
 ![](Hack1_tb.png)
 

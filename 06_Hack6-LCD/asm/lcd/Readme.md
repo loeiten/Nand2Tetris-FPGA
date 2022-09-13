@@ -46,5 +46,5 @@ M=D
 ## Project
 * Translate `lcd.asm` to Hack-machine code using your Assembler.
 * Preload `ROM.v` with `lcd.hack`
-* Simulate using testbench `Hack6_tb.v`
+* Simulate using test bench `Hack6_tb.v`
 * upload and test Hack6 in real hardware (command 41 should turn the screen on showing random data)

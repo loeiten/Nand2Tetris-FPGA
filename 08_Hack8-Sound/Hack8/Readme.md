@@ -30,7 +30,7 @@ The modules `Sound.v` and `Timer.v` are mapped to memory addresses 8204-8205.
 
 
 ## Hack8_tb.v
-The Testbench `Hack8_tb.v` performs the following tasks:
+The Test bench `Hack8_tb.v` performs the following tasks:
 * writes data: -10 to Soundcard
 * waits for Timer incrementing to 1.
 * mutes Sound card
@@ -40,7 +40,7 @@ The Testbench `Hack8_tb.v` performs the following tasks:
 
 * Implement `Hack8.v`
 * Preload `ROM.v` with `asm/sound/sound.hack`
-* Simulate with testbench `Hack8_tb.v`
+* Simulate with test bench `Hack8_tb.v`
 `$ apio sim`
 * Compare output with `Hack8_tb.png`
 * Connect Speaker to GPIO.

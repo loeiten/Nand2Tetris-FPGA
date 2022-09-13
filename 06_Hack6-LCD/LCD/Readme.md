@@ -25,7 +25,7 @@ LCD controls transmission to driver chip ILI9341V of LCD-Screen according to tim
 ![](LCD.png)
 
 ## LCD_tb.v
-Testbench, that starts transmission of:
+Test bench, that starts transmission of:
 1. a 8 bit command (loadC)
 2. a 8 bit data (loadD8)
 3. a 16 bit data (loadD16)
@@ -33,6 +33,6 @@ Testbench, that starts transmission of:
 ![](LCD_tb.png)
 ## Project
 * Implement `LCD.v`
-* Test with testbench `LCD_tb.v`
+* Test with test bench `LCD_tb.v`
 `$ apio sim`
 * Compare timing diagram with `LCD_tb.png`

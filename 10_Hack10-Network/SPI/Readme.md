@@ -19,11 +19,11 @@ SD controls transmission to SD-card according to timing diagramm of SPI (serial 
 ![](SD.png)
 
 ## SD_tb.v
-Testbench starts transmission of two 8 bit data packets (load=1). Received byte should be inverse of transmitted byte (mosi is inverted to miso). The first byte is transmitted with cen=0, the second byte is transmitted with cen=1.
+Test bench starts transmission of two 8 bit data packets (load=1). Received byte should be inverse of transmitted byte (mosi is inverted to miso). The first byte is transmitted with cen=0, the second byte is transmitted with cen=1.
 
 ![](SD_tb.png)
 ## Project
 * Implement `SD.v`
-* Test with testbench `SD_tb.v`
+* Test with test bench `SD_tb.v`
 `$ apio sim`
 * Compare timing diagram with `SD_tb.png`

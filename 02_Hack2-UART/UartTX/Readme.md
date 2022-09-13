@@ -17,10 +17,10 @@ At end of transmission set out = 0
 ![](UartTX.png)
 
 ## UartTX_tb.v
-Testbench, that starts transmission of bytes.
+Test bench, that starts transmission of bytes.
 
 ![](UartTX_tb.png)
 ## Project
 * Implement UartTX.v
-* Test with testbench UartTX_tb.v
+* Test with test bench UartTX_tb.v
 * Compare timing diagram with `UartTX_tb.png`

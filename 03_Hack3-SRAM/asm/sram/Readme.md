@@ -59,7 +59,7 @@ D;JNE
 ## Project
 * Translate `sram.asm` to Hack-machine code using your Assembler.
 * Preload `ROM.v` with `sram.hack`
-* Simulate using testbench `Hack3_tb.v`
+* Simulate using test bench `Hack3_tb.v`
 * Build and upload to iCE40-HX1K-EVB.
 * Test in real hardware with a terminal program talking to UART
 `$ screen /dev/ttyACM0`

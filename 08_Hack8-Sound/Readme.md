@@ -30,8 +30,8 @@ We will add a speaker to Hack8. To control the speaker we implement two modules 
 * Match `Hack8.pcf` pin numbering of iCE40-HX1K (FPGA) with jumper wires used to connect to Speaker.
 
 To Test:
-* Preload ROM of Hack8 with [`asm/timer`](asm/timer and run testbench
-* Preload ROM of Hack8 with [`asm/sound`](asm/sound) and run testbench
+* Preload ROM of Hack8 with [`asm/timer`](asm/timer and run test bench
+* Preload ROM of Hack8 with [`asm/sound`](asm/sound) and run test bench
 
 ### Layer 4: Jack-OS
 

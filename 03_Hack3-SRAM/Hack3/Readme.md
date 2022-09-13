@@ -37,7 +37,7 @@ Consult datasheet of iCE40-HX1K-EVB to find pin numbering of iCE40 connected to 
 
 
 ## Hack3_tb.v
-The Testbench `Hack_tb.v` transmitts a few bytes to rx. When ROM.v is loaded with `sram.asm` you should be able to see writing and reading of sram.
+The Test bench `Hack_tb.v` transmitts a few bytes to rx. When ROM.v is loaded with `sram.asm` you should be able to see writing and reading of sram.
 
 ![](Hack3_tb.png)
 
@@ -46,7 +46,7 @@ The Testbench `Hack_tb.v` transmitts a few bytes to rx. When ROM.v is loaded wit
 * Implement `Hack3.v`
 * Add pin numbering to `Hack3.pcf` according to schematic of iCE40HX1K-EVB.
 * Preload `ROM.v` with `sram.hack`
-* Simulate with testbench `Hack3_tb.v`
+* Simulate with test bench `Hack3_tb.v`
 `$ apio sim`
 * Compare output with `Hack3_tb.png`
 * Build and upload to iCE40-HX1K-EVB

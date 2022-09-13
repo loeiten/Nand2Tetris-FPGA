@@ -10,12 +10,12 @@ if (reset[t] == 1) out[t+1] = 0
 	else out[t+1] = out[t]
 ```
 ## PC_tb.v
-Testbench increments loads and resets the PC. Generates `PC.out` which can be compared to `PC.cmp`.
+Test bench increments loads and resets the PC. Generates `PC.out` which can be compared to `PC.cmp`.
 
 ![](PC_tb.png)
 ## Project
 * Implement the module `PC.v` and all needed submodules (Bit, Register, HalfAdder ...).
 **Note:** DFF and Nand are considered primitive and thus there is no need to implement them.
-* Simulate your implementation with the supplied testbench `PC_tb.v`.
+* Simulate your implementation with the supplied test bench `PC_tb.v`.
 * Compare `PC.out` with `PC.cmp`
 * Verify by comparing with screenshot of `PC_tb.png`.

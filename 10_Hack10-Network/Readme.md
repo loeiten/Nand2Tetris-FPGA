@@ -35,7 +35,7 @@ We map the SPI-Module to a memory, so Hack-CPU can read/write to ENC28J60.
 
 * Match `Hack10.pcf` pin numbering of iCE40-HX1K (FPGA) with jumper wires used to connect to ENC28J60 ethernet controller.
 
-* Preload ROM of Hack10 with `asm/Network/Network.hack` and run testbench
+* Preload ROM of Hack10 with `asm/Network/Network.hack` and run test bench
 
 ### Layer 4: Jack-OS
 

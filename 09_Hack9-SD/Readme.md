@@ -39,7 +39,7 @@ SD cards are able to communicate via SPI to Hack. The connection is done with a 
 
 * Match `Hack9.pcf` pin numbering of iCE40-HX1K (FPGA) with jumper wires used to connect to SD card reader.
 
-* Preload ROM of Hack9 with `asm/SD/SD.hack` and run testbench
+* Preload ROM of Hack9 with `asm/SD/SD.hack` and run test bench
 
 ### Layer 5: Jack-OS
 

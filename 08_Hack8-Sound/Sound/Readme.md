@@ -18,11 +18,11 @@ this way out generates a square signal with frequency dependending on in[15:0].
 when in=0 out = 0 (mute)
 
 ## Sound_tb.v
-Testbench.
+Test bench.
 
 ![](Sound_tb.png)
 ## Project
 * Implement the module Sound.v and all needed submodules.
 **Note:** DFF and Nand are considered primitive and thus there is no need to implement them.
-* Simulate your implementation with the supplied testbench `Sound_tb.v`.
+* Simulate your implementation with the supplied test bench `Sound_tb.v`.
 * Verify by comparing with screenshot of `Sound_tb.png`.

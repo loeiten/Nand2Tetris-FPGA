@@ -32,7 +32,7 @@ The modules `SD.v` is mapped to memory addresses 8206.
 
 
 ## Hack9_tb.v
-The Testbench `Hack9_tb.v` performs the following tasks:
+The Test bench `Hack9_tb.v` performs the following tasks:
 * writes data to SD card reader.
 
 ![](Hack9_tb.png)
@@ -41,7 +41,7 @@ The Testbench `Hack9_tb.v` performs the following tasks:
 
 * Implement `Hack9.v`
 * Preload `ROM.v` with `asm/sd/sd.hack`
-* Simulate with testbench `Hack9_tb.v`
+* Simulate with test bench `Hack9_tb.v`
 `$ apio sim`
 * Compare output with `Hack9_tb.png`
 * Connect SD card reader to GPIO.

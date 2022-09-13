@@ -36,7 +36,7 @@ http://elm-chan.org/docs/spi_e.html
 * Match `Hack6.pcf` pin numbering of iCE40-HX1K (FPGA) with jumper wires used to connect to LCD.
 
 To test:
-* Preloaded ROM.v of Hack6 with [`asm/lcd](asm/lcd) and run testbench.
+* Preloaded ROM.v of Hack6 with [`asm/lcd](asm/lcd) and run test bench.
 
 ### Layer 4: Jack-OS
 

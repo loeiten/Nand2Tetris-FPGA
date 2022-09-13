@@ -15,11 +15,11 @@ Use 8 1-Bit Registers `Bit.v` and some `Mux`.
 
 
 ## ShifterL_tb.v
-Testbench, that loads 8 bits into the register and then shifts them to the left.
+Test bench, that loads 8 bits into the register and then shifts them to the left.
 
 
 ![](ShifterL_tb.png)
 ## Project
 * Implement `ShiterL.v`
-* Test with testbench `ShifterL_tb.v`
+* Test with test bench `ShifterL_tb.v`
 * Compare timing diagram with `ShifterL_tb.png`

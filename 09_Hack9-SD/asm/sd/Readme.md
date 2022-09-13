@@ -46,4 +46,4 @@ D;JLT
 ## Project
 * Translate `sd.asm` to Hack-machine code using your Assembler.
 * Preload `ROM.v` with `sd.hack`
-* Simulate using testbench `Hack9_tb.v`
+* Simulate using test bench `Hack9_tb.v`

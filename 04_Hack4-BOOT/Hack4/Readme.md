@@ -23,7 +23,7 @@ Hack4 adds a Switch RUN mapped to memory location 8198. RUN controlles instructi
 
 
 ## Hack4_tb.v
-The Testbench `Hack_tb.v` transmitts a few bytes representing hack-code to rx. When ROM.v is loaded with `jack/boot` you should be able to see writing and reading of sram. After end of transmission (two consecutive `\n`) Switch RUN is turned on, resetting the CPU and routing instruction memory to external SRAM (MUX16).
+The Test bench `Hack_tb.v` transmitts a few bytes representing hack-code to rx. When ROM.v is loaded with `jack/boot` you should be able to see writing and reading of sram. After end of transmission (two consecutive `\n`) Switch RUN is turned on, resetting the CPU and routing instruction memory to external SRAM (MUX16).
 
 ![](Hack4_tb.png)
 
@@ -31,7 +31,7 @@ The Testbench `Hack_tb.v` transmitts a few bytes representing hack-code to rx. W
 
 * Implement `Hack4.v` (Version A)
 * Preload `ROM.v` with `jack/boot/out.hack`
-* Simulate with testbench `Hack4_tb.v`
+* Simulate with test bench `Hack4_tb.v`
 `$ apio sim`
 * Compare output with `Hack4_tb.png`
 * Build and upload to iCE40-HX1K-EVB

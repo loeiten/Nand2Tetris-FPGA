@@ -25,7 +25,7 @@ Writing to memory address 8200 sends the lower 8 bits to LCD as command. Writing
 
 
 ## Hack6_tb.v
-The Testbench `Hack6_tb.v` performs the following tasks:
+The Test bench `Hack6_tb.v` performs the following tasks:
 * writes Command: 55
 * writes Data8: 55
 * writes Data16: 11111
@@ -36,7 +36,7 @@ The Testbench `Hack6_tb.v` performs the following tasks:
 
 * Implement `Hack6.v`
 * Preload `ROM.v` with `asm/lcd/lcd.hack`
-* Simulate with testbench `Hack6_tb.v`
+* Simulate with test bench `Hack6_tb.v`
 `$ apio sim`
 * Compare output with `Hack6_tb.png`
 * Connect MOD-LCD-28 to iCE40-HX1K-EVB with jumper wires.

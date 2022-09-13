@@ -30,4 +30,4 @@ M=D
 ## Project
 * Translate `sound.asm` to Hack-machine code using your Assembler.
 * Preload `ROM.v` of `Hack8` with `sound.hack`
-* Simulate using testbench `Hack8_tb.v`
+* Simulate using test bench `Hack8_tb.v`

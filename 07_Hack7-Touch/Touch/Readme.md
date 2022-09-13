@@ -18,13 +18,13 @@ Attention: Due to the maximal transmission rate of the touch-module, we have to 
 ![](Touch.png)
 
 ## Touch_tb.v
-Testbench starts transmission of a 8 bit data (load=1). Received byte should be inverse of transmitted byte (mosi is inverted to miso).
+Test bench starts transmission of a 8 bit data (load=1). Received byte should be inverse of transmitted byte (mosi is inverted to miso).
 
 Check clock rate of sck. It should be half of clock rate clk, to ensure error free communication between Hack and touchmodule.
 
 ![](Touch_tb.png)
 ## Project
 * Implement `Touch.v`
-* Test with testbench `Touch_tb.v`
+* Test with test bench `Touch_tb.v`
 `$ apio sim`
 * Compare timing diagram with `Touch_tb.png`

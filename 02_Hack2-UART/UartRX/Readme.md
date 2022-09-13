@@ -23,10 +23,10 @@ if (reset = 1) out[15] = 1 (receive buffer not valid)
 * Buffer can be cleared by software (reset) at any time by setting highest bit of data register to 1 (byte not ready yet).
 
 ## UartRX_tb.v
-Testbench, that transmits some bytes.
+Test bench, that transmits some bytes.
 
 ![](UartRX_tb.png)
 ## Project
 * Implement UartRX.v
-* Test with testbench UartRX_tb.v
+* Test with test bench UartRX_tb.v
 * Compare timing diagram with `UartRX_tb.png`

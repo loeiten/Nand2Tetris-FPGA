@@ -30,4 +30,4 @@ D;JLT
 ## Project
 * Translate `touch.asm` to Hack-machine code using your Assembler.
 * Preload `ROM.v` with `touch.hack`
-* Simulate using testbench `Hack7_tb.v`
+* Simulate using test bench `Hack7_tb.v`

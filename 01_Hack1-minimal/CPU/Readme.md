@@ -7,7 +7,7 @@ The Hack CPU (Central Processing unit), consisting of an ALU, two registers name
 
 ## CPU_tb.v
 
-Testbench performs some operations and generates `CPU.out`, which can be compared to `CPU.cmp`.
+Test bench performs some operations and generates `CPU.out`, which can be compared to `CPU.cmp`.
 
 ![](CPU_tb.png)
 
@@ -18,7 +18,7 @@ Testbench performs some operations and generates `CPU.out`, which can be compare
 
   **Note:** Nand and DFF are considered primitive and thus there is no need to implement them.
 
-* Simulate your implementation with the supplied Testbench `CPU_tb.v`.
+* Simulate your implementation with the supplied Test bench `CPU_tb.v`.
 `$ apio sim`
 
 * Verify by comparing `CPU.out` with `CPU.cmp`.
