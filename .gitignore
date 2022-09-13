@@ -16,3 +16,4 @@ obj_dir
 *.dot
 a.pdf
 .sconsign.dblite
+*.gtkw
