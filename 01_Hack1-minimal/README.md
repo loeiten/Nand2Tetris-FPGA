@@ -25,15 +25,15 @@ We will connect our Hack system with the buttons and the LEDs to have possibilit
 
 ### Layer 2: Hardware (inside FPGA)
 
-* Implement and simulate [`ALU`](ALU).
-* Implement and simulate [`Memory`](Memory).
-* Implement and simulate [`Clock`](Clock).
-* Implement and simulate [`PC`](PC).
-* Implement and simulate [`CPU`](CPU).
+* Implement and simulate [`ALU`](chip_ALU).
+* Implement and simulate [`Memory`](chip_Memory).
+* Implement and simulate [`Clock`](chip_Clock).
+* Implement and simulate [`PC`](chip_PC).
+* Implement and simulate [`CPU`](chip_CPU).
 
 ### Layer 3: Computer Architecture
 
-* Build [`Hack1`](Hack1) with the memory map:
+* Build [`Hack1`](chip_Hack1) with the memory map:
 
  |address | memory|R/W|function|
  |-|-|-|-|

@@ -37,8 +37,8 @@ In every project folder/subfolder you find a file `README.md` containing specifi
 Producing the Hack hardware can be done in two ways.
 The first way is to "translate" the `.hdl` files to `.v` files.
 This is dubbed the `chip` way, and will culminate to the [Hack_chip](Hack_chip) directory.
-By only translating the `.hdl` files one will miss to learn some of the beauty of the `verilog` language.
-Hence, the second way of making the `Hack` machine is to write the logic in native `verilog`.
+By only translating the `.hdl` files one will miss to learn some of the beauty of the Verilog language.
+Hence, the second way of making the `Hack` machine is to write the logic in native Verilog.
 Chips made in this way are linked to the [Hack_verilog](Hack_verilog) directory.
 In each project there will therefore be a `chip_*` version and `verilog_*` version of the hardware.
 Instructions are only given for the `chip_*` part.

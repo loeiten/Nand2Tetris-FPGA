@@ -19,13 +19,13 @@ if (address[13]==1 and address[3:0]=0010) data = data0010
 ...
 ```
 
-![Memory chip](Memory.png)
+![Memory chip](../images/Memory.png)
 
 ## Memory_tb.v
 
 Test bench to generate load signals for every Memory mapped module.
 
-![Memory test bench](Memory_tb.png)
+![Memory test bench](../images/Memory_tb.png)
 
 ## Project
 

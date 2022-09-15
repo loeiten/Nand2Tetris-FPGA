@@ -1,7 +1,7 @@
 ## Hack1.v
 Hack1 is a minimal version of our hack computer consisting of  six hardware modules (Clock, CPU, ROM, RAM, Memory, Register). The memory can address 2048 words of RAM plus two registers mapped to I/O, with which we can control button and LEDs on the board. ROM of 2048 words will be preloaded with small assembler programs to test the hardware.
 
-![](Hack1.png)
+![](../images/Hack1.png)
 
 ### Memory map
 |address | memory|R/W|function|
@@ -17,7 +17,7 @@ Hack1 connects over external pins of our FPGA to Oscillator 100 MHz (clk_in), th
 ## Hack1_tb.v
 Test bench, that simulates closing and opening of buttons but[1:0].
 
-![](Hack1_tb.png)
+![](../images/Hack1_tb.png)
 
 
 ## Project

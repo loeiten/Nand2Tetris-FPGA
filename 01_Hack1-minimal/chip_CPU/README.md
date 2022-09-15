@@ -4,7 +4,7 @@
 
 The Hack CPU (Central Processing unit)
 
-![CPU](CPU.png)
+![CPU](../images/CPU.png)
 
 The Hack CPU (Central Processing unit), consisting of an `ALU`, two registers named `A` and `D`, and a program counter named PC.
 The CPU is designed to fetch and execute instructions written in the Hack machine language.
@@ -24,7 +24,7 @@ If `reset==1` then the CPU jumps to address `0` (i.e. `PC` is set to `0` in next
 
 Test bench performs some operations and generates `CPU.out`, which can be compared to `CPU.cmp`.
 
-![CPU test bench](CPU_tb.png)
+![CPU test bench](../images/CPU_tb.png)
 
 ## Project
 

@@ -161,4 +161,4 @@ If you like to have some Verilog-background I recommend to do the tutorial of Ju
 
 ### Project
 
-* [Build and test module `Xor`](Xor)
+* [Build and test module `Xor`](chip_Xor)

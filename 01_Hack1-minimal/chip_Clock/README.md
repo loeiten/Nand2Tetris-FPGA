@@ -2,7 +2,7 @@
 
 ## Clock.v
 
-![Clock chip](Clock.png)
+![Clock chip](../images/Clock.png)
 
 The module Clock provides the clock-signal for all sequential logic inside the FPGA.
 It gets an input in of 100MHz from an external oscillator and delivers the output out 100/3 = 33.333333 MHz.
@@ -13,7 +13,7 @@ This is done because Hack will not run error free in real hardware when clocked 
 
 Test bench to generate clock signal.
 
-![Clock test bench](Clock_tb.png)
+![Clock test bench](../images/Clock_tb.png)
 
 ## Project
 

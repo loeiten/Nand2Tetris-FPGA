@@ -193,7 +193,7 @@ Output file of simulation.
 
 Simulation with `apio sim` also gives a graphical representation `Xor.gtkw` of all signal lines, which can be viewed with `gtkwave`.
 
-![XOr GTKWave](../doc/Xor_gtkw.png)
+![XOr GTKWave](../images/Xor_gtkw.png)
 
 ## Xor.pcf
 

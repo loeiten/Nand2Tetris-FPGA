@@ -2,7 +2,7 @@
 
 ## PC.v
 
-![Program counter](PC.png)
+![Program counter](../images/PC.png)
 
  A 16-bit counter with reset, load and inc control lines.
 
@@ -18,12 +18,12 @@ else out[t+1] = out[t]
 Test bench increments loads and resets the PC.
 It will generate `PC.out` which can be compared to `PC.cmp`.
 
-![Program counter test bench](PC_tb.png)
+![Program counter test bench](../images/PC_tb.png)
 
 ## Project
 
 * Implement the module `PC.v` and all needed submodules (`Bit`, `Register`, `HalfAdder` ...).
-(**Note:** `DFF` and `NAND` are considered primitive and thus there is no need to implement them.)
+  (**Note:** `DFF` and `NAND` are considered primitive and thus there is no need to implement them.)
 * Simulate your implementation with the supplied test bench `PC_tb.v`.
 * Compare `PC.out` with `PC.cmp`
 * Verify by comparing with screenshot of `PC_tb.png`.
