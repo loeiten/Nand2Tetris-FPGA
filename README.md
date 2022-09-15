@@ -2,6 +2,15 @@
 
 Implementation of [Nand2Tetris-FPGA](https://gitlab.com/x653/nand2tetris-fpga) initially developed by Michael Schröder.
 
+**NOTE**: There are two ways one can use `verilog` in this course.
+The first way is to "translate" the `.hdl` files to `.v` files.
+All chips made in this way are linked to the [Hack_chip](Hack_chip) directory.
+By only translating the `.hdl` files one will miss to learn some of the beauty of the `verilog` language.
+Hence, the second way of making the `Hack` machine is to write the logic in native `verilog`.
+Chips made in this way are linked to the [Hack_verilog](Hack_verilog) directory.
+
+---
+
 > ... _Wouldn't it be nice to make Hack or Jack also run on some "real platform," made from some "real stuff"?_ ...
 >
 >---Noam Nisan and Shimon Schocken

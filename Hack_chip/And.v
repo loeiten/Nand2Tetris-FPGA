@@ -14,6 +14,9 @@ module And(
 
   wire nandAB;
 
+  /* Equivalent implementation:
+   *
+   */
   Nand NAND1(.a(a), .b(b), .out(nandAB));
   Not NOT(.in(nandAB), .out(out));
 
