@@ -6,7 +6,7 @@ In this project we will implement the Hack computer of the Nand2Tetris course in
 This is done with a development board featuring a so called field programmable array (FPGA).
 The FPGA is a small piece of silicon holding lots of logic cells (LC) and block RAM (BRAM), which can be routed programmatically.
 
-![FPGA development board](doc/FPGA.png)
+![FPGA development board](images/FPGA.png)
 
 On a typical FPGA-development board you will find:
 
@@ -48,7 +48,7 @@ We will use iCE40-FPGA from Lattice Semiconductors, because they have the nice p
 * iceprog: programmer
 * gtkwave: tool to simulate and visualize signals in FPGA circuits
 
-![Hardware and software](doc/soft.png)
+![Hardware and software](images/soft.png)
 
 To run Hack we also need some Hack-code. The simpler projects like a blinking LED can be programmed direcly in Assembler. Harder tasks like the driver for the LCD-screen are programmed in Jack, translated for the virtual machine and finally compiled to Hack code.
 
@@ -68,7 +68,7 @@ The project has been tested with:
 
 Check the bill of material and consider to buy at Olimex Ltd., the company with the highest number of registered OSHW-projects.
 
-![Shopping cart](doc/BOM.png)
+![Shopping cart](images/BOM.png)
 
 ### Install the tools
 
