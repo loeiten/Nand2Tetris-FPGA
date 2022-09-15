@@ -10,8 +10,6 @@ module Xor(
     output wire out
   );
 
-  // NOTE: Verilog has "built in" chips for unary, binary and ternary operators
-  // NOTE: This includes XOR (symbol ^ used)
   // NOTE: XOR can be built from NOT, AND and OR, however, here we will built it
   //       entirely from NAND gates as described on:
   //       https://en.wikipedia.org/wiki/NAND_logic#XOR

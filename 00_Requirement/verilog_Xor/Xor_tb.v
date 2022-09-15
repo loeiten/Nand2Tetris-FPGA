@@ -1,0 +1,1 @@
+../chip_Xor/Xor_tb.v
