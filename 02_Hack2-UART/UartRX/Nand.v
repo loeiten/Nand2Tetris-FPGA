@@ -1,1 +1,1 @@
-../hack-13/Nand.v
+../Hack_chip/Nand.v

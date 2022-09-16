@@ -1,1 +1,1 @@
-../../Hack/LCD.v
+../../Hack_chip/LCD.v

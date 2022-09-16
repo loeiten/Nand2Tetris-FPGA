@@ -1,1 +1,1 @@
-../../Hack/Nand.v
+../../Hack_chip/Nand.v

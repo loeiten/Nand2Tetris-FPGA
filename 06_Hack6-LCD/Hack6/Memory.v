@@ -1,1 +1,1 @@
-../../Hack/Memory.v
+../../Hack_chip/Memory.v

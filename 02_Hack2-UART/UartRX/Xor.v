@@ -1,1 +1,1 @@
-../hack-13/Xor.v
+../Hack_chip/Xor.v
