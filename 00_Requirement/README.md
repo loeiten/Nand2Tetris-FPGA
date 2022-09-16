@@ -4,27 +4,24 @@
 
 In this project we will implement the Hack computer of the Nand2Tetris course in real hardware.
 This is done with a development board featuring a so called field programmable array (FPGA).
-The FPGA is a small piece of silicon holding lots of logic cells (LC) and block RAM (BRAM), which can be routed programmatically.
+The FPGA is a small piece of silicon holding lots of logic cells (LC) and [block RAM](https://nandland.com/lesson-15-what-is-a-block-ram-bram/) (BRAM), which can be routed programmatically.
 
 ![FPGA development board](images/FPGA.png)
 
 On a typical FPGA-development board you will find:
 
-* FPGA-chip (ICE40): holds logic cells and block RAM, which can be routed programmatically
-* Serial RAM: holds the bit stream data, which is a binary representation of the circuits you want to implement on the FPGA.
-  At startup FPGA loads bit stream from serial RAM and configures its logic cells to become the machine you want the FPGA to be.
-* USB (A): some boards have a USB connector.
-  This is needed to upload the bit stream file to the serial RAM.
-* (B): Boards without a USB connector need an external programmer to upload code to the board.
-* LED, BUT: Most development boards come with some LEDs and buttons.
-  This are user programmable and can be used to enter data or for debugging.
-* GPIO: All boards come with general purpose in-/output pins.
-  This pins can be used to connect external hardware. We will use this pins to connect an LCD screen, SD-Card, Speaker and Touch-panel.
-* SRAM: some boards have a static RAM chip on board.
-  This is useful, if more memory is needed than available with block RAM inside FPGA.
-  If you want to run Tetris or Pong on your Hack, you should consider to look for a board with SRAM.
+|Component | Description|
+|-|-|
+|FPGA-chip ([iCE40](https://en.wikipedia.org/wiki/ICE_(FPGA)#iCE40_(40_nm))) | Holds logic cells and block RAM, which can be routed programmatically |
+|Serial RAM | Holds the bit stream data, which is a binary representation of the circuits you want to implement on the FPGA.  At startup FPGA loads bit stream from serial RAM and configures its logic cells to become the machine you want the FPGA to be. |
+| USB (A) | Some boards have a USB connector. This is needed to upload the bit stream file to the serial RAM. |
+| Programmer (B) | Boards without a USB connector need an external programmer to upload code to the board. |
+| LED | Most development boards come with some LEDs. This are user programmable and can be used to enter data or for debugging. |
+| BUT | Most development boards come with some buttons. This are user programmable and can be used to enter data or for debugging. |
+| GPIO | All boards come with general purpose in-/output pins. This pins can be used to connect external hardware. We will use this pins to connect an LCD screen, SD-Card, Speaker and Touch-panel. |
+| SRAM | Some boards have a static RAM chip on board.  This is useful if you need more memory is than what is available on the block RAM inside the FPGA. If you want to run Tetris or Pong on your Hack, you should consider to look for a board with SRAM. |
 
-In this tutorial we use FPGA-boards from Olimex, which have the nice property of having SRAM (256x16bit) on board.
+In this tutorial we use FPGA-boards from [Olimex](https://www.olimex.com), which have the nice property of having SRAM (256x16bit) on board.
 
 |Board|FPGA|LC|BRAM|SRAM|
 |--|---|--|--|--|
@@ -41,12 +38,14 @@ The modules of our Hack computer (ALU, CPU, Register, Memory, IO) are implemente
 So we need tools to translate Verilog-code to the so called bit stream, which is a binary representation of all the wires between the logic cells we want to activate.
 Finally we need tools to upload the bit stream file to the FPGA board.
 
-We will use iCE40-FPGA from Lattice Semiconductors, because they have the nice property that there exists a complete free and open source toolchain [Project Icestorm](http://www.clifford.at/icestorm/) for programming:
+We will use [iCE40-FPGA](https://en.wikipedia.org/wiki/ICE_(FPGA)#iCE40_(40_nm)) from Lattice Semiconductors, because they have the nice property that there exists a complete free and open source toolchain [Project Icestorm](http://www.clifford.at/icestorm/) for programming:
 
-* YoSYS: Syntesize the Verilog code
-* nextpnr: place and route tool
-* iceprog: programmer
-* gtkwave: tool to simulate and visualize signals in FPGA circuits
+| Tool | Description |
+|-|-|
+|[`YoSYS`](https://yosyshq.net/yosys/) | Register-transfer level (RTL) [syntesization](https://www.fpga4fun.com/FPGAsoftware5.html) of Verilog code to  to a gate-level [netlist](https://en.wikipedia.org/wiki/Netlist).|
+|[`nextpnr`](https://github.com/YosysHQ/nextpnr) | A [place-and-route](https://www.fpga4fun.com/FPGAsoftware5.html) tool.|
+| [`iceprog`](https://hedmen.org/icestorm-doc/icestorm.html#iceprog-Invocation) | Simple programming tool for [FTDI](https://ftdichip.com)-based [Lattice](https://www.latticesemi.com) [iCE](https://en.wikipedia.org/wiki/ICE_(FPGA)) programmers which can read, write and erase the flash and write the SRAM of an FPGA.|
+| [`gtkwave`](http://gtkwave.sourceforge.net) | A wave viewer which simulates and visualizes signals in FPGA circuits.|
 
 ![Hardware and software](images/soft.png)
 
@@ -105,7 +104,11 @@ followed by
 perl -V:'installsitelib'
 ```
 
-If this does not return `/Library/Perl/5.*/`, do `sudo cp /usr/local/Cellar/perl/5.*/lib/perl5/site_perl/5.*/Switch.pm /Library/Perl/5.*/`
+If this does not return `/Library/Perl/5.*/`, do
+
+```bash
+sudo cp /usr/local/Cellar/perl/5.*/lib/perl5/site_perl/5.*/Switch.pm /Library/Perl/5.*/
+```
 
 The following should now work
 
@@ -157,7 +160,10 @@ Follow guidelines at [Nand2Tetris](https://www.Nand2Tetris.org/).
 There is no need to learn much Verilog.
 Just dig into the example `Xor` and learn how to "translate" your HDL-files from Nand2Tetris into Verilog.
 
-If you like to have some Verilog-background I recommend to do the tutorial of Juan González-Gomez (Obijuan), which starts at absolute beginners level [open-FPGA-Verilog-tutorial](https://github.com/Obijuan/open-FPGA-Verilog-tutorial/), best tutorial!
+If you like to have some Verilog-background I recommend to do the tutorial of Juan González-Gomez (Obijuan), which starts at absolute beginners level [open-FPGA-Verilog-tutorial](https://github.com/Obijuan/open-fpga-verilog-tutorial/wiki/Home_EN).
+This is mainly written in spanish, but clicking the `(EN)` buttons gets you to the English pages (this also applies for the index).
+
+There is also the [Verilog tutorial for beginners](https://www.chipverify.com/verilog/verilog-tutorial) which goes a bit more in depth.
 
 ### Project
 
