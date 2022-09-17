@@ -30,7 +30,19 @@ module ALU_tb();
       );
 
   task display;
-    #1 $fwrite(file, "| %16b | %16b | %1b | %1b | %1b | %1b | %1b | %1b | %16b | %1b | %1b |\n",x,y,zx,nx,zy,ny,f,no,out,zr,ng);
+    #1 $fwrite(file,
+               "| %16b | %16b | %1b | %1b | %1b | %1b | %1b | %1b | %16b | %1b | %1b |\n",
+               x,
+               y,
+               zx,
+               nx,
+               zy,
+               ny,
+               f,
+               no,
+               out,
+               zr,
+               ng);
   endtask
 
   initial
@@ -61,8 +73,6 @@ module ALU_tb();
       no=1;
       display();
 
-
-
       // Compute -1
       zx=1;
       nx=1;
@@ -71,9 +81,6 @@ module ALU_tb();
       f =1;
       no=0;
       display();
-
-
-
 
       // Compute x
       zx=0;
@@ -84,9 +91,6 @@ module ALU_tb();
       no=0;
       display();
 
-
-
-
       // Compute y
       zx=1;
       nx=1;
@@ -95,8 +99,6 @@ module ALU_tb();
       f =0;
       no=0;
       display();
-
-
 
       // Compute !x
       zx=0;
@@ -107,8 +109,6 @@ module ALU_tb();
       no=1;
       display();
 
-
-
       // Compute !y
       zx=1;
       nx=1;
@@ -118,8 +118,6 @@ module ALU_tb();
       no=1;
       display();
 
-
-
       // Compute -x
       zx=0;
       nx=0;
@@ -128,8 +126,6 @@ module ALU_tb();
       f =1;
       no=1;
       display();
-
-
 
       // Compute -y
       zx=1;
@@ -149,7 +145,6 @@ module ALU_tb();
       no=1;
       display();
 
-
       // Compute y + 1
       zx=1;
       nx=1;
@@ -158,7 +153,6 @@ module ALU_tb();
       f =1;
       no=1;
       display();
-
 
       // Compute x - 1
       zx=0;
@@ -169,7 +163,6 @@ module ALU_tb();
       no=0;
       display();
 
-
       // Compute y - 1
       zx=1;
       nx=1;
@@ -178,7 +171,6 @@ module ALU_tb();
       f =1;
       no=0;
       display();
-
 
       // Compute x + y
       zx=0;
@@ -189,7 +181,6 @@ module ALU_tb();
       no=0;
       display();
 
-
       // Compute x - y
       zx=0;
       nx=1;
@@ -198,7 +189,6 @@ module ALU_tb();
       f =1;
       no=1;
       display();
-
 
       // Compute y - x
       zx=0;
@@ -209,7 +199,6 @@ module ALU_tb();
       no=1;
       display();
 
-
       // Compute x & y
       zx=0;
       nx=0;
@@ -219,7 +208,6 @@ module ALU_tb();
       no=0;
       display();
 
-
       // Compute x | y
       zx=0;
       nx=1;
@@ -228,7 +216,6 @@ module ALU_tb();
       f =0;
       no=1;
       display();
-
 
       x=16'b000000000010001;  // x = 17
       y=16'b000000000000011;  // y =  3
@@ -242,7 +229,6 @@ module ALU_tb();
       no=0;
       display();
 
-
       // Compute 1
       zx=1;
       nx=1;
@@ -251,7 +237,6 @@ module ALU_tb();
       f =1;
       no=1;
       display();
-
 
       // Compute -1
       zx=1;
@@ -262,7 +247,6 @@ module ALU_tb();
       no=0;
       display();
 
-
       // Compute x
       zx=0;
       nx=0;
@@ -271,7 +255,6 @@ module ALU_tb();
       f =0;
       no=0;
       display();
-
 
       // Compute y
       zx=1;
@@ -282,7 +265,6 @@ module ALU_tb();
       no=0;
       display();
 
-
       // Compute !x
       zx=0;
       nx=0;
@@ -291,7 +273,6 @@ module ALU_tb();
       f =0;
       no=1;
       display();
-
 
       // Compute !y
       zx=1;
@@ -302,7 +283,6 @@ module ALU_tb();
       no=1;
       display();
 
-
       // Compute -x
       zx=0;
       nx=0;
@@ -311,7 +291,6 @@ module ALU_tb();
       f =1;
       no=1;
       display();
-
 
       // Compute -y
       zx=1;
@@ -322,7 +301,6 @@ module ALU_tb();
       no=1;
       display();
 
-
       // Compute x + 1
       zx=0;
       nx=1;
@@ -331,7 +309,6 @@ module ALU_tb();
       f =1;
       no=1;
       display();
-
 
       // Compute y + 1
       zx=1;
@@ -342,7 +319,6 @@ module ALU_tb();
       no=1;
       display();
 
-
       // Compute x - 1
       zx=0;
       nx=0;
@@ -351,7 +327,6 @@ module ALU_tb();
       f =1;
       no=0;
       display();
-
 
       // Compute y - 1
       zx=1;
@@ -362,7 +337,6 @@ module ALU_tb();
       no=0;
       display();
 
-
       // Compute x + y
       zx=0;
       nx=0;
@@ -371,7 +345,6 @@ module ALU_tb();
       f =1;
       no=0;
       display();
-
 
       // Compute x - y
       zx=0;
@@ -382,7 +355,6 @@ module ALU_tb();
       no=1;
       display();
 
-
       // Compute y - x
       zx=0;
       nx=0;
@@ -392,7 +364,6 @@ module ALU_tb();
       no=1;
       display();
 
-
       // Compute x & y
       zx=0;
       nx=0;
@@ -401,7 +372,6 @@ module ALU_tb();
       f =0;
       no=0;
       display();
-
 
       // Compute x | y
       zx=0;
@@ -413,4 +383,5 @@ module ALU_tb();
       display();
       $finish;
     end
+
 endmodule
