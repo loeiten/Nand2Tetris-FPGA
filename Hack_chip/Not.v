@@ -9,6 +9,7 @@ module Not(
     output wire out
   );
 
-  Nand NAND1(.a(in), .b(in), .out(out));
+  // Translation of Not.hdl
+  Nand NandOut(.a(in), .b(in), .out(out));
 
 endmodule

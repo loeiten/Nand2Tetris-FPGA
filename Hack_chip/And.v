@@ -12,12 +12,10 @@ module And(
     output wire out
   );
 
+  // Translation of And.hdl
   wire nandAB;
 
-  /* Equivalent implementation:
-   *
-   */
-  Nand NAND1(.a(a), .b(b), .out(nandAB));
-  Not NOT(.in(nandAB), .out(out));
+  Nand NandAB(.a(a), .b(b), .out(nandAB));
+  Not NotOut(.in(nandAB), .out(out));
 
 endmodule

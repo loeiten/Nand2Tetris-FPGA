@@ -36,9 +36,60 @@ module ALU(
     output wire ng 			// 1 if (out < 0),  0 otherwise
   );
 
-  // your implementation comes here:
+  // Translation of Mux.hdl
+  wire [15:0] zxOut;
+  wire [15:0] notZxOut;
+  wire [15:0] nxOut;
+
+  wire [15:0] zyOut;
+  wire [15:0] notZyOut;
+  wire [15:0] nyOut;
+
+  wire [15:0] addOut;
+  wire [15:0] andOut;
+  wire [15:0] fOut;
+
+  wire[15:0] notFOut;
+  wire[7:0] highSigBits;
+  wire[7:0] lowSigBits;
+  wire ngCheck;
+
+  wire highOr;
+  wire lowOr;
+  wire anyBitsTrue;
 
 
+  // zx selection
+  Mux16 ZxOut(.a(x), .b(0), .sel(zx), .out(zxOut));
+  // nx selection
+  Not16 NotZxOut(.in(zxOut), .out(notZxOut));
+  Mux16 NxOut(.a(zxOut), .b(notZxOut), .sel(nx), .out(nxOut));
 
+  // zy selection
+  Mux16 ZyOut(.a(y), .b(0), .sel(zy), .out(zyOut));
+  // ny selection
+  Not16 NotZyOut(.in(zyOut), .out(notZyOut));
+  Mux16 NyOut(.a(zyOut), .b(notZyOut), .sel(ny), .out(nyOut));
+
+  // f selection
+  Add16 AddOut(.a(nxOut), .b(nyOut), .out(addOut));
+  And16 AndOut(.a(nxOut), .b(nyOut), .out(andOut));
+  Mux16 FOut(.a(andOut), .b(addOut), .sel(f), .out(fOut));
+
+  // no selection
+  Not16 NotFOut(.in(fOut, .out(notFOut)));
+  // NOTE: We fan the output with additional outputs for zr and ng
+  Mux16 FanOut(.a(fOut), .b(notFOut), .sel(no), .out(out), .out[0..7](highSigBits), .out[8..15](lowSigBits), .out[15](ngCheck));
+
+  // zr
+  // True if any of the inputs are true
+  Or8Way HighOr(.in(highSigBits), .out(highOr));
+  Or8Way LowOr(.in(lowSigBits), .out(lowOr));
+  Or AnyBitsTrue(.a(highOr), .b(lowOr), .out(anyBitsTrue));
+  Not NotZr(.in(anyBitsTrue), .out(zr));
+
+  // ng
+  // Check if most significant bit is 1
+  And(.a(ngCheck), .b(1), .out(ng));
 
 endmodule

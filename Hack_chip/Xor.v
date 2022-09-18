@@ -17,9 +17,9 @@ module Xor(
   wire bNandANandB;
   wire aNandANandB;
 
-  Nand NAND1(.a(a), .b(b), .out(aNandB));
-  Nand NAND2(.a(b), .b(aNandB), .out(bNandANandB));
-  Nand NAND3(.a(a), .b(aNandB), .out(aNandANandB));
-  Nand NAND4(.a(aNandANandB), .b(bNandANandB), .out(out));
+  Nand ANandB(.a(a), .b(b), .out(aNandB));
+  Nand BNandANandB(.a(b), .b(aNandB), .out(bNandANandB));
+  Nand ANandANandB(.a(a), .b(aNandB), .out(aNandANandB));
+  Nand NandOut(.a(aNandANandB), .b(bNandANandB), .out(out));
 
 endmodule

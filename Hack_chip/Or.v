@@ -11,13 +11,14 @@ module Or(
     output wire out
   );
 
-  wire notA;
-  wire notB;
-  wire notAAndB;
+  // NOTE: OR can be built from NOT and AND, however, here we will built it
+  //       entirely from NAND gates as described on:
+  //       https://en.wikipedia.org/wiki/NAND_logic#OR
+  wire aNandA;
+  wire bNandB;
 
-  Not NOT1(.in(a), .out(notA));
-  Not NOT2(.in(b), .out(notB));
-  And AND1(.a(notA), .b(notB), .out(notAAndB));
-  Not NOT3(.in(notAAndB), .out(out));
+  Nand ANandA(.a(a), .b(a), .out(aNandA));
+  Nand BNandB(.a(b), .b(b), .out(bNandB));
+  Nand NandOut(.a(aNandA), .b(bNandB), .out(out));
 
 endmodule
