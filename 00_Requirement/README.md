@@ -55,6 +55,22 @@ To run Hack we also need some Hack-code. The simpler projects like a blinking LE
 
 ### Buy the hardware
 
+FIXME: You are here:
+
+- https://www.olimex.com/Products/Components/Cables/CABLE-IDC10-15cm/ instead of one of the JW-200x10-FF
+- Pins: Change from 5V to 3.3V
+- No real need for rubber dots (can't fit them anyway)
+- Not
+iceprogduino -I/dev/tty.usbmodem143201 -v hardware.bin
+but
+iceprogduino -I/dev/cu.usbmodem143201 -v hardware.bin
+- brew install libftdi
+- brew install eigen
+- pip install iCEburn
+- remove .py in Makefile of /icestorm/examples/iceblink
+- https://www.olimex.com/forum/index.php?topic=7802.0
+
+
 For projects 1+2 any FPGA board will work.
 For projects 3-5 you need FPGA-board with external SRAM on board, to store larger Hack files.
 The last projects 6-9 connect to external hardware like  LCD-screen and SD-card reader.
@@ -127,8 +143,8 @@ export PATH=/Applications/gtkwave.app/Contents/Resources/bin/:$PATH
 To learn usage of apio do the example projects provided by apio.
 
 ```bash
-apio examples -d iCE40-HX1K-EVB/LEDs
-cd iCE40-HX1K-EVB/LEDs
+apio examples -d iCE40-HX1K-EVB/leds
+cd iCE40-HX1K-EVB/leds
 apio sim
 apio build
 ```
