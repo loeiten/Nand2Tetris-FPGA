@@ -51,62 +51,58 @@ We will use [iCE40-FPGA](https://en.wikipedia.org/wiki/ICE_(FPGA)#iCE40_(40_nm))
 
 To run Hack we also need some Hack-code. The simpler projects like a blinking LED can be programmed direcly in Assembler. Harder tasks like the driver for the LCD-screen are programmed in Jack, translated for the virtual machine and finally compiled to Hack code.
 
-## Get started
+## Getting started
+
+In order to start we need both some hardware and some software
 
 ### Buy the hardware
 
-FIXME: You are here:
+| Component | Description | Needed for |
+|-|-|-|
+| [iCE40HX1K-EVB](https://www.Olimex.com/Products/FPGA/iCE40/) or [iCE40HX8K-EVB](https://www.Olimex.com/Products/FPGA/iCE40/) | iCE40 FPGA board | Flashing the Hack hardware to the machine |
+| [Olimexino-32u4](https://www.Olimex.com/Products/Duino/AVR/OLIMEXINO-32U4/open-source-hardware) | FPGA programmer | Instructing the FPGA how to behave |
+| [CABLE-IDC10-15cm ribbon](https://www.olimex.com/Products/Components/Cables/CABLE-IDC10-15cm/) | Cable | Connecting between [UEXT](../../datasheets/UEXT_rev_B.pdf)s |
+| 2 x [JW-200x10-FF](https://www.olimex.com/Products/Breadboarding/JUMPER-WIRES/JW-200x10-FF/) | Female-to-female jumper wires | Connecting through GPIO pins or [UEXT](../../datasheets/UEXT_rev_B.pdf)s |
+| [MOD-SDMMC](https://www.Olimex.com/Products/Modules/Interface/MOD-SDMMC/open-source-hardware) | SD-Card connector | Needed in project 3-5 to store larger Hack files |
+| [SD card](https://www.olimex.com/Products/Components/Storage/SD-MMC-4GB-CLASS10/) | SD-Card | SD-Card to store larger Hack files |
+| [USB A to USB Mini B](https://www.olimex.com/Products/Components/Cables/CABLE-USB-A-MINI-1.8M/) |  USB A to USB Mini B | Connecting the programmer to the PC |
+| [MOD-LCD2.8RTP](https://www.Olimex.com/Products/Modules/LCD/MOD-LCD2-8RTP) | 2.8 Inch LCD color screen with resistive touch panel | Display for the Hack machine |
+| [Piezoelectric loudspeakers](https://smile.amazon.com/gp/product/B08SLZBKCH/ref=ppx_od_dt_b_asin_title_s00?ie=UTF8&psc=1) | For producing sound | Needed for project 8 |
+| [MOD-ENC28J60](https://www.olimex.com/Products/Modules/Ethernet/MOD-ENC28J60/) | Ethernet controller | Project 10 |
+| [SY0605E](https://www.olimex.com/Products/Power/SY0605E/) | 5V supply adapter | Powering the FPGA (the programmer is powered by the USB connection) |
+| (Optional, I never got mine to fit) [RUBBER-FEETS-B](https://www.olimex.com/Products/Components/Misc/RUBBER-FEETS-B/) | Rubber feets | Electrical isolation |
 
-- https://www.olimex.com/Products/Components/Cables/CABLE-IDC10-15cm/ instead of one of the JW-200x10-FF
-- Pins: Change from 5V to 3.3V
-- No real need for rubber dots (can't fit them anyway)
-- Not
-iceprogduino -I/dev/tty.usbmodem143201 -v hardware.bin
-but
-iceprogduino -I/dev/cu.usbmodem143201 -v hardware.bin
-- brew install libftdi
-- brew install eigen
-- pip install iCEburn
-- remove .py in Makefile of /icestorm/examples/iceblink
-- https://www.olimex.com/forum/index.php?topic=7802.0
-
-
-For projects 1+2 any FPGA board will work.
-For projects 3-5 you need FPGA-board with external SRAM on board, to store larger Hack files.
-The last projects 6-9 connect to external hardware like  LCD-screen and SD-card reader.
-The project has been tested with:
-
-* iCE40 Board: [iCE40HX1K-EVB](https://www.Olimex.com/Products/FPGA/iCE40/) or [iCE40HX8K-EVB](https://www.Olimex.com/Products/FPGA/iCE40/)
-* Programmer: [Olimexino-32u4](https://www.Olimex.com/Products/Duino/AVR/OLIMEXINO-32U4/open-source-hardware)
-* 2.8 Inch LCD color screen with resistive touch panel: [MOD-LCD2.8RTP](https://www.Olimex.com/Products/Modules/LCD/MOD-LCD2-8RTP)
-* SD-Card connector: [MOD-SDMMC](https://www.Olimex.com/Products/Modules/Interface/MOD-SDMMC/open-source-hardware)
 
 Check the bill of material and consider to buy at Olimex Ltd., the company with the highest number of registered OSHW-projects.
 
 ![Shopping cart](images/BOM.png)
 
-### Install the tools
+The payment solution might be a bit different from what you are used to, but it all checks out.
 
-#### apio
+### Install the software
 
-Apio (pronounced [ˈa.pjo]) is a multi platform toolbox, with static pre-built packages, project configuration tools and easy command interface to verify, synthesize, simulate and upload your Verilog designs.
+We will install both [Project Icestorm](http://www.clifford.at/icestorm/) for flashing the FGPA and [apio](https://github.com/FPGAwars/apio) for simulating (and possibly also flash to the FPGA)
 
- Visit [apio](https://github.com/FPGAwars/apio) and follow the install instruction.
- This will automatically install the whole toolchain consisting of:
+#### Installing the dependencies
 
-* iCE40 tools: [Project Icestorm](http://www.clifford.at/icestorm/)
-* Signal visualizer: [gtkwave](http://gtkwave.sourceforge.net/)
+We can install the dependencies for [Project Icestorm](http://www.clifford.at/icestorm/) in the following way
+
+##### Dependencies on Linux
 
 ```bash
-pip install -U apio
-apio install -a
+sudo apt-get install build-essential clang bison flex libreadline-dev \
+gawk tcl-dev libffi-dev git mercurial graphviz \
+xdot pkg-config python3 libftdi-dev gtkwave
 ```
 
-Apio currently runs [Icarus verilog](https://iverilog.fandom.com/wiki/Main_Page) under the hood
+##### Dependencies on MacOS
 
-##### Install on MacOX
+```bash
+brew install libftdi eigen tcl-tk bison libffi
+```
 
-A few extra steps are required to install on MacOX
+A few extra steps are required to install `gtkwave` on MacOS:
+Install by typing
 
 ```bash
 brew install gtkwave
@@ -138,15 +134,36 @@ Add the following to either `~/.bash_profile` or `~/.zshrc`
 export PATH=/Applications/gtkwave.app/Contents/Resources/bin/:$PATH
 ```
 
-##### Learn apio
+#### Build and install Project Icestorm
 
-To learn usage of apio do the example projects provided by apio.
+Installing the IceStorm Tools (icepack, icebox, iceprog, icetime, chip databases):
 
 ```bash
-apio examples -d iCE40-HX1K-EVB/leds
-cd iCE40-HX1K-EVB/leds
-apio sim
-apio build
+git clone https://github.com/cliffordwolf/icestorm.git icestorm
+cd icestorm
+make -j$(nproc)
+sudo make install
+cd ..
+```
+
+Installing Arachne-PNR (the place&route tool):
+
+```bash
+git clone https://github.com/cseed/arachne-pnr.git arachne-pnr
+cd arachne-pnr
+make -j$(nproc)
+sudo make install
+cd ..
+```
+
+Installing Yosys (Verilog synthesis):
+
+```bash
+git clone https://github.com/cliffordwolf/yosys.git yosys
+cd yosys
+make -j$(nproc)
+sudo make install
+cd ..
 ```
 
 If you go with Olimex boards you additionally have to install the programmer software `iceprogduino` on your Olimexino-32u4.
@@ -158,17 +175,25 @@ make
 sudo make install
 ```
 
-Uploading can now be done with
+We will see how to use this in [Hello, world using Olimex](hello_world_Olimex).
+
+#### Install apio
+
+Apio (pronounced [ˈa.pjo]) is a multi platform toolbox, with static pre-built packages, project configuration tools and easy command interface to verify, synthesize, simulate and upload your Verilog designs.
+
+Install with
 
 ```bash
-apio upload
+pip install -U apio
+apio install -a
 ```
 
-Test the programmer with the test project provided by Olimex.
+Apio currently runs [Icarus verilog](https://iverilog.fandom.com/wiki/Main_Page) under the hood.
 
 #### Jack-Hack-tools
 
-Jack-Hack-Tools: JackCompiler, VirtualMachine Translator and Assembler vor Hack should be developed by yourself.
+You will also need some tools for the Jack programming language and the Hack hardware.
+The `JackCompiler`, `VirtualMachine Translator` and `Assembler for Hack` should be developed by yourself.
 Follow guidelines at [Nand2Tetris](https://www.Nand2Tetris.org/).
 
 ### Do some Verilog examples
@@ -176,11 +201,12 @@ Follow guidelines at [Nand2Tetris](https://www.Nand2Tetris.org/).
 There is no need to learn much Verilog.
 Just dig into the example `Xor` and learn how to "translate" your HDL-files from Nand2Tetris into Verilog.
 
-If you like to have some Verilog-background I recommend to do the tutorial of Juan González-Gomez (Obijuan), which starts at absolute beginners level [open-FPGA-Verilog-tutorial](https://github.com/Obijuan/open-fpga-verilog-tutorial/wiki/Home_EN).
-This is mainly written in spanish, but clicking the `(EN)` buttons gets you to the English pages (this also applies for the index).
+If you like to have some Verilog-background I recommend to do the [Verilog tutorial for beginners](https://www.chipverify.com/verilog/verilog-tutorial).
 
-There is also the [Verilog tutorial for beginners](https://www.chipverify.com/verilog/verilog-tutorial) which goes a bit more in depth.
+There is also the tutorial of Juan González-Gomez (Obijuan), which starts at absolute beginners level [open-FPGA-Verilog-tutorial](https://github.com/Obijuan/open-fpga-verilog-tutorial/wiki/Home_EN).
+This is mainly written in spanish, but clicking the `(EN)` buttons gets you to the English pages (this also applies for the index).
 
 ### Project
 
+* (Optional, but recommended if you go for the Olimex products described above) [Hello, world in Olimex](hello_world_Olimex)
 * [Build and test module `Xor`](chip_Xor)
