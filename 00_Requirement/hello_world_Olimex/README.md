@@ -188,7 +188,7 @@ Bye.
 If everything was successful, then the `PGM1` LED will be green, whilst `LED1` and `LED2` will be red.
 Furthermore pushing `BUT1` will turn off the light of `LED1` and pushing `BUT2` will turn off the light of `LED2`.
 
-## Trouble shooting
+## Troubleshooting
 
 You can check if you can get the ID sequence of the FPGA by using the `-f` flag of `iceprogduino`.
 You should see something like
