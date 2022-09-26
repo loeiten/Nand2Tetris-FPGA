@@ -6,7 +6,7 @@ In this project we will implement the Hack computer of the Nand2Tetris course in
 This is done with a development board featuring a so called field programmable array (FPGA).
 The FPGA is a small piece of silicon holding lots of logic cells (LC) and [block RAM](https://nandland.com/lesson-15-what-is-a-block-ram-bram/) (BRAM), which can be routed programmatically.
 
-![FPGA development board](images/FPGA.png)
+![FPGA development board](figs/FPGA.png)
 
 On a typical FPGA-development board you will find:
 
@@ -47,7 +47,7 @@ We will use [iCE40-FPGA](https://en.wikipedia.org/wiki/ICE_(FPGA)#iCE40_(40_nm))
 | [`iceprog`](https://hedmen.org/icestorm-doc/icestorm.html#iceprog-Invocation) | Simple programming tool for [FTDI](https://ftdichip.com)-based [Lattice](https://www.latticesemi.com) [iCE](https://en.wikipedia.org/wiki/ICE_(FPGA)) programmers which can read, write and erase the flash and write the SRAM of an FPGA.|
 | [`gtkwave`](http://gtkwave.sourceforge.net) | A wave viewer which simulates and visualizes signals in FPGA circuits.|
 
-![Hardware and software](images/soft.png)
+![Hardware and software](figs/soft.png)
 
 To run Hack we also need some Hack-code. The simpler projects like a blinking LED can be programmed direcly in Assembler. Harder tasks like the driver for the LCD-screen are programmed in Jack, translated for the virtual machine and finally compiled to Hack code.
 
@@ -75,7 +75,7 @@ In order to start we need both some hardware and some software
 
 Check the bill of material and consider to buy at Olimex Ltd., the company with the highest number of registered OSHW-projects.
 
-![Shopping cart](images/BOM.png)
+![Shopping cart](figs/BOM.png)
 
 The payment solution might be a bit different from what you are used to, but it all checks out.
 

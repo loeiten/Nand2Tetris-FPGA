@@ -18,7 +18,7 @@ In principle any programmer could do, but we will here use the [Olimexino-32u4](
 
 Once the programmer has been connected and `iceprog` has been uploaded your board should look like this
 
-![The programmer connected and loaded with iceprog](../images/programmer_connected.jpg)
+![The programmer connected and loaded with iceprog](figs/programmer_connected.jpg)
 
 1. Move the jumper to 3.3V.
 
@@ -32,7 +32,7 @@ Once the programmer has been connected and `iceprog` has been uploaded your boar
   If you go for the ribbon there will only be one way you can connect the wires due to the shape of the ribbon connector.
   If you use jumper wires you need to notice the small dent under pin 5 as seen in the image below.
   The pin number you connect from must match the pin number you connect to.
-  ![UEXT pin](../images/UEXT_pins.png)
+  ![UEXT pin](figs/UEXT_pins.png)
 3. Plug the USB Mini B to your computer
 
 You are now ready to use the programmer.
@@ -47,7 +47,7 @@ We will write to the programmer by using the `Arduino IDE`.
 
 1. Click on `File`, and open [`button_example.ino`](button_example/button_example.ino) located in the `button_example` directory of this directory.
 2. Select `Arduino Leonardo` in the dropdown menu.
-  ![Select Arduino Leonardo](../images/select_arduino.png)
+  ![Select Arduino Leonardo](figs/select_arduino.png)
   If you're using Mac, it's important that you note the address (which in this case is `/dev/cu.usbmodem143201`, but may be `/dev/ttyACMO` if you're using Linux)
 3. Click on the upload icon (the arrow pointing towards right in the image above)
 4. The output should be something similar to
@@ -98,7 +98,7 @@ We are now ready to connect the FPGA:
 
 If you've done everything correctly your FPGA will look something like this:
 
-![FPGA connected](../images/FPGA_connected.jpg)
+![FPGA connected](figs/FPGA_connected.jpg)
 
 The `PWR` led will light brightly and `LED1` and `LED2` will probably glow faintly.
 

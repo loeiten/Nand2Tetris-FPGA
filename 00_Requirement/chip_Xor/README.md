@@ -193,13 +193,13 @@ Output file of simulation.
 
 Simulation with `apio sim` also gives a graphical representation `Xor.gtkw` of all signal lines, which can be viewed with `gtkwave`.
 
-![XOr GTKWave](../images/Xor_gtkw.png)
+![XOr GTKWave](figs/Xor_gtkw.png)
 
 ## Xor.pcf
 
 To synthesize the modules and upload them to iCE40-FPGA you need one additional file `Xor.pcf` (physical constraints file).
 This file assigns every io-signal wire of the top-module to a pin number of the iCE40 chip.
-Pin numbering can be checked by consulting the [schematic](file://../../datasheets/iCE40HX1K-EVB_Rev_B.pdf) at `datasheets/iCE40HX1K-EVB_Rev_B.pdf`.
+Pin numbering can be checked by consulting the [schematic](../../datasheets/iCE40HX1K-EVB_Rev_B.pdf) at `datasheets/iCE40HX1K-EVB_Rev_B.pdf`.
 
 ```pcf
 # physical constrain file
