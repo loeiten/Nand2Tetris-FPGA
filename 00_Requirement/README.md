@@ -49,11 +49,13 @@ We will use [iCE40-FPGA](https://en.wikipedia.org/wiki/ICE_(FPGA)#iCE40_(40_nm))
 
 ![Hardware and software](figs/soft.png)
 
-To run Hack we also need some Hack-code. The simpler projects like a blinking LED can be programmed direcly in Assembler. Harder tasks like the driver for the LCD-screen are programmed in Jack, translated for the virtual machine and finally compiled to Hack code.
+To run Hack we also need some Hack-code.
+The simpler projects like a blinking LED can be programmed directly in Assembler.
+Harder tasks like the driver for the LCD-screen are programmed in Jack, translated for the virtual machine and finally compiled to Hack code.
 
 ## Getting started
 
-In order to start we need both some hardware and some software
+In order to start we need both some hardware and some software.
 
 ### Buy the hardware
 
@@ -70,8 +72,7 @@ In order to start we need both some hardware and some software
 | [Piezoelectric loudspeakers](https://smile.amazon.com/gp/product/B08SLZBKCH/ref=ppx_od_dt_b_asin_title_s00?ie=UTF8&psc=1) | For producing sound | Needed for project 8 |
 | [MOD-ENC28J60](https://www.olimex.com/Products/Modules/Ethernet/MOD-ENC28J60/) | Ethernet controller | Project 10 |
 | [SY0605E](https://www.olimex.com/Products/Power/SY0605E/) | 5V supply adapter | Powering the FPGA (the programmer is powered by the USB connection) |
-| (Optional, I never got mine to fit) [RUBBER-FEETS-B](https://www.olimex.com/Products/Components/Misc/RUBBER-FEETS-B/) | Rubber feets | Electrical isolation |
-
+| (Optional, I never got mine to fit) [RUBBER-FEETS-B](https://www.olimex.com/Products/Components/Misc/RUBBER-FEETS-B/) | Rubber feet | Electrical isolation |
 
 Check the bill of material and consider to buy at Olimex Ltd., the company with the highest number of registered OSHW-projects.
 
@@ -81,7 +82,7 @@ The payment solution might be a bit different from what you are used to, but it 
 
 ### Install the software
 
-We will install both [Project Icestorm](http://www.clifford.at/icestorm/) for flashing the FGPA and [apio](https://github.com/FPGAwars/apio) for simulating (and possibly also flash to the FPGA)
+We will install both [Project Icestorm](http://www.clifford.at/icestorm/) for flashing the FGPA and [apio](https://github.com/FPGAwars/apio) for simulating (and possibly also flash to the FPGA).
 
 #### Installing the dependencies
 
@@ -136,7 +137,7 @@ export PATH=/Applications/gtkwave.app/Contents/Resources/bin/:$PATH
 
 #### Build and install Project Icestorm
 
-Installing the IceStorm Tools (icepack, icebox, iceprog, icetime, chip databases):
+Installing the IceStorm Tools (`icepack`, `icebox`, `iceprog`, `icetime`, chip databases):
 
 ```bash
 git clone https://github.com/cliffordwolf/icestorm.git icestorm
