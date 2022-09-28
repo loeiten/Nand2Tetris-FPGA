@@ -2,7 +2,7 @@
 
 ## PC.v
 
-![Program counter](../images/PC.png)
+![Program counter](figs/PC.png)
 
  A 16-bit counter with reset, load and inc control lines.
 
@@ -18,7 +18,7 @@ else out[t+1] = out[t]
 Test bench increments loads and resets the PC.
 It will generate `PC.out` which can be compared to `PC.cmp`.
 
-![Program counter test bench](../images/PC_tb.png)
+![Program counter test bench](figs/PC_tb.png)
 
 ## Project
 

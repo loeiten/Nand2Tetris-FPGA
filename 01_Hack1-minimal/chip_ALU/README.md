@@ -4,7 +4,7 @@
 
 The ALU (Arithmetic Logic Unit).
 
-![ALU chip](../images/ALU.png)
+![ALU chip](figs/ALU.png)
 
 Computes one of the following functions:
 
@@ -48,7 +48,7 @@ Implementation: the ALU logic manipulates the x and y inputs and operates on the
 
 The test bench performs some operations with ALU and generates `ALU.out`, which can be compared to `ALU.cmp`.
 
-![ALU test bench](../images/ALU_tb.png)
+![ALU test bench](figs/ALU_tb.png)
 
 ## Project
 

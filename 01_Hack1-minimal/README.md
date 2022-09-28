@@ -21,7 +21,7 @@ We will connect our Hack system with the buttons and the LEDs to have possibilit
 |led[0]|40|
 |led[1]|51|
 
-* Add the pin numbering to `Hack1/Hack1.pcf`
+* Add the pin numbering to `Hack1.pcf`.
 
 ### Layer 2: Hardware (inside FPGA)
 
