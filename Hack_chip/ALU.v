@@ -60,13 +60,13 @@ module ALU(
 
 
   // zx selection
-  Mux16 ZxOut(.a(x), .b(0), .sel(zx), .out(zxOut));
+  Mux16 ZxOut(.a(x), .b(16'b0), .sel(zx), .out(zxOut));
   // nx selection
   Not16 NotZxOut(.in(zxOut), .out(notZxOut));
   Mux16 NxOut(.a(zxOut), .b(notZxOut), .sel(nx), .out(nxOut));
 
   // zy selection
-  Mux16 ZyOut(.a(y), .b(0), .sel(zy), .out(zyOut));
+  Mux16 ZyOut(.a(y), .b(16'b0), .sel(zy), .out(zyOut));
   // ny selection
   Not16 NotZyOut(.in(zyOut), .out(notZyOut));
   Mux16 NyOut(.a(zyOut), .b(notZyOut), .sel(ny), .out(nyOut));
@@ -77,9 +77,16 @@ module ALU(
   Mux16 FOut(.a(andOut), .b(addOut), .sel(f), .out(fOut));
 
   // no selection
-  Not16 NotFOut(.in(fOut, .out(notFOut)));
+  Not16 NotFOut(.in(fOut), .out(notFOut));
   // NOTE: We fan the output with additional outputs for zr and ng
-  Mux16 FanOut(.a(fOut), .b(notFOut), .sel(no), .out(out), .out[0..7](highSigBits), .out[8..15](lowSigBits), .out[15](ngCheck));
+  Mux16 FanOut(.a(fOut),
+               .b(notFOut),
+               .sel(no),
+               .out(out));
+
+  assign highSigBits = out[7:0];
+  assign lowSigBits = out[15:8];
+  assign ngCheck = out[15];
 
   // zr
   // True if any of the inputs are true
@@ -90,6 +97,6 @@ module ALU(
 
   // ng
   // Check if most significant bit is 1
-  And(.a(ngCheck), .b(1), .out(ng));
+  And IsNeg(.a(ngCheck), .b(1'b1), .out(ng));
 
 endmodule

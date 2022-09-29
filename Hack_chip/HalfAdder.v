@@ -11,6 +11,6 @@ module HalfAdder(
 
   // Translation of HalfAdder.hdl
   Xor XorSum(.a(a), .b(b), .out(sum));
-  And AndCarry(.a(a), .b(b), out(carry));
+  And AndCarry(.a(a), .b(b), .out(carry));
 
 endmodule

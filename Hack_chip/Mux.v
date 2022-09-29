@@ -20,8 +20,8 @@ module Mux(
   wire bNandS;
   wire aNandSNandS;
 
-  Nand SNandS(.a(s), .b(s), .out(sNandS));
-  Nand BNandS(.a(b), .b(s), .out(bNandS));
+  Nand SNandS(.a(sel), .b(sel), .out(sNandS));
+  Nand BNandS(.a(b), .b(sel), .out(bNandS));
   Nand ANandSNandS(.a(a), .b(sNandS), .out(aNandSNandS));
   Nand NanOut(.a(aNandSNandS), .b(bNandS), .out(out));
 
