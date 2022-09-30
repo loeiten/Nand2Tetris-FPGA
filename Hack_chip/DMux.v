@@ -12,9 +12,11 @@ module DMux(
     output wire b
   );
 
-  // your implementation comes here:
+  // Translation of DMux.hdl
+  wire notSel;
 
-
-
+  Not NotSel(.in(sel), .out(notSel));
+  And AndOutA(.in(in), .b(notSel), .out(a));
+  And AndOutB(.in(in), .b(sel), .out(b));
 
 endmodule

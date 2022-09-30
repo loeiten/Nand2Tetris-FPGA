@@ -19,9 +19,16 @@ module DMux8Way(
     output wire h
   );
 
-  // your implementation comes here:
+  // Translation of DMux8Way.hdl
+  wire aOrB;
+  wire cOrD;
+  wire eOrF;
+  wire gOrH;
 
-
-
+  DMux4Way DMux4WayABCDEFGH(.in(in), .sel(sel[2:1]), .a(aOrB), .b(cOrD), .c(eOrF), .d(gOrH));
+  DMux DMuxAB(.in(aOrB), .sel(sel[0]), .a(a), .b(b));
+  DMux DMuxCD(.in(cOrD), .sel(sel[0]), .a(c), .b(d));
+  DMux DMuxEF(.in(eOrF), .sel(sel[0]), .a(e), .b(f));
+  DMux DMuxGH(.in(gOrH), .sel(sel[0]), .a(g), .b(h));
 
 endmodule

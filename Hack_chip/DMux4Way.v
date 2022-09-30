@@ -14,9 +14,13 @@ module DMux4Way(
     output wire c,
     output wire d
   );
-  // your implementation comes here:
 
+  // Translation of DMux4Way.hdl
+  wire aOrB;
+  wire cOrD;
 
-
+  DMux DMuxABCD(.in(in), .sel(sel[1]), .a(aOrB), .b(cOrD));
+  DMux DMuxOutA(.in(aOrB), .sel(sel[0]), .a(a), .b(b));
+  DMux DMuxOutA(.in(cOrD), .sel(sel[0]), .a(c), .b(d));
 
 endmodule
