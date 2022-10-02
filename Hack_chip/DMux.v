@@ -1,5 +1,5 @@
 /**
- * Demultiplexor:
+ * Demultiplexer:
  * {a, b} = {in, 0} if sel == 0
  *          {0, in} if sel == 1
  */
@@ -16,7 +16,7 @@ module DMux(
   wire notSel;
 
   Not NotSel(.in(sel), .out(notSel));
-  And AndOutA(.in(in), .b(notSel), .out(a));
-  And AndOutB(.in(in), .b(sel), .out(b));
+  And AndOutA(.a(in), .b(notSel), .out(a));
+  And AndOutB(.a(in), .b(sel), .out(b));
 
 endmodule

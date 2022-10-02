@@ -1,5 +1,5 @@
 /**
- * 4-way demultiplexor:
+ * 4-way demultiplexer:
  * {a, b, c, d} = {in, 0, 0, 0} if sel == 00
  *                {0, in, 0, 0} if sel == 01
  *                {0, 0, in, 0} if sel == 10
@@ -20,7 +20,7 @@ module DMux4Way(
   wire cOrD;
 
   DMux DMuxABCD(.in(in), .sel(sel[1]), .a(aOrB), .b(cOrD));
-  DMux DMuxOutA(.in(aOrB), .sel(sel[0]), .a(a), .b(b));
-  DMux DMuxOutA(.in(cOrD), .sel(sel[0]), .a(c), .b(d));
+  DMux DMuxOutAB(.in(aOrB), .sel(sel[0]), .a(a), .b(b));
+  DMux DMuxOutCD(.in(cOrD), .sel(sel[0]), .a(c), .b(d));
 
 endmodule
