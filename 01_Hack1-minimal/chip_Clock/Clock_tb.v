@@ -10,7 +10,6 @@ module Clock_tb();
 
   always #1 in = ~in;
 
-
   initial
     begin
 

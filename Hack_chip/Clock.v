@@ -14,8 +14,11 @@ module Clock(
     output wire out			//Hack clock 33.333333 MHz
   );
 
-  // your implementation comes here:
+  wire DFFOut1;
+  wire DFFQBar1;
+  wire DFFQBarOut;
 
-
+  DFF DFF1(.clk(in), .in(DFFQBar1), .out(DFFOut1), .qBar(DFFQBar1));
+  DFF DFFOut(.clk(DFFQBar1), .in(DFFQBarOut), .out(out), .qBar(DFFQBarOut));
 
 endmodule

@@ -5,9 +5,9 @@ The hardware part of the project Nand2Tetris-13 is implemented in Verilog, a har
 There is no need to learn Verilog, as you can easily translate all your HDL-files into Verilog following the given example for `Xor`.
 
 **Note:**
-The following modules are considered primitive and thus there is no need to implement them.
+The following modules are considered primitive and thus there is no need to implement them (although you are free to implement them).
 
-|module|description|
+|Module|Description|
 |-|-|
 |Nand.v|Nand-gate. Basic building block for combinatorial logic|
 |DFF.v|Data Flip Flop. Basic building block for sequential logic|
