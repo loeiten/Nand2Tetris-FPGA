@@ -18,6 +18,7 @@ module Clock(
   wire DFFQBar1;
   wire DFFQBarOut;
 
+  // FIXME: Clock is behaving wrong on the first click...
   DFF DFF1(.clk(in), .in(DFFQBar1), .out(DFFOut1), .qBar(DFFQBar1));
   DFF DFFOut(.clk(DFFQBar1), .in(DFFQBarOut), .out(out), .qBar(DFFQBarOut));
 
